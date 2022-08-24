@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/menu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Menu</title>
@@ -1626,45 +1627,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        var menuitemsBlock = document.querySelectorAll(".menu__itemsBlock");
-        var menuItems = document.querySelectorAll(".menu__items");
-        var menuDotCoffee = document.querySelectorAll(".menu__dotCoffee");
-        var i;
-        // for(i=0 ; i<menuitemsBlock.length ; i++){
-        //     menuitemsBlock[i].addEventListener("click" , function(event){
-        //         for(i=0 ; i<menuItems.length ;i++){
-        //             menuItems[i].className = menuItems[i].className.replace("menu__items menu__item-glow","menu__items")
-        //         }
-        //         event.currentTarget.className = event.currentTarget.className + " menu__item-glow"
-        //     })
-        // }
-        function clickListMenu(item , dotCoffee){
-            for( i = 0 ;i < menuItems.length ; i++){
-                menuItems[i].className = menuItems[i].className.replace("menu__items menu__item-glow","menu__items")
-            }
-            document.getElementById(item).className += " menu__item-glow"
-            for(i=0 ; i < menuDotCoffee.length ; i++){
-                menuDotCoffee[i].className = menuDotCoffee[i].className.replace("menu__dotCoffee dotCoffee__original" , "menu__dotCoffee")
-            }
-            document.getElementById(dotCoffee).className += " dotCoffee__original"
-        }
-        // c2
-        // function clickListMenu(item , dotCoffee){
-        //     for( i = 0 ;i < menuItems.length ; i++){
-        //         // menuItems[i].className = menuItems[i].className.replace("menu__items menu__item-glow","menu__items")
-        //         menuItems[i].classList.remove("menu__item-glow");
-        //     }
-        //     // document.getElementById(item).className += " menu__item-glow"
-        //     document.getElementById(item).classList.add("menu__item-glow");
-        //     for(i=0 ; i < menuDotCoffee.length ; i++){
-        //         // menuDotCoffee[i].className = menuDotCoffee[i].className.replace("menu__dotCoffee dotCoffee__original" , "menu__dotCoffee")
-        //         menuDotCoffee[i].classList.remove("dotCoffee__original");
-        //     }
-        //     // document.getElementById(dotCoffee).className += " dotCoffee__original"
-        //     document.getElementById(dotCoffee).classList.add("dotCoffee__original");
-        // }
-    </script>
+    <script src="./assets/js/menu.js"></script>
 </body>
 </html>

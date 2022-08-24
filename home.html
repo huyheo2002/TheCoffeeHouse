@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Chủ</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -507,44 +508,6 @@
             </div>
         </div>
     </div>
+    <script src="./assets/js/home.js"></script>
 </body>
-
-<script>
-    var slideItems = document.querySelectorAll(".store__slide-item");
-    var btnNext = document.querySelector(".store__slide-btnNext");
-    var btnPrev = document.querySelector(".store__slide-btnPrev");
-    var dot = document.querySelectorAll(".store__slide-listDot i");
-
-    var currentIndex = 0;
-    function changeSlide(indexToShow) {
-        if (indexToShow >= slideItems.length){
-            indexToShow = 0;
-        } else if(indexToShow < 0){
-            indexToShow =  slideItems.length - 1;
-        }
-        slideItems[currentIndex].classList.add("hidden");
-        slideItems[indexToShow].classList.remove("hidden");
-        dot[currentIndex].classList.remove("dot__active");
-        dot[indexToShow].classList.add("dot__active");
-        currentIndex = indexToShow;
-    }
-
-    btnNext.addEventListener("click" , function(){
-        changeSlide(currentIndex + 1);
-    })
-    btnPrev.addEventListener("click" , function(){
-        changeSlide(currentIndex - 1);
-    })
-
-    function autoForward() {
-        changeSlide(currentIndex + 1);
-    }
-    setInterval(autoForward, 3500);
-
-    for (let i = 0; i < dot.length ; i++){
-        dot[i].addEventListener("click" , function(){
-            changeSlide(i);
-        })
-    }
-</script>
 </html>
