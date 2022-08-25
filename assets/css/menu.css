@@ -1,23 +1,26 @@
 /* container menu */
 .menu__Container{
     width: 80%;
-    height: 14870px;
+    /* height: 14870px; */
     margin: 100px 10% 0;
     background-color: #fff;
     position: relative;
     top: 0;
     bottom: 360px;
     z-index: 20;
+    display: flex;
 }
 
 .menu__Sidebar{
     width: 25%;
-    margin: calc(60px + 2.5%) 0 2.5%;
+    /* margin: calc(60px + 2.5%) 0 2.5%; */
     position: sticky;
     left: 0;
     top: 60px;
     bottom: 0;
     z-index: 10;
+    margin-bottom: 15px;
+    height: 520px;
 }
 
 .menu__listItems{
@@ -44,14 +47,6 @@
     /* cursor: pointer; */
 }
 
-/* .menu__listItems li.menu__Items-original a{
-    color: #EA8025;
-} */
-
-.menu__listItems .menu__item-glow{
-    color: #EA8025;
-}
-
 .menu__listItems li:hover .menu__items{
     color: #EA8025;
 }
@@ -65,10 +60,6 @@
     height: 16px;
     margin-right: 10px;
     visibility: hidden;
-}
-
-.menu__dotCoffee.dotCoffee__original{
-    visibility: visible;
 }
 
 .menu__dotCoffee img{
@@ -91,7 +82,7 @@
 
 .menu__content{
     width: 75%;
-    position: absolute;
+    position: relative;
     right: 0;
     top: 0;
     border-left: 2px solid #ccc;
@@ -175,4 +166,21 @@
 .itemHot__value{
     color: #00000099;
     padding-top: 5px;
+}
+
+/* fix js */
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+
+.glow{
+    color: #EA8025 !important;
+}
+
+.visible{
+    visibility: visible;
 }
