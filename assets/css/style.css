@@ -89,6 +89,19 @@
     transform: translateY(-25%);
 }
 
+.js-login a{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.js-login a i{
+    font-size: 25px;
+    width: 25px;
+    margin-left: 8px;
+    margin-top: 12px;
+}
+
 .subnav{
     position: absolute;
     list-style-type: none;
@@ -344,4 +357,171 @@
         opacity: 1;
     }
     
+}
+
+/* create modal login */
+/* creative overlay */
+.modal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* sd để ẩn modal đi */
+    display: none;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal__container {
+    background-color: #fff;
+    width: 800px;
+    max-width: calc(100% - 32px); /* khi thu nho man duoi 800px se co khoang cach 2 ben la 32px ~~ responsive*/
+    min-height: 300px;
+    animation: modalFadeIn ease 0.5s ;
+    position: relative;
+}
+
+.modal__header {
+    background-color: #000;
+    opacity: 0.3;
+    height: 70px;
+    width: auto;
+    text-align: center;
+}
+
+.modal__header__title{
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 70px;
+    text-transform: capitalize;
+    user-select: none;
+}
+
+.modal__header img {
+    height: 100%;
+    width: 100%;
+}
+
+.modal__close.js-modal-close {
+    position: absolute;
+    right: 0;
+}
+
+.modal__close i{
+    font-size: 28px;
+    color: red;
+    padding: 8px;
+    transition: all linear 0.5s;
+}
+
+.modal__close.js-modal-close:hover i{
+    transform: rotate(360deg);
+}
+
+.modal__close-ic {
+    padding: 10px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.modal__body {
+    padding: 10px;
+    margin: 0 24px;
+}
+
+.modal__label , .modal__login{
+    display: block;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.modal__input-user , .modal__input-pass {
+    width: 100%;
+    border: 1px #ccc solid;
+    padding: 10px;
+    margin-bottom: 22px;
+}
+
+.modal__login {
+    width: 100%;
+    padding: 10px;
+    font-size: 22px;
+    background-color: #3b4354;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+.modal__login:hover {
+    opacity: 0.8;
+}
+
+.modal__footer {
+    margin: 0 34px;
+}
+
+.modal__footer-head {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    padding: 10px;
+    margin-top: -10px;
+}
+
+
+.modal__footer-head a {
+    text-decoration: none;
+    color: #000;
+}
+
+.modal__footer-head a:hover{
+    opacity: 0.3;
+}
+
+.modal__footer-subhead {
+    text-align: center;
+    opacity: 0.6;
+}
+
+.modal__footer-icon {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    margin: 12px 0;
+    padding: 0 155px;
+    justify-content: space-around;
+}
+
+.modal__footer-icon img {
+    width: 50px;
+    height: 100%;
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+.modal__footer-icon img:hover {
+    opacity : 0.8;
+}
+
+@keyframes modalFadeIn {
+    from {
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
 }

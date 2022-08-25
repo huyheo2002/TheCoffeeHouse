@@ -99,6 +99,10 @@
                         <li><a href="./shop.html">Cửa hàng</a></li>
                         <li><a href="./tuyendung.html">Tuyển dụng</a></li>
                         <li><a href="./KhaiTruong.html">Ưu đãi thành viên</a></li>
+                        <li class="js-login"><a>
+                            <p class="nav__login">Đăng Nhập</p>
+                            <i class="fa-solid fa-user"></i>
+                        </a></li>
                     </ul>
                 </div>
             </div>
@@ -361,5 +365,61 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal js-modal">
+        <div class="modal__container js-modalContainer">
+            <div class="modal__header">
+                <div class="modal__header__title">
+                    Chào mừng bạn đến với The Coffee House
+                </div>
+                <!-- head để img nếu thích :v -->
+                <!-- <img src="./assets/img/base/modalLogin-loginhead.png" alt=""> -->
+            </div>
+
+            <div class="modal__close js-modal-close">
+                <!-- <i class="fas fa-times modal__close-ic"></i> -->
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="clear"></div>
+
+            <div class="modal__body">
+                <!-- attribute for trong thẻ label chỉ sd với id -->
+                <label for="modal-user" class="modal__label">
+                    <i class="fas fa-user"></i>
+                    Tài Khoản:
+                </label>
+                <input id="modal-user" type="text" class="modal__input-user" placeholder="Tên Người Dùng/ Email">
+
+                <label for="modal-pass" class="modal__label">
+                    <i class="fas fa-key"></i>
+                    Mật Khẩu:
+                </label>
+                <input id="modal-pass" type="password" class="modal__input-pass" placeholder="Mật Khẩu">
+
+                <button class="modal__login">
+                    Đăng Nhập
+                </button>
+                
+            </div>
+
+            <div class="modal__footer">
+                <div class="modal__footer-head">
+                    <a href="">Request Support</a>
+                    <a href="">Registration</a>
+                </div>
+
+                <p class="modal__footer-subhead">Hoặc đăng nhập bằng các tài khoản sau</p>
+
+                <div class="modal__footer-icon">
+                    <img src="./assets/img/base/modalLogin-ggchr.png" alt="">
+                    <img src="./assets/img/base/modalLogin-ios.png " alt="">
+                    <img src="./assets/img/base/modalLogin-fb.png" alt="">
+                    <img src="./assets/img/base/modalLogin-twitter.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/base.js"></script>
 </body>
 </html>
