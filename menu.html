@@ -409,7 +409,12 @@
         </div>
     </div>
 
-
+    <script>
+        // tránh lan truyền sự kiện (truyền vào event con)
+        function isCheckPropagation(e){
+            e.stopPropagation();    
+        }
+    </script>
     <script src="./assets/js/base.js"></script>
     <script src="./assets/js/menu.js" type="module"></script>
 </body>

@@ -1,6 +1,7 @@
 import { Cart } from "./Cart.js";
 import { CoffeeVN } from "./Items/CoffeeVN.js";
 import { MachineCoffee } from "./Items/MachineCoffee.js";
+import { ColdBrew } from "./Items/ColdBrew.js";
 
 // CART 
 let cart = new Cart();
@@ -352,7 +353,7 @@ let arrMachineCoffee = dataMachineCoffee.map(
 );
 
 // Coldbrew
-let arrColdBrew = [
+let dataColdBrew = [
     {
         image: "./assets/img/menu/CB1.jpg",
         title: "Cold Brew Sữa Tươi",
@@ -365,6 +366,9 @@ let arrColdBrew = [
     }
 
 ]
+let arrColdBrew = dataColdBrew.map(
+    (obj) => new ColdBrew(obj.image, obj.title, obj.value)
+)
 
 // Trà trái cây
 let arrFruitTea = [
@@ -804,7 +808,7 @@ function loadCoffeeVN() {
     for (let i = 0; i < listItemsCoffeeVNItems.length; i++) {
         let obj = arrCoffeeVN[i];
         listItemsCoffeeVNItems.item(i).onclick = function() {
-            cart.add({image: obj.image, title: obj.title, value: obj.value});
+            cart.add(obj);
             cart.open();
         }
     }
@@ -822,7 +826,7 @@ function loadMachineCoffee() {
     for (let i = 0; i < listItemsMachineCoffeeItems.length; i++) {
         let obj = arrMachineCoffee[i];
         listItemsMachineCoffeeItems.item(i).onclick = function() {
-            cart.add({image: obj.image, title: obj.title, value: obj.value});
+            cart.add(obj);
             cart.open();
         }
     }
@@ -831,24 +835,18 @@ function loadMachineCoffee() {
 // load cold brew :V
 const listItemsColdBrew = document.querySelectorAll(".itemsHot__list")[2];
 function loadColdBrew() {
-    listItemsColdBrew.innerHTML = "";
-    for (let i = 0; i < arrColdBrew.length; i++) {
-        let str = `
-            <li><a href="">
-                <div class="itemHot__imgWrap">
-                    <img src="${arrColdBrew[i].image}" alt="">
-                </div>
-                <div class="itemHot__content">
-                    <h3 class="itemHot__title">
-                        ${arrColdBrew[i].title}
-                    </h3>
-                    <p class="itemHot__value">
-                        ${arrColdBrew[i].value}
-                    </p>
-                </div>
-            </a></li>
-        `;
-        listItemsColdBrew.innerHTML += str;
+    listItemsColdBrew.innerHTML = arrColdBrew.reduce(
+        (html, currentObj) => html += currentObj.render(), 
+        ""
+    );
+    let listItemsColdBrewItems = listItemsColdBrew.children;
+
+    for (let i = 0; i < listItemsColdBrewItems.length; i++) {
+        let obj = arrColdBrew[i];
+        listItemsColdBrewItems.item(i).onclick = function() {
+            cart.add(obj);
+            cart.open();
+        }
     }
 }
 
@@ -1133,11 +1131,6 @@ function resetAll(){
 
 // khi load trang
 window.addEventListener("load", loadAll());
-
-// tránh lan truyền sự kiện (truyền vào event con)
-function isCheckPropagation(e){
-    e.stopPropagation();    
-}
 
 // SCROLL :v
 
