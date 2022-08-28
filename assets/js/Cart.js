@@ -13,7 +13,7 @@ export class Cart {
         console.log(dataList);
         dataList.innerHTML = this.arrData.reduce(
             (html, currentObj) => html += `
-                <li><a href="">
+                <li><a>
                     <div class="cart__imgWrap">
                         <img src="${currentObj.image}" alt="">
                     </div>
@@ -29,6 +29,39 @@ export class Cart {
             ""
         );
     }
+
+    reset() {
+        let dataList = document.querySelector(".cart__list");
+        let cartBadge = document.querySelector(".cart__badge");
+        let count = document.querySelector(".cart__badge p");
+        dataList.innerHTML = "";
+        this.arrData = [];
+        cartBadge.style.display = "none";
+        count.innerHTML = `${this.arrData.length}`;
+
+    }
+
+    countItems() {
+        let cartBadge = document.querySelector(".cart__badge");
+        let count = document.querySelector(".cart__badge p");
+        if(this.arrData.length <= 0){
+            cartBadge.style.display = "none";
+        }else{
+            count.innerHTML = `${this.arrData.length}`;
+            cartBadge.style.display = "block";
+        }
+    }
+    // hỏng cm :V
+    // deleteItem(index){
+    //     let dataItems = document.querySelectorAll(".cart__list li");
+    //     console.log(dataItems);
+    //     for(let i=0; i<dataItems.length; i++){
+    //         if(index == i){
+    //             console.log("xóa đc :V");
+    //             this.arrData.splice(i, 1);
+    //         }
+    //     }
+    // }
 
     toggle() {
         if (this.isOpened) {

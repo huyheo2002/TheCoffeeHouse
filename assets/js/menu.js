@@ -18,6 +18,12 @@ import { TeaAtHome } from "./Items/TeaAtHome.js";
 let cart = new Cart();
 var btnToggleCart = document.querySelector(".btn__cart");
 var btnCloseCart = document.querySelector(".cart__btnClose");
+var btnResetCart = document.querySelector(".cart__footer-btnReset");
+
+// btn reset
+btnResetCart.addEventListener("click", function(){
+    cart.reset();
+})
 
 btnToggleCart.onclick = function(){
     cart.renderData();
@@ -51,7 +57,6 @@ sidebarItemAll[0].addEventListener("click", function(){
     loadAll();
     sidebarItemsTextAll[0].classList.add("glow");
     sidebarDotCoffee[0].classList.add("visible");
-    
 })
 
 sidebarItemAll[1].addEventListener("click", function(){
@@ -859,6 +864,7 @@ function loadCoffeeVN() {
         let obj = arrCoffeeVN[i];
         listItemsCoffeeVNItems.item(i).onclick = function() {
             cart.add(obj);
+            cart.countItems()
             cart.open();
         }
     }
@@ -877,6 +883,7 @@ function loadMachineCoffee() {
         let obj = arrMachineCoffee[i];
         listItemsMachineCoffeeItems.item(i).onclick = function() {
             cart.add(obj);
+            cart.countItems()
             cart.open();
         }
     }
@@ -895,6 +902,7 @@ function loadColdBrew() {
         let obj = arrColdBrew[i];
         listItemsColdBrewItems.item(i).onclick = function() {
             cart.add(obj);
+            cart.countItems()
             cart.open();
         }
     }
@@ -913,6 +921,7 @@ function loadFruitTea() {
         let obj = arrFruitTea[i];
         listItemsFruitTeaItems.item(i).onclick = function() {
             cart.add(obj);
+            cart.countItems()
             cart.open();
         }
     }
@@ -931,6 +940,7 @@ function loadMacchiatoMilkTea() {
         let obj = arrMacchiatoMilkTea[i];
         listItemsMacchiatoMilkTeaItems.item(i).onclick = function() {
             cart.add(obj);
+            cart.countItems()
             cart.open();
         }
     }
@@ -949,6 +959,7 @@ function loadGrindIce() {
         let obj = arrGrindIce[i];
         listItemsGrindIceItems.item(i).onclick = function() {
             cart.add(obj);
+            cart.countItems()
             cart.open();
         }
     }
@@ -967,6 +978,7 @@ function loadMatchaSocola() {
         let obj = arrMatchaSocola[i];
         listItemsMatchaSocolaItems.item(i).onclick = function() {
             cart.add(obj);
+            cart.countItems()
             cart.open();
         }
     }
@@ -985,6 +997,7 @@ function loadSaltyCake() {
         let obj = arrSaltyCake[i];
         listItemsSaltyCakeItems.item(i).onclick = function() {
             cart.add(obj);
+            cart.countItems()
             cart.open();
         }
     }
@@ -1003,6 +1016,7 @@ function loadSweetCake() {
         let obj = arrSweetCake[i];
         listItemsSweetCakeItems.item(i).onclick = function() {
             cart.add(obj);
+            cart.countItems()
             cart.open();
         }
     }
@@ -1021,6 +1035,7 @@ function loadSnack() {
         let obj = arrSnack[i];
         listItemsSnackItems.item(i).onclick = function() {
             cart.add(obj);
+            cart.countItems()
             cart.open();
         }
     }
@@ -1039,12 +1054,13 @@ function loadCoffeeAtHome() {
         let obj = arrCoffeeAtHome[i];
         listItemsCoffeeAtHomeItems.item(i).onclick = function() {
             cart.add(obj);
+            cart.countItems()
             cart.open();
         }
     }
 }
 
-// load cà phê tại nhà :V
+// load trà tại nhà :V
 const listItemsTeaAtHome = document.querySelectorAll(".itemsHot__list")[11];
 function loadTeaAtHome() {
     listItemsTeaAtHome.innerHTML = arrTeaAtHome.reduce(
@@ -1057,6 +1073,7 @@ function loadTeaAtHome() {
         let obj = arrTeaAtHome[i];
         listItemsTeaAtHomeItems.item(i).onclick = function() {
             cart.add(obj);
+            cart.countItems()
             cart.open();
         }
     }
