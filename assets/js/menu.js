@@ -13,6 +13,8 @@ const sidebarSubItemAllDot = document.querySelectorAll(".menu__subnav-items");
 const sidebarSubItemAll = document.querySelectorAll(".menu__subnav-items > a.menu__subnav-link");
 const contentTitle = document.querySelectorAll(".title__itemTea");
 
+var items = document.querySelectorAll(".itemsHot__list li");
+console.log(items)
 // click items change color and show icon
 // click items and show content
 sidebarItemAll[0].addEventListener("click", function(){
@@ -20,6 +22,7 @@ sidebarItemAll[0].addEventListener("click", function(){
     loadAll();
     sidebarItemsTextAll[0].classList.add("glow");
     sidebarDotCoffee[0].classList.add("visible");
+    
 })
 
 sidebarItemAll[1].addEventListener("click", function(){
@@ -31,7 +34,7 @@ sidebarItemAll[1].addEventListener("click", function(){
     contentTitle[2].classList.remove("hide");
     loadCoffeeVN();
     loadMachineCoffee();
-    loadColdBrew();    
+    loadColdBrew();
 })
 
 sidebarItemAll[2].addEventListener("click", function(){
@@ -1240,7 +1243,6 @@ function isCheckPropagation(e){
 //         // console.log(viewportHeight + " viewport height")
 //     }
 // })
-
 
 
 

@@ -11,6 +11,7 @@
 </head>
 <body>
     <div id="main">
+        <!-- header -->
         <div class="header__wrap">
             <div class="header">
                 <div class="header__logo">
@@ -319,8 +320,40 @@
                 </div>
             </div>
         </div>
-    </div>
+        <!-- cart -->
+        <div class="btn__cart">
+            <i class="fa-solid fa-cart-shopping" id="cart__logo"></i>
+        </div>
 
+        <div class="cart__sidebar">
+            <div class="cart__sidebar-overlay">
+                <header class="cart__title">
+                    <h3 class="cart__title-text">Thông báo</h3>
+                    <div class="cart__btnClose">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </header>
+                <ul class="cart__list">
+                    <li><a href="">
+                        <div class="cart__imgWrap">
+                            <img src="./assets/img/menu/BM1.jpg" alt="">
+                        </div>
+                        <div class="cart__info">
+                            <h4 class="cart__info-title">hi</h4>
+                            <p class="cart__info-value">124.000đ</p>
+                        </div>
+                    </a></li>                    
+                                    
+                </ul>
+
+                <footer class="cart__footer">
+                    <div class="cart__footer-btnReset">Reset</div>
+                    <div class="cart__footer-btnBuy">Thanh toán</div>
+                </footer>
+            </div>            
+        </div>
+    </div>
+    
     <!-- Modal -->
     <div class="modal js-modal">
         <div class="modal__container js-modalContainer">
@@ -375,7 +408,10 @@
             </div>
         </div>
     </div>
+
+
     <script src="./assets/js/base.js"></script>
     <script src="./assets/js/menu.js"></script>
+    <script src="./assets/js/sidebarCart.js"></script>
 </body>
 </html>
