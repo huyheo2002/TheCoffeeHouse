@@ -2,6 +2,17 @@ import { Cart } from "./Cart.js";
 import { CoffeeVN } from "./Items/CoffeeVN.js";
 import { MachineCoffee } from "./Items/MachineCoffee.js";
 import { ColdBrew } from "./Items/ColdBrew.js";
+import { FruitTea } from "./Items/FruitTea.js";
+import { MacchiatoMilkTea } from "./Items/MacchiatoMilkTea.js";
+import { GrindIce } from "./Items/GrindIce.js";
+import { MatchaSocola } from "./Items/MatchaSocola.js";
+import { SaltyCake } from "./Items/SaltyCake.js";
+import { SweetCake } from "./Items/SweetCake.js";
+import { Snack } from "./Items/Snack.js";
+import { CoffeeAtHome } from "./Items/CoffeeAtHome.js";
+import { TeaAtHome } from "./Items/TeaAtHome.js";
+
+
 
 // CART 
 let cart = new Cart();
@@ -269,6 +280,9 @@ let dataCoffeeVN = [
     }
 
 ];
+
+// Array map trong JavaScript là phương thức trong Array Object, có tác dụng xử lý tuần tự và tạo mảng mới từ các phần tử trong mảng ban đầu.
+// arrObj.map( callback(value, index, array) )
 let arrCoffeeVN = dataCoffeeVN.map(
     (obj) => new CoffeeVN(obj.image, obj.title, obj.value)
 );
@@ -365,13 +379,13 @@ let dataColdBrew = [
         value: "45.000 đ"
     }
 
-]
+];
 let arrColdBrew = dataColdBrew.map(
     (obj) => new ColdBrew(obj.image, obj.title, obj.value)
-)
+);
 
 // Trà trái cây
-let arrFruitTea = [
+let dataFruitTea = [
     {
         image: "./assets/img/menu/TTC1.jpeg",
         title: "Trà Dưa Đào Sung Túc",
@@ -417,10 +431,14 @@ let arrFruitTea = [
         title: "Trà Đào Cam Sả Chai Fresh 500ml",
         value: "109.000 đ"
     }
-]
+];
+
+let arrFruitTea = dataFruitTea.map(
+    (obj) => new FruitTea(obj.image, obj.title, obj.value)
+);
 
 // Trà sữa macchiato
-let arrMacchiatoMilkTea = [
+let dataMacchiatoMilkTea = [
     {
         image: "./assets/img/menu/TSM1.jpg",
         title: "Caramel Macchiato Đá",
@@ -486,10 +504,14 @@ let arrMacchiatoMilkTea = [
         title: "Trà Sữa Oolong Nướng Trân Châu Chai 500ml",
         value: "99.000 đ"
     }
-]
+];
+
+let arrMacchiatoMilkTea = dataMacchiatoMilkTea.map(
+    (obj) => new MacchiatoMilkTea(obj.image, obj.title, obj.value)
+);
 
 // Đá xay
-let arrGrindIce = [
+let dataGrindIce = [
     {
         image: "./assets/img/menu/DX1.jpg",
         title: "Cà Phê Đá Xay",
@@ -527,8 +549,12 @@ let arrGrindIce = [
     }
 ]
 
+let arrGrindIce = dataGrindIce.map(
+    (obj) => new GrindIce(obj.image, obj.title, obj.value)
+)
+
 // matcha - socola
-let arrMatchaSocola = [
+let dataMatchaSocola = [
     {
         image: "./assets/img/menu/MCSCL1.jpg",
         title: "Chocolate Đá",
@@ -561,8 +587,12 @@ let arrMatchaSocola = [
     }
 ]
 
+let arrMatchaSocola = dataMatchaSocola.map(
+    (obj) => new MatchaSocola(obj.image, obj.title, obj.value)
+)
+
 // bánh mặn
-let arrSaltyCake = [
+let dataSaltyCake = [
     {
         image: "./assets/img/menu/BM1.jpg",
         title: "Bánh Mì Que Pate",
@@ -590,8 +620,12 @@ let arrSaltyCake = [
     }
 ]
 
+let arrSaltyCake = dataSaltyCake.map(
+    (obj) => new SaltyCake(obj.image, obj.title, obj.value)
+)
+
 // bánh ngọt
-let arrSweetCake = [
+let dataSweetCake = [
     {
         image: "./assets/img/menu/BN1.jpg",
         title: " Mochi Kem Dừa Dứa",
@@ -634,8 +668,12 @@ let arrSweetCake = [
     }
 ]
 
+let arrSweetCake = dataSweetCake.map(
+    (obj) => new SweetCake(obj.image, obj.title, obj.value)
+)
+
 // snack
-let arrSnack = [
+let dataSnack = [
     {
         image: "./assets/img/menu/SN1.jpg",
         title: "Mít Sấy",
@@ -643,8 +681,12 @@ let arrSnack = [
     }
 ]
 
+let arrSnack = dataSnack.map(
+    (obj) => new Snack(obj.image, obj.title, obj.value)
+)
+
 // cà phê tại nhà
-let arrCoffeeAtHome = [
+let dataCoffeeAtHome = [
     {
         image: "./assets/img/menu/CPTN1.jpeg",
         title: "Cà Phê Rang Xay Original 1 Túi 1KG",
@@ -721,8 +763,12 @@ let arrCoffeeAtHome = [
     }
 ]
 
+let arrCoffeeAtHome = dataCoffeeAtHome.map(
+    (obj) => new CoffeeAtHome(obj.image, obj.title, obj.value)
+)
+
 // trà tại nhà
-let arrTeaAtHome = [
+let dataTeaAtHome = [
     {
         image: "./assets/img/menu/TTN1.jpg",
         title: "Combo Quà Tết 2022",
@@ -794,6 +840,10 @@ let arrTeaAtHome = [
     }
 ]
 
+let arrTeaAtHome = dataTeaAtHome.map(
+    (obj) => new TeaAtHome(obj.image, obj.title, obj.value)
+)
+
 // func render
 
 // load coffeeVN
@@ -853,216 +903,162 @@ function loadColdBrew() {
 // load trà hoa quả :V
 const listItemsFruitTea = document.querySelectorAll(".itemsHot__list")[3];
 function loadFruitTea() {
-    listItemsFruitTea.innerHTML = "";
-    for (let i = 0; i < arrFruitTea.length; i++) {
-        let str = `
-            <li><a href="">
-                <div class="itemHot__imgWrap">
-                    <img src="${arrFruitTea[i].image}" alt="">
-                </div>
-                <div class="itemHot__content">
-                    <h3 class="itemHot__title">
-                        ${arrFruitTea[i].title}
-                    </h3>
-                    <p class="itemHot__value">
-                        ${arrFruitTea[i].value}
-                    </p>
-                </div>
-            </a></li>
-        `;
-        listItemsFruitTea.innerHTML += str;
+    listItemsFruitTea.innerHTML = arrFruitTea.reduce(
+        (html, currentObj) => html += currentObj.render(), 
+        ""
+    );
+    let listItemsFruitTeaItems = listItemsFruitTea.children;
+
+    for (let i = 0; i < listItemsFruitTeaItems.length; i++) {
+        let obj = arrFruitTea[i];
+        listItemsFruitTeaItems.item(i).onclick = function() {
+            cart.add(obj);
+            cart.open();
+        }
     }
 }
 
 // load trà sữa macchiato :V
 const listItemsMacchiatoMilkTea = document.querySelectorAll(".itemsHot__list")[4];
 function loadMacchiatoMilkTea() {
-    listItemsMacchiatoMilkTea.innerHTML = "";
-    for (let i = 0; i < arrMacchiatoMilkTea.length; i++) {
-        let str = `
-            <li><a href="">
-                <div class="itemHot__imgWrap">
-                    <img src="${arrMacchiatoMilkTea[i].image}" alt="">
-                </div>
-                <div class="itemHot__content">
-                    <h3 class="itemHot__title">
-                        ${arrMacchiatoMilkTea[i].title}
-                    </h3>
-                    <p class="itemHot__value">
-                        ${arrMacchiatoMilkTea[i].value}
-                    </p>
-                </div>
-            </a></li>
-        `;
-        listItemsMacchiatoMilkTea.innerHTML += str;
+    listItemsMacchiatoMilkTea.innerHTML = arrMacchiatoMilkTea.reduce(
+        (html, currentObj) => html += currentObj.render(), 
+        ""
+    );
+    let listItemsMacchiatoMilkTeaItems = listItemsMacchiatoMilkTea.children;
+
+    for (let i = 0; i < listItemsMacchiatoMilkTeaItems.length; i++) {
+        let obj = arrMacchiatoMilkTea[i];
+        listItemsMacchiatoMilkTeaItems.item(i).onclick = function() {
+            cart.add(obj);
+            cart.open();
+        }
     }
 }
 
 // load đá xay :V
 const listItemsGrindIce = document.querySelectorAll(".itemsHot__list")[5];
 function loadGrindIce() {
-    listItemsGrindIce.innerHTML = "";
-    for (let i = 0; i < arrGrindIce.length; i++) {
-        let str = `
-            <li><a href="">
-                <div class="itemHot__imgWrap">
-                    <img src="${arrGrindIce[i].image}" alt="">
-                </div>
-                <div class="itemHot__content">
-                    <h3 class="itemHot__title">
-                        ${arrGrindIce[i].title}
-                    </h3>
-                    <p class="itemHot__value">
-                        ${arrGrindIce[i].value}
-                    </p>
-                </div>
-            </a></li>
-        `;
-        listItemsGrindIce.innerHTML += str;
+    listItemsGrindIce.innerHTML = arrGrindIce.reduce(
+        (html, currentObj) => html += currentObj.render(), 
+        ""
+    );
+    let listItemsGrindIceItems = listItemsGrindIce.children;
+
+    for (let i = 0; i < listItemsGrindIceItems.length; i++) {
+        let obj = arrGrindIce[i];
+        listItemsGrindIceItems.item(i).onclick = function() {
+            cart.add(obj);
+            cart.open();
+        }
     }
 }
 
 // load matcha - socola :V
 const listItemsMatchaSocola = document.querySelectorAll(".itemsHot__list")[6];
 function loadMatchaSocola() {
-    listItemsMatchaSocola.innerHTML = "";
-    for (let i = 0; i < arrMatchaSocola.length; i++) {
-        let str = `
-            <li><a href="">
-                <div class="itemHot__imgWrap">
-                    <img src="${arrMatchaSocola[i].image}" alt="">
-                </div>
-                <div class="itemHot__content">
-                    <h3 class="itemHot__title">
-                        ${arrMatchaSocola[i].title}
-                    </h3>
-                    <p class="itemHot__value">
-                        ${arrMatchaSocola[i].value}
-                    </p>
-                </div>
-            </a></li>
-        `;
-        listItemsMatchaSocola.innerHTML += str;
+    listItemsMatchaSocola.innerHTML = arrMatchaSocola.reduce(
+        (html, currentObj) => html += currentObj.render(), 
+        ""
+    );
+    let listItemsMatchaSocolaItems = listItemsMatchaSocola.children;
+
+    for (let i = 0; i < listItemsMatchaSocolaItems.length; i++) {
+        let obj = arrMatchaSocola[i];
+        listItemsMatchaSocolaItems.item(i).onclick = function() {
+            cart.add(obj);
+            cart.open();
+        }
     }
 }
 
 // load bánh mặn :V
 const listItemsSaltyCake = document.querySelectorAll(".itemsHot__list")[7];
 function loadSaltyCake() {
-    listItemsSaltyCake.innerHTML = "";
-    for (let i = 0; i < arrSaltyCake.length; i++) {
-        let str = `
-            <li><a href="">
-                <div class="itemHot__imgWrap">
-                    <img src="${arrSaltyCake[i].image}" alt="">
-                </div>
-                <div class="itemHot__content">
-                    <h3 class="itemHot__title">
-                        ${arrSaltyCake[i].title}
-                    </h3>
-                    <p class="itemHot__value">
-                        ${arrSaltyCake[i].value}
-                    </p>
-                </div>
-            </a></li>
-        `;
-        listItemsSaltyCake.innerHTML += str;
+    listItemsSaltyCake.innerHTML = arrSaltyCake.reduce(
+        (html, currentObj) => html += currentObj.render(), 
+        ""
+    );
+    let listItemsSaltyCakeItems = listItemsSaltyCake.children;
+
+    for (let i = 0; i < listItemsSaltyCakeItems.length; i++) {
+        let obj = arrSaltyCake[i];
+        listItemsSaltyCakeItems.item(i).onclick = function() {
+            cart.add(obj);
+            cart.open();
+        }
     }
 }
 
 // load bánh ngọt :V
 const listItemsSweetCake = document.querySelectorAll(".itemsHot__list")[8];
 function loadSweetCake() {
-    listItemsSweetCake.innerHTML = "";
-    for (let i = 0; i < arrSweetCake.length; i++) {
-        let str = `
-            <li><a href="">
-                <div class="itemHot__imgWrap">
-                    <img src="${arrSweetCake[i].image}" alt="">
-                </div>
-                <div class="itemHot__content">
-                    <h3 class="itemHot__title">
-                        ${arrSweetCake[i].title}
-                    </h3>
-                    <p class="itemHot__value">
-                        ${arrSweetCake[i].value}
-                    </p>
-                </div>
-            </a></li>
-        `;
-        listItemsSweetCake.innerHTML += str;
+    listItemsSweetCake.innerHTML = arrSweetCake.reduce(
+        (html, currentObj) => html += currentObj.render(), 
+        ""
+    );
+    let listItemsSweetCakeItems = listItemsSweetCake.children;
+
+    for (let i = 0; i < listItemsSweetCakeItems.length; i++) {
+        let obj = arrSweetCake[i];
+        listItemsSweetCakeItems.item(i).onclick = function() {
+            cart.add(obj);
+            cart.open();
+        }
     }
 }
 
 // load snack :V
 const listItemsSnack = document.querySelectorAll(".itemsHot__list")[9];
 function loadSnack() {
-    listItemsSnack.innerHTML = "";
-    for (let i = 0; i < arrSnack.length; i++) {
-        let str = `
-            <li><a href="">
-                <div class="itemHot__imgWrap">
-                    <img src="${arrSnack[i].image}" alt="">
-                </div>
-                <div class="itemHot__content">
-                    <h3 class="itemHot__title">
-                        ${arrSnack[i].title}
-                    </h3>
-                    <p class="itemHot__value">
-                        ${arrSnack[i].value}
-                    </p>
-                </div>
-            </a></li>
-        `;
-        listItemsSnack.innerHTML += str;
+    listItemsSnack.innerHTML = arrSnack.reduce(
+        (html, currentObj) => html += currentObj.render(), 
+        ""
+    );
+    let listItemsSnackItems = listItemsSnack.children;
+
+    for (let i = 0; i < listItemsSnackItems.length; i++) {
+        let obj = arrSnack[i];
+        listItemsSnackItems.item(i).onclick = function() {
+            cart.add(obj);
+            cart.open();
+        }
     }
 }
 
 // load cà phê tại nhà :V
 const listItemsCoffeeAtHome = document.querySelectorAll(".itemsHot__list")[10];
 function loadCoffeeAtHome() {
-    listItemsCoffeeAtHome.innerHTML = "";
-    for (let i = 0; i < arrCoffeeAtHome.length; i++) {
-        let str = `
-            <li><a href="">
-                <div class="itemHot__imgWrap">
-                    <img src="${arrCoffeeAtHome[i].image}" alt="">
-                </div>
-                <div class="itemHot__content">
-                    <h3 class="itemHot__title">
-                        ${arrCoffeeAtHome[i].title}
-                    </h3>
-                    <p class="itemHot__value">
-                        ${arrCoffeeAtHome[i].value}
-                    </p>
-                </div>
-            </a></li>
-        `;
-        listItemsCoffeeAtHome.innerHTML += str;
+    listItemsCoffeeAtHome.innerHTML = arrCoffeeAtHome.reduce(
+        (html, currentObj) => html += currentObj.render(), 
+        ""
+    );
+    let listItemsCoffeeAtHomeItems = listItemsCoffeeAtHome.children;
+
+    for (let i = 0; i < listItemsCoffeeAtHomeItems.length; i++) {
+        let obj = arrCoffeeAtHome[i];
+        listItemsCoffeeAtHomeItems.item(i).onclick = function() {
+            cart.add(obj);
+            cart.open();
+        }
     }
 }
 
 // load cà phê tại nhà :V
 const listItemsTeaAtHome = document.querySelectorAll(".itemsHot__list")[11];
 function loadTeaAtHome() {
-    listItemsTeaAtHome.innerHTML = "";
-    for (let i = 0; i < arrTeaAtHome.length; i++) {
-        let str = `
-            <li><a href="">
-                <div class="itemHot__imgWrap">
-                    <img src="${arrTeaAtHome[i].image}" alt="">
-                </div>
-                <div class="itemHot__content">
-                    <h3 class="itemHot__title">
-                        ${arrTeaAtHome[i].title}
-                    </h3>
-                    <p class="itemHot__value">
-                        ${arrTeaAtHome[i].value}
-                    </p>
-                </div>
-            </a></li>
-        `;
-        listItemsTeaAtHome.innerHTML += str;
+    listItemsTeaAtHome.innerHTML = arrTeaAtHome.reduce(
+        (html, currentObj) => html += currentObj.render(), 
+        ""
+    );
+    let listItemsTeaAtHomeItems = listItemsTeaAtHome.children;
+
+    for (let i = 0; i < listItemsTeaAtHomeItems.length; i++) {
+        let obj = arrTeaAtHome[i];
+        listItemsTeaAtHomeItems.item(i).onclick = function() {
+            cart.add(obj);
+            cart.open();
+        }
     }
 }
 

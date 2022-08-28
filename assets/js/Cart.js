@@ -21,6 +21,9 @@ export class Cart {
                         <h4 class="cart__info-title">${currentObj.title}</h4>
                         <p class="cart__info-value">${currentObj.value}</p>
                     </div>
+                    <div class="cart__action">
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
                 </a></li>     
             `,
             ""
