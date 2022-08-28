@@ -1,3 +1,6 @@
+import { CoffeeVN } from "./Items/CoffeeVN.js";
+import { MachineCoffee } from "./Items/MachineCoffee.js";
+
 // SIDEBAR :v
 
 // click sidebar show this list item it and hide list items other
@@ -213,7 +216,7 @@ sidebarSubItemAll[11].addEventListener("click", function(){
 // render html
 // array items
 // cà phê việt nam
-let arrCoffeeVN = [
+let dataCoffeeVN = [
     {
         image: "./assets/img/menu/CPVN1.jpg",
         title: "Bạc Sỉu Đá",
@@ -250,10 +253,13 @@ let arrCoffeeVN = [
         value: "35.000 đ"
     }
 
-]
+];
+let arrCoffeeVN = dataCoffeeVN.map(
+    (obj) => new CoffeeVN(obj.image, obj.title, obj.value)
+);
 
 // cà phê máy
-let arrMachineCoffee = [
+let dataMachineCoffee = [
     {
         image: "./assets/img/menu/CPM1.jpg",
         title: "Latte Táo Lê Quế Nóng",
@@ -326,7 +332,10 @@ let arrMachineCoffee = [
     }
     
 
-]
+];
+let arrMachineCoffee = dataMachineCoffee.map(
+    (obj) => new MachineCoffee(obj.image, obj.title, obj.value)
+);
 
 // Coldbrew
 let arrColdBrew = [
@@ -768,51 +777,38 @@ let arrTeaAtHome = [
 ]
 
 // func render
+
 // load coffeeVN
 const listItemsCoffeeVN = document.querySelectorAll(".itemsHot__list")[0];
 function loadCoffeeVN() {
-    listItemsCoffeeVN.innerHTML = "";
-    for (let i = 0; i < arrCoffeeVN.length; i++) {
-        let str = `
-            <li><a href="">
-                <div class="itemHot__imgWrap">
-                    <img src="${arrCoffeeVN[i].image}" alt="">
-                </div>
-                <div class="itemHot__content">
-                    <h3 class="itemHot__title">
-                        ${arrCoffeeVN[i].title}
-                    </h3>
-                    <p class="itemHot__value">
-                        ${arrCoffeeVN[i].value}
-                    </p>
-                </div>
-            </a></li>
-        `;
-        listItemsCoffeeVN.innerHTML += str;
+    listItemsCoffeeVN.innerHTML = arrCoffeeVN.reduce(
+        (html, currentObj) => html += currentObj.render(), 
+        ""
+    );
+    let listItemsCoffeeVNItems = listItemsCoffeeVN.children;
+
+    for (let i = 0; i < listItemsCoffeeVNItems.length; i++) {
+        let obj = arrCoffeeVN[i];
+        listItemsCoffeeVNItems.item(i).onclick = function() {
+            arrData.push({image: obj.image, title: obj.title, value: obj.value});
+        }
     }
 }
 
 // load cà phê máy :V
 const listItemsMachineCoffee = document.querySelectorAll(".itemsHot__list")[1];
 function loadMachineCoffee() {
-    listItemsMachineCoffee.innerHTML = "";
-    for (let i = 0; i < arrMachineCoffee.length; i++) {
-        let str = `
-            <li><a href="">
-                <div class="itemHot__imgWrap">
-                    <img src="${arrMachineCoffee[i].image}" alt="">
-                </div>
-                <div class="itemHot__content">
-                    <h3 class="itemHot__title">
-                        ${arrMachineCoffee[i].title}
-                    </h3>
-                    <p class="itemHot__value">
-                        ${arrMachineCoffee[i].value}
-                    </p>
-                </div>
-            </a></li>
-        `;
-        listItemsMachineCoffee.innerHTML += str;
+    listItemsMachineCoffee.innerHTML = arrMachineCoffee.reduce(
+        (html, currentObj) => html += currentObj.render(), 
+        ""
+    );
+    let listItemsMachineCoffeeItems = listItemsMachineCoffee.children;
+
+    for (let i = 0; i < listItemsMachineCoffeeItems.length; i++) {
+        let obj = arrMachineCoffee[i];
+        listItemsMachineCoffeeItems.item(i).onclick = function() {
+            arrData.push({image: obj.image, title: obj.title, value: obj.value});
+        }
     }
 }
 
