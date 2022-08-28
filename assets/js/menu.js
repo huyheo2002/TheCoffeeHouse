@@ -1,5 +1,19 @@
+import { Cart } from "./Cart.js";
 import { CoffeeVN } from "./Items/CoffeeVN.js";
 import { MachineCoffee } from "./Items/MachineCoffee.js";
+
+// CART 
+let cart = new Cart();
+var btnToggleCart = document.querySelector(".btn__cart");
+var btnCloseCart = document.querySelector(".cart__btnClose");
+
+btnToggleCart.onclick = function(){
+    cart.renderData();
+    cart.toggle();
+};
+btnCloseCart.onclick = function(){
+    cart.close();
+};
 
 // SIDEBAR :v
 
@@ -790,7 +804,8 @@ function loadCoffeeVN() {
     for (let i = 0; i < listItemsCoffeeVNItems.length; i++) {
         let obj = arrCoffeeVN[i];
         listItemsCoffeeVNItems.item(i).onclick = function() {
-            arrData.push({image: obj.image, title: obj.title, value: obj.value});
+            cart.add({image: obj.image, title: obj.title, value: obj.value});
+            cart.open();
         }
     }
 }
@@ -807,7 +822,8 @@ function loadMachineCoffee() {
     for (let i = 0; i < listItemsMachineCoffeeItems.length; i++) {
         let obj = arrMachineCoffee[i];
         listItemsMachineCoffeeItems.item(i).onclick = function() {
-            arrData.push({image: obj.image, title: obj.title, value: obj.value});
+            cart.add({image: obj.image, title: obj.title, value: obj.value});
+            cart.open();
         }
     }
 }
