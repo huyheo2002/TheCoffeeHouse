@@ -1,6 +1,6 @@
 <?php
 include "/xampp/htdocs/TheCoffeeHouse/classes/User.php";
-if(isset($_POST['email'])) //nếu có tồn tại $_POST['id'] không
+if(isset($_POST['email'])) //nếu có tồn tại $_POST['email'] không
 {
     $email=$_POST['email'];
     Auth::delete($email);
