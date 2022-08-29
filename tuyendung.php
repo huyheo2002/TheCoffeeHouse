@@ -1,0 +1,187 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/tuyendung.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+</head>
+
+<body>
+    <div id="main">
+        <div class="header__wrap">
+            <div class="header">
+                <div class="logo">
+                    <a href="./tuyendung.php">
+                        <img src="./assets/img/Tuyendung/logo__1.png" alt="">
+                    </a>
+
+                </div>
+                <div class="tab">
+                    <span>
+                        <a href="">Việc làm cửa hàng</a>
+                    </span>
+                    <span>
+                        <a href="">Việc làm văn phòng</a>
+                    </span>
+                    <span>
+                        <a href="">Tra cứu kết quả</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="content__wrap">
+            <div class="container1">
+                <div class="main__job">
+                    <div class="search__box">
+                        <div style="width:300px; border-right: 1px solid black;">
+                            <div style="font-size: 13px;">
+                                Bạn đang tìm kiếm
+                            </div>
+                            <input style="border: none; font-size: 14px;" placeholder="Việc làm , vị trí ứng tuyển....">
+                        </div>
+                        <div style=" margin: -32px 0 0 310px; width:200px; border-right: 1px solid black; ">
+                            <div style="font-size: 13px; margin-bottom: 3px;">
+                                Nơi bạn đang làm việc
+                            </div>
+                            <p style="font-size: 16px;">Tất cả</p>
+                        </div>
+                        <div style=" text-align: center;margin: -38px 0 0 560px; width:200px; ">
+                            <div style="background: rgb(229, 121, 5); height: 40px; width: 150px;; padding: 10px; border-radius: 6px;">
+                                <a style="text-decoration: none; color: rgb(255, 255, 255); " href="">Tìm Kiếm</a>
+                            </div>
+                        </div>
+                        <div style="width:600px; font-size: 18px ;text-align: center; margin-top: 40px; color: white;">
+                            Vị trí nổi bật
+                        </div>
+
+                    </div>
+                    <div style="width: 1200px; height: 80px;display: inline-block; margin-top: 20px; margin-bottom: 20px;">
+                        <div style="width: 230px; height:60px; background-color:white;color: black ;padding: 15px;margin: 10px 0 0 340px;display: inline-block; border-radius: 5px;">
+                            Tiếp đón khác hàng ( Bảo vệ nội bộ)
+                        </div>
+                        <div style="width: 230px; height: 60px; background-color:white;color: black ;padding: 20px; display:block; float: right; margin: 10px 380px 0 0; text-align: center; border-radius: 5px;">
+                            Barista
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container2__wrap">
+                <div class="container2">
+                    <div class="container2__left">
+                        <img src="./assets/img/Tuyendung/img_1.png" alt="">
+                        <div style="color: aliceblue; font-size: 18px; font-weight: 600; margin-left: 10px; ">
+                            Khối cửa hàng
+                            <div class="Tiltle__store">
+                                <ul>
+                                    <li>
+                                        <a href="">Quản lí cửa hàng</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Tiếp đón khách hàng ( Bảo vệ nội bộ)</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Barista</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="Check">
+                                <span>
+                                    <a href=""> Xem tất cả công việc khối cửa hàng</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container2__right">
+                        <img src="./assets/img/Tuyendung/img_2.png" alt="">
+                        <div style="color: aliceblue; font-size: 18px; font-weight: 600; margin-left: 10px; ">
+                            Khối cửa hàng
+                            <div class="Tiltle__room">
+                                <ul>
+                                    <li>
+                                        <a href="">Trưởng nhóm Kế toán Tài sản</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Senior Account Receivable Executive</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Internal Customer Service Executive</a>
+                                    </li>
+                                    <li>
+                                        <a href="">HRBP Executive</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Store QC Executive</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="Check1">
+                                <span>
+                                    <a href=""> Xem tất cả công việc khối văn phòng</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="footer__wrap">
+            <div class="footer">
+                <div class="footer__top">
+                    <div class="footer__top__left">
+                        <p style="font-size: 18px;font-weight: 500; color: aliceblue;">
+                            Head Office
+                        </p>
+                        <p style="color:rgb(208, 209, 211); font-size: 15px;">
+                            195/10E Dien Bien Phu, Ward 15, Binh Thanh District, Ho Chi Minh, Vietnam
+                        </p>
+                        <a style="text-decoration: none; color:#ea8025;" href="">Xem bản đồ</a>
+                        <p style="color:rgb(208, 209, 211); font-size: 15px;">
+                            Số điện thoại tuyển dụng: 0931.864.363
+                        </p>
+                        <p style="color:rgb(208, 209, 211); font-size: 15px;">
+                            Email: tuyendung@thecoffeehouse.com.vn
+                        </p>
+                    </div>
+                    <div class="footer__top__right">
+                        <a style="font-size: 16px;font-weight: 400; color: aliceblue;" href="">
+                            Việc làm cửa hàng
+                            </p>
+                            <p style="font-size: 16px;font-weight: 400; color: aliceblue;margin-top: 20px;">
+                                Việc làm văn phòng
+                            </p>
+                            <p style="font-size: 16px;font-weight: 400; color: aliceblue;margin-top: 20px;">
+                                Tra cứu kết quả
+                            </p>
+                    </div>
+                </div>
+                <div class="footer__bottom">
+                    <p>Theo dõi chúng tôi để nhận tin mới</p>
+                    <div>
+                        <img src="./assets/img/Tuyendung/facebook.png" alt="">
+                        <img src="./assets/img/Tuyendung/YTB.png" alt="">
+                        <img src="./assets/img/Tuyendung/tiktok.png" alt="">
+                        <img src="./assets/img/Tuyendung/In.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <div class="bottom">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+
+</html>
