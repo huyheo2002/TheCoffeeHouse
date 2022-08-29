@@ -35,6 +35,7 @@ if (isset($_SESSION['message'])) {
     $b = "Thông tin của tôi";
     $linkB = "information.php";
     $linkD = "dangxuat.php";
+    $_SESSION['login_tea']="login";
 } else {
     $a = "Tài khoản";
     $linkC = "dangky.php";
@@ -456,22 +457,28 @@ if (isset($_SESSION['message'])) {
 
             <div class="modal__body">
                 <!-- attribute for trong thẻ label chỉ sd với id -->
-                <label for="modal-user" class="modal__label">
-                    <i class="fas fa-user"></i>
-                    Tài Khoản:
-                </label>
-                <input id="modal-user" type="text" class="modal__input-user" placeholder="Tên Người Dùng/ Email">
+                <form action="" method="post">
+                    <label for="modal-user" class="modal__label">
+                        <i class="fas fa-user"></i>
+                        Email:
+                    </label>
+                    <input id="modal-user" name="email" type="text" class="modal__input-user" placeholder="Email">
+                    <div id="emailHelp" class="text-danger">
+                        <span><?php echo (isset($err['email'])) ? $err['email'] : "" ?></span>
+                    </div>
 
-                <label for="modal-pass" class="modal__label">
-                    <i class="fas fa-key"></i>
-                    Mật Khẩu:
-                </label>
-                <input id="modal-pass" type="password" class="modal__input-pass" placeholder="Mật Khẩu">
-
-                <button class="modal__login">
-                    Đăng Nhập
-                </button>
-                
+                    <label for="modal-pass" class="modal__label">
+                        <i class="fas fa-key"></i>
+                        Mật Khẩu:
+                    </label>
+                    <input id="modal-pass" name="password" type="password" class="modal__input-pass" placeholder="Mật Khẩu">
+                    <div class="text-danger">
+                        <span><?php echo (isset($err['password'])) ? $err['password'] : "" ?></span>
+                    </div>
+                    <button class="modal__login" type="submit" name="submit">
+                        Đăng Nhập
+                    </button>
+                </form>
             </div>
 
             <div class="modal__footer">

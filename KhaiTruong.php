@@ -35,6 +35,7 @@ if (isset($_SESSION['message'])) {
     $b = "Thông tin của tôi";
     $linkB = "information.php";
     $linkD = "dangxuat.php";
+    $_SESSION['login_KhaiTruong']="login";
 } else {
     $a = "Tài khoản";
     $linkC = "KhaiTruong.php";

@@ -33,7 +33,7 @@ $users = Auth::getDataAll();
         <br>
         <div>
             <h5>Dưới đây là danh sách các tài khoản và sinh mạng của chúng nằm trong tay bạn. Bạn có thể làm mọi thứ (kể cả việc khai tử)</h5>
-            <h6 style="text-align:center ;">(Hãy thể việc sự ân ái của bạn thông qua việc ban cho chúng một cái chết không đau đớn)</h6>
+            <h6 style="text-align:center ;">(Hãy thể hiện sự ân ái của bạn thông qua việc ban cho chúng một cái chết không đau đớn)</h6>
         </div>
         <div>
             <?php if (count($users) > 0) { ?>

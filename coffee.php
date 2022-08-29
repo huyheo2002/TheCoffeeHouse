@@ -36,6 +36,7 @@ if (isset($_SESSION['message'])) {
     $linkB = "information.php";
     
     $linkD = "dangxuat.php";
+    $_SESSION['login_Coffee']="login";
 } else {
     $a = "Tài khoản";
     $linkC = "dangky.php";
