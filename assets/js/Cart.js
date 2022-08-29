@@ -2,6 +2,15 @@ export class Cart {
     constructor() {
         this.arrData = [];
         this.isOpened = false;
+
+        this.reset();
+    }
+
+    reset() {
+        this.arrData = [];
+        this.renderData();
+
+        this.countItems();
     }
 
     add(obj) {
@@ -10,9 +19,9 @@ export class Cart {
 
     renderData() {
         let dataList = document.querySelector(".cart__list");
-        console.log(dataList);
+        let self = this;
         dataList.innerHTML = this.arrData.reduce(
-            (html, currentObj) => html += `
+            (html, currentObj, currentIndex) => html += `
                 <li><a>
                     <div class="cart__imgWrap">
                         <img src="${currentObj.image}" alt="">
@@ -28,40 +37,35 @@ export class Cart {
             `,
             ""
         );
-    }
 
-    reset() {
-        let dataList = document.querySelector(".cart__list");
-        let cartBadge = document.querySelector(".cart__badge");
-        let count = document.querySelector(".cart__badge p");
-        dataList.innerHTML = "";
-        this.arrData = [];
-        cartBadge.style.display = "none";
-        count.innerHTML = `${this.arrData.length}`;
-
+        /**
+         * @how Lấy rất nhiều action, sau đó gán onclick của nó :V 
+         * cách này hơi bất ổn nhưng được cái dùng innerHTML như ở trên được
+         */
+        let actionList = document.querySelectorAll(".cart__list .cart__action");
+        actionList.forEach(
+            (obj, index) => obj.onclick = () => self.deleteItem(index)
+        );
     }
 
     countItems() {
         let cartBadge = document.querySelector(".cart__badge");
         let count = document.querySelector(".cart__badge p");
-        if(this.arrData.length <= 0){
+        
+        if(this.arrData.length <= 0) {
             cartBadge.style.display = "none";
-        }else{
-            count.innerHTML = `${this.arrData.length}`;
-            cartBadge.style.display = "block";
-        }
+
+            return;
+        } 
+
+        count.innerHTML = `${this.arrData.length}`;
+        cartBadge.style.display = "block";
     }
-    // hỏng cm :V
-    // deleteItem(index){
-    //     let dataItems = document.querySelectorAll(".cart__list li");
-    //     console.log(dataItems);
-    //     for(let i=0; i<dataItems.length; i++){
-    //         if(index == i){
-    //             console.log("xóa đc :V");
-    //             this.arrData.splice(i, 1);
-    //         }
-    //     }
-    // }
+
+    deleteItem(index){
+        this.arrData.splice(index, 1);
+        this.renderData();
+    }
 
     toggle() {
         if (this.isOpened) {
