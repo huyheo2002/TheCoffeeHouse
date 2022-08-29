@@ -1,3 +1,4 @@
+import * as data from "./DataLoader.js"
 import { Cart } from "./Cart.js";
 import { CoffeeVN } from "./Items/CoffeeVN.js";
 import { MachineCoffee } from "./Items/MachineCoffee.js";
@@ -20,18 +21,18 @@ var btnToggleCart = document.querySelector(".btn__cart");
 var btnCloseCart = document.querySelector(".cart__btnClose");
 var btnResetCart = document.querySelector(".cart__footer-btnReset");
 
-// btn reset
-btnResetCart.addEventListener("click", function(){
-    cart.reset();
-})
-
 btnToggleCart.onclick = function(){
-    cart.renderData();
     cart.toggle();
+    cart.renderData();
 };
+
 btnCloseCart.onclick = function(){
     cart.close();
 };
+btnResetCart.addEventListener("click", function(){
+    cart.reset();
+    cart.close();
+})
 
 // SIDEBAR :v
 
@@ -49,7 +50,6 @@ const sidebarSubItemAll = document.querySelectorAll(".menu__subnav-items > a.men
 const contentTitle = document.querySelectorAll(".title__itemTea");
 
 var items = document.querySelectorAll(".itemsHot__list li");
-console.log(items)
 // click items change color and show icon
 // click items and show content
 sidebarItemAll[0].addEventListener("click", function(){
@@ -244,610 +244,55 @@ sidebarSubItemAll[11].addEventListener("click", function(){
 
 // CONTENT :V
 
-// render html
-// array items
-// cà phê việt nam
-let dataCoffeeVN = [
-    {
-        image: "./assets/img/menu/CPVN1.jpg",
-        title: "Bạc Sỉu Đá",
-        value: "29.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPVN2.jpg",
-        title: "Bạc Sỉu Nóng",
-        value: "35.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPVN3.jpg",
-        title: "Cà Phê Đen Đá",
-        value: "29.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPVN4.jpg",
-        title: "Cà Phê Đen Nóng",
-        value: "35.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPVN5.jpg",
-        title: "Cà Phê Sữa Đá",
-        value: "29.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPVN6.jpg",
-        title: "Cà Phê Sữa Đá Chai Fresh 250ml",
-        value: "79.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPVN7.jpg",
-        title: "Cà Phê Sữa Nóng",
-        value: "35.000 đ"
-    }
-
-];
-
 // Array map trong JavaScript là phương thức trong Array Object, có tác dụng xử lý tuần tự và tạo mảng mới từ các phần tử trong mảng ban đầu.
 // arrObj.map( callback(value, index, array) )
-let arrCoffeeVN = dataCoffeeVN.map(
+let arrCoffeeVN = data.coffeeVN.map(
     (obj) => new CoffeeVN(obj.image, obj.title, obj.value)
 );
 
-// cà phê máy
-let dataMachineCoffee = [
-    {
-        image: "./assets/img/menu/CPM1.jpg",
-        title: "Latte Táo Lê Quế Nóng",
-        value: "59.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPM2.jpg",
-        title: "Latte Táo Lê Quế Đá",
-        value: "59.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPM3.jpg",
-        title: "Latte Táo Lê Quế Chai Fresh 500ml",
-        value: "109.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPM4.jpg",
-        title: "Mocha Nóng",
-        value: "50.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPM5.jpg",
-        title: "Mocha Đá",
-        value: "50.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPM6.jpg",
-        title: "Espresso Nóng",
-        value: "40.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPM6.jpg",
-        title: "Espresso Đá",
-        value: "45.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPM9.jpg",
-        title: "Cappuccino Đá",
-        value: "50.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPM10.jpg",
-        title: "Americano Nóng",
-        value: "40.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPM11.jpg",
-        title: "Latte Đá",
-        value: "50.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPM12.jpg",
-        title: "Caramel Macchiato Nóng",
-        value: "50.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPM13.jpg",
-        title: "Caramel Macchiato Đá",
-        value: "50.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPM14.jpg",
-        title: "Latte Nóng",
-        value: "40.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPM15.jpg",
-        title: "Americano Đá",
-        value: "40.000 đ"
-    }
-    
-
-];
-let arrMachineCoffee = dataMachineCoffee.map(
+let arrMachineCoffee = data.machineCoffee.map(
     (obj) => new MachineCoffee(obj.image, obj.title, obj.value)
 );
 
-// Coldbrew
-let dataColdBrew = [
-    {
-        image: "./assets/img/menu/CB1.jpg",
-        title: "Cold Brew Sữa Tươi",
-        value: "45.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CB2.jpg",
-        title: "Cold Brew Truyền Thống",
-        value: "45.000 đ"
-    }
-
-];
-let arrColdBrew = dataColdBrew.map(
+let arrColdBrew = data.coldBrew.map(
     (obj) => new ColdBrew(obj.image, obj.title, obj.value)
 );
 
-// Trà trái cây
-let dataFruitTea = [
-    {
-        image: "./assets/img/menu/TTC1.jpeg",
-        title: "Trà Dưa Đào Sung Túc",
-        value: "59.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TTC2.jpeg",
-        title: "Trà Sen Nhân Sum Vầy",
-        value: "59.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TCC3.jpg",
-        title: "Trà Long Nhãn Hạt Chia",
-        value: "45.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TCC4.jpg",
-        title: "Trà Long Nhãn Hạt Chia Nóng",
-        value: "52.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TCC5.jpg",
-        title: "Trà Hạt Sen Đá",
-        value: "45.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TCC6.jpg",
-        title: "Trà Hạt Sen Nóng ",
-        value: "52.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TCC7.jpg",
-        title: "Trà Đào Cam Sả Đá",
-        value: "45.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TCC8.jpg",
-        title: "Trà Đào Cam Sả Nóng",
-        value: "52.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TCC9.jpg",
-        title: "Trà Đào Cam Sả Chai Fresh 500ml",
-        value: "109.000 đ"
-    }
-];
-
-let arrFruitTea = dataFruitTea.map(
+let arrFruitTea = data.fruitTea.map(
     (obj) => new FruitTea(obj.image, obj.title, obj.value)
 );
 
-// Trà sữa macchiato
-let dataMacchiatoMilkTea = [
-    {
-        image: "./assets/img/menu/TSM1.jpg",
-        title: "Caramel Macchiato Đá",
-        value: "50.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TSM2.jpg",
-        title: "Hồng Trà Latte Macchiato",
-        value: "55.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TSM3.jpg",
-        title: "Hồng Trà Sữa Nóng",
-        value: "50.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TSM4.jpg",
-        title: "Hồng Trà Sữa Trân Châu",
-        value: "55.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TSM5.jpg",
-        title: "Latte Táo Lê Quế Đá",
-        value: "59.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TSM6.jpg",
-        title: "Trà Đen Macchiato ",
-        value: "50.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TSM7.jpg",
-        title: "Trà Sữa Mắc Ca Trân Châu Trắng",
-        value: "50.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TSM8.jpg",
-        title: "Trà Sữa Masala Chai Nóng",
-        value: "59.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TSM9.jpg",
-        title: "Trà Sữa Masala Chai Trân Châu Chai Fresh 500ml",
-        value: "109.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TSM10.jpeg",
-        title: "Trà Sữa Masala Chai Trân Châu Đá",
-        value: "59.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TSM11.jpg",
-        title: "Trà Sữa Oolong Nướng Nóng",
-        value: "50.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TSM12.jpg",
-        title: "Trà Sữa Oolong Nướng Chân Châu",
-        value: "55.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TSM13.jpg",
-        title: "Trà Sữa Oolong Nướng Trân Châu Chai 500ml",
-        value: "99.000 đ"
-    }
-];
-
-let arrMacchiatoMilkTea = dataMacchiatoMilkTea.map(
+let arrMacchiatoMilkTea = data.macchiatoMilkTea.map(
     (obj) => new MacchiatoMilkTea(obj.image, obj.title, obj.value)
 );
 
-// Đá xay
-let dataGrindIce = [
-    {
-        image: "./assets/img/menu/DX1.jpg",
-        title: "Cà Phê Đá Xay",
-        value: "59.000 đ"
-    },
-    {
-        image: "./assets/img/menu/DX2.jpg",
-        title: "Chanh Sả Đá Xay",
-        value: "49.000 đ"
-    },
-    {
-        image: "./assets/img/menu/DX3.jpg",
-        title: "Chocolate Đá Xay",
-        value: "59.000 đ"
-    },
-    {
-        image: "./assets/img/menu/DX4.jpg",
-        title: "Cookie Đá Xay",
-        value: "59.000 đ"
-    },
-    {
-        image: "./assets/img/menu/DX5.jpg",
-        title: "Đào Việt Quất Đá Xay",
-        value: "59.000 đ"
-    },
-    {
-        image: "./assets/img/menu/DX6.jpg",
-        title: "Matcha Đá Xay ",
-        value: "59.000 đ"
-    },
-    {
-        image: "./assets/img/menu/DX7.jpg",
-        title: "Sinh Tố Việt Quất",
-        value: "59.000 đ"
-    }
-]
-
-let arrGrindIce = dataGrindIce.map(
+let arrGrindIce = data.grindIce.map(
     (obj) => new GrindIce(obj.image, obj.title, obj.value)
-)
+);
 
-// matcha - socola
-let dataMatchaSocola = [
-    {
-        image: "./assets/img/menu/MCSCL1.jpg",
-        title: "Chocolate Đá",
-        value: "59.000 đ"
-    },
-    {
-        image: "./assets/img/menu/MCSCL2.jpg",
-        title: "Chocolate Đá Xay",
-        value: "59.000 đ"
-    },
-    {
-        image: "./assets/img/menu/MCSCL3.jpg",
-        title: "Chocolate Nóng",
-        value: "59.000 đ"
-    },
-    {
-        image: "./assets/img/menu/MCSCL4.jpg",
-        title: "Matcha Đá Xay",
-        value: "59.000 đ"
-    },
-    {
-        image: "./assets/img/menu/MCSCL5.jpg",
-        title: "Matcha Latte Đá",
-        value: "59.000 đ"
-    },
-    {
-        image: "./assets/img/menu/MCSCL6.jpg",
-        title: "Matcha Latte Nóng ",
-        value: "59.000 đ"
-    }
-]
-
-let arrMatchaSocola = dataMatchaSocola.map(
+let arrMatchaSocola = data.matchaSocola.map(
     (obj) => new MatchaSocola(obj.image, obj.title, obj.value)
-)
+);
 
-// bánh mặn
-let dataSaltyCake = [
-    {
-        image: "./assets/img/menu/BM1.jpg",
-        title: "Bánh Mì Que Pate",
-        value: "12.000 đ"
-    },
-    {
-        image: "./assets/img/menu/BM2.jpg",
-        title: "Bánh Mì Que Pate Cay",
-        value: "12.000 đ"
-    },
-    {
-        image: "./assets/img/menu/BM3.jpg",
-        title: "Bánh Mì VN Thịt Nguội",
-        value: "29.000 đ"
-    },
-    {
-        image: "./assets/img/menu/BM4.jpg",
-        title: "Chà Bông Phô Mai",
-        value: "32.000 đ"
-    },
-    {
-        image: "./assets/img/menu/BM5.jpg",
-        title: "Croissant Trứng Muối",
-        value: "35.000 đ"
-    }
-]
-
-let arrSaltyCake = dataSaltyCake.map(
+let arrSaltyCake = data.saltyCake.map(
     (obj) => new SaltyCake(obj.image, obj.title, obj.value)
-)
+);
 
-// bánh ngọt
-let dataSweetCake = [
-    {
-        image: "./assets/img/menu/BN1.jpg",
-        title: " Mochi Kem Dừa Dứa",
-        value: "19.000 đ"
-    },
-    {
-        image: "./assets/img/menu/BN2.jpg",
-        title: "Mochi Kem Phúc Bồn Tử",
-        value: "19.000 đ"
-    },
-    {
-        image: "./assets/img/menu/BN3.jpg",
-        title: "Mochi Kem Việt Quất",
-        value: "19.000 đ"
-    },
-    {
-        image: "./assets/img/menu/BN4.jpg",
-        title: "Mochi Kem Xoài",
-        value: "19.000 đ"
-    },
-    {
-        image: "./assets/img/menu/BN5.jpg",
-        title: "Mouse Gấu Chocolate",
-        value: "39.000 đ"
-    },
-    {
-        image: "./assets/img/menu/BN6.jpg",
-        title: "Mouse Passion Cheese",
-        value: "29.000 đ"
-    },
-    {
-        image: "./assets/img/menu/BN7.jpg",
-        title: "Mouse Red Velvet",
-        value: "29.000 đ"
-    },
-    {
-        image: "./assets/img/menu/BN8.jpg",
-        title: "Mouse Tiramisu",
-        value: "32.000 đ"
-    }
-]
-
-let arrSweetCake = dataSweetCake.map(
+let arrSweetCake = data.sweetCake.map(
     (obj) => new SweetCake(obj.image, obj.title, obj.value)
-)
+);
 
-// snack
-let dataSnack = [
-    {
-        image: "./assets/img/menu/SN1.jpg",
-        title: "Mít Sấy",
-        value: "20.000 đ"
-    }
-]
-
-let arrSnack = dataSnack.map(
+let arrSnack = data.snack.map(
     (obj) => new Snack(obj.image, obj.title, obj.value)
-)
+);
 
-// cà phê tại nhà
-let dataCoffeeAtHome = [
-    {
-        image: "./assets/img/menu/CPTN1.jpeg",
-        title: "Cà Phê Rang Xay Original 1 Túi 1KG",
-        value: "235.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPTN2.jpg",
-        title: "Cà Phê Rang Xay Original 1250gr",
-        value: "60.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPTN3.jpeg",
-        title: "Cà Phê Hòa Tan Đậm Vị Việt Túi 40x16G",
-        value: "99.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPTN4.jpg",
-        title: "Cà Phê Sữa Đá Hòa Tan Hộp 10 gói",
-        value: "44.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPTN5.jpg",
-        title: "Cà Phê Sữa Đá Hòa Tan Đậm Vị Hộp 18 gói x 16gr",
-        value: "48.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPTN6.jpg",
-        title: "Cà Phê Sữa Đá Hòa Tan Túi 25 x 22gr",
-        value: "99.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPTN7.jpg",
-        title: "Cà Phê Rich Finish Gu Đậm Tinh Tế 350gr",
-        value: "90.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPTN8.jpg",
-        title: "Cà Phê Peak Flavor Hương Thơm Đỉnh Cao 350gr",
-        value: "90.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPTN9.jpg",
-        title: "Cà Phê Arabica",
-        value: "100.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPTN10.jpg",
-        title: "Cà Phê Sữa đá Pack 6 lon",
-        value: "84.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPTN11.jpg",
-        title: "Thùng 24 Lon Cà Phê Sữa Đá",
-        value: "269.000 đ"
-    },{
-        image: "./assets/img/menu/CPTN12.jpg",
-        title: "Combo Quà Tết 2022",
-        value: "321.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPTN13.jpg",
-        title: "Combo 3 Hộp Cà Phê Sữa Đá Hòa Tan Đậm vị Hộp 18 gói x 16gr",
-        value: "109.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPTN14.jpg",
-        title: "Combo 3 Hộp Cà Phê Sữa Đá Hòa Tan",
-        value: "109.000 đ"
-    },
-    {
-        image: "./assets/img/menu/CPTN15.jpg",
-        title: "Combo 2 Cà Phê Rang Xay Original 1250gr",
-        value: "99.000 đ"
-    }
-]
-
-let arrCoffeeAtHome = dataCoffeeAtHome.map(
+let arrCoffeeAtHome = data.coffeeAtHome.map(
     (obj) => new CoffeeAtHome(obj.image, obj.title, obj.value)
-)
+);
 
-// trà tại nhà
-let dataTeaAtHome = [
-    {
-        image: "./assets/img/menu/TTN1.jpg",
-        title: "Combo Quà Tết 2022",
-        value: "321.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TTN2.jpg",
-        title: "Giftset Trà Tearoma",
-        value: "169.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TTN3.jpg",
-        title: "Combo 3 hoopj trà Lài Túi Lọc Tearoma",
-        value: "69.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TTN4.jpg",
-        title: "Combo 3 hộp trà Sen túi lọc Tearoma",
-        value: "69.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TTN5.jpg",
-        title: "Combo 3 hộp trà Đào túi lọc Tearoma",
-        value: "69.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TTN6.jpg",
-        title: "Combo 3 hộp trà Oolong túi lọc Tearoma",
-        value: "69.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TTN7.jpg",
-        title: "Trà Đào Túi Lọc Tearoma 20 x 2gr",
-        value: "28.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TTN8.jpg",
-        title: "Trà Lài Túi Lọc Tearoma 20 x 2gr",
-        value: "28.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TTN9.jpg",
-        title: "Trà Oolong Túi lọc Tearoma 20 x 2gr",
-        value: "28.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TTN10.jpg",
-        title: "Trà Sen Túi Lọc Tearoma 20 x 2gr",
-        value: "28.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TTN11.jpg",
-        title: "Trà Xanh Lá Tearoma 100gr",
-        value: "75.000 đ"
-    },{
-        image: "./assets/img/menu/TTN12.jpg",
-        title: "Trà Sen Lá Tearoma 100gr",
-        value: "80.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TTN13.jpg",
-        title: "Trà Oolong Lá Tearoma 100gr",
-        value: "100.000 đ"
-    },
-    {
-        image: "./assets/img/menu/TTN14.jpg",
-        title: "Trà Lài Lá Tearoma 100gr",
-        value: "80.000 đ"
-    }
-]
-
-let arrTeaAtHome = dataTeaAtHome.map(
+let arrTeaAtHome = data.teaAtHome.map(
     (obj) => new TeaAtHome(obj.image, obj.title, obj.value)
-)
+);
 
 // func render
 
@@ -864,8 +309,8 @@ function loadCoffeeVN() {
         let obj = arrCoffeeVN[i];
         listItemsCoffeeVNItems.item(i).onclick = function() {
             cart.add(obj);
-            cart.countItems()
-            cart.open();
+            cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -883,8 +328,8 @@ function loadMachineCoffee() {
         let obj = arrMachineCoffee[i];
         listItemsMachineCoffeeItems.item(i).onclick = function() {
             cart.add(obj);
-            cart.countItems()
-            cart.open();
+            cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -902,8 +347,8 @@ function loadColdBrew() {
         let obj = arrColdBrew[i];
         listItemsColdBrewItems.item(i).onclick = function() {
             cart.add(obj);
-            cart.countItems()
-            cart.open();
+            cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -921,8 +366,8 @@ function loadFruitTea() {
         let obj = arrFruitTea[i];
         listItemsFruitTeaItems.item(i).onclick = function() {
             cart.add(obj);
-            cart.countItems()
-            cart.open();
+            cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -940,8 +385,8 @@ function loadMacchiatoMilkTea() {
         let obj = arrMacchiatoMilkTea[i];
         listItemsMacchiatoMilkTeaItems.item(i).onclick = function() {
             cart.add(obj);
-            cart.countItems()
-            cart.open();
+            cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -959,8 +404,8 @@ function loadGrindIce() {
         let obj = arrGrindIce[i];
         listItemsGrindIceItems.item(i).onclick = function() {
             cart.add(obj);
-            cart.countItems()
-            cart.open();
+            cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -978,8 +423,8 @@ function loadMatchaSocola() {
         let obj = arrMatchaSocola[i];
         listItemsMatchaSocolaItems.item(i).onclick = function() {
             cart.add(obj);
-            cart.countItems()
-            cart.open();
+            cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -997,8 +442,8 @@ function loadSaltyCake() {
         let obj = arrSaltyCake[i];
         listItemsSaltyCakeItems.item(i).onclick = function() {
             cart.add(obj);
-            cart.countItems()
-            cart.open();
+            cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -1016,8 +461,8 @@ function loadSweetCake() {
         let obj = arrSweetCake[i];
         listItemsSweetCakeItems.item(i).onclick = function() {
             cart.add(obj);
-            cart.countItems()
-            cart.open();
+            cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -1035,8 +480,8 @@ function loadSnack() {
         let obj = arrSnack[i];
         listItemsSnackItems.item(i).onclick = function() {
             cart.add(obj);
-            cart.countItems()
-            cart.open();
+            cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -1054,8 +499,8 @@ function loadCoffeeAtHome() {
         let obj = arrCoffeeAtHome[i];
         listItemsCoffeeAtHomeItems.item(i).onclick = function() {
             cart.add(obj);
-            cart.countItems()
-            cart.open();
+            cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -1073,8 +518,8 @@ function loadTeaAtHome() {
         let obj = arrTeaAtHome[i];
         listItemsTeaAtHomeItems.item(i).onclick = function() {
             cart.add(obj);
-            cart.countItems()
-            cart.open();
+            cart.countItems();
+            cart.renderData();
         }
     }
 }

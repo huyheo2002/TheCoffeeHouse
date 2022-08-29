@@ -28,6 +28,7 @@
     background-color: #FFF7E6;
     position: fixed;
     z-index: 999;
+    user-select: none;
 }
 
 .header{
@@ -390,8 +391,8 @@
 }
 
 .modal__header {
-    background-color: #000;
-    opacity: 0.3;
+    /* background-color: #000; */
+    /* opacity: 0.3; */
     height: 70px;
     width: auto;
     text-align: center;
@@ -399,10 +400,12 @@
 
 .modal__header__title{
     text-align: center;
-    color: #fff;
+    color: #000;
+    background-color: #FFF7E6;
     font-size: 24px;
     font-weight: 500;
     line-height: 70px;
+    border-bottom: 1px solid #3b4354;
     text-transform: capitalize;
     user-select: none;
 }
