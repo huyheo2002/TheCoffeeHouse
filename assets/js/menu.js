@@ -22,14 +22,16 @@ var btnCloseCart = document.querySelector(".cart__btnClose");
 var btnResetCart = document.querySelector(".cart__footer-btnReset");
 
 btnToggleCart.onclick = function(){
-    cart.renderData();
     cart.toggle();
+    cart.renderData();
 };
+
 btnCloseCart.onclick = function(){
     cart.close();
 };
 btnResetCart.addEventListener("click", function(){
     cart.reset();
+    cart.close();
 })
 
 // SIDEBAR :v
@@ -308,6 +310,7 @@ function loadCoffeeVN() {
         listItemsCoffeeVNItems.item(i).onclick = function() {
             cart.add(obj);
             cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -326,6 +329,7 @@ function loadMachineCoffee() {
         listItemsMachineCoffeeItems.item(i).onclick = function() {
             cart.add(obj);
             cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -344,6 +348,7 @@ function loadColdBrew() {
         listItemsColdBrewItems.item(i).onclick = function() {
             cart.add(obj);
             cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -362,6 +367,7 @@ function loadFruitTea() {
         listItemsFruitTeaItems.item(i).onclick = function() {
             cart.add(obj);
             cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -380,6 +386,7 @@ function loadMacchiatoMilkTea() {
         listItemsMacchiatoMilkTeaItems.item(i).onclick = function() {
             cart.add(obj);
             cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -398,6 +405,7 @@ function loadGrindIce() {
         listItemsGrindIceItems.item(i).onclick = function() {
             cart.add(obj);
             cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -416,6 +424,7 @@ function loadMatchaSocola() {
         listItemsMatchaSocolaItems.item(i).onclick = function() {
             cart.add(obj);
             cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -434,6 +443,7 @@ function loadSaltyCake() {
         listItemsSaltyCakeItems.item(i).onclick = function() {
             cart.add(obj);
             cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -452,6 +462,7 @@ function loadSweetCake() {
         listItemsSweetCakeItems.item(i).onclick = function() {
             cart.add(obj);
             cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -470,6 +481,7 @@ function loadSnack() {
         listItemsSnackItems.item(i).onclick = function() {
             cart.add(obj);
             cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -488,6 +500,7 @@ function loadCoffeeAtHome() {
         listItemsCoffeeAtHomeItems.item(i).onclick = function() {
             cart.add(obj);
             cart.countItems();
+            cart.renderData();
         }
     }
 }
@@ -506,6 +519,7 @@ function loadTeaAtHome() {
         listItemsTeaAtHomeItems.item(i).onclick = function() {
             cart.add(obj);
             cart.countItems();
+            cart.renderData();
         }
     }
 }

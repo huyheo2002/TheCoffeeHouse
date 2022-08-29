@@ -9,7 +9,6 @@ export class Cart {
     reset() {
         this.arrData = [];
         this.renderData();
-
         this.countItems();
     }
 
@@ -21,7 +20,7 @@ export class Cart {
         let dataList = document.querySelector(".cart__list");
         let self = this;
         dataList.innerHTML = this.arrData.reduce(
-            (html, currentObj, currentIndex) => html += `
+            (html, currentObj) => html += `
                 <li><a>
                     <div class="cart__imgWrap">
                         <img src="${currentObj.image}" alt="">
@@ -40,7 +39,7 @@ export class Cart {
 
         /**
          * @how Lấy rất nhiều action, sau đó gán onclick của nó :V 
-         * cách này hơi bất ổn nhưng được cái dùng innerHTML như ở trên được
+         * cách này hơi bất ổn nhưng được cái dùng innerHTML như ở trên được    
          */
         let actionList = document.querySelectorAll(".cart__list .cart__action");
         actionList.forEach(
@@ -54,12 +53,13 @@ export class Cart {
         
         if(this.arrData.length <= 0) {
             cartBadge.style.display = "none";
+            // return;
+        } else{
+            count.innerHTML = `${this.arrData.length}`;
+            cartBadge.style.display = "block";
+        }
 
-            return;
-        } 
-
-        count.innerHTML = `${this.arrData.length}`;
-        cartBadge.style.display = "block";
+        
     }
 
     deleteItem(index){
