@@ -15,7 +15,7 @@ if ($_GET['email']) {
 $err = [];
 if (isset($_POST['submit'])) {
     $email=$user['email'];
-    $username=$_POST['password'];
+    $username=$_POST['username'];
     $password = $_POST['password'];
 
 
@@ -72,16 +72,16 @@ if (isset($_POST['submit'])) {
             <form action="" method="post">
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Name</label>
-                    <input type="text" name="username" value="<?= $user['name']?>"  class="form-control">
+                    <input type="text" name="username" value="<?= $user['username']?>"  class="form-control">
                     <div class="text-danger">
-                        <?php echo isset($err['username']) ? $err['name'] : "" ?>
+                        <?php echo (isset($err['username'])) ? $err['username'] : "" ?>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="text" name="password" value="<?= $user['password']?>" class="form-control" id="exampleInputPassword1">
+                    <input type="text" name="password" placeholder="Nhập password cần sửa" class="form-control" id="exampleInputPassword1">
                     <div class="text-danger">
-                        <?php echo isset($err['password']) ? $err['password'] : "" ?>
+                        <?php echo (isset($err['password'])) ? $err['password'] : "" ?>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary" name="submit">Update</button>

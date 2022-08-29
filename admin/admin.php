@@ -53,7 +53,7 @@ $users = Auth::getDataAll();
                                 <td><?php echo $user['email'] ?></td>
                                 <td>
                                     <a href="./show.php?email=<?= $user['email'] ?>" class="btn btn-info">Show</a>
-                                    <a href="./edit.php?email= <?=$user['email'] ?>" class="btn btn-warning">Edit</a>
+                                    <a href="./edit.php?email=<?= $user['email'] ?>" class="btn btn-warning">Edit</a>
                                 </td>
                                 <td>
                                     <form action="./delete.php" method="post" email="formDelete-<?= $user['email'] ?>">
