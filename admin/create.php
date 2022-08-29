@@ -94,7 +94,7 @@ if (isset($_POST['submit'])) {
                             <!-- Checkbox -->
                             <div class="form-check">
                                 <input class="form-check-input" name="cb" type="checkbox" value="" id="form1Example3" />
-                                <label class="form-check-label" for="form1Example3"><a href="#!">Đồng ý với các điều khoản</a> </label>
+                                <label class="form-check-label" for="form1Example3"><a href="#!">Xác nhận tạo mới 1 tài khoản fake</a> </label>
                             </div>
                         </div>
                         <div class="text-danger" style="text-align:center ;">

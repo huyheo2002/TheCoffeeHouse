@@ -1,5 +1,5 @@
 <?php
-include_once "/xampp/htdocs/TheCoffeeHouse//classes/User.php";
+include "/xampp/htdocs/TheCoffeeHouse//classes/User.php";
 
 //lấy thông tin theo email
 $email = null;

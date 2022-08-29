@@ -56,9 +56,9 @@ $users = Auth::getDataAll();
                                     <a href="./edit.php?email= <?=$user['email'] ?>" class="btn btn-warning">Edit</a>
                                 </td>
                                 <td>
-                                    <form action="./delete.php" method="post" id="formDelete-<?= $user['email'] ?>">
+                                    <form action="./delete.php" method="post" email="formDelete-<?= $user['email'] ?>">
                                         <input type="hidden" name="email" value="<?= $user['email'] ?>">
-                                        <button class="btn btn-danger btn-delete" id="<?= $user['email'] ?>">Delete</button>
+                                        <button class="btn btn-danger btn-delete" email="<?= $user['email'] ?>">Delete</button>
                                     </form>
                                 </td>
                             </tr>
