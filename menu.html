@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/menu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Menu</title>
 </head>
 <body>
     <div id="main">
+        <!-- header -->
         <div class="header__wrap">
             <div class="header">
                 <div class="header__logo">
@@ -98,6 +100,10 @@
                         <li><a href="./shop.html">Cửa hàng</a></li>
                         <li><a href="./tuyendung.html">Tuyển dụng</a></li>
                         <li><a href="./KhaiTruong.html">Ưu đãi thành viên</a></li>
+                        <li class="js-login"><a>
+                            <p class="nav__login">Đăng Nhập</p>
+                            <i class="fa-solid fa-user"></i>
+                        </a></li>
                     </ul>
                 </div>
             </div>
@@ -106,58 +112,62 @@
         <div class="menu__Container">
             <div class="menu__Sidebar">
                 <ul class="menu__listItems">
-                    <li class="menu__itemsBlock" onclick="clickListMenu('menu__item-1','dotCoffee-1')"><a href="#" class="menu__items menu__item-glow" id="menu__item-1">
-                        <div class="menu__dotCoffee dotCoffee__original" id="dotCoffee-1">
+                    <li class="menu__itemsBlock"><a href="#" class="menu__items menu__items-link" id="menu__item-1">
+                        <div class="menu__dotCoffee visible" id="dotCoffee-1">
                             <img src="./assets/img/menu/coffee-beans1.png" alt="">
                         </div>
-                        Tất Cả
+                        <p class="menu__text glow">Tất Cả</p>                        
                     </a></li>
-                    <li class="menu__itemsBlock" onclick="clickListMenu('menu__item-2','dotCoffee-2')"><a href="#CoffeeVN" class="menu__items" id="menu__item-2">
+                    <li class="menu__itemsBlock"><a href="#" class="menu__items menu__items-link" id="menu__item-2">
                         <div class="menu__dotCoffee" id="dotCoffee-2">
                             <img src="./assets/img/menu/coffee-beans1.png" alt="">
                         </div>
-                        Cà Phê
+                        <p class="menu__text">Cà Phê</p>   
                         <ul class="menu__subnav">
-                            <li class="menu__subnav-items"><a href="#CoffeeVN">Cà Phê Việt Nam</a></li>
-                            <li class="menu__subnav-items"><a href="#CoffeeM">Cà Phê Máy</a></li>
-                            <li class="menu__subnav-items"><a href="#ColdBrew">Cold Brew</a></li>
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Cà Phê Việt Nam</a></li>
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Cà Phê Máy</a></li>
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Cold Brew</a></li>
                         </ul>
                     </a></li>
-                    <li class="menu__itemsBlock" onclick="clickListMenu('menu__item-3','dotCoffee-3')"><a href="#TeaFruit" class="menu__items" id="menu__item-3">
+                    <li class="menu__itemsBlock"><a href="#" class="menu__items menu__items-link" id="menu__item-3">
                         <div class="menu__dotCoffee" id="dotCoffee-3">
                             <img src="./assets/img/menu/coffee-beans1.png" alt="">
-                        </div>Trà
+                        </div>
+                        <p class="menu__text">Trà</p>   
                         <ul class="menu__subnav">
-                            <li class="menu__subnav-items"><a href="#TeaFruit">Trà Trái Cây</a></li>
-                            <li class="menu__subnav-items"><a href="#TeaMac">Trà Sữa Macchiato</a></li>
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Trà Trái Cây</a></li>
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Trà Sữa Macchiato</a></li>
                         </ul>
                     </a></li>
-                    <li class="menu__itemsBlock" onclick="clickListMenu('menu__item-4','dotCoffee-4')"><a href="#StoneX" class="menu__items" id="menu__item-4">
+                    <li class="menu__itemsBlock"><a href="#" class="menu__items menu__items-link" id="menu__item-4">
                         <div class="menu__dotCoffee" id="dotCoffee-4">
                             <img src="./assets/img/menu/coffee-beans1.png" alt="">
-                        </div>Món Khác
+                        </div>
+                        <p class="menu__text">Món Khác</p>   
                         <ul class="menu__subnav">
-                            <li class="menu__subnav-items"><a href="#StoneX">Đá Xay</a></li>
-                            <li class="menu__subnav-items"><a href="#MatchaSocola">Matcha - Socola</a></li>
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Đá Xay</a></li>
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Matcha - Socola</a></li>
                         </ul>
                     </a></li>
-                    <li class="menu__itemsBlock" onclick="clickListMenu('menu__item-5','dotCoffee-5')"><a href="#BreadM" class="menu__items" id="menu__item-5">
+                    <li class="menu__itemsBlock"><a href="#" class="menu__items menu__items-link" id="menu__item-5">
                         <div class="menu__dotCoffee" id="dotCoffee-5">
                             <img src="./assets/img/menu/coffee-beans1.png" alt="">
-                        </div>Bánh & Snack
+                        </div>
+                        <p class="menu__text">Bánh & Snack</p>   
                         <ul class="menu__subnav">
-                            <li class="menu__subnav-items"><a href="#BreadM">Bánh Mặn</a></li>
-                            <li class="menu__subnav-items"><a href="#BreadN">Bánh Ngọt</a></li>
-                            <li class="menu__subnav-items"><a href="#Snack">Snack</a></li>
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Bánh Mặn</a></li>
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Bánh Ngọt</a></li>
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Snack</a></li>
                         </ul>
                     </a></li>
-                    <li class="menu__itemsBlock" onclick="clickListMenu('menu__item-6','dotCoffee-6')"><a href="#CoffeeHouse" class="menu__items" id="menu__item-6">
+                    <li class="menu__itemsBlock"><a href="#" class="menu__items menu__items-link" id="menu__item-6">
                         <div class="menu__dotCoffee" id="dotCoffee-6">
                             <img src="./assets/img/menu/coffee-beans1.png" alt="">
-                        </div>Tại Nhà
+                        </div>
+                        <p class="menu__text">Tại Nhà</p>
                         <ul class="menu__subnav">
-                            <li class="menu__subnav-items"><a href="#CoffeeHouse">Cà Phê Tại Nhà</a></li>
-                            <li class="menu__subnav-items"><a href="#TeaHouse">Trà Tại Nhà</a></li>
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Cà Phê Tại Nhà</a></li>
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Trà Tại Nhà</a></li>
                         </ul>
                     </a></li>
                 </ul>
@@ -171,1389 +181,74 @@
                     <!-- menu items-hot -->
                     <div class="itemsHot__wrap">
                         <!-- cà phê việt nam -->
-                        <h3 class="title__itemTea" id="CoffeeVN">Cà Phê Việt Nam</h3>
+                        <h3 class="title__itemTea">Cà Phê Việt Nam</h3>
                         <ul class="itemsHot__list">
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPVN1.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Bạc Sỉu Đá
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        29.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPVN2.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Bạc Sỉu Nóng
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        35.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPVN3.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Cà Phê Đen Đá
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        29.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPVN4.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Cà Phê Đen Nóng
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        35.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPVN5.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Cà Phê Sữa Đá
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        29.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPVN6.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Cà Phê Sữa Đá Chai Fresh 250ml
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        79.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPVN7.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Cà Phê Sữa Nóng
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        35.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
+                            
                         </ul>
 
                         <!-- cà phê máy -->
-                        <h3 class="title__itemTea" id="CoffeeM">Cà Phê Máy</h3>
+                        <h3 class="title__itemTea">Cà Phê Máy</h3>
                         <ul class="itemsHot__list">
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPM1.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Latte Táo Lê Quế Nóng
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        59.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPM2.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Latte Táo Lê Quế Đá
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        59.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPVN3.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Latte Táo Lê Quế Chai Fresh 500ml
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        109.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPM4.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Mocha Nóng
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        50.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPM5.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Mocha Đá
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        50.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPM6.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Espresso Nóng
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        40.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPMM7.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Espresso Đá
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        45.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPM8.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Cappuccino Nóng
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        50.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPM9.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Cappuccino Đá
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        50.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPM10.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Americano Nóng
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        40.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPM11.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Latte Đá
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        50.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPM12.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Caramel Macchiato Nóng
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        50.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPM13.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Caramel Macchiato Đá
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        50.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPM14.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Latte Nóng
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        40.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPM15.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Americano Đá
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        40.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
+                            
                         </ul>
 
                         <!-- Cold brew -->
-                        <h3 class="title__itemTea" id="ColdBrew">Cold Brew</h3>
+                        <h3 class="title__itemTea">Cold Brew</h3>
                         <ul class="itemsHot__list">
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CB1.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Cold Brew Sữa Tươi
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        45.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CB2.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Cold Brew Truyền Thống
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        45.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
+
                         </ul>
 
                         <!-- Trà trái cây -->
-                        <h3 class="title__itemTea" id="TeaFruit">Trà Trái Cây</h3>
+                        <h3 class="title__itemTea">Trà Trái Cây</h3>
                         <ul class="itemsHot__list">
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TTC1.jpeg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Dưa Đào Sung Túc
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        59.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TTC2.jpeg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Sen Nhân Sum Vầy
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        59.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TCC3.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Long Nhãn Hạt Chia
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        45.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TCC4.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Long Nhãn Hạt Chia Nóng
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        52.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TCC5.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Hạt Sen Đá
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        45.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TCC6.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Hạt Sen Nóng 
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        52.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TCC7.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Đào Cam Sả Đá
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        45.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TCC8.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Đào Cam Sả Nóng
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        52.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TCC9.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Đào Cam Sả Chai Fresh 500ml
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        109.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
+                            
                         </ul>
 
                         <!-- Trà sữa Macchiato -->
-                        <h3 class="title__itemTea" id="TeaMac">Trà Sữa Macchiato</h3>
+                        <h3 class="title__itemTea">Trà Sữa Macchiato</h3>
                         <ul class="itemsHot__list">
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TSM1.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Caramel Macchiato Đá
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        50.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TSM2.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Hồng Trà Latte Macchiato
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        55.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TSM3.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Hồng Trà Sữa Nóng
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        50.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TSM4.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Hồng Trà Sữa Trân Châu
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        55.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TSM5.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Latte Táo Lê Quế Đá
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        59.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TSM6.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Đen Macchiato
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        50.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TSM7.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Sữa Mắc Ca Trân Châu Trắng
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        50.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TSM8.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Sữa Masala Chai Nóng
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        59.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TSM9.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Sữa Masala Chai Trân Châu Chai Fresh 500ml
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        109.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TSM10.jpeg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Sữa Masala Chai Trân Châu Đá
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        59.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TSM11.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Sữa Oolong Nướng Nóng
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        50.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TSM12.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Sữa Oolong Nướng Chân Châu
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        55.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TSM13.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Sữa Oolong Nướng Trân Châu Chai 500ml
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        99.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
+                            
                         </ul>
 
                         <!-- Đá xay -->
-                        <h3 class="title__itemTea" id="StoneX">Đá Xay</h3>
+                        <h3 class="title__itemTea">Đá Xay</h3>
                         <ul class="itemsHot__list">
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/DX1.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Cà Phê Đá Xay
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        59.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/DX2.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Chanh Sả Đá Xay
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        49.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/DX3.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Chocolate Đá Xay
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        59.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/DX4.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Cookie Đá Xay
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        59.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/DX5.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Đào Việt Quất Đá Xay
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        59.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/DX6.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Matcha Đá Xay
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        59.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/DX7.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Sinh Tố Việt Quất
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        59.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
+                            
                         </ul>
 
                         <!-- matcha - socola -->
-                        <h3 class="title__itemTea" id="MatchaSocola">Matcha - Socola</h3>
+                        <h3 class="title__itemTea">Matcha - Socola</h3>
                         <ul class="itemsHot__list">
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/MCSCL1.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Chocolate Đá
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        59.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/MCSCL2.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Chocolate Đá Xay
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        59.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/MCSCL3.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Chocolate Nóng
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        59.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/MCSCL4.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Matcha Đá Xay
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        59.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/MCSCL5.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Matcha Latte Đá
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        59.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/MCSCL6.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Matcha Latte Nóng
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        59.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
+                            
                         </ul>
 
                         <!-- Bánh mặn -->
-                        <h3 class="title__itemTea" id="BreadM">Bánh Mặn</h3>
+                        <h3 class="title__itemTea">Bánh Mặn</h3>
                         <ul class="itemsHot__list">
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/BM1.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Bánh Mì Que Pate
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        12.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/BM2.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Bánh Mì Que Pate Cay
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        12.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/BM3.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Bánh Mì VN Thịt Nguội
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        29.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/BM4.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Chà Bông Phô Mai
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        32.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/BM5.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Croissant Trứng Muối
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        35.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
+                            
                         </ul>
 
                         <!-- Bánh ngọt -->
-                        <h3 class="title__itemTea" id="BreadN">Bánh Ngọt</h3>
+                        <h3 class="title__itemTea">Bánh Ngọt</h3>
                         <ul class="itemsHot__list">
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/BN1.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Mochi Kem Dừa Dứa
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        19.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/BN2.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Mochi Kem Phúc Bồn Tử
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        19.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/BN3.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Mochi Kem Việt Quất
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        19.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/BN4.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Mochi Kem Xoài
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        19.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/BN5.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Mouse Gấu Chocolate
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        39.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/BN6.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Mouse Passion Cheese
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        29.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/BN7.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Mouse Red Velvet
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        29.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/BN8.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Mouse Tiramisu
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        32.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
+                            
                         </ul>
 
                         <!-- snack -->
-                        <h3 class="title__itemTea" id="Snack">Snack</h3>
+                        <h3 class="title__itemTea">Snack</h3>
                         <ul class="itemsHot__list">
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/SN1.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Mít Sấy
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        20.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
+
                         </ul>
 
                         <!-- Cà phê tại nhà -->
-                        <h3 class="title__itemTea" id="CoffeeHouse">Cà Phê Tại Nhà</h3>
+                        <h3 class="title__itemTea">Cà Phê Tại Nhà</h3>
                         <ul class="itemsHot__list">
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPTN1.jpeg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Cà Phê Rang Xay Original 1 Túi 1KG
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        235.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPTN2.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Cà Phê Rang Xay Original 1250gr
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        60.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPTN3.jpeg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Cà Phê Hòa Tan Đậm Vị Việt Túi 40x16G
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        99.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPTN4.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Cà Phê Sữa Đá Hòa Tan Hộp 10 gói
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        44.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPTN5.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Cà Phê Sữa Đá Hòa Tan Đậm Vị Hộp 18 gói x 16gr
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        48.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPTN6.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Cà Phê Sữa Đá Hòa Tan Túi 25 x 22gr
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        99.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPTN7.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Cà Phê Rich Finish Gu Đậm Tinh Tế 350gr
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        90.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPTN8.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Cà Phê Peak Flavor Hương Thơm Đỉnh Cao 350gr
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        90.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPTN9.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Cà Phê Arabica
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        100.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPTN10.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Cà Phê Sữa đá Pack 6 lon
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        84.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPTN11.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Thùng 24 Lon Cà Phê Sữa Đá
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        269.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPTN12.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Combo Quà Tết 2022
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        321.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPTN13.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Combo 3 Hộp Cà Phê Sữa Đá Hòa Tan Đậm vị Hộp 18 gói x 16gr
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        109.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPTN14.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Combo 3 Hộp Cà Phê Sữa Đá Hòa Tan
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        109.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/CPTN15.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Combo 2 Cà Phê Rang Xay Original 1250gr
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        99.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
+                            
                         </ul>
-
                         <!-- Trà tại nhà -->
-                        <h3 class="title__itemTea" id="TeaHouse">Trà Tại Nhà</h3>
+                        <h3 class="title__itemTea">Trà Tại Nhà</h3>
                         <ul class="itemsHot__list">
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TTN1.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Combo Quà Tết 2022
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        321.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TTN2.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Giftset Trà Tearoma
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        169.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TTN3.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Combo 3 hoopj trà Lài Túi Lọc Tearoma
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        69.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TTN4.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Combo 3 hộp trà Sen túi lọc Tearoma
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        69.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TTN5.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Combo 3 hộp trà Đào túi lọc Tearoma
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        69.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TTN6.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Combo 3 hộp trà Oolong túi lọc Tearoma
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        69.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TTN7.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Đào Túi Lọc Tearoma 20 x 2gr
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        28.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TTN8.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Lài Túi Lọc Tearoma 20 x 2gr
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        28.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TTN9.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Oolong Túi lọc Tearoma 20 x 2gr
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        28.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TTN10.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Sen Túi Lọc Tearoma 20 x 2gr
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        28.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TTN11.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Xanh Lá Tearoma 100gr
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        75.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TTN12.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Sen Lá Tearoma 100gr
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        80.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TTN13.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Oolong Lá Tearoma 100gr
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        100.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
-                            <li><a href="">
-                                <div class="itemHot__imgWrap">
-                                    <img src="./assets/img/menu/TTN14.jpg" alt="">
-                                </div>
-                                <div class="itemHot__content">
-                                    <h3 class="itemHot__title">
-                                        Trà Lài Lá Tearoma 100gr
-                                    </h3>
-                                    <p class="itemHot__value">
-                                        80.000 đ
-                                    </p>
-                                </div>
-                            </a></li>
+                            
                         </ul>
                     </div>
                 </div>    
@@ -1625,46 +320,110 @@
                 </div>
             </div>
         </div>
+        <!-- cart -->
+        
+        <div class="btn__cart-wrap">
+            <div class="btn__cart">
+                <i class="fa-solid fa-cart-shopping" id="cart__logo"></i>
+            </div>
+            <div class="cart__badge">
+                <i class="fa-solid fa-star">
+                    <p class="count">1</p>
+                </i>
+            </div>
+        </div>
+
+        <div class="cart__sidebar">
+            <div class="cart__sidebar-overlay">
+                <header class="cart__title">
+                    <h3 class="cart__title-text">Thông báo</h3>
+                    <div class="cart__btnClose">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </header>
+                <ul class="cart__list">
+                    <li><a href="">
+                        <div class="cart__imgWrap">
+                            <img src="./assets/img/menu/BM1.jpg" alt="">
+                        </div>
+                        <div class="cart__info">
+                            <h4 class="cart__info-title">hi</h4>
+                            <p class="cart__info-value">124.000đ</p>
+                        </div>
+                    </a></li>                    
+                                    
+                </ul>
+
+                <footer class="cart__footer">
+                    <div class="cart__footer-btnReset">Reset</div>
+                    <div class="cart__footer-btnBuy">Thanh toán</div>
+                </footer>
+            </div>            
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal js-modal">
+        <div class="modal__container js-modalContainer">
+            <div class="modal__header">
+                <div class="modal__header__title">
+                    Chào mừng bạn đến với The Coffee House
+                </div>
+                <!-- head để img nếu thích :v -->
+                <!-- <img src="./assets/img/base/modalLogin-loginhead.png" alt=""> -->
+            </div>
+
+            <div class="modal__close js-modal-close">
+                <!-- <i class="fas fa-times modal__close-ic"></i> -->
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="clear"></div>
+
+            <div class="modal__body">
+                <!-- attribute for trong thẻ label chỉ sd với id -->
+                <label for="modal-user" class="modal__label">
+                    <i class="fas fa-user"></i>
+                    Tài Khoản:
+                </label>
+                <input id="modal-user" type="text" class="modal__input-user" placeholder="Tên Người Dùng/ Email">
+
+                <label for="modal-pass" class="modal__label">
+                    <i class="fas fa-key"></i>
+                    Mật Khẩu:
+                </label>
+                <input id="modal-pass" type="password" class="modal__input-pass" placeholder="Mật Khẩu">
+
+                <button class="modal__login">
+                    Đăng Nhập
+                </button>
+                
+            </div>
+
+            <div class="modal__footer">
+                <div class="modal__footer-head">
+                    <a href="">Request Support</a>
+                    <a href="">Registration</a>
+                </div>
+
+                <p class="modal__footer-subhead">Hoặc đăng nhập bằng các tài khoản sau</p>
+
+                <div class="modal__footer-icon">
+                    <img src="./assets/img/base/modalLogin-ggchr.png" alt="">
+                    <img src="./assets/img/base/modalLogin-ios.png " alt="">
+                    <img src="./assets/img/base/modalLogin-fb.png" alt="">
+                    <img src="./assets/img/base/modalLogin-twitter.png" alt="">
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
-        var menuitemsBlock = document.querySelectorAll(".menu__itemsBlock");
-        var menuItems = document.querySelectorAll(".menu__items");
-        var menuDotCoffee = document.querySelectorAll(".menu__dotCoffee");
-        var i;
-        // for(i=0 ; i<menuitemsBlock.length ; i++){
-        //     menuitemsBlock[i].addEventListener("click" , function(event){
-        //         for(i=0 ; i<menuItems.length ;i++){
-        //             menuItems[i].className = menuItems[i].className.replace("menu__items menu__item-glow","menu__items")
-        //         }
-        //         event.currentTarget.className = event.currentTarget.className + " menu__item-glow"
-        //     })
-        // }
-        function clickListMenu(item , dotCoffee){
-            for( i = 0 ;i < menuItems.length ; i++){
-                menuItems[i].className = menuItems[i].className.replace("menu__items menu__item-glow","menu__items")
-            }
-            document.getElementById(item).className += " menu__item-glow"
-            for(i=0 ; i < menuDotCoffee.length ; i++){
-                menuDotCoffee[i].className = menuDotCoffee[i].className.replace("menu__dotCoffee dotCoffee__original" , "menu__dotCoffee")
-            }
-            document.getElementById(dotCoffee).className += " dotCoffee__original"
+        // tránh lan truyền sự kiện (truyền vào event con)
+        function isCheckPropagation(e){
+            e.stopPropagation();    
         }
-        // c2
-        // function clickListMenu(item , dotCoffee){
-        //     for( i = 0 ;i < menuItems.length ; i++){
-        //         // menuItems[i].className = menuItems[i].className.replace("menu__items menu__item-glow","menu__items")
-        //         menuItems[i].classList.remove("menu__item-glow");
-        //     }
-        //     // document.getElementById(item).className += " menu__item-glow"
-        //     document.getElementById(item).classList.add("menu__item-glow");
-        //     for(i=0 ; i < menuDotCoffee.length ; i++){
-        //         // menuDotCoffee[i].className = menuDotCoffee[i].className.replace("menu__dotCoffee dotCoffee__original" , "menu__dotCoffee")
-        //         menuDotCoffee[i].classList.remove("dotCoffee__original");
-        //     }
-        //     // document.getElementById(dotCoffee).className += " dotCoffee__original"
-        //     document.getElementById(dotCoffee).classList.add("dotCoffee__original");
-        // }
     </script>
+    <script src="./assets/js/base.js"></script>
+    <script src="./assets/js/menu.js" type="module"></script>
 </body>
 </html>
