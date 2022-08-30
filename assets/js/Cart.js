@@ -18,7 +18,7 @@ export class Cart {
 
     renderData() {
         let dataList = document.querySelector(".cart__list");
-        let self = this;
+        // let self = this;
         dataList.innerHTML = this.arrData.reduce(
             (html, currentObj) => html += `
                 <li><a>
@@ -53,13 +53,12 @@ export class Cart {
         
         if(this.arrData.length <= 0) {
             cartBadge.style.display = "none";
-            // return;
-        } else{
-            count.innerHTML = `${this.arrData.length}`;
-            cartBadge.style.display = "block";
-        }
 
-        
+            return;
+        } 
+
+        count.innerHTML = `${this.arrData.length}`;
+        cartBadge.style.display = "block";
     }
 
     deleteItem(index){

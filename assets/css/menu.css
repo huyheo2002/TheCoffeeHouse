@@ -136,6 +136,7 @@
 .itemsHot__list li{
     margin-bottom: 30px;
     padding: 0 14px;
+    cursor: pointer;
 }
 
 .itemsHot__list a{
@@ -210,6 +211,7 @@
     bottom: 100px;
     right: 50px;
     z-index: 999;
+    cursor: pointer;
 }
 
 .btn__cart{
