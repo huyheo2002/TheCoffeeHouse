@@ -14,15 +14,15 @@
         <div class="header__wrap">
             <div class="header">
                 <div class="header__logo">
-                    <a href="./home.html">
+                    <a href="./home.php">
                         <img src="./assets/img/items-hot/header_logo.jpg" alt="">
                     </a>
                 </div>
                 <div class="header__nav">
                     <ul class="list__nav">
-                        <li><a href="./coffee.html">Cà phê</a></li>
-                        <li><a href="./tea.html">Trà</a></li>
-                        <li><a href="./menu.html">Menu
+                        <li><a href="./coffee.php">Cà phê</a></li>
+                        <li><a href="./tea.php">Trà</a></li>
+                        <li><a href="./menu.php">Menu
                             <i class="fas fa-sort-down"></i>
                             <ul class="subnav">
                                 <li class="subnav__items"><a href="">
@@ -68,7 +68,7 @@
                                 </a></li>                            
                             </ul>
                         </a></li>
-                        <li><a href="./story1.html">Chuyện cà phê và Trà
+                        <li><a href="./story.php">Chuyện cà phê và Trà
                             <i class="fas fa-sort-down"></i>
                             <ul class="subnav">
                                 <li class="subnav__items"><a href="">
@@ -96,9 +96,9 @@
                                 </a></li>                                                            
                             </ul>
                         </a></li>
-                        <li><a href="./shop.html">Cửa hàng</a></li>
-                        <li><a href="./tuyendung.html">Tuyển dụng</a></li>
-                        <li><a href="./KhaiTruong.html">Ưu đãi thành viên</a></li>
+                        <li><a href="./shop.php">Cửa hàng</a></li>
+                        <li><a href="./tuyendung.php" target ="_blank">Tuyển dụng</a></li>
+                        <li><a href="./KhaiTruong.php">Ưu đãi thành viên</a></li>
                         <li class="js-login"><a>
                             <p class="nav__login">Đăng Nhập</p>
                             <i class="fa-solid fa-user"></i>
