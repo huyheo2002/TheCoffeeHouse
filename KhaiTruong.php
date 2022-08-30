@@ -150,7 +150,7 @@ if (isset($_SESSION['message'])) {
                          <!--Thay doi khi dang nhap-->
                          <?php if (isset($_SESSION['message'])) { ?>
                             <li class="nav-item dropdown d-flex" style="padding: 0 0">
-                                <a class=" dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class=" dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <?php echo $a ?>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -166,10 +166,8 @@ if (isset($_SESSION['message'])) {
                         <?php } ?>
                         <?php if (!isset($_SESSION['message'])) { ?>
                             <li class="js-login">
-                                <p class="nav__login">
                                     <?php echo $a ?>
                                     <i class="fa-solid fa-user"></i>
-                                </p>
                             </li>
                         <?php } ?>
                     </ul>
@@ -279,6 +277,7 @@ if (isset($_SESSION['message'])) {
                 </div>
                 <div class="footer__socials">
                     <div class="social_bg">
+                        <img src="./assets/img/items-hot/footerBgLogo.jpg" alt="" class="social__bgImg">
                         <div class="social__logo">
                             <img src="./assets/img/items-hot/footerLogo.jpg" alt="">
                         </div>

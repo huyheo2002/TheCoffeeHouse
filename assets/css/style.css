@@ -79,6 +79,53 @@
     animation: subnavHover 0.5s;
 }
 
+/* fix items header hover */
+/* .list__nav li:hover ul.dropdown-menu{
+    background-color: #fff;
+    color: #000;
+    display: block;
+} */
+
+ul.dropdown-menu {
+    list-style-type: none;
+    background-color: #fff;
+    display: none;
+    width: 145px;
+    position: absolute;
+    right: 0;
+    top: 60px;
+}
+
+li.nav-item.dropdown.d-flex {
+    width: 125px;
+    position: relative;
+    /* ADD: overflow hidden nếu tên dài quá hiển thị 3 ... */
+    white-space: nowrap;
+    /* sao overflow vào hỏng cm chức năng nhỉ :v */
+    /* overflow: hidden; */
+    text-overflow: ellipsis;
+}
+
+/* a#navbarDropdown {
+    width: 125px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} */
+
+.list__nav li.nav-item.dropdown.d-flex:hover ul.dropdown-menu{
+    background-color: #fff;
+    /* display: block; */
+}
+
+.list__nav li:hover a.dropdown-item{
+    color: #000;
+}
+
+ul.dropdown-menu li:hover a.dropdown-item{
+    color: #ea8025;
+}
+
 .list__nav a{
     color: #000;
     text-decoration: none;
@@ -150,7 +197,7 @@
 
 .footer{
     width: 80%;
-    height: 100%;
+    /* height: 100%; */
     margin: 0 10%;
     padding: 5% 0;
     display: flex;
@@ -160,6 +207,7 @@
 .footer__introduce , .footer__rules , .footer__hotline , .footer__socials{
     width: 300px;
     line-height: 22px;
+    position: relative;
 }
 
 .introduce__title , .rules__title , .hotline__phone , .hotline__contact{
@@ -226,9 +274,17 @@
 .social_bg{
     width: 100%;
     height: 150px;
-    background: url(/assets/img/items-hot/footerBgLogo.jpg) center/cover no-repeat;
-    position: relative;
+    /* background: url(/assets/img/items-hot/footerBgLogo.jpg) center/cover no-repeat; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
     z-index: 10;
+}
+
+.social_bg .social__bgImg{
+    width: 100%;
+    height: 100%;
 }
 
 .social__logo{
@@ -247,6 +303,11 @@
 
 .social__desc {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 15;
 }
 
 .social__name{
@@ -338,6 +399,8 @@
 .social__icon{
     width: 100%;
     display: flex;
+    position: absolute;
+    bottom: 40px;
 }
 
 .social__icon i{
