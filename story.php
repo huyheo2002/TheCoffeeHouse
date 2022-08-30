@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
 
 
 
-session_start();
+// session_start();
 if (isset($_SESSION['message'])) {
     $a = "Chào mừng: " . $_SESSION['dataUser'];
     $b = "Thông tin của tôi";
