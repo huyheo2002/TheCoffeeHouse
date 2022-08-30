@@ -57,12 +57,13 @@
     background-color: whitesmoke;
 }
 
-#navbar li{
-    margin-top: 20px;
-}
-
-ul{
+li{
     list-style-type: none;
+    /* margin-top: 20px; */
+}
+#navbar li {
+        list-style-type: none;
+        margin-top: 20px;
 }
 
 .poster img{
@@ -144,6 +145,7 @@ ul{
     padding: 4px;
     border-radius: 8px;
     border: 1px solid  rgb(233, 233, 170);
+    margin-bottom: 20px;
 }
 
 .Map:hover{
