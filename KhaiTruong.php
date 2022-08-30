@@ -4,25 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ưu đãi thành viên</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/tea.css">
+    <link rel="stylesheet" href="./assets/css/KhaiTruong.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Trà</title>
 </head>
 <body>
     <div id="main">
         <div class="header__wrap">
             <div class="header">
                 <div class="header__logo">
-                    <a href="./home.html">
+                    <a href="./home.php">
                         <img src="./assets/img/items-hot/header_logo.jpg" alt="">
                     </a>
                 </div>
                 <div class="header__nav">
                     <ul class="list__nav">
-                        <li><a href="./coffee.html">Cà phê</a></li>
-                        <li><a href="./tea.html">Trà</a></li>
-                        <li><a href="./menu.html">Menu
+                        <li><a href="./coffee.php">Cà phê</a></li>
+                        <li><a href="./tea.php">Trà</a></li>
+                        <li><a href="./menu.php">Menu
                             <i class="fas fa-sort-down"></i>
                             <ul class="subnav">
                                 <li class="subnav__items"><a href="">
@@ -68,7 +68,7 @@
                                 </a></li>                            
                             </ul>
                         </a></li>
-                        <li><a href="./story1.html">Chuyện cà phê và Trà
+                        <li><a href="./story.php">Chuyện cà phê và Trà
                             <i class="fas fa-sort-down"></i>
                             <ul class="subnav">
                                 <li class="subnav__items"><a href="">
@@ -96,9 +96,9 @@
                                 </a></li>                            
                             </ul>
                         </a></li>
-                        <li><a href="./shop.html">Cửa hàng</a></li>
-                        <li><a href="./tuyendung.html">Tuyển dụng</a></li>
-                        <li><a href="./KhaiTruong.html">Ưu đãi thành viên</a></li>
+                        <li><a href="./shop.php">Cửa hàng</a></li>
+                        <li><a href="./tuyendung.php" target ="_blank">Tuyển dụng</a></li>
+                        <li><a href="./KhaiTruong.php">Ưu đãi thành viên</a></li>
                         <li class="js-login"><a>
                             <p class="nav__login">Đăng Nhập</p>
                             <i class="fa-solid fa-user"></i>
@@ -107,198 +107,74 @@
                 </div>
             </div>
         </div>
-        <!-- poster -->
-        <div class="poster"></div>
-        <!-- menu items-hot -->
-        <div class="itemsHot__wrap">
-            <h3 class="title__itemTea">Trà Tại Nhà</h3>
-            <ul class="itemsHot__list">
-                <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea1.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Combo Quà Tết 2022
-                        </h3>
-                        <p class="itemHot__value">
-                            321.000 đ
-                        </p>
-                    </div>
-                </a></li>
-                <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea2.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Giftset Trà Tearoma
-                        </h3>
-                        <p class="itemHot__value">
-                            169.000 đ
-                        </p>
-                    </div>
-                </a></li>
-                <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea3.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Combo 3 hộp trà Lài túi lọc Tearoma
-                        </h3>
-                        <p class="itemHot__value">
-                            69.000 đ
-                        </p>
-                    </div>
-                </a></li>
-                <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea4.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Combo 3 hộp trà Sen túi lọc Tearoma
-                        </h3>
-                        <p class="itemHot__value">
-                            69.000 đ
-                        </p>
-                    </div>
-                </a></li>
-                <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea5.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Combo 3 hộp trà Đào túi lọc Tearoma
-                        </h3>
-                        <p class="itemHot__value">
-                            69.000 đ
-                        </p>
-                    </div>
-                </a></li>
-                <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea6.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                           Combo 3 hộp trà Oolong túi lọc Tearoma
-                        </h3>
-                        <p class="itemHot__value">
-                            69.000 đ
-                        </p>
-                    </div>
-                </a></li>
-                <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea7.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Trà Đào Túi Lọc Tearoma 20 x 2gr
-                        </h3>
-                        <p class="itemHot__value">
-                            28.000 đ
-                        </p>
-                    </div>
-                </a></li>
-                <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea8.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Trà Lài Túi Lọc Tearoma 20 x 2gr
-                        </h3>
-                        <p class="itemHot__value">
-                            28.000 đ
-                        </p>
-                    </div>
-                </a></li>
-                <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea9.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Trà Oolong Túi Lọc Tearoma 20 x 2gr
-                        </h3>
-                        <p class="itemHot__value">
-                            28.000 đ
-                        </p>
-                    </div>
-                </a></li>
-                <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea10.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Trà Sen Túi Lọc Tearoma 20 x 2gr
-                        </h3>
-                        <p class="itemHot__value">
-                            28.000 đ
-                        </p>
-                    </div>
-                </a></li>
-                <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea11.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Trà Xanh Lá Tearoma 100gr
-                        </h3>
-                        <p class="itemHot__value">
-                            75.000 đ
-                        </p>
-                    </div>
-                </a></li>
-                <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea12.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Trà Sen Lá Tearoma 100gr
-                        </h3>
-                        <p class="itemHot__value">
-                            80.000 đ
-                        </p>
-                    </div>
-                </a></li>
-                <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea13.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Trà Oolong Lá Tearoma 100gr
-                        </h3>
-                        <p class="itemHot__value">
-                            100.000 đ
-                        </p>
-                    </div>
-                </a></li>
-                <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea14.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Trà Lài Lá Tearoma 100gr
-                        </h3>
-                        <p class="itemHot__value">
-                            80.000 đ
-                        </p>
-                    </div>
-                </a></li>
-            </ul>
-        </div>
+            <!--content-->
+             <div class="content__wrap">
+                <div class="container">
+                    <div class="content__left">
+                       <h1>
+                        MỪNG KHAI TRƯƠNG THE COFFEE HOUSE THE PARK HOME
+                      
+                       <br>
+                        NHẬN NGAY ƯU ĐÃI GIẢM 20%
+                       </h1>
+                       <div class="content__left__sale">
+                           <p>
+                            🔸 Giảm 20% cho món nước, bánh, snack
+                            <br>
+                            🔸 Không áp dụng cho cà phê gói/lon, trà Tearoma, chai Fresh, topping, các loại combo & vật phẩm lưu niệm
+                            <br>
+                            🔸 Áp dụng cho dịch vụ Giao hàng, Mang đi, Mua tại cửa hàng
+                            <br>
+                            🔸 Thời gian lấy coupon: 11/03 - 31/03/2022 (có thể kết thúc sớm hơn dự kiến do số lượng coupon giới hạn)
+                            <br>
+                            🔸 Ưu đãi có hạn dùng trong 10 ngày
+                            <br>
+                            🔸 Không áp dụng các chương trình khuyến mãi song song
+                           </p>
 
-        <!-- footer -->
+                       </div>
+                       <div style= " text-align: center;background-color: rgba(229, 121, 5, 1); width: 300px; height: 40px; padding: 10px; border-radius: 5px; margin-top: 20px;">
+                           <a style= "text-decoration: none; color: white ; font-weight: 600px;" href=""> Nhận Code Khuyến Mãi</a>
+                       </div>
+                         <img src="./assets/img/KhaiTruongNhaMoi/Home.png" alt="">
+                    </div>
+                    <img style= " width: 42%; height: 100%; position: absolute; margin-left: 273.5px;" src="./assets/img/KhaiTruongNhaMoi/Bgr_right.png" alt=""> 
+                    <!--content__right-->
+                    <div class="content__right">
+                        <div>
+                            <div class="content__right_img">
+                                <img src="./assets/img/KhaiTruongNhaMoi/Store.png" alt="">
+                            </div>
+                            <img src="./assets/img/KhaiTruongNhaMoi/img_content.png" alt="">
+                           
+                        </div>
+                            <div class="Note1">
+                                <div class="Note">
+                                    <a  style= " text-decoration: none;color: black; font-weight: 600px;" href=""> Xem cửa hàng</a>
+                                </div>
+                              <ul style=" margin-left: 340px; margin-top: -35px; font-size: 16px; ">
+                                chia sẻ: 
+                                <li style="display: inline-block; margin-bottom: -4px;">
+                                    <img style= "width: 25px; height: 25px;" src="./assets/img/KhaiTruongNhaMoi/facebook.png" alt="">
+                                </li>
+                                <li style="display: inline-block; margin-bottom: -4px;">
+                                    <img style= "width: 25px; height: 25px;" src="./assets/img/KhaiTruongNhaMoi/zalo.png" alt="">
+                                </li>
+                                <li style="display: inline-block; margin-bottom: -4px;">
+                                    <img style= "width: 25px; height: 25px;" src="./assets/img/KhaiTruongNhaMoi/message.png" alt="">
+                                </li>
+                                <li style="display: inline-block; margin-bottom: -4px;">
+                                    <img style= "width: 25px; height: 25px;" src="./assets/img/KhaiTruongNhaMoi/Link.png" alt="">
+                                </li>
+
+                              </ul>
+                            </div>
+                    </div>
+                    
+                </div>        
+        </div> 
+           <!-- Footer-->
+                  <!-- Footer-->
         <div class="footer__wrap">
             <div class="footer">
                 <div class="footer__introduce">
@@ -364,6 +240,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- Modal -->
@@ -421,5 +298,6 @@
         </div>
     </div>
     <script src="./assets/js/base.js"></script>
+
 </body>
 </html>

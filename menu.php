@@ -4,25 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ưu đãi thành viên</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/KhaiTruong.css">
+    <link rel="stylesheet" href="./assets/css/menu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Menu</title>
 </head>
 <body>
     <div id="main">
+        <!-- header -->
         <div class="header__wrap">
             <div class="header">
                 <div class="header__logo">
-                    <a href="./home.html">
+                    <a href="./home.php">
                         <img src="./assets/img/items-hot/header_logo.jpg" alt="">
                     </a>
                 </div>
                 <div class="header__nav">
                     <ul class="list__nav">
-                        <li><a href="./coffee.html">Cà phê</a></li>
-                        <li><a href="./tea.html">Trà</a></li>
-                        <li><a href="./menu.html">Menu
+                        <li><a href="./coffee.php">Cà phê</a></li>
+                        <li><a href="./tea.php">Trà</a></li>
+                        <li><a href="./menu.php">Menu
                             <i class="fas fa-sort-down"></i>
                             <ul class="subnav">
                                 <li class="subnav__items"><a href="">
@@ -68,7 +69,7 @@
                                 </a></li>                            
                             </ul>
                         </a></li>
-                        <li><a href="./story1.html">Chuyện cà phê và Trà
+                        <li><a href="./story.php">Chuyện cà phê và Trà
                             <i class="fas fa-sort-down"></i>
                             <ul class="subnav">
                                 <li class="subnav__items"><a href="">
@@ -96,9 +97,9 @@
                                 </a></li>                            
                             </ul>
                         </a></li>
-                        <li><a href="./shop.html">Cửa hàng</a></li>
-                        <li><a href="./tuyendung.html">Tuyển dụng</a></li>
-                        <li><a href="./KhaiTruong.html">Ưu đãi thành viên</a></li>
+                        <li><a href="./shop.php">Cửa hàng</a></li>
+                        <li><a href="./tuyendung.php" target ="_blank">Tuyển dụng</a></li>
+                        <li><a href="./KhaiTruong.php">Ưu đãi thành viên</a></li>
                         <li class="js-login"><a>
                             <p class="nav__login">Đăng Nhập</p>
                             <i class="fa-solid fa-user"></i>
@@ -107,74 +108,153 @@
                 </div>
             </div>
         </div>
-            <!--content-->
-             <div class="content__wrap">
-                <div class="container">
-                    <div class="content__left">
-                       <h1>
-                        MỪNG KHAI TRƯƠNG THE COFFEE HOUSE THE PARK HOME
-                      
-                       <br>
-                        NHẬN NGAY ƯU ĐÃI GIẢM 20%
-                       </h1>
-                       <div class="content__left__sale">
-                           <p>
-                            🔸 Giảm 20% cho món nước, bánh, snack
-                            <br>
-                            🔸 Không áp dụng cho cà phê gói/lon, trà Tearoma, chai Fresh, topping, các loại combo & vật phẩm lưu niệm
-                            <br>
-                            🔸 Áp dụng cho dịch vụ Giao hàng, Mang đi, Mua tại cửa hàng
-                            <br>
-                            🔸 Thời gian lấy coupon: 11/03 - 31/03/2022 (có thể kết thúc sớm hơn dự kiến do số lượng coupon giới hạn)
-                            <br>
-                            🔸 Ưu đãi có hạn dùng trong 10 ngày
-                            <br>
-                            🔸 Không áp dụng các chương trình khuyến mãi song song
-                           </p>
-
-                       </div>
-                       <div style= " text-align: center;background-color: rgba(229, 121, 5, 1); width: 300px; height: 40px; padding: 10px; border-radius: 5px; margin-top: 20px;">
-                           <a style= "text-decoration: none; color: white ; font-weight: 600px;" href=""> Nhận Code Khuyến Mãi</a>
-                       </div>
-                         <img src="./assets/img/KhaiTruongNhaMoi/Home.png" alt="">
-                    </div>
-                    <img style= " width: 42%; height: 100%; position: absolute; margin-left: 273.5px;" src="./assets/img/KhaiTruongNhaMoi/Bgr_right.png" alt=""> 
-                    <!--content__right-->
-                    <div class="content__right">
-                        <div>
-                            <div class="content__right_img">
-                                <img src="./assets/img/KhaiTruongNhaMoi/Store.png" alt="">
-                            </div>
-                            <img src="./assets/img/KhaiTruongNhaMoi/img_content.png" alt="">
-                           
+        <!-- container-menu -->
+        <div class="menu__Container">
+            <div class="menu__Sidebar">
+                <ul class="menu__listItems">
+                    <li class="menu__itemsBlock"><a href="#" class="menu__items menu__items-link" id="menu__item-1">
+                        <div class="menu__dotCoffee visible" id="dotCoffee-1">
+                            <img src="./assets/img/menu/coffee-beans1.png" alt="">
                         </div>
-                            <div class="Note1">
-                                <div class="Note">
-                                    <a  style= " text-decoration: none;color: black; font-weight: 600px;" href=""> Xem cửa hàng</a>
-                                </div>
-                              <ul style=" margin-left: 340px; margin-top: -35px; font-size: 16px; ">
-                                chia sẻ: 
-                                <li style="display: inline-block; margin-bottom: -4px;">
-                                    <img style= "width: 25px; height: 25px;" src="./assets/img/KhaiTruongNhaMoi/facebook.png" alt="">
-                                </li>
-                                <li style="display: inline-block; margin-bottom: -4px;">
-                                    <img style= "width: 25px; height: 25px;" src="./assets/img/KhaiTruongNhaMoi/zalo.png" alt="">
-                                </li>
-                                <li style="display: inline-block; margin-bottom: -4px;">
-                                    <img style= "width: 25px; height: 25px;" src="./assets/img/KhaiTruongNhaMoi/message.png" alt="">
-                                </li>
-                                <li style="display: inline-block; margin-bottom: -4px;">
-                                    <img style= "width: 25px; height: 25px;" src="./assets/img/KhaiTruongNhaMoi/Link.png" alt="">
-                                </li>
-
-                              </ul>
-                            </div>
+                        <p class="menu__text glow">Tất Cả</p>                        
+                    </a></li>
+                    <li class="menu__itemsBlock"><a href="#" class="menu__items menu__items-link" id="menu__item-2">
+                        <div class="menu__dotCoffee" id="dotCoffee-2">
+                            <img src="./assets/img/menu/coffee-beans1.png" alt="">
+                        </div>
+                        <p class="menu__text">Cà Phê</p>   
+                        <ul class="menu__subnav">
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Cà Phê Việt Nam</a></li>
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Cà Phê Máy</a></li>
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Cold Brew</a></li>
+                        </ul>
+                    </a></li>
+                    <li class="menu__itemsBlock"><a href="#" class="menu__items menu__items-link" id="menu__item-3">
+                        <div class="menu__dotCoffee" id="dotCoffee-3">
+                            <img src="./assets/img/menu/coffee-beans1.png" alt="">
+                        </div>
+                        <p class="menu__text">Trà</p>   
+                        <ul class="menu__subnav">
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Trà Trái Cây</a></li>
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Trà Sữa Macchiato</a></li>
+                        </ul>
+                    </a></li>
+                    <li class="menu__itemsBlock"><a href="#" class="menu__items menu__items-link" id="menu__item-4">
+                        <div class="menu__dotCoffee" id="dotCoffee-4">
+                            <img src="./assets/img/menu/coffee-beans1.png" alt="">
+                        </div>
+                        <p class="menu__text">Món Khác</p>   
+                        <ul class="menu__subnav">
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Đá Xay</a></li>
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Matcha - Socola</a></li>
+                        </ul>
+                    </a></li>
+                    <li class="menu__itemsBlock"><a href="#" class="menu__items menu__items-link" id="menu__item-5">
+                        <div class="menu__dotCoffee" id="dotCoffee-5">
+                            <img src="./assets/img/menu/coffee-beans1.png" alt="">
+                        </div>
+                        <p class="menu__text">Bánh & Snack</p>   
+                        <ul class="menu__subnav">
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Bánh Mặn</a></li>
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Bánh Ngọt</a></li>
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Snack</a></li>
+                        </ul>
+                    </a></li>
+                    <li class="menu__itemsBlock"><a href="#" class="menu__items menu__items-link" id="menu__item-6">
+                        <div class="menu__dotCoffee" id="dotCoffee-6">
+                            <img src="./assets/img/menu/coffee-beans1.png" alt="">
+                        </div>
+                        <p class="menu__text">Tại Nhà</p>
+                        <ul class="menu__subnav">
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Cà Phê Tại Nhà</a></li>
+                            <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Trà Tại Nhà</a></li>
+                        </ul>
+                    </a></li>
+                </ul>
+            </div>
+            <div class="menu__content">
+                <div class="menuContent__wrap">
+                    <div class="menu__promote">
+                        <img src="./assets/img/menu/menuPromote.jpg" alt="">
                     </div>
-                    
-                </div>        
-        </div> 
-           <!-- Footer-->
-                  <!-- Footer-->
+                    <!-- coffee VN -->
+                    <!-- menu items-hot -->
+                    <div class="itemsHot__wrap">
+                        <!-- cà phê việt nam -->
+                        <h3 class="title__itemTea">Cà Phê Việt Nam</h3>
+                        <ul class="itemsHot__list">
+                            
+                        </ul>
+
+                        <!-- cà phê máy -->
+                        <h3 class="title__itemTea">Cà Phê Máy</h3>
+                        <ul class="itemsHot__list">
+                            
+                        </ul>
+
+                        <!-- Cold brew -->
+                        <h3 class="title__itemTea">Cold Brew</h3>
+                        <ul class="itemsHot__list">
+
+                        </ul>
+
+                        <!-- Trà trái cây -->
+                        <h3 class="title__itemTea">Trà Trái Cây</h3>
+                        <ul class="itemsHot__list">
+                            
+                        </ul>
+
+                        <!-- Trà sữa Macchiato -->
+                        <h3 class="title__itemTea">Trà Sữa Macchiato</h3>
+                        <ul class="itemsHot__list">
+                            
+                        </ul>
+
+                        <!-- Đá xay -->
+                        <h3 class="title__itemTea">Đá Xay</h3>
+                        <ul class="itemsHot__list">
+                            
+                        </ul>
+
+                        <!-- matcha - socola -->
+                        <h3 class="title__itemTea">Matcha - Socola</h3>
+                        <ul class="itemsHot__list">
+                            
+                        </ul>
+
+                        <!-- Bánh mặn -->
+                        <h3 class="title__itemTea">Bánh Mặn</h3>
+                        <ul class="itemsHot__list">
+                            
+                        </ul>
+
+                        <!-- Bánh ngọt -->
+                        <h3 class="title__itemTea">Bánh Ngọt</h3>
+                        <ul class="itemsHot__list">
+                            
+                        </ul>
+
+                        <!-- snack -->
+                        <h3 class="title__itemTea">Snack</h3>
+                        <ul class="itemsHot__list">
+
+                        </ul>
+
+                        <!-- Cà phê tại nhà -->
+                        <h3 class="title__itemTea">Cà Phê Tại Nhà</h3>
+                        <ul class="itemsHot__list">
+                            
+                        </ul>
+                        <!-- Trà tại nhà -->
+                        <h3 class="title__itemTea">Trà Tại Nhà</h3>
+                        <ul class="itemsHot__list">
+                            
+                        </ul>
+                    </div>
+                </div>    
+            </div>
+        </div>
+        <!-- footer -->
         <div class="footer__wrap">
             <div class="footer">
                 <div class="footer__introduce">
@@ -240,9 +320,48 @@
                 </div>
             </div>
         </div>
+        <!-- cart -->
+        
+        <div class="btn__cart-wrap">
+            <div class="btn__cart">
+                <i class="fa-solid fa-cart-shopping" id="cart__logo"></i>
+            </div>
+            <div class="cart__badge">
+                <i class="fa-solid fa-star">
+                    <p class="count">1</p>
+                </i>
+            </div>
+        </div>
 
+        <div class="cart__sidebar">
+            <div class="cart__sidebar-overlay">
+                <header class="cart__title">
+                    <h3 class="cart__title-text">Thông báo</h3>
+                    <div class="cart__btnClose">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </header>
+                <ul class="cart__list">
+                    <li><a href="">
+                        <div class="cart__imgWrap">
+                            <img src="./assets/img/menu/BM1.jpg" alt="">
+                        </div>
+                        <div class="cart__info">
+                            <h4 class="cart__info-title">hi</h4>
+                            <p class="cart__info-value">124.000đ</p>
+                        </div>
+                    </a></li>                    
+                                    
+                </ul>
+
+                <footer class="cart__footer">
+                    <div class="cart__footer-btnReset">Reset</div>
+                    <div class="cart__footer-btnBuy">Thanh toán</div>
+                </footer>
+            </div>            
+        </div>
     </div>
-
+    
     <!-- Modal -->
     <div class="modal js-modal">
         <div class="modal__container js-modalContainer">
@@ -297,7 +416,14 @@
             </div>
         </div>
     </div>
-    <script src="./assets/js/base.js"></script>
 
+    <script>
+        // tránh lan truyền sự kiện (truyền vào event con)
+        function isCheckPropagation(e){
+            e.stopPropagation();    
+        }
+    </script>
+    <script src="./assets/js/base.js"></script>
+    <script src="./assets/js/menu.js" type="module"></script>
 </body>
 </html>
