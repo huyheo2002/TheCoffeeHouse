@@ -109,7 +109,9 @@
             </div>
         </div>
         <!-- poster -->
-        <div class="poster"></div>
+        <div class="poster">
+            <img src="./assets/img/poster.jpeg" alt="">
+        </div>
         <!-- menu items-hot -->
         <div class="itemsHot__wrap">
             <ul class="itemsHot__list">

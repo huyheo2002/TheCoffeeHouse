@@ -108,7 +108,9 @@
             </div>
         </div>
         <!-- poster -->
-        <div class="poster"></div>
+        <div class="poster">
+            <img src="./assets/img/coffee-tea/coffee/slider-coffee.jpeg" alt="">
+        </div>
         <!-- menu items-hot -->
         <div class="itemsHot__wrap">
             <h3 class="title__itemCoffee">Cà Phê Tại Nhà</h3>

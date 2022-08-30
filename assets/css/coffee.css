@@ -1,8 +1,13 @@
 .poster{
-    background: no-repeat center/cover url("/assets/img/coffee-tea/coffee/slider-coffee.jpeg");
+    /* background: no-repeat center/cover url("/assets/img/coffee-tea/coffee/slider-coffee.jpeg"); */
     height: 400px;
     position: relative;
     margin-top: 60px;
+}
+
+.poster img{
+    width: 100%;
+    height: 100%;
 }
 
 /* items hot */
