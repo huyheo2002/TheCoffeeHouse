@@ -1,5 +1,53 @@
+<?php
+include './classes/User.php';
+
+$err = [];
+if (isset($_POST['submit'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    if (empty($email)) {
+        $err['email'] = 'Bạn chưa nhập email';
+    }
+    if (empty($password)) {
+        $err['password'] = 'Bạn chưa nhập mật khẩu';
+    }
+
+
+    if (empty($err)) {
+
+        $dataLogin = [
+            'email' => $_POST['email'],
+            // 'password'=>$pass
+        ];
+
+
+        Auth::login($dataLogin);
+        header("location:./tea.php");
+    }
+}
+
+
+
+session_start();
+if (isset($_SESSION['message'])) {
+    $a = "Chào mừng: " . $_SESSION['dataUser'];
+    $b = "Thông tin của tôi";
+    $linkB = "information.php";
+    $linkD = "Logout.php";
+    $_SESSION['login_tea'] = "login";
+} else {
+    $a = "Tài khoản";
+    $linkC = "Register.php";
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +57,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Trà</title>
 </head>
+
 <body>
     <div id="main">
         <div class="header__wrap">
@@ -23,86 +72,107 @@
                         <li><a href="./coffee.php">Cà phê</a></li>
                         <li><a href="./tea.php">Trà</a></li>
                         <li><a href="./menu.php">Menu
-                            <i class="fas fa-sort-down"></i>
-                            <ul class="subnav">
-                                <li class="subnav__items"><a href="">
-                                    <h3 class="title__menu">Tất cả</h3>
-                                    <div class="content__menu"></div>
-                                </a></li>
-                                <li class="subnav__items"><a href="">
-                                    <h3 class="title__menu">Cà phê</h3>
-                                    <div class="content__menu">
-                                        <p>Cà Phê Việt Nam</p>
-                                        <p>Cà Phê Máy</p>
-                                        <p>Cold Brew</p>
-                                    </div>
-                                </a></li>
-                                <li class="subnav__items"><a href="">
-                                    <h3 class="title__menu">Trà</h3>
-                                    <div class="content__menu">
-                                        <p>Trà trái cây</p>
-                                        <p>Trà sữa Macchiato</p>
-                                    </div>
-                                </a></li>
-                                <li class="subnav__items"><a href="">
-                                    <h3 class="title__menu">Món khác</h3>
-                                    <div class="content__menu">
-                                        <p>Đá xay</p>
-                                        <p>Matcha - Socola</p>
-                                    </div>
-                                </a></li>
-                                <li class="subnav__items"><a href="">
-                                    <h3 class="title__menu">Bánh & Snack</h3>
-                                    <div class="content__menu">
-                                        <p>Bánh mặn</p>
-                                        <p>Bánh ngọt</p>
-                                        <p>Snack</p>
-                                    </div>
-                                </a></li>
-                                <li class="subnav__items"><a href="">
-                                    <h3 class="title__menu">Tại nhà</h3>
-                                    <div class="content__menu">
-                                        <p>Cà phê tại nhà</p>
-                                        <p>Trà tại nhà</p>
-                                    </div>
-                                </a></li>                            
-                            </ul>
-                        </a></li>
+                                <i class="fas fa-sort-down"></i>
+                                <ul class="subnav">
+                                    <li class="subnav__items"><a href="">
+                                            <h3 class="title__menu">Tất cả</h3>
+                                            <div class="content__menu"></div>
+                                        </a></li>
+                                    <li class="subnav__items"><a href="">
+                                            <h3 class="title__menu">Cà phê</h3>
+                                            <div class="content__menu">
+                                                <p>Cà Phê Việt Nam</p>
+                                                <p>Cà Phê Máy</p>
+                                                <p>Cold Brew</p>
+                                            </div>
+                                        </a></li>
+                                    <li class="subnav__items"><a href="">
+                                            <h3 class="title__menu">Trà</h3>
+                                            <div class="content__menu">
+                                                <p>Trà trái cây</p>
+                                                <p>Trà sữa Macchiato</p>
+                                            </div>
+                                        </a></li>
+                                    <li class="subnav__items"><a href="">
+                                            <h3 class="title__menu">Món khác</h3>
+                                            <div class="content__menu">
+                                                <p>Đá xay</p>
+                                                <p>Matcha - Socola</p>
+                                            </div>
+                                        </a></li>
+                                    <li class="subnav__items"><a href="">
+                                            <h3 class="title__menu">Bánh & Snack</h3>
+                                            <div class="content__menu">
+                                                <p>Bánh mặn</p>
+                                                <p>Bánh ngọt</p>
+                                                <p>Snack</p>
+                                            </div>
+                                        </a></li>
+                                    <li class="subnav__items"><a href="">
+                                            <h3 class="title__menu">Tại nhà</h3>
+                                            <div class="content__menu">
+                                                <p>Cà phê tại nhà</p>
+                                                <p>Trà tại nhà</p>
+                                            </div>
+                                        </a></li>
+                                </ul>
+                            </a></li>
                         <li><a href="./story.php">Chuyện cà phê và Trà
-                            <i class="fas fa-sort-down"></i>
-                            <ul class="subnav">
-                                <li class="subnav__items"><a href="">
-                                    <h3 class="title__story">Coffeeholic</h3>
-                                    <div class="content__story">
-                                        <p>#chuyencaphe</p>
-                                        <p>#phacaphe</p>
-                                        <p>#phatra</p>
-                                    </div>
-                                </a></li>
-                                <li class="subnav__items"><a href="">
-                                    <h3 class="title__story">Teaholic</h3>
-                                    <div class="content__story">
-                                        <p>#phatra</p>
-                                        <p>#cauchuyenvetra</p>
-                                    </div>
-                                </a></li>
-                                <li class="subnav__items"><a href="">
-                                    <h3 class="title__story">Blog</h3>
-                                    <div class="content__story">
-                                        <p>#inthemood</p>
-                                        <p>#Review</p>
-                                        <p>#HumanofTCH</p>
-                                    </div>
-                                </a></li>                            
-                            </ul>
-                        </a></li>
+                                <i class="fas fa-sort-down"></i>
+                                <ul class="subnav">
+                                    <li class="subnav__items"><a href="">
+                                            <h3 class="title__story">Coffeeholic</h3>
+                                            <div class="content__story">
+                                                <p>#chuyencaphe</p>
+                                                <p>#phacaphe</p>
+                                                <p>#phatra</p>
+                                            </div>
+                                        </a></li>
+                                    <li class="subnav__items"><a href="">
+                                            <h3 class="title__story">Teaholic</h3>
+                                            <div class="content__story">
+                                                <p>#phatra</p>
+                                                <p>#cauchuyenvetra</p>
+                                            </div>
+                                        </a></li>
+                                    <li class="subnav__items"><a href="">
+                                            <h3 class="title__story">Blog</h3>
+                                            <div class="content__story">
+                                                <p>#inthemood</p>
+                                                <p>#Review</p>
+                                                <p>#HumanofTCH</p>
+                                            </div>
+                                        </a></li>
+                                </ul>
+                            </a></li>
                         <li><a href="./shop.php">Cửa hàng</a></li>
-                        <li><a href="./tuyendung.php" target ="_blank" > Tuyển dụng</a></li>
+                        <li><a href="./tuyendung.php" target="_blank"> Tuyển dụng</a></li>
                         <li><a href="./KhaiTruong.php">Ưu đãi thành viên</a></li>
-                        <li class="js-login"><a>
-                            <p class="nav__login">Đăng Nhập</p>
-                            <i class="fa-solid fa-user"></i>
-                        </a></li>
+                        <!--Thay doi khi dang nhap-->
+                        <?php if (isset($_SESSION['message'])) { ?>
+                            <li class="nav-item dropdown d-flex" style="padding: 0 0">
+                                <a class=" dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <?php echo $a ?>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="<?php echo $linkB ?>"><?php echo $b ?></a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="<?php echo $linkD ?>">Đăng xuất</a></li>
+
+                                </ul>
+                            </li>
+
+                        <?php } ?>
+                        <?php if (!isset($_SESSION['message'])) { ?>
+                            <li class="js-login">
+                                <p class="nav__login">
+                                    <?php echo $a ?>
+                                    <i class="fa-solid fa-user"></i>
+                                </p>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
@@ -116,187 +186,187 @@
             <h3 class="title__itemTea">Trà Tại Nhà</h3>
             <ul class="itemsHot__list">
                 <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea1.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Combo Quà Tết 2022
-                        </h3>
-                        <p class="itemHot__value">
-                            321.000 đ
-                        </p>
-                    </div>
-                </a></li>
+                        <div class="itemHot__imgWrap">
+                            <img src="./assets/img/coffee-tea/tea/IT__Tea1.jpg" alt="">
+                        </div>
+                        <div class="itemHot__content">
+                            <h3 class="itemHot__title">
+                                Combo Quà Tết 2022
+                            </h3>
+                            <p class="itemHot__value">
+                                321.000 đ
+                            </p>
+                        </div>
+                    </a></li>
                 <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea2.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Giftset Trà Tearoma
-                        </h3>
-                        <p class="itemHot__value">
-                            169.000 đ
-                        </p>
-                    </div>
-                </a></li>
+                        <div class="itemHot__imgWrap">
+                            <img src="./assets/img/coffee-tea/tea/IT__Tea2.jpg" alt="">
+                        </div>
+                        <div class="itemHot__content">
+                            <h3 class="itemHot__title">
+                                Giftset Trà Tearoma
+                            </h3>
+                            <p class="itemHot__value">
+                                169.000 đ
+                            </p>
+                        </div>
+                    </a></li>
                 <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea3.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Combo 3 hộp trà Lài túi lọc Tearoma
-                        </h3>
-                        <p class="itemHot__value">
-                            69.000 đ
-                        </p>
-                    </div>
-                </a></li>
+                        <div class="itemHot__imgWrap">
+                            <img src="./assets/img/coffee-tea/tea/IT__Tea3.jpg" alt="">
+                        </div>
+                        <div class="itemHot__content">
+                            <h3 class="itemHot__title">
+                                Combo 3 hộp trà Lài túi lọc Tearoma
+                            </h3>
+                            <p class="itemHot__value">
+                                69.000 đ
+                            </p>
+                        </div>
+                    </a></li>
                 <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea4.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Combo 3 hộp trà Sen túi lọc Tearoma
-                        </h3>
-                        <p class="itemHot__value">
-                            69.000 đ
-                        </p>
-                    </div>
-                </a></li>
+                        <div class="itemHot__imgWrap">
+                            <img src="./assets/img/coffee-tea/tea/IT__Tea4.jpg" alt="">
+                        </div>
+                        <div class="itemHot__content">
+                            <h3 class="itemHot__title">
+                                Combo 3 hộp trà Sen túi lọc Tearoma
+                            </h3>
+                            <p class="itemHot__value">
+                                69.000 đ
+                            </p>
+                        </div>
+                    </a></li>
                 <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea5.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Combo 3 hộp trà Đào túi lọc Tearoma
-                        </h3>
-                        <p class="itemHot__value">
-                            69.000 đ
-                        </p>
-                    </div>
-                </a></li>
+                        <div class="itemHot__imgWrap">
+                            <img src="./assets/img/coffee-tea/tea/IT__Tea5.jpg" alt="">
+                        </div>
+                        <div class="itemHot__content">
+                            <h3 class="itemHot__title">
+                                Combo 3 hộp trà Đào túi lọc Tearoma
+                            </h3>
+                            <p class="itemHot__value">
+                                69.000 đ
+                            </p>
+                        </div>
+                    </a></li>
                 <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea6.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                           Combo 3 hộp trà Oolong túi lọc Tearoma
-                        </h3>
-                        <p class="itemHot__value">
-                            69.000 đ
-                        </p>
-                    </div>
-                </a></li>
+                        <div class="itemHot__imgWrap">
+                            <img src="./assets/img/coffee-tea/tea/IT__Tea6.jpg" alt="">
+                        </div>
+                        <div class="itemHot__content">
+                            <h3 class="itemHot__title">
+                                Combo 3 hộp trà Oolong túi lọc Tearoma
+                            </h3>
+                            <p class="itemHot__value">
+                                69.000 đ
+                            </p>
+                        </div>
+                    </a></li>
                 <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea7.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Trà Đào Túi Lọc Tearoma 20 x 2gr
-                        </h3>
-                        <p class="itemHot__value">
-                            28.000 đ
-                        </p>
-                    </div>
-                </a></li>
+                        <div class="itemHot__imgWrap">
+                            <img src="./assets/img/coffee-tea/tea/IT__Tea7.jpg" alt="">
+                        </div>
+                        <div class="itemHot__content">
+                            <h3 class="itemHot__title">
+                                Trà Đào Túi Lọc Tearoma 20 x 2gr
+                            </h3>
+                            <p class="itemHot__value">
+                                28.000 đ
+                            </p>
+                        </div>
+                    </a></li>
                 <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea8.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Trà Lài Túi Lọc Tearoma 20 x 2gr
-                        </h3>
-                        <p class="itemHot__value">
-                            28.000 đ
-                        </p>
-                    </div>
-                </a></li>
+                        <div class="itemHot__imgWrap">
+                            <img src="./assets/img/coffee-tea/tea/IT__Tea8.jpg" alt="">
+                        </div>
+                        <div class="itemHot__content">
+                            <h3 class="itemHot__title">
+                                Trà Lài Túi Lọc Tearoma 20 x 2gr
+                            </h3>
+                            <p class="itemHot__value">
+                                28.000 đ
+                            </p>
+                        </div>
+                    </a></li>
                 <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea9.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Trà Oolong Túi Lọc Tearoma 20 x 2gr
-                        </h3>
-                        <p class="itemHot__value">
-                            28.000 đ
-                        </p>
-                    </div>
-                </a></li>
+                        <div class="itemHot__imgWrap">
+                            <img src="./assets/img/coffee-tea/tea/IT__Tea9.jpg" alt="">
+                        </div>
+                        <div class="itemHot__content">
+                            <h3 class="itemHot__title">
+                                Trà Oolong Túi Lọc Tearoma 20 x 2gr
+                            </h3>
+                            <p class="itemHot__value">
+                                28.000 đ
+                            </p>
+                        </div>
+                    </a></li>
                 <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea10.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Trà Sen Túi Lọc Tearoma 20 x 2gr
-                        </h3>
-                        <p class="itemHot__value">
-                            28.000 đ
-                        </p>
-                    </div>
-                </a></li>
+                        <div class="itemHot__imgWrap">
+                            <img src="./assets/img/coffee-tea/tea/IT__Tea10.jpg" alt="">
+                        </div>
+                        <div class="itemHot__content">
+                            <h3 class="itemHot__title">
+                                Trà Sen Túi Lọc Tearoma 20 x 2gr
+                            </h3>
+                            <p class="itemHot__value">
+                                28.000 đ
+                            </p>
+                        </div>
+                    </a></li>
                 <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea11.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Trà Xanh Lá Tearoma 100gr
-                        </h3>
-                        <p class="itemHot__value">
-                            75.000 đ
-                        </p>
-                    </div>
-                </a></li>
+                        <div class="itemHot__imgWrap">
+                            <img src="./assets/img/coffee-tea/tea/IT__Tea11.jpg" alt="">
+                        </div>
+                        <div class="itemHot__content">
+                            <h3 class="itemHot__title">
+                                Trà Xanh Lá Tearoma 100gr
+                            </h3>
+                            <p class="itemHot__value">
+                                75.000 đ
+                            </p>
+                        </div>
+                    </a></li>
                 <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea12.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Trà Sen Lá Tearoma 100gr
-                        </h3>
-                        <p class="itemHot__value">
-                            80.000 đ
-                        </p>
-                    </div>
-                </a></li>
+                        <div class="itemHot__imgWrap">
+                            <img src="./assets/img/coffee-tea/tea/IT__Tea12.jpg" alt="">
+                        </div>
+                        <div class="itemHot__content">
+                            <h3 class="itemHot__title">
+                                Trà Sen Lá Tearoma 100gr
+                            </h3>
+                            <p class="itemHot__value">
+                                80.000 đ
+                            </p>
+                        </div>
+                    </a></li>
                 <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea13.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Trà Oolong Lá Tearoma 100gr
-                        </h3>
-                        <p class="itemHot__value">
-                            100.000 đ
-                        </p>
-                    </div>
-                </a></li>
+                        <div class="itemHot__imgWrap">
+                            <img src="./assets/img/coffee-tea/tea/IT__Tea13.jpg" alt="">
+                        </div>
+                        <div class="itemHot__content">
+                            <h3 class="itemHot__title">
+                                Trà Oolong Lá Tearoma 100gr
+                            </h3>
+                            <p class="itemHot__value">
+                                100.000 đ
+                            </p>
+                        </div>
+                    </a></li>
                 <li><a href="">
-                    <div class="itemHot__imgWrap">
-                        <img src="./assets/img/coffee-tea/tea/IT__Tea14.jpg" alt="">
-                    </div>
-                    <div class="itemHot__content">
-                        <h3 class="itemHot__title">
-                            Trà Lài Lá Tearoma 100gr
-                        </h3>
-                        <p class="itemHot__value">
-                            80.000 đ
-                        </p>
-                    </div>
-                </a></li>
+                        <div class="itemHot__imgWrap">
+                            <img src="./assets/img/coffee-tea/tea/IT__Tea14.jpg" alt="">
+                        </div>
+                        <div class="itemHot__content">
+                            <h3 class="itemHot__title">
+                                Trà Lài Lá Tearoma 100gr
+                            </h3>
+                            <p class="itemHot__value">
+                                80.000 đ
+                            </p>
+                        </div>
+                    </a></li>
             </ul>
         </div>
 
@@ -387,28 +457,35 @@
 
             <div class="modal__body">
                 <!-- attribute for trong thẻ label chỉ sd với id -->
-                <label for="modal-user" class="modal__label">
-                    <i class="fas fa-user"></i>
-                    Tài Khoản:
-                </label>
-                <input id="modal-user" type="text" class="modal__input-user" placeholder="Tên Người Dùng/ Email">
+                <form action="" method="post">
+                    <label for="modal-user" class="modal__label">
+                        <i class="fas fa-user"></i>
+                        Email:
+                    </label>
+                    <input id="modal-user" name="email" type="text" class="modal__input-user" placeholder="Email">
+                    <div id="emailHelp" class="text-danger">
+                        <span><?php echo (isset($err['email'])) ? $err['email'] : "" ?></span>
+                    </div>
 
-                <label for="modal-pass" class="modal__label">
-                    <i class="fas fa-key"></i>
-                    Mật Khẩu:
-                </label>
-                <input id="modal-pass" type="password" class="modal__input-pass" placeholder="Mật Khẩu">
-
-                <button class="modal__login">
-                    Đăng Nhập
-                </button>
-                
+                    <label for="modal-pass" class="modal__label">
+                        <i class="fas fa-key"></i>
+                        Mật Khẩu:
+                    </label>
+                    <input id="modal-pass" name="password" type="password" class="modal__input-pass" placeholder="Mật Khẩu">
+                    <div class="text-danger">
+                        <span><?php echo (isset($err['password'])) ? $err['password'] : "" ?></span>
+                    </div>
+                    <button class="modal__login" type="submit" name="submit">
+                        Đăng Nhập
+                    </button>
+                </form>
             </div>
+
 
             <div class="modal__footer">
                 <div class="modal__footer-head">
-                    <a href="">Request Support</a>
-                    <a href="">Registration</a>
+                    <a href="">Hỗ trợ</a>
+                    <a href="<?php echo $linkC ?>" target="_blank">Đăng ký</a>
                 </div>
 
                 <p class="modal__footer-subhead">Hoặc đăng nhập bằng các tài khoản sau</p>
@@ -424,4 +501,5 @@
     </div>
     <script src="./assets/js/base.js"></script>
 </body>
+
 </html>
