@@ -149,10 +149,12 @@ if (isset($_SESSION['message'])) {
                         <li><a href="./KhaiTruong.php">Ưu đãi thành viên</a></li>
                          <!--Thay doi khi dang nhap-->
                          <?php if (isset($_SESSION['message'])) { ?>
-                            <li class="nav-item dropdown d-flex" style="padding: 0 0">
-                                <a class=" dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <?php echo $a ?>
-                                </a>
+                            <li class="nav-item dropdown d-flex" style="padding: 0 0">                            
+                                <div class="overlay__textUser">
+                                    <a class=" dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <?php echo $a ?>
+                                    </a>
+                                </div>  
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="<?php echo $linkB ?>"><?php echo $b ?></a></li>
                                     <li>

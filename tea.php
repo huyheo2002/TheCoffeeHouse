@@ -151,9 +151,11 @@ if (isset($_SESSION['message'])) {
                         <!--Thay doi khi dang nhap-->
                         <?php if (isset($_SESSION['message'])) { ?>
                             <li class="nav-item dropdown d-flex" style="padding: 0 0">
-                                <a class=" dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <?php echo $a ?>
-                                </a>
+                                <div class="overlay__textUser">
+                                    <a class=" dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <?php echo $a ?>
+                                    </a>
+                                </div>  
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="<?php echo $linkB ?>"><?php echo $b ?></a></li>
                                     <li>

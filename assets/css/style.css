@@ -106,12 +106,12 @@ li.nav-item.dropdown.d-flex {
     text-overflow: ellipsis;
 }
 
-/* a#navbarDropdown {
-    width: 125px;
+.overlay__textUser {
+    width: 100%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-} */
+}
 
 .list__nav li.nav-item.dropdown.d-flex:hover ul.dropdown-menu{
     background-color: #fff;
