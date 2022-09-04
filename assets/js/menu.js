@@ -52,8 +52,42 @@ fetch("./assets/data/products.json")
                 case "CoffeeVN":
                     coffeeVN.push(product);
                     break;
+                case "MachineCoffee":
+                    machineCoffee.push(product);
+                    break;
+                case "ColdBrew":
+                    coldBrew.push(product);
+                    break;
+                case "FruitTea":
+                    fruitTea.push(product);
+                    break;
+                case "MacchiatoMilkTea":
+                    macchiatoMilkTea.push(product);
+                    break;
+                case "GrindIce":
+                    grindIce.push(product);
+                    break;
+                case "MatchaSocola":
+                    matchaSocola.push(product);
+                    break;
+                case "SaltyCake":
+                    saltyCake.push(product);
+                    break;
+                case "SweetCake":
+                    sweetCake.push(product);
+                    break;
+                case "Snack":
+                    snack.push(product);
+                    break;
+                case "CoffeeAtHome":
+                    coffeeAtHome.push(product);
+                    break;
+                case "TeaAtHome":
+                    teaAtHome.push(product);
+                    break;                    
                 default:
                     console.log("bruh :V");
+                    break;
             }
 
             // SIDEBAR :v
@@ -268,51 +302,51 @@ fetch("./assets/data/products.json")
 
             // Array map trong JavaScript là phương thức trong Array Object, có tác dụng xử lý tuần tự và tạo mảng mới từ các phần tử trong mảng ban đầu.
             // arrObj.map( callback(value, index, array) )
-            let arrCoffeeVN = data.coffeeVN.map(
+            let arrCoffeeVN = coffeeVN.map(
                 (obj) => new CoffeeVN(obj.image, obj.title, obj.value)
             );
 
-            let arrMachineCoffee = data.machineCoffee.map(
+            let arrMachineCoffee = machineCoffee.map(
                 (obj) => new MachineCoffee(obj.image, obj.title, obj.value)
             );
 
-            let arrColdBrew = data.coldBrew.map(
+            let arrColdBrew = coldBrew.map(
                 (obj) => new ColdBrew(obj.image, obj.title, obj.value)
             );
 
-            let arrFruitTea = data.fruitTea.map(
+            let arrFruitTea = fruitTea.map(
                 (obj) => new FruitTea(obj.image, obj.title, obj.value)
             );
 
-            let arrMacchiatoMilkTea = data.macchiatoMilkTea.map(
+            let arrMacchiatoMilkTea = macchiatoMilkTea.map(
                 (obj) => new MacchiatoMilkTea(obj.image, obj.title, obj.value)
             );
 
-            let arrGrindIce = data.grindIce.map(
+            let arrGrindIce = grindIce.map(
                 (obj) => new GrindIce(obj.image, obj.title, obj.value)
             );
 
-            let arrMatchaSocola = data.matchaSocola.map(
+            let arrMatchaSocola = matchaSocola.map(
                 (obj) => new MatchaSocola(obj.image, obj.title, obj.value)
             );
 
-            let arrSaltyCake = data.saltyCake.map(
+            let arrSaltyCake = saltyCake.map(
                 (obj) => new SaltyCake(obj.image, obj.title, obj.value)
             );
 
-            let arrSweetCake = data.sweetCake.map(
+            let arrSweetCake = sweetCake.map(
                 (obj) => new SweetCake(obj.image, obj.title, obj.value)
             );
 
-            let arrSnack = data.snack.map(
+            let arrSnack = snack.map(
                 (obj) => new Snack(obj.image, obj.title, obj.value)
             );
 
-            let arrCoffeeAtHome = data.coffeeAtHome.map(
+            let arrCoffeeAtHome = coffeeAtHome.map(
                 (obj) => new CoffeeAtHome(obj.image, obj.title, obj.value)
             );
 
-            let arrTeaAtHome = data.teaAtHome.map(
+            let arrTeaAtHome = teaAtHome.map(
                 (obj) => new TeaAtHome(obj.image, obj.title, obj.value)
             );
 

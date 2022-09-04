@@ -38,7 +38,6 @@ if (isset($_SESSION['message'])) {
     $linkC = "Register.php";
 }
 
-
 ?>
 
 <!DOCTYPE html>
@@ -148,9 +147,8 @@ if (isset($_SESSION['message'])) {
 
                         <!--Thay doi khi dang nhap-->
                         <?php if (isset($_SESSION['message'])) { ?>
-                            <!-- thêm biến chứa username vào title -->
-                            <!-- title="" -->
-                            <li class="nav-item dropdown d-flex" style="padding: 0 0">
+                            <!-- thêm biến chứa username vào title -->                                                     
+                            <li class="nav-item dropdown d-flex" style="padding: 0 0" title="<?php echo $_SESSION['dataUser']?>">
                                 <div class="overlay__textUser">
                                     <a class=" dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <?php echo $a ?>

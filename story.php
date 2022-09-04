@@ -151,7 +151,7 @@ if (isset($_SESSION['message'])) {
                         <li><a href="./KhaiTruong.php">Ưu đãi thành viên</a></li>
                         <!--Thay doi khi dang nhap-->
                         <?php if (isset($_SESSION['message'])) { ?>
-                            <li class="nav-item dropdown d-flex" style="padding: 0 0">
+                            <li class="nav-item dropdown d-flex" style="padding: 0 0" title="<?php echo $_SESSION['dataUser']?>">
                                 <div class="overlay__textUser">
                                     <a class=" dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <?php echo $a ?>
@@ -169,10 +169,10 @@ if (isset($_SESSION['message'])) {
 
                         <?php } ?>
                         <?php if (!isset($_SESSION['message'])) { ?>
-                            <li class="js-login">
+                            <li class="js-login"><a>
                                 <?php echo $a ?>
                                 <i class="fa-solid fa-user"></i>
-                            </li>
+                            </a></li>
                         <?php } ?>
                     </ul>
                 </div>
