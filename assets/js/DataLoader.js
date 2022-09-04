@@ -11,6 +11,7 @@ fetch("./assets/data/products.json")
           break;
       }
     });
+    
   })
   .catch(err => console.log(err));
 
@@ -48,3 +49,4 @@ export const coffeeAtHome = [];
 
 // trà tại nhà
 export const teaAtHome = [];
+
