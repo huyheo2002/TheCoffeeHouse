@@ -13,8 +13,6 @@ import { Snack } from "./Items/Snack.js";
 import { CoffeeAtHome } from "./Items/CoffeeAtHome.js";
 import { TeaAtHome } from "./Items/TeaAtHome.js";
 
-
-
 // CART 
 let cart = new Cart();
 var btnToggleCart = document.querySelector(".btn__cart");

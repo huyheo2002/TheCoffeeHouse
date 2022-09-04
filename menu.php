@@ -41,6 +41,19 @@ if (isset($_SESSION['message'])) {
     $linkC = "Register.php";
 }
 
+// phần truy xuất dữ liệu từ sql :v (ko sửa phần dưới)
+require_once ("./classes/DB.php");
+
+// $conn = DB::getConnection();
+// $sql = "select * from user";
+$sql = "select image, title, `value`, name from products, category where category.id = products.category_id";
+$test = DB::execute($sql);
+
+// viết json :v
+file_put_contents(
+    './assets/data/products.json',
+    json_encode($test)
+);
 
 ?>
 
@@ -500,6 +513,13 @@ if (isset($_SESSION['message'])) {
 
     <script>
         // tránh lan truyền sự kiện (truyền vào event con)
+        // fetch("./assets/data/products.json")
+        // .then(res => res.json())
+        // .then(data => {
+        //     console.log(data);
+        //     document.querySelector(".btnTest").onclick = () => console.log(data);
+        // })
+        // .catch(err => console.log(err));
         function isCheckPropagation(e) {
             e.stopPropagation();
         }
