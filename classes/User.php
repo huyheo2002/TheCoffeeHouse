@@ -43,16 +43,17 @@ class Auth
         $user = Auth::attempt($dataLogin);
 
         if (count($user) > 0) {
-            $checkPass = password_verify($_POST['password'], $user['password']);//đối chiếu mật khẩu nhập vào và mật khẩu trên SQL xem có trùng nhau không?
+            $checkPass = password_verify($_POST['password'], $user['password']); //đối chiếu mật khẩu nhập vào và mật khẩu trên SQL xem có trùng nhau không?
             if ($checkPass == true) {
                 $_SESSION['message'] = "Login success";
                 $_SESSION['message_login'] = "Login success";
                 $_SESSION['dataUser'] = $user['username'];
                 $_SESSION['dataEmail'] = $user['email'];
+            } else {
+                $_SESSION['wrongPassword'] = "Sai mật khẩu!";
             }
-            echo '<script>alert("Sai email hoặc mật khẩu!")</script>';
         } else {
-            echo '<script>alert("Email không tồn tại!")</script>';
+            $_SESSION['wrongEmail'] = "email không tồn tại!";
         }
     }
 
@@ -62,12 +63,14 @@ class Auth
     {
         if (isset($_SESSION['message'])) {
             $user = Auth::attempt($dataLogin);
-            if (count($user) > 0){
+            if (count($user) > 0) {
                 $_SESSION['user_username'] = $user['username'];
                 $_SESSION['user_email'] = $user['email'];
             }
         }
     }
+    
+
 
 
     //ham dang xuat
@@ -99,19 +102,72 @@ class Auth
     static public function update($dataUpdate)
     {
         $sql = "update user set username=:username,password=:password where email=:email";
-        $check= DB::execute($sql, $dataUpdate);
+        $check = DB::execute($sql, $dataUpdate);
         return count($check) > 0 ? $check[0] : [];
-        if(count($check) > 0){
+        if (count($check) > 0) {
             $_SESSION['message_update'] = "update success";
         }
-        
-        
     }
 
     //ham xoa du lieu trong bang user thong qua email
-    static public function delete($email){
-        $sql="delete from user where email=:email";
-        $dataDelete=['email'=>$email];
+    static public function delete($email)
+    {
+        $sql = "delete from user where email=:email";
+        $dataDelete = ['email' => $email];
         DB::execute($sql, $dataDelete);
     }
+
+    //lay thong tin trong bang information thong qua email trong bang user
+    static public function getDataInformation($dataLogin)
+    {
+        $sql = "SELECT * FROM information,user WHERE user.email=information.email AND user.email=:email";
+
+        $user = DB::execute($sql, $dataLogin);
+        return count($user) > 0 ? $user[0] : [];
+       
+    }
+    static public function getDataInformation2($dataLogin)
+    {
+        $user = Auth::getDataInformation($dataLogin);
+        if (count($user) > 0) {
+            $_SESSION['getDataInformation_fullName'] = $user['fullName'];
+            $_SESSION['getDataInformation_birthday'] = $user['birthday'];
+            $_SESSION['getDataInformation_phoneNumber'] = $user['phoneNumber'];
+            $_SESSION['getDataInformation_email'] = $user['email'];
+            $_SESSION['getDataInformation_sex'] = $user['sex'];
+            $_SESSION['getDataInformation_address'] = $user['address'];
+            $_SESSION['getDataInformation_username'] = $user['username'];
+        }
+    }
+
+    static public function updateInformation($dataUpdateInformation)
+    {
+        $sql = "update information set fullName=:fullName, birthday=:birthday, phoneNumber=:phoneNumber, sex=:sex, address=:address where email=:email";
+        $check = DB::execute($sql, $dataUpdateInformation);
+        return count($check) > 0 ? $check[0] : [];
+        if (count($check) > 0) {
+            $_SESSION['message_update_information'] = "update success";
+        }
+    }
+
+
+    static public function updateUser($dataUpdateUser)
+    {
+        $sql = "update user set username=:username where email=:email";
+        $check = DB::execute($sql, $dataUpdateUser);
+        return count($check) > 0 ? $check[0] : [];
+        if (count($check) > 0) {
+            $_SESSION['message_update_user'] = "update success";
+        }
+    }
+
+
+    
+
+
+
+
+
+
+
 }

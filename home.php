@@ -27,8 +27,9 @@ if (isset($_POST['submit'])) {
     }
 }
 
+
 if (isset($_SESSION['message'])) {
-    $a = "Chào mừng: " . $_SESSION['dataUser'];
+    $a = "Chào mừng: " . $_SESSION['user_username'];
     $b = "Thông tin của tôi";
     $linkB = "information.php";
     $linkD = "Logout.php";

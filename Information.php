@@ -1,39 +1,82 @@
 <?php
 include './classes/User.php';
+$dataLogin = [
+    'email' => $_SESSION['dataEmail']
+
+];
+
+Auth::checkLogin($dataLogin);
 
 $err = [];
+//doi mat khau
 if (isset($_POST['submit'])) {
-    $email = $_POST['email'];
     $password = $_POST['password'];
+    $rPassword = $_POST['rPassword'];
 
-    if (empty($email)) {
-        $err['email'] = 'Bạn chưa nhập email';
-    }
+
     if (empty($password)) {
         $err['password'] = 'Bạn chưa nhập mật khẩu';
+    }
+    if ($rPassword != $password) {
+        $err['password'] = 'Mật khẩu không khớp';
     }
 
 
     if (empty($err)) {
-
-        $dataLogin = [
-            'email' => $_POST['email'],
-            // 'password'=>$pass
+        $pass = password_hash($password, PASSWORD_DEFAULT);
+        $dataUpdate = [
+            'username' => $_SESSION['user_username'],
+            'email' => $_SESSION['user_email'],
+            
+            'password'=>$pass
         ];
 
-
-        Auth::login($dataLogin);
-        header("location:./home.php");
+        Auth::update($dataUpdate);
+        if (isset($_SESSION['message_update'])) {
+            header('location:./information.php');
+            unset($_SESSION['message_update']);
+        }
     }
 }
 
 
-$dataLogin = [
-    'email' => $_SESSION['dataEmail']
-    // 'password'=>$pass
-];
+//cap nhat thong tin
 
-Auth::checkLogin($dataLogin);
+Auth::getDataInformation2($dataLogin);
+if (isset($_POST['update'])) {
+
+    $dataUpdateInformation = [
+        'fullName' => $_POST['fullName'],
+        'sex' => $_SESSION['getDataInformation_sex'],
+        'birthday' => $_POST['birthday'],
+        'phoneNumber' => $_POST['phoneNumber'],
+        'address' => $_POST['address'],
+        'email' => $_SESSION['dataEmail']
+        // 'password'=>$_POST['password']
+    ];
+    $dataUpdateUser = [
+        'username'=>$_POST['username'],
+        'email' => $_SESSION['dataEmail']
+        // 'password'=>$_POST['password']
+    ];
+    Auth::updateInformation($dataUpdateInformation);
+    Auth::updateUser($dataUpdateUser);
+    if (isset($_SESSION['message_update_information']) && isset($_SESSION['message_update_user'])) {
+        header('location:./information.php');
+        
+        unset($_SESSION['message_update_information']);
+        unset($_SESSION['message_update_user']);
+        unset($_SESSION['dataUser']);
+        $_SESSION['dataUser']=$_SESSION['user_username'];
+        
+    }
+    header("refresh: 0");
+    exit();
+}
+
+
+
+
 
 ?>
 
@@ -57,9 +100,8 @@ Auth::checkLogin($dataLogin);
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"></script>
 </head>
 
-
 <body style="background-color: #FFF7E6;">
-    <section class="vh-100" style="background-color: #FFF7E6;">
+    <section class="vh-100">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -85,26 +127,26 @@ Auth::checkLogin($dataLogin);
 
                                     <div class="text-center mb-3">
                                         <!--set avatar user-->
-                                        <h1 style="text-align:center ;"><?php echo $_SESSION['dataUser'] ?></h1>
+                                        <h1 style="text-align:center ;"><?php echo $_SESSION['user_username'] ?></h1>
 
                                     </div>
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="">Họ & tên: </label>
-                                        <label for=""></label>
+                                        <label for=""><?php echo $_SESSION['getDataInformation_fullName'] ?></label>
                                     </div>
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="">Giới tính: </label>
-                                        <label for=""></label>
+                                        <label for=""><?php echo $_SESSION['getDataInformation_sex'] ?></label>
                                     </div>
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="">Ngày sinh: </label>
-                                        <label for=""></label>
+                                        <label for=""><?php echo $_SESSION['getDataInformation_birthday'] ?></label>
                                     </div>
 
                                     <!-- Email input -->
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="">Số điện thoại: </label>
-                                        <label for="">09090909090900</label>
+                                        <label for=""><?php echo $_SESSION['getDataInformation_phoneNumber'] ?></label>
                                     </div>
 
                                     <!-- Password input -->
@@ -115,7 +157,7 @@ Auth::checkLogin($dataLogin);
 
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="">Địa chỉ giao hàng: </label>
-                                        <label for=""></label>
+                                        <label for=""><?php echo $_SESSION['getDataInformation_address'] ?></label>
                                     </div>
 
                                     <!-- 2 column grid layout -->
@@ -162,7 +204,7 @@ Auth::checkLogin($dataLogin);
                                                         <label for="modal-user" class="modal__label">
                                                             Họ & tên:
                                                         </label>
-                                                        <input id="modal-user" name="fullName" type="text" class="modal__input-user">
+                                                        <input id="modal-user" name="fullName" type="text" class="modal__input-user" value="<?php echo $_SESSION['getDataInformation_fullName'] ?>">
 
 
                                                         <!-- <div class="d-flex justify-content-around align-items-center mb-4"> -->
@@ -186,27 +228,28 @@ Auth::checkLogin($dataLogin);
 
 
                                                         </div>
+                                                        <label for="modal-pass" class="modal__label">
+                                                            Tên tài khoản
+                                                        </label>
+                                                        <input id="modal-pass" name="username" type="text" class="modal__input-pass" value="<?php echo $_SESSION['getDataInformation_username'] ?>">
+
 
                                                         <label for="modal-pass" class="modal__label">
-                                                            Ngày sinh
+                                                            Ngày sinh (Năm/Tháng/Ngày)
                                                         </label>
-                                                        <input id="modal-pass" name="birthday" type="text" class="modal__input-pass">
+                                                        <input id="modal-pass" name="birthday" type="text" class="modal__input-pass" value="<?php echo $_SESSION['getDataInformation_birthday'] ?>">
 
 
                                                         <label for="modal-pass" class="modal__label" type="text" class="modal__input-pass">
                                                             Số điện thoại
                                                         </label>
-                                                        <input id="modal-pass" name="phoneNumber" type="text" class="modal__input-pass">
+                                                        <input id="modal-pass" name="phoneNumber" type="text" class="modal__input-pass" value="<?php echo $_SESSION['getDataInformation_phoneNumber'] ?>">
 
-                                                        <label for="modal-pass" class="modal__label">
-                                                            địa chỉ email
-                                                        </label>
-                                                        <input id="modal-pass" name="email" type="email" class="modal__input-pass">
 
                                                         <label for="modal-pass" class="modal__label">
                                                             địa chỉ giao hàng
                                                         </label>
-                                                        <input id="modal-pass" name="address" type="email" class="modal__input-pass">
+                                                        <input id="modal-pass" name="address" type="text" class="modal__input-pass" value="<?php echo $_SESSION['getDataInformation_address'] ?>">
 
 
                                                         <!-- Submit button -->
@@ -233,12 +276,12 @@ Auth::checkLogin($dataLogin);
 
                                                     <form action="" method="post">
                                                         <!-- Email input -->
-                                                        <div class="form-outline mb-4">
+                                                        <!-- <div class="form-outline mb-4">
                                                             <label for="modal-pass" class="modal__label" type="text" class="modal__input-pass">
-                                                                Địa chỉ email
+                                                                Địa chỉ email của tài khoản
                                                             </label>
-                                                            <input id="modal-pass" name="email" type="email" class="modal__input-pass"> <span class="text-danger"><?php echo (isset($err['email'])) ? $err['email'] : "" ?></span>
-                                                        </div>
+                                                            
+                                                        </div> -->
 
                                                         <!-- Password input -->
                                                         <div class="form-outline mb-4">
