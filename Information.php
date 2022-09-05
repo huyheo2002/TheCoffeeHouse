@@ -27,6 +27,14 @@ if (isset($_POST['submit'])) {
     }
 }
 
+
+$dataLogin = [
+    'email' => $_SESSION['dataEmail']
+    // 'password'=>$pass
+];
+
+Auth::checkLogin($dataLogin);
+
 ?>
 
 <!DOCTYPE html>
@@ -50,8 +58,8 @@ if (isset($_POST['submit'])) {
 </head>
 
 
-<body>
-    <section class="vh-100" style="background-color: #508bfc;">
+<body style="background-color: #FFF7E6;">
+    <section class="vh-100" style="background-color: #FFF7E6;">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -74,129 +82,210 @@ if (isset($_POST['submit'])) {
                             <!-- Pills content -->
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-                                    <form>
-                                        <div class="text-center mb-3">
+
+                                    <div class="text-center mb-3">
+                                        <!--set avatar user-->
                                         <h1 style="text-align:center ;"><?php echo $_SESSION['dataUser'] ?></h1>
-                                            <button type="button" class="btn btn-link btn-floating mx-1">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </button>
 
-                                            <button type="button" class="btn btn-link btn-floating mx-1">
-                                                <i class="fab fa-google"></i>
-                                            </button>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="">Họ & tên: </label>
+                                        <label for=""></label>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="">Giới tính: </label>
+                                        <label for=""></label>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="">Ngày sinh: </label>
+                                        <label for=""></label>
+                                    </div>
 
-                                            <button type="button" class="btn btn-link btn-floating mx-1">
-                                                <i class="fab fa-twitter"></i>
-                                            </button>
+                                    <!-- Email input -->
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="">Số điện thoại: </label>
+                                        <label for="">09090909090900</label>
+                                    </div>
 
-                                            <button type="button" class="btn btn-link btn-floating mx-1">
-                                                <i class="fab fa-github"></i>
-                                            </button>
+                                    <!-- Password input -->
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="loginPassword">Địa chỉ email:</label>
+                                        <label for=""><?php echo $_SESSION['user_email'] ?></label>
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="">Địa chỉ giao hàng: </label>
+                                        <label for=""></label>
+                                    </div>
+
+                                    <!-- 2 column grid layout -->
+                                    <!-- <div class="row mb-4">
+                                        <div class="col-md-6 d-flex justify-content-center">
+                                            
+                                            <div class="form-check mb-3 mb-md-0">
+                                                <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
+                                                <label class="form-check-label" for="loginCheck"> Remember me </label>
+                                            </div>
                                         </div>
 
-                                        <p class="text-center">or:</p>
-
-                                        <!-- Email input -->
-                                        <div class="form-outline mb-4">
-                                            <input type="email" id="loginName" class="form-control" />
-                                            <label class="form-label" for="loginName">Email or username</label>
+                                        <div class="col-md-6 d-flex justify-content-center">
+                                           
+                                            <a href="#!">Forgot password?</a>
                                         </div>
+                                    </div>
 
-                                        <!-- Password input -->
-                                        <div class="form-outline mb-4">
-                                            <input type="password" id="loginPassword" class="form-control" />
-                                            <label class="form-label" for="loginPassword">Password</label>
-                                        </div>
+                                    
+                                    <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
 
-                                        <!-- 2 column grid layout -->
-                                        <div class="row mb-4">
-                                            <div class="col-md-6 d-flex justify-content-center">
-                                                <!-- Checkbox -->
-                                                <div class="form-check mb-3 mb-md-0">
-                                                    <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
-                                                    <label class="form-check-label" for="loginCheck"> Remember me </label>
+                                    
+                                    <div class="text-center">
+                                        <p>Not a member? <a href="#!">Register</a></p>
+                                    </div> -->
+
+                                </div>
+                                <!--sua thong tin-->
+                                <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+
+
+                                    <div class="accordion" id="accordionExample">
+
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingOne">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    Thông tin chi tiết
+                                                </button>
+                                            </h2>
+                                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <form action="" method="post">
+                                                        <!-- Email input -->
+                                                        <label for="modal-user" class="modal__label">
+                                                            Họ & tên:
+                                                        </label>
+                                                        <input id="modal-user" name="fullName" type="text" class="modal__input-user">
+
+
+                                                        <!-- <div class="d-flex justify-content-around align-items-center mb-4"> -->
+                                                        <!-- Checkbox -->
+
+                                                        <div class="form-check">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th scope="col">Giới tính</th>
+                                                                        <th scope="col">
+                                                                        <td><input class="form-check-input" name="cb" type="radio" value="cbNam" id="form1Example3" checked />Nam</td>
+                                                                        </th>
+                                                                        <th scope="col">
+                                                                        <td><input class="form-check-input" name="cb" type="radio" value="cbNu" id="form1Example3" />Nữ</td>
+                                                                        </th>
+
+                                                                    </tr>
+                                                                </thead>
+                                                            </table>
+
+
+                                                        </div>
+
+                                                        <label for="modal-pass" class="modal__label">
+                                                            Ngày sinh
+                                                        </label>
+                                                        <input id="modal-pass" name="birthday" type="text" class="modal__input-pass">
+
+
+                                                        <label for="modal-pass" class="modal__label" type="text" class="modal__input-pass">
+                                                            Số điện thoại
+                                                        </label>
+                                                        <input id="modal-pass" name="phoneNumber" type="text" class="modal__input-pass">
+
+                                                        <label for="modal-pass" class="modal__label">
+                                                            địa chỉ email
+                                                        </label>
+                                                        <input id="modal-pass" name="email" type="email" class="modal__input-pass">
+
+                                                        <label for="modal-pass" class="modal__label">
+                                                            địa chỉ giao hàng
+                                                        </label>
+                                                        <input id="modal-pass" name="address" type="email" class="modal__input-pass">
+
+
+                                                        <!-- Submit button -->
+
+                                                        <button style="width: 100%;" type="submit" name="update" class="btn btn-primary btn-lg btn-block">Cập nhật</button>
+
+
+
+                                                    </form>
                                                 </div>
                                             </div>
+                                        </div>
 
-                                            <div class="col-md-6 d-flex justify-content-center">
-                                                <!-- Simple link -->
-                                                <a href="#!">Forgot password?</a>
+                                        <!--Noi dung 2-->
+
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingTwo">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    Đổi mật khẩu
+                                                </button>
+                                            </h2>
+                                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+
+                                                    <form action="" method="post">
+                                                        <!-- Email input -->
+                                                        <div class="form-outline mb-4">
+                                                            <label for="modal-pass" class="modal__label" type="text" class="modal__input-pass">
+                                                                Địa chỉ email
+                                                            </label>
+                                                            <input id="modal-pass" name="email" type="email" class="modal__input-pass"> <span class="text-danger"><?php echo (isset($err['email'])) ? $err['email'] : "" ?></span>
+                                                        </div>
+
+                                                        <!-- Password input -->
+                                                        <div class="form-outline mb-4">
+                                                            <label for="modal-pass" class="modal__label" class="modal__input-pass">
+                                                                Nhập mật khẩu mới
+                                                            </label>
+                                                            <input id="modal-pass" name="password" type="password" class="modal__input-pass"> <span class="text-danger"><?php echo (isset($err['password'])) ? $err['password'] : "" ?></span>
+                                                        </div>
+
+                                                        <!-- confirm input -->
+                                                        <div class="form-outline mb-4">
+                                                            <label for="modal-pass" class="modal__label" class="modal__input-pass">
+                                                                Nhập lại mật khẩu mới
+                                                            </label>
+                                                            <input id="modal-pass" name="rPassword" type="password" class="modal__input-pass"> <span class="text-danger"><?php echo (isset($err['rPassword'])) ? $err['rPassword'] : "" ?></span>
+
+                                                        </div>
+
+
+
+
+                                                        <!-- Submit button -->
+                                                        <button style="width: 100%;" type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Thay đổi</button>
+
+
+                                                    </form>
+
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <!-- Submit button -->
-                                        <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+                                        <!--Noi dung 3-->
 
-                                        <!-- Register buttons -->
-                                        <div class="text-center">
-                                            <p>Not a member? <a href="#!">Register</a></p>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-                                    <form>
-                                        <div class="text-center mb-3">
-                                            <p>Sign up with:</p>
-                                            <button type="button" class="btn btn-link btn-floating mx-1">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </button>
+                                        <!-- <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingThree">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    Accordion Item #3
+                                                </button>
+                                            </h2>
+                                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                    </div>
 
-                                            <button type="button" class="btn btn-link btn-floating mx-1">
-                                                <i class="fab fa-google"></i>
-                                            </button>
-
-                                            <button type="button" class="btn btn-link btn-floating mx-1">
-                                                <i class="fab fa-twitter"></i>
-                                            </button>
-
-                                            <button type="button" class="btn btn-link btn-floating mx-1">
-                                                <i class="fab fa-github"></i>
-                                            </button>
-                                        </div>
-
-                                        <p class="text-center">or:</p>
-
-                                        <!-- Name input -->
-                                        <div class="form-outline mb-4">
-                                            <input type="text" id="registerName" class="form-control" />
-                                            <label class="form-label" for="registerName">Name</label>
-                                        </div>
-
-                                        <!-- Username input -->
-                                        <div class="form-outline mb-4">
-                                            <input type="text" id="registerUsername" class="form-control" />
-                                            <label class="form-label" for="registerUsername">Username</label>
-                                        </div>
-
-                                        <!-- Email input -->
-                                        <div class="form-outline mb-4">
-                                            <input type="email" id="registerEmail" class="form-control" />
-                                            <label class="form-label" for="registerEmail">Email</label>
-                                        </div>
-
-                                        <!-- Password input -->
-                                        <div class="form-outline mb-4">
-                                            <input type="password" id="registerPassword" class="form-control" />
-                                            <label class="form-label" for="registerPassword">Password</label>
-                                        </div>
-
-                                        <!-- Repeat Password input -->
-                                        <div class="form-outline mb-4">
-                                            <input type="password" id="registerRepeatPassword" class="form-control" />
-                                            <label class="form-label" for="registerRepeatPassword">Repeat password</label>
-                                        </div>
-
-                                        <!-- Checkbox -->
-                                        <div class="form-check d-flex justify-content-center mb-4">
-                                            <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked aria-describedby="registerCheckHelpText" />
-                                            <label class="form-check-label" for="registerCheck">
-                                                I have read and agree to the terms
-                                            </label>
-                                        </div>
-
-                                        <!-- Submit button -->
-                                        <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
-                                    </form>
                                 </div>
                             </div>
                             <!-- Pills content -->
