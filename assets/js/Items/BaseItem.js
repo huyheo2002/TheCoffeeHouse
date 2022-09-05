@@ -16,7 +16,7 @@ export class BaseItem {
                 ${this.title}
             </h3>
             <p class="itemHot__value">
-                ${this.value}
+                ${this.value}  đ
             </p>
         </div>
       </a></li>
