@@ -27,27 +27,6 @@ if (isset($_POST['submit'])) {
     }
 }
 
-
-
-session_start();
-if (isset($_SESSION['message'])) {
-    $a = "Chào mừng: " . $_SESSION['dataUser'];
-    $b = "Thông tin của tôi";
-    $linkB = "information.php";
-    $linkD = "Logout.php";
-    $_SESSION['login_home'] = "login";
-} else {
-    $a = "Tài khoản";
-    $linkC = "Register.php";
-}
-
-
-?>
-
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -60,190 +39,175 @@ if (isset($_SESSION['message'])) {
     <title>Thông tin người dùng</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css" rel="stylesheet" />
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"></script>
 </head>
 
 
 <body>
-    <div class="header__wrap">
-        <div class="header">
-            <div class="header__logo">
-                <a href="./home.php">
-                    <img src="./assets/img/items-hot/header_logo.jpg" alt="">
-                </a>
-            </div>
-            <div class="header__nav">
-                <ul class="list__nav">
-                    <li><a href="./coffee.php">Cà phê</a></li>
-                    <li><a href="./tea.php">Trà</a></li>
-                    <li><a href="./menu.php">Menu
-                            <i class="fas fa-sort-down"></i>
-                            <ul class="subnav">
-                                <li class="subnav__items"><a href="">
-                                        <h3 class="title__menu">Tất cả</h3>
-                                        <div class="content__menu"></div>
-                                    </a></li>
-                                <li class="subnav__items"><a href="">
-                                        <h3 class="title__menu">Cà phê</h3>
-                                        <div class="content__menu">
-                                            <p>Cà Phê Việt Nam</p>
-                                            <p>Cà Phê Máy</p>
-                                            <p>Cold Brew</p>
-                                        </div>
-                                    </a></li>
-                                <li class="subnav__items"><a href="">
-                                        <h3 class="title__menu">Trà</h3>
-                                        <div class="content__menu">
-                                            <p>Trà trái cây</p>
-                                            <p>Trà sữa Macchiato</p>
-                                        </div>
-                                    </a></li>
-                                <li class="subnav__items"><a href="">
-                                        <h3 class="title__menu">Món khác</h3>
-                                        <div class="content__menu">
-                                            <p>Đá xay</p>
-                                            <p>Matcha - Socola</p>
-                                        </div>
-                                    </a></li>
-                                <li class="subnav__items"><a href="">
-                                        <h3 class="title__menu">Bánh & Snack</h3>
-                                        <div class="content__menu">
-                                            <p>Bánh mặn</p>
-                                            <p>Bánh ngọt</p>
-                                            <p>Snack</p>
-                                        </div>
-                                    </a></li>
-                                <li class="subnav__items"><a href="">
-                                        <h3 class="title__menu">Tại nhà</h3>
-                                        <div class="content__menu">
-                                            <p>Cà phê tại nhà</p>
-                                            <p>Trà tại nhà</p>
-                                        </div>
-                                    </a></li>
-                            </ul>
-                        </a></li>
-                    <li><a href="./story.php">Chuyện cà phê và Trà
-                            <i class="fas fa-sort-down"></i>
-                            <ul class="subnav">
-                                <li class="subnav__items"><a href="">
-                                        <h3 class="title__story">Coffeeholic</h3>
-                                        <div class="content__story">
-                                            <p>#chuyencaphe</p>
-                                            <p>#phacaphe</p>
-                                            <p>#phatra</p>
-                                        </div>
-                                    </a></li>
-                                <li class="subnav__items"><a href="">
-                                        <h3 class="title__story">Teaholic</h3>
-                                        <div class="content__story">
-                                            <p>#phatra</p>
-                                            <p>#cauchuyenvetra</p>
-                                        </div>
-                                    </a></li>
-                                <li class="subnav__items"><a href="">
-                                        <h3 class="title__story">Blog</h3>
-                                        <div class="content__story">
-                                            <p>#inthemood</p>
-                                            <p>#Review</p>
-                                            <p>#HumanofTCH</p>
-                                        </div>
-                                    </a></li>
-                            </ul>
-                        </a></li>
-                    <li><a href="./shop.php">Cửa hàng</a></li>
-                    <li><a href="./tuyendung.php" target="_blank">Tuyển dụng</a></li>
-                    <li><a href="./KhaiTruong.php">Ưu đãi thành viên</a></li>
+    <section class="vh-100" style="background-color: #508bfc;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card shadow-2-strong" style="border-radius: 1rem;">
 
-                    <!--Thay doi khi dang nhap-->
-                    <?php if (isset($_SESSION['message'])) { ?>
-                        <li class="nav-item dropdown d-flex" style="padding: 0 0">
-                            <a class=" dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <?php echo $a ?>
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="<?php echo $linkB ?>"><?php echo $b ?></a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
+                        <div class="container">
+
+
+                            <!-- Pills navs -->
+                            <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab" aria-controls="pills-login" aria-selected="true">Thông tin tài khoản</a>
                                 </li>
-                                <li><a class="dropdown-item" href="<?php echo $linkD ?>">Đăng xuất</a></li>
-
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab" aria-controls="pills-register" aria-selected="false">Sửa thông tin</a>
+                                </li>
                             </ul>
-                        </li>
+                            <!-- Pills navs -->
 
-                    <?php } ?>
-                    <?php if (!isset($_SESSION['message'])) { ?>
-                        <li class="js-login">
-                            <p class="nav__login">
-                                <?php echo $a ?>
-                                <i class="fa-solid fa-user"></i>
-                            </p>
-                        </li>
-                    <?php } ?>
-                </ul>
+                            <!-- Pills content -->
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+                                    <form>
+                                        <div class="text-center mb-3">
+                                        <h1 style="text-align:center ;"><?php echo $_SESSION['dataUser'] ?></h1>
+                                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                                <i class="fab fa-facebook-f"></i>
+                                            </button>
+
+                                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                                <i class="fab fa-google"></i>
+                                            </button>
+
+                                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                                <i class="fab fa-twitter"></i>
+                                            </button>
+
+                                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                                <i class="fab fa-github"></i>
+                                            </button>
+                                        </div>
+
+                                        <p class="text-center">or:</p>
+
+                                        <!-- Email input -->
+                                        <div class="form-outline mb-4">
+                                            <input type="email" id="loginName" class="form-control" />
+                                            <label class="form-label" for="loginName">Email or username</label>
+                                        </div>
+
+                                        <!-- Password input -->
+                                        <div class="form-outline mb-4">
+                                            <input type="password" id="loginPassword" class="form-control" />
+                                            <label class="form-label" for="loginPassword">Password</label>
+                                        </div>
+
+                                        <!-- 2 column grid layout -->
+                                        <div class="row mb-4">
+                                            <div class="col-md-6 d-flex justify-content-center">
+                                                <!-- Checkbox -->
+                                                <div class="form-check mb-3 mb-md-0">
+                                                    <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
+                                                    <label class="form-check-label" for="loginCheck"> Remember me </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 d-flex justify-content-center">
+                                                <!-- Simple link -->
+                                                <a href="#!">Forgot password?</a>
+                                            </div>
+                                        </div>
+
+                                        <!-- Submit button -->
+                                        <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+                                        <!-- Register buttons -->
+                                        <div class="text-center">
+                                            <p>Not a member? <a href="#!">Register</a></p>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+                                    <form>
+                                        <div class="text-center mb-3">
+                                            <p>Sign up with:</p>
+                                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                                <i class="fab fa-facebook-f"></i>
+                                            </button>
+
+                                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                                <i class="fab fa-google"></i>
+                                            </button>
+
+                                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                                <i class="fab fa-twitter"></i>
+                                            </button>
+
+                                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                                <i class="fab fa-github"></i>
+                                            </button>
+                                        </div>
+
+                                        <p class="text-center">or:</p>
+
+                                        <!-- Name input -->
+                                        <div class="form-outline mb-4">
+                                            <input type="text" id="registerName" class="form-control" />
+                                            <label class="form-label" for="registerName">Name</label>
+                                        </div>
+
+                                        <!-- Username input -->
+                                        <div class="form-outline mb-4">
+                                            <input type="text" id="registerUsername" class="form-control" />
+                                            <label class="form-label" for="registerUsername">Username</label>
+                                        </div>
+
+                                        <!-- Email input -->
+                                        <div class="form-outline mb-4">
+                                            <input type="email" id="registerEmail" class="form-control" />
+                                            <label class="form-label" for="registerEmail">Email</label>
+                                        </div>
+
+                                        <!-- Password input -->
+                                        <div class="form-outline mb-4">
+                                            <input type="password" id="registerPassword" class="form-control" />
+                                            <label class="form-label" for="registerPassword">Password</label>
+                                        </div>
+
+                                        <!-- Repeat Password input -->
+                                        <div class="form-outline mb-4">
+                                            <input type="password" id="registerRepeatPassword" class="form-control" />
+                                            <label class="form-label" for="registerRepeatPassword">Repeat password</label>
+                                        </div>
+
+                                        <!-- Checkbox -->
+                                        <div class="form-check d-flex justify-content-center mb-4">
+                                            <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked aria-describedby="registerCheckHelpText" />
+                                            <label class="form-check-label" for="registerCheck">
+                                                I have read and agree to the terms
+                                            </label>
+                                        </div>
+
+                                        <!-- Submit button -->
+                                        <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- Pills content -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container">
+    </section>
 
 
-
-
-        <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-mdb-toggle="collapse" data-mdb-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Accordion Item #1
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-mdb-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <strong>This is the first item's accordion body.</strong> It is hidden by default,
-                        until the collapse plugin adds the appropriate classes that we use to style each
-                        element. These classes control the overall appearance, as well as the showing and
-                        hiding via CSS transitions. You can modify any of this with custom CSS or
-                        overriding our default variables. It's also worth noting that just about any HTML
-                        can go within the <strong>.accordion-body</strong>, though the transition does
-                        limit overflow.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse" data-mdb-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Accordion Item #2
-                    </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-mdb-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <strong>This is the second item's accordion body.</strong> It is hidden by
-                        default, until the collapse plugin adds the appropriate classes that we use to
-                        style each element. These classes control the overall appearance, as well as the
-                        showing and hiding via CSS transitions. You can modify any of this with custom CSS
-                        or overriding our default variables. It's also worth noting that just about any
-                        HTML can go within the <strong>.accordion-body</strong>, though the transition
-                        does limit overflow.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse" data-mdb-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Accordion Item #3
-                    </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-mdb-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <strong>This is the third item's accordion body.</strong> It is hidden by default,
-                        until the collapse plugin adds the appropriate classes that we use to style each
-                        element. These classes control the overall appearance, as well as the showing and
-                        hiding via CSS transitions. You can modify any of this with custom CSS or
-                        overriding our default variables. It's also worth noting that just about any HTML
-                        can go within the <strong>.accordion-body</strong>, though the transition does
-                        limit overflow.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
