@@ -70,3 +70,16 @@
     color: #00000099;
     padding-top: 5px;
 }
+
+/* products hover */
+.itemHot__title, .itemHot__imgWrap img{
+    transition: all linear 0.4s;
+}
+
+.itemsHot__wrap li:hover .itemHot__title{
+    color: #EA8025;
+}
+
+.itemsHot__wrap li:hover .itemHot__imgWrap img{
+    transform: scale(1.2);
+}

@@ -376,3 +376,17 @@
     color: #000;
     opacity: 0.6;
 }
+
+/* fix */
+/* products hover */
+.itemHot__title, .itemHot__imgWrap img{
+    transition: all linear 0.4s;
+}
+
+.itemsHot__wrap li:hover .itemHot__title{
+    color: #EA8025;
+}
+
+.itemsHot__wrap li:hover .itemHot__imgWrap img{
+    transform: scale(1.2);
+}
