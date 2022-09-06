@@ -39,6 +39,9 @@ if (isset($_SESSION['message'])) {
     $linkC = "Register.php";
 }
 
+
+
+$products=Auth::loadDataProduct();
 ?>
 
 <!DOCTYPE html>
@@ -183,7 +186,7 @@ if (isset($_SESSION['message'])) {
         <!-- menu items-hot -->
         <div class="itemsHot__wrap">
             <ul class="itemsHot__list">
-                <li><a href="">
+                <li><a href="./ShowProduct.php?id=24" target="_blank">
                         <div class="itemHot__imgWrap">
                             <img src="./assets/img/items-hot/IH1.jpeg" alt="">
                         </div>

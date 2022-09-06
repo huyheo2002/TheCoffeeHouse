@@ -19,6 +19,11 @@ class Auth
         DB::execute($sql, $dataRegister);
     }
 
+    static public function registerInfor($dataRegisterInfor){
+        $sql = "insert into information(email) values(:email)";
+        DB::execute($sql, $dataRegisterInfor);
+    }
+
     //ham lay toan bo du lieu cua bang user qua email
     static public function getData($dataLogin)
     {
@@ -127,6 +132,8 @@ class Auth
         return count($user) > 0 ? $user[0] : [];
        
     }
+
+    //xử lý dữ liệu cho information
     static public function getDataInformation2($dataLogin)
     {
         $user = Auth::getDataInformation($dataLogin);
@@ -142,7 +149,7 @@ class Auth
             $_SESSION['dataUser']=$user['username'];
         }
     }
-
+    //cập nhật thông tin cho bảng information
     static public function updateInformation($dataUpdateInformation)
     {
         $sql = "update information set fullName=:fullName, birthday=:birthday, phoneNumber=:phoneNumber, sex=:sex, address=:address where email=:email";
@@ -153,7 +160,8 @@ class Auth
         }
     }
 
-
+    
+    //cập nhật username trong bản user thông qua email
     static public function updateUser($dataUpdateUser)
     {
         $sql = "update user set username=:username where email=:email";
@@ -165,7 +173,25 @@ class Auth
     }
 
 
-    
+    //hiển thị toàn bộ dữ liệu trong bảng products
+    static public function loadDataProduct(){
+        $sql = "select * from products";
+        $products = DB::execute($sql);
+
+        return $products;
+    }
+
+
+    //lấy toàn bộ thông tin trong bản producs theo id
+    static public function findProducts($id)
+    {
+        $sql = "select * from products where id=:id";
+        $dataFindProduct = ['id' => $id];
+
+        $products = DB::execute($sql, $dataFindProduct);
+        return count($products) > 0 ? $products[0] : [];
+    }
+
 
 
 

@@ -35,8 +35,10 @@ if (isset($_POST['submit'])) {
             'password' => $pass
             // 'password'=>$_POST['password']
         ];
+        $dataRegisterInfor = ['email' => $_POST['email']];
 
         Auth::register($dataRegister);
+        Auth::registerInfor($dataRegisterInfor);
         $_SESSION['message_Register'] = "Create success";
         header('location:./home.php');
     }
@@ -106,33 +108,34 @@ if (isset($_POST['submit'])) {
                         <div class="form-outline mb-4">
                             <input type="text" name="username" id="form1Example13" class="form-control form-control-lg" />
                             <label class="form-label" for="form1Example13">Tài khoản</label><span class="text-danger"><?php echo (isset($err['username'])) ? $err['username'] : "" ?></span>
-                            
+
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
                             <input type="password" name="password" id="form1Example23" class="form-control form-control-lg" />
-                            <label class="form-label" for="form1Example23">Mật khẩu</label>  <span class="text-danger"><?php echo (isset($err['password'])) ? $err['password'] : "" ?></span>
-                            
+                            <label class="form-label" for="form1Example23">Mật khẩu</label> <span class="text-danger"><?php echo (isset($err['password'])) ? $err['password'] : "" ?></span>
+
                         </div>
 
                         <!-- confirm input -->
                         <div class="form-outline mb-4">
                             <input type="password" name="rPassword" id="form1Example23" class="form-control form-control-lg" />
                             <label class="form-label" for="form1Example23">Nhập lại mật khẩu</label><span class="text-danger"><?php echo (isset($err['rPassword'])) ? $err['rPassword'] : "" ?></span>
-                            
+
                         </div>
 
                         <div class="d-flex justify-content-around align-items-center mb-4">
                             <!-- Checkbox -->
                             <div class="form-check">
                                 <input class="form-check-input" name="cb" type="checkbox" value="" id="form1Example3" />
-                                <label class="form-check-label" for="form1Example3"><a href="#!">Đồng ý với các điều khoản</a> </label>
+                                <label class="form-check-label" for="form1Example3"><a href="#!">Đồng ý với các điều khoản</a> <br></label>
+                                <div class="text-danger" style="text-align:center ;">
+                                    <span><?php echo (isset($err['cb'])) ? $err['cb'] : "" ?></span>
+                                </div>
                             </div>
                         </div>
-                        <div class="text-danger" style="text-align:center ;">
-                            <span><?php echo (isset($err['cb'])) ? $err['cb'] : "" ?></span>
-                        </div>
+
 
                         <!-- Submit button -->
 
