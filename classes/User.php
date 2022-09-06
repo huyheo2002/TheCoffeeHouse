@@ -49,6 +49,7 @@ class Auth
                 $_SESSION['message_login'] = "Login success";
                 $_SESSION['dataUser'] = $user['username'];
                 $_SESSION['dataEmail'] = $user['email'];
+                Auth::getDataInformation($dataLogin);
             } else {
                 $_SESSION['wrongPassword'] = "Sai mật khẩu!";
             }
@@ -137,6 +138,8 @@ class Auth
             $_SESSION['getDataInformation_sex'] = $user['sex'];
             $_SESSION['getDataInformation_address'] = $user['address'];
             $_SESSION['getDataInformation_username'] = $user['username'];
+            unset($_SESSION['dataUser']);
+            $_SESSION['dataUser']=$user['username'];
         }
     }
 

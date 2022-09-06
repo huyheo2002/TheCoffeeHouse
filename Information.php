@@ -66,8 +66,7 @@ if (isset($_POST['update'])) {
         
         unset($_SESSION['message_update_information']);
         unset($_SESSION['message_update_user']);
-        unset($_SESSION['dataUser']);
-        $_SESSION['dataUser']=$_SESSION['user_username'];
+       
         
     }
     header("refresh: 0");

@@ -4,6 +4,16 @@ include './classes/User.php';
 AUth::logout();
 unset($_SESSION['message']);
 
+
+unset($_SESSION['getDataInformation_fullName']);
+unset( $_SESSION['getDataInformation_birthday']);
+unset($_SESSION['getDataInformation_phoneNumber']);
+unset($_SESSION['getDataInformation_email']);
+unset($_SESSION['getDataInformation_sex'] );
+unset($_SESSION['getDataInformation_address']);
+unset($_SESSION['getDataInformation_username']);
+unset($_SESSION['dataUser']);
+
 if(isset($_SESSION['login_home'])){
     unset($_SESSION['login_home']);
     header("location:./home.php");

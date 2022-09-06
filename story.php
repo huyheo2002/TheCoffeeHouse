@@ -31,11 +31,11 @@ if (isset($_POST['submit'])) {
 
 // session_start();
 if (isset($_SESSION['message'])) {
-    $a = "Chào mừng: " . $_SESSION['user_username'];
+    $a = "Chào mừng: " . $_SESSION['dataUser'];
     $b = "Thông tin của tôi";
     $linkB = "information.php";
     $linkD = "Logout.php";
-    $_SESSION['login_story'] = "login";
+    $_SESSION['login_home'] = "login";
 } else {
     $a = "Tài khoản";
     $linkC = "Register.php";
