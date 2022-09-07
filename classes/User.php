@@ -19,7 +19,8 @@ class Auth
         DB::execute($sql, $dataRegister);
     }
 
-    static public function registerInfor($dataRegisterInfor){
+    static public function registerInfor($dataRegisterInfor)
+    {
         $sql = "insert into information(email) values(:email)";
         DB::execute($sql, $dataRegisterInfor);
     }
@@ -75,7 +76,7 @@ class Auth
             }
         }
     }
-    
+
 
 
 
@@ -130,7 +131,6 @@ class Auth
 
         $user = DB::execute($sql, $dataLogin);
         return count($user) > 0 ? $user[0] : [];
-       
     }
 
     //xử lý dữ liệu cho information
@@ -146,7 +146,7 @@ class Auth
             $_SESSION['getDataInformation_address'] = $user['address'];
             $_SESSION['getDataInformation_username'] = $user['username'];
             unset($_SESSION['dataUser']);
-            $_SESSION['dataUser']=$user['username'];
+            $_SESSION['dataUser'] = $user['username'];
         }
     }
     //cập nhật thông tin cho bảng information
@@ -160,7 +160,7 @@ class Auth
         }
     }
 
-    
+
     //cập nhật username trong bản user thông qua email
     static public function updateUser($dataUpdateUser)
     {
@@ -174,7 +174,8 @@ class Auth
 
 
     //hiển thị toàn bộ dữ liệu trong bảng products
-    static public function loadDataProduct(){
+    static public function loadDataProduct()
+    {
         $sql = "select * from products";
         $products = DB::execute($sql);
 
@@ -193,10 +194,29 @@ class Auth
     }
 
 
+    //ham them moi mot san pham
+    static public function CreateProduct($dataCreateProduct)
+    {
+        $sql = "insert into products(image, title, value,category_id,description) values(:image, :title, :value,:category_id,:description)";
+        DB::execute($sql, $dataCreateProduct);
+    }
 
+    //ham xoa du lieu trong bang product thong qua id
+    static public function deleteProduct($id)
+    {
+        $sql = "delete from products where id=:id";
+        $dataDeleteProduct = ['id' => $id];
+        DB::execute($sql, $dataDeleteProduct);
+    }
 
-
-
-
-
+    //cập nhật san pham thong qua id
+    static public function updateProduct($dataUpdateProduct)
+    {
+        $sql = "update products set image=:image, title=:title, value=:value,category_id=:category_id, description=:description where id=:id";
+        $check = DB::execute($sql, $dataUpdateProduct);
+        return count($check) > 0 ? $check[0] : [];
+        if (count($check) > 0) {
+                header("location:./adminProduct.php");
+        }
+    }
 }

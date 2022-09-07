@@ -199,7 +199,7 @@ $products=Auth::loadDataProduct();
                             </p>
                         </div>
                     </a></li>
-                <li><a href="">
+                <li><a href="./ShowProduct.php?id=25" target="_blank">
                         <div class="itemHot__imgWrap">
                             <img src="./assets/img/items-hot/IH2.jpeg" alt="">
                         </div>
@@ -225,7 +225,7 @@ $products=Auth::loadDataProduct();
                             </p>
                         </div>
                     </a></li>
-                <li><a href="">
+                <li><a href="./ShowProduct.php?id=9" target="_blank">
                         <div class="itemHot__imgWrap">
                             <img src="./assets/img/items-hot/IH4.jpg" alt="">
                         </div>

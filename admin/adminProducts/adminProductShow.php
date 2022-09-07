@@ -1,5 +1,5 @@
 <?php
-include './classes/User.php';
+include '/xampp/htdocs/TheCoffeeHouse/classes/User.php';
 
 $id = null;
 $products = null;
@@ -8,7 +8,7 @@ if ($_GET['id']) {
     $id = $_GET['id'];
     $products = Auth::findProducts($id);
 } else {
-    header("location:./home.php");
+    header("location:./adminProducts/adminproduct.php");
 }
 ?>
 
@@ -42,7 +42,7 @@ if ($_GET['id']) {
                     <div class="card" style="border-radius: 1rem;">
                         <div class="row g-0">
                             <div class="col-md-6 col-lg-5 d-none d-md-block">
-                                <img src="<?php echo $products['image'] ?>" alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem" />
+                                <img src="<?php echo $products['image'] ?>" alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" >
                             </div>
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
@@ -56,19 +56,16 @@ if ($_GET['id']) {
                                         <h4 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px; color: #E57905; font-weight: bold !important;"><?php echo $products['value'] ?>đ</h4>
 
                                         <div class="form-outline mb-4">
-                                            <h6 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Topping</h6>
+                                            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">id:<?php echo $products['id'] ?></h3>
+                                            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">category_id:<?php echo $products['category_id'] ?></h3>
                                         </div>
-
-
-
-                                        <div class="pt-1 mb-4">
-                                            <button class="btn btn-dark btn-lg btn-block" type="button" style="background-color: rgb(229, 121, 5)!important;">Đặt giao tận nơi</button>
-                                        </div>
-
 
                                         <br>
                                         <p style="letter-spacing: 1px;font-weight: bold !important;">Mô tả sản phẩm</p>
                                         <p><?php echo $products['description'] ?></p>
+                                        <div class="pt-1 mb-4">
+                                            <a href="./adminProduct.php"><button class="btn btn-dark btn-lg btn-block" type="button" style="background-color: rgb(229, 121, 5)!important;">Quay trở lại</button></a>                                         
+                                        </div>
                                     </form>
 
                                 </div>
