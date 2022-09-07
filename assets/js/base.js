@@ -1,5 +1,12 @@
 
 var isCheckLoginOrNotLogin = document.querySelector("a#navbarDropdown");
+
+// responsive
+const headerBtnCloseM = document.querySelector(".header__nav-close-mobile i");
+const headerNav = document.querySelector(".header__nav");
+const headerBtnMenuM = document.querySelector(".header__menu-mobile");
+let isCheckHeaderNavbar = true;
+
 if(isCheckLoginOrNotLogin == null){
     // modal login
     // phần modal-login
@@ -44,6 +51,22 @@ if(isCheckLoginOrNotLogin == null){
         }
     })
 }
+
+// responsive
+// mobile
+headerBtnCloseM.addEventListener("click", function(){
+    isCheckHeaderNavbar = true;
+    headerNav.classList.remove("show");
+})
+headerBtnMenuM.addEventListener("click", function(){
+    if(isCheckHeaderNavbar){
+        isCheckHeaderNavbar = false;
+        headerNav.classList.add("show");
+    }else{
+        isCheckHeaderNavbar = true;
+        headerNav.classList.remove("show");
+    }
+})
 
 
 

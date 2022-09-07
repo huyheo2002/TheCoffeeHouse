@@ -54,6 +54,7 @@ $products=Auth::loadDataProduct();
     <title>Trang Chủ</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/home.css">
+    <link rel="stylesheet" href="./assets/responsive/baseRespon.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
@@ -67,60 +68,68 @@ $products=Auth::loadDataProduct();
                         <img src="./assets/img/items-hot/header_logo.jpg" alt="">
                     </a>
                 </div>
+                <!-- btn header menu mobile -->
+                <div class="header__menu-mobile">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <!-- end btn menu -->
                 <div class="header__nav">
+                    <div class="header__nav-close-mobile">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
                     <ul class="list__nav">
                         <li><a href="./coffee.php">Cà phê</a></li>
                         <li><a href="./tea.php">Trà</a></li>
                         <li><a href="./menu.php">Menu
-                                <i class="fas fa-sort-down"></i>
-                                <ul class="subnav">
-                                    <li class="subnav__items"><a href="">
-                                            <h3 class="title__menu">Tất cả</h3>
-                                            <div class="content__menu"></div>
-                                        </a></li>
-                                    <li class="subnav__items"><a href="">
-                                            <h3 class="title__menu">Cà phê</h3>
-                                            <div class="content__menu">
-                                                <p>Cà Phê Việt Nam</p>
-                                                <p>Cà Phê Máy</p>
-                                                <p>Cold Brew</p>
-                                            </div>
-                                        </a></li>
-                                    <li class="subnav__items"><a href="">
-                                            <h3 class="title__menu">Trà</h3>
-                                            <div class="content__menu">
-                                                <p>Trà trái cây</p>
-                                                <p>Trà sữa Macchiato</p>
-                                            </div>
-                                        </a></li>
-                                    <li class="subnav__items"><a href="">
-                                            <h3 class="title__menu">Món khác</h3>
-                                            <div class="content__menu">
-                                                <p>Đá xay</p>
-                                                <p>Matcha - Socola</p>
-                                            </div>
-                                        </a></li>
-                                    <li class="subnav__items"><a href="">
-                                            <h3 class="title__menu">Bánh & Snack</h3>
-                                            <div class="content__menu">
-                                                <p>Bánh mặn</p>
-                                                <p>Bánh ngọt</p>
-                                                <p>Snack</p>
-                                            </div>
-                                        </a></li>
-                                    <li class="subnav__items"><a href="">
-                                            <h3 class="title__menu">Tại nhà</h3>
-                                            <div class="content__menu">
-                                                <p>Cà phê tại nhà</p>
-                                                <p>Trà tại nhà</p>
-                                            </div>
-                                        </a></li>
-                                </ul>
-                            </a></li>
+                            <i class="fas fa-sort-down"></i>
+                            <ul class="subnav">
+                                <li class="subnav__items"><a>
+                                        <h3 class="title__menu">Tất cả</h3>
+                                        <div class="content__menu"></div>
+                                    </a></li>
+                                <li class="subnav__items"><a>
+                                        <h3 class="title__menu">Cà phê</h3>
+                                        <div class="content__menu">
+                                            <p>Cà Phê Việt Nam</p>
+                                            <p>Cà Phê Máy</p>
+                                            <p>Cold Brew</p>
+                                        </div>
+                                    </a></li>
+                                <li class="subnav__items"><a>
+                                        <h3 class="title__menu">Trà</h3>
+                                        <div class="content__menu">
+                                            <p>Trà trái cây</p>
+                                            <p>Trà sữa Macchiato</p>
+                                        </div>
+                                    </a></li>
+                                <li class="subnav__items"><a>
+                                        <h3 class="title__menu">Món khác</h3>
+                                        <div class="content__menu">
+                                            <p>Đá xay</p>
+                                            <p>Matcha - Socola</p>
+                                        </div>
+                                    </a></li>
+                                <li class="subnav__items"><a>
+                                        <h3 class="title__menu">Bánh & Snack</h3>
+                                        <div class="content__menu">
+                                            <p>Bánh mặn</p>
+                                            <p>Bánh ngọt</p>
+                                            <p>Snack</p>
+                                        </div>
+                                    </a></li>
+                                <li class="subnav__items"><a>
+                                        <h3 class="title__menu">Tại nhà</h3>
+                                        <div class="content__menu">
+                                            <p>Cà phê tại nhà</p>
+                                            <p>Trà tại nhà</p>
+                                        </div>
+                                    </a></li>
+                            </ul>
+                        </a></li>
                         <li><a href="./story.php">Chuyện cà phê và Trà
                                 <i class="fas fa-sort-down"></i>
                                 <ul class="subnav">
-                                    <li class="subnav__items"><a href="">
+                                    <li class="subnav__items"><a>
                                             <h3 class="title__story">Coffeeholic</h3>
                                             <div class="content__story">
                                                 <p>#chuyencaphe</p>
@@ -128,14 +137,14 @@ $products=Auth::loadDataProduct();
                                                 <p>#phatra</p>
                                             </div>
                                         </a></li>
-                                    <li class="subnav__items"><a href="">
+                                    <li class="subnav__items"><a>
                                             <h3 class="title__story">Teaholic</h3>
                                             <div class="content__story">
                                                 <p>#phatra</p>
                                                 <p>#cauchuyenvetra</p>
                                             </div>
                                         </a></li>
-                                    <li class="subnav__items"><a href="">
+                                    <li class="subnav__items"><a>
                                             <h3 class="title__story">Blog</h3>
                                             <div class="content__story">
                                                 <p>#inthemood</p>
@@ -646,6 +655,9 @@ $products=Auth::loadDataProduct();
             </div>
         </div>
     </div>
+    <script>        
+
+    </script>
     <script src="./assets/js/base.js"></script>
     <script src="./assets/js/home.js"></script>
 </body>

@@ -8,14 +8,18 @@
     - story1.html
     - shop.html
 */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700&display=swap');
+
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto Flex', sans-serif;
 }
 
 #main{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     position: relative;
 }
 
@@ -294,6 +298,7 @@ ul.dropdown-menu li:hover a.dropdown-item{
     position: absolute;
     left: 6px;
     top: 6px;
+    z-index: 50;
 }
 
 .social__logo img{
@@ -470,7 +475,7 @@ ul.dropdown-menu li:hover a.dropdown-item{
     line-height: 70px;
     border-bottom: 1px solid #3b4354;
     text-transform: capitalize;
-    user-select: none;
+    user-select: none;    
 }
 
 .modal__header img {
@@ -544,6 +549,7 @@ ul.dropdown-menu li:hover a.dropdown-item{
     font-size: 18px;
     padding: 10px;
     margin-top: -10px;
+    font-weight: 500;
 }
 
 
@@ -590,4 +596,12 @@ ul.dropdown-menu li:hover a.dropdown-item{
         transform: translateY(0px);
         opacity: 1;
     }
+}
+
+.hide{
+    display: none !important;
+}
+
+.show{
+    display: block !important;
 }
