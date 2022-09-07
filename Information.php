@@ -138,7 +138,7 @@ if (isset($_POST['update'])) {
                                         <label for=""><?php echo $_SESSION['getDataInformation_sex'] ?></label>
                                     </div>
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="">Ngày sinh: </label>
+                                        <label class="form-label" for="">Ngày sinh(năm/tháng/ngày): </label>
                                         <label for=""><?php echo $_SESSION['getDataInformation_birthday'] ?></label>
                                     </div>
 
