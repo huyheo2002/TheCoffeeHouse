@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
 
 
         Auth::login($dataLogin);
-        header("location:./story1.php");
+        header("location:./story.php");
     }
 }
 
@@ -35,7 +35,7 @@ if (isset($_SESSION['message'])) {
     $b = "Thông tin của tôi";
     $linkB = "information.php";
     $linkD = "Logout.php";
-    $_SESSION['login_story1'] = "login";
+    $_SESSION['login_home'] = "login";
 } else {
     $a = "Tài khoản";
     $linkC = "Register.php";
@@ -158,7 +158,7 @@ if (isset($_SESSION['message'])) {
                                     </a>
                                 </div>  
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="<?php echo $linkB ?>"><?php echo $b ?></a></li>
+                                    <li><a class="dropdown-item" href="<?php echo $linkB ?>" target="_blank"><?php echo $b ?></a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>

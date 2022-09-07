@@ -27,6 +27,7 @@ if (isset($_POST['submit'])) {
     }
 }
 
+
 if (isset($_SESSION['message'])) {
     $a = "Chào mừng: " . $_SESSION['dataUser'];
     $b = "Thông tin của tôi";
@@ -38,6 +39,9 @@ if (isset($_SESSION['message'])) {
     $linkC = "Register.php";
 }
 
+
+
+$products=Auth::loadDataProduct();
 ?>
 
 <!DOCTYPE html>
@@ -164,7 +168,7 @@ if (isset($_SESSION['message'])) {
                                     </a>
                                 </div>                                
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="<?php echo $linkB ?>"><?php echo $b ?></a></li>
+                                    <li><a class="dropdown-item" href="<?php echo $linkB ?>" target="_blank"><?php echo $b ?></a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
@@ -191,7 +195,7 @@ if (isset($_SESSION['message'])) {
         <!-- menu items-hot -->
         <div class="itemsHot__wrap">
             <ul class="itemsHot__list">
-                <li><a>
+                <li><a href="./ShowProduct.php?id=24" target="_blank">
                         <div class="itemHot__imgWrap">
                             <img src="./assets/img/items-hot/IH1.jpeg" alt="">
                         </div>

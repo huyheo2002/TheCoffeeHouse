@@ -72,7 +72,7 @@ if (isset($_POST['submit'])) {
 
                         <div class="form-outline mb-4">
                             <input type="text" name="username" id="form1Example13" class="form-control form-control-lg" />
-                            <label class="form-label" for="form1Example13">Tài khoản</label><span class="text-danger"><?php echo (isset($err['username'])) ? $err['username'] : "" ?></span>
+                            <label class="form-label" for="form1Example13">Tài khoản</label><span class="text-danger"><?php echo    (isset($err['username'])) ? $err['username'] : "" ?></span>
                             
                         </div>
 

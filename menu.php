@@ -174,7 +174,7 @@ file_put_contents(
                                     </a>
                                 </div>  
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="<?php echo $linkB ?>"><?php echo $b ?></a></li>
+                                    <li><a class="dropdown-item" href="<?php echo $linkB ?>" target="_blank"><?php echo $b ?></a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
