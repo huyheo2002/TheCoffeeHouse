@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . './DB.php';
+require_once __DIR__ . './DB.php';
 
 class Auth
 {

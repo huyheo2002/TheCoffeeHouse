@@ -54,19 +54,22 @@ if(isCheckLoginOrNotLogin == null){
 
 // responsive
 // mobile
-headerBtnCloseM.addEventListener("click", function(){
-    isCheckHeaderNavbar = true;
-    headerNav.classList.remove("show");
-})
-headerBtnMenuM.addEventListener("click", function(){
-    if(isCheckHeaderNavbar){
-        isCheckHeaderNavbar = false;
-        headerNav.classList.add("show");
-    }else{
+if(headerBtnCloseM != null){
+    headerBtnCloseM.addEventListener("click", function(){
         isCheckHeaderNavbar = true;
         headerNav.classList.remove("show");
-    }
-})
+    })
+    headerBtnMenuM.addEventListener("click", function(){
+        if(isCheckHeaderNavbar){
+            isCheckHeaderNavbar = false;
+            headerNav.classList.add("show");
+        }else{
+            isCheckHeaderNavbar = true;
+            headerNav.classList.remove("show");
+        }
+    })
+}
+
 
 
 

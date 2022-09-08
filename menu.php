@@ -46,14 +46,14 @@ require_once ("./classes/DB.php");
 
 // $conn = DB::getConnection();
 // $sql = "select * from user";
-$sql = "select image, title, `value`, name from products, category where category.id = products.category_id";
-$test = DB::execute($sql);
+$sql = "select products.id, image, title, `value`, name from products, category where category.id = products.category_id";
+$products = DB::execute($sql);
 
-// viết json :v
-file_put_contents(
-    './assets/data/products.json',
-    json_encode($test)
-);
+// viết json :v (éo viết json nữa :v)
+// file_put_contents(
+//     './assets/data/products.json',
+//     json_encode($products)
+// );
 
 ?>
 
@@ -71,6 +71,7 @@ file_put_contents(
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/menu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Menu</title>
 </head>
 
@@ -269,72 +270,360 @@ file_put_contents(
                         <!-- cà phê việt nam -->
                         <h3 class="title__itemTea">Cà Phê Việt Nam</h3>
                         <ul class="itemsHot__list">
-
+                            <?php 
+                                foreach($products as $product){
+                                    if(!strcmp($product["name"], "CoffeeVN")){                                    
+                                    ?>
+                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                                            <div class="itemHot__imgWrap">
+                                                <img src="<?= $product["image"] ?>" alt="">            
+                                            </div>
+                                            <div class="itemHot__content">
+                                                <h3 class="itemHot__title">
+                                                    <?= $product["title"] ?>
+                                                </h3>
+                                                <p class="itemHot__value">
+                                                    <?= $product["value"] ?> đ
+                                                </p>
+                                            </div>
+                                        </a>
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </div>
+                                        </li>
+                                    <?php
+                                    }                                    
+                                }
+                            ?>
                         </ul>
 
                         <!-- cà phê máy -->
                         <h3 class="title__itemTea">Cà Phê Máy</h3>
                         <ul class="itemsHot__list">
-
+                            <?php 
+                                foreach($products as $product){
+                                    if(!strcmp($product["name"], "MachineCoffee")){                                    
+                                    ?>
+                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                                            <div class="itemHot__imgWrap">
+                                                <img src="<?= $product["image"] ?>" alt="">            
+                                            </div>
+                                            <div class="itemHot__content">
+                                                <h3 class="itemHot__title">
+                                                    <?= $product["title"] ?>
+                                                </h3>
+                                                <p class="itemHot__value">
+                                                    <?= $product["value"] ?> đ
+                                                </p>
+                                            </div>
+                                        </a>
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </div>
+                                        </li>
+                                    <?php
+                                    }                                    
+                                }
+                            ?>
                         </ul>
 
                         <!-- Cold brew -->
                         <h3 class="title__itemTea">Cold Brew</h3>
                         <ul class="itemsHot__list">
-
+                            <?php 
+                                foreach($products as $product){
+                                    if(!strcmp($product["name"], "ColdBrew")){                                    
+                                    ?>
+                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                                            <div class="itemHot__imgWrap">
+                                                <img src="<?= $product["image"] ?>" alt="">            
+                                            </div>
+                                            <div class="itemHot__content">
+                                                <h3 class="itemHot__title">
+                                                    <?= $product["title"] ?>
+                                                </h3>
+                                                <p class="itemHot__value">
+                                                    <?= $product["value"] ?> đ
+                                                </p>
+                                            </div>
+                                        </a>
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </div>
+                                        </li>
+                                    <?php
+                                    }                                    
+                                }
+                            ?>
                         </ul>
 
                         <!-- Trà trái cây -->
                         <h3 class="title__itemTea">Trà Trái Cây</h3>
                         <ul class="itemsHot__list">
-
+                            <?php 
+                                foreach($products as $product){
+                                    if(!strcmp($product["name"], "FruitTea")){                                    
+                                    ?>
+                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                                            <div class="itemHot__imgWrap">
+                                                <img src="<?= $product["image"] ?>" alt="">            
+                                            </div>
+                                            <div class="itemHot__content">
+                                                <h3 class="itemHot__title">
+                                                    <?= $product["title"] ?>
+                                                </h3>
+                                                <p class="itemHot__value">
+                                                    <?= $product["value"] ?> đ
+                                                </p>
+                                            </div>
+                                        </a>
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </div>
+                                        </li>
+                                    <?php
+                                    }                                    
+                                }
+                            ?>
                         </ul>
 
                         <!-- Trà sữa Macchiato -->
                         <h3 class="title__itemTea">Trà Sữa Macchiato</h3>
                         <ul class="itemsHot__list">
-
+                            <?php 
+                                foreach($products as $product){
+                                    if(!strcmp($product["name"], "MacchiatoMilkTea")){                                    
+                                    ?>
+                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                                            <div class="itemHot__imgWrap">
+                                                <img src="<?= $product["image"] ?>" alt="">            
+                                            </div>
+                                            <div class="itemHot__content">
+                                                <h3 class="itemHot__title">
+                                                    <?= $product["title"] ?>
+                                                </h3>
+                                                <p class="itemHot__value">
+                                                    <?= $product["value"] ?> đ
+                                                </p>
+                                            </div>
+                                        </a>
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </div>
+                                        </li>
+                                    <?php
+                                    }                                    
+                                }
+                            ?>
                         </ul>
 
                         <!-- Đá xay -->
                         <h3 class="title__itemTea">Đá Xay</h3>
                         <ul class="itemsHot__list">
-
+                            <?php 
+                                foreach($products as $product){
+                                    if(!strcmp($product["name"], "GrindIce")){                                    
+                                    ?>
+                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                                            <div class="itemHot__imgWrap">
+                                                <img src="<?= $product["image"] ?>" alt="">            
+                                            </div>
+                                            <div class="itemHot__content">
+                                                <h3 class="itemHot__title">
+                                                    <?= $product["title"] ?>
+                                                </h3>
+                                                <p class="itemHot__value">
+                                                    <?= $product["value"] ?> đ
+                                                </p>
+                                            </div>
+                                        </a>
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </div>
+                                        </li>
+                                    <?php
+                                    }                                    
+                                }
+                            ?>
                         </ul>
 
                         <!-- matcha - socola -->
                         <h3 class="title__itemTea">Matcha - Socola</h3>
                         <ul class="itemsHot__list">
-
+                            <?php 
+                                foreach($products as $product){
+                                    if(!strcmp($product["name"], "MatchaSocola")){                                    
+                                    ?>
+                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                                            <div class="itemHot__imgWrap">
+                                                <img src="<?= $product["image"] ?>" alt="">            
+                                            </div>
+                                            <div class="itemHot__content">
+                                                <h3 class="itemHot__title">
+                                                    <?= $product["title"] ?>
+                                                </h3>
+                                                <p class="itemHot__value">
+                                                    <?= $product["value"] ?> đ
+                                                </p>
+                                            </div>
+                                        </a>
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </div>
+                                        </li>
+                                    <?php
+                                    }                                    
+                                }
+                            ?>
                         </ul>
 
                         <!-- Bánh mặn -->
                         <h3 class="title__itemTea">Bánh Mặn</h3>
                         <ul class="itemsHot__list">
-
+                            <?php 
+                                foreach($products as $product){
+                                    if(!strcmp($product["name"], "SaltyCake")){                                    
+                                    ?>
+                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                                            <div class="itemHot__imgWrap">
+                                                <img src="<?= $product["image"] ?>" alt="">            
+                                            </div>
+                                            <div class="itemHot__content">
+                                                <h3 class="itemHot__title">
+                                                    <?= $product["title"] ?>
+                                                </h3>
+                                                <p class="itemHot__value">
+                                                    <?= $product["value"] ?> đ
+                                                </p>
+                                            </div>
+                                        </a>
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </div>
+                                        </li>
+                                    <?php
+                                    }                                    
+                                }
+                            ?>
                         </ul>
 
                         <!-- Bánh ngọt -->
                         <h3 class="title__itemTea">Bánh Ngọt</h3>
                         <ul class="itemsHot__list">
-
+                            <?php 
+                                foreach($products as $product){
+                                    if(!strcmp($product["name"], "SweetCake")){                                    
+                                    ?>
+                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                                            <div class="itemHot__imgWrap">
+                                                <img src="<?= $product["image"] ?>" alt="">            
+                                            </div>
+                                            <div class="itemHot__content">
+                                                <h3 class="itemHot__title">
+                                                    <?= $product["title"] ?>
+                                                </h3>
+                                                <p class="itemHot__value">
+                                                    <?= $product["value"] ?> đ
+                                                </p>
+                                            </div>
+                                        </a>
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </div>
+                                        </li>
+                                    <?php
+                                    }                                    
+                                }
+                            ?>
                         </ul>
 
                         <!-- snack -->
                         <h3 class="title__itemTea">Snack</h3>
                         <ul class="itemsHot__list">
-
+                            <?php 
+                                foreach($products as $product){
+                                    if(!strcmp($product["name"], "Snack")){                                    
+                                    ?>
+                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                                            <div class="itemHot__imgWrap">
+                                                <img src="<?= $product["image"] ?>" alt="">            
+                                            </div>
+                                            <div class="itemHot__content">
+                                                <h3 class="itemHot__title">
+                                                    <?= $product["title"] ?>
+                                                </h3>
+                                                <p class="itemHot__value">
+                                                    <?= $product["value"] ?> đ
+                                                </p>
+                                            </div>
+                                        </a>
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </div>
+                                        </li>
+                                    <?php
+                                    }                                    
+                                }
+                            ?>
                         </ul>
 
                         <!-- Cà phê tại nhà -->
                         <h3 class="title__itemTea">Cà Phê Tại Nhà</h3>
                         <ul class="itemsHot__list">
-
+                            <?php 
+                                foreach($products as $product){
+                                    if(!strcmp($product["name"], "CoffeeAtHome")){                                    
+                                    ?>
+                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                                            <div class="itemHot__imgWrap">
+                                                <img src="<?= $product["image"] ?>" alt="">            
+                                            </div>
+                                            <div class="itemHot__content">
+                                                <h3 class="itemHot__title">
+                                                    <?= $product["title"] ?>
+                                                </h3>
+                                                <p class="itemHot__value">
+                                                    <?= $product["value"] ?> đ
+                                                </p>
+                                            </div>
+                                        </a>
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </div>
+                                        </li>
+                                    <?php
+                                    }                                    
+                                }
+                            ?>
                         </ul>
                         <!-- Trà tại nhà -->
                         <h3 class="title__itemTea">Trà Tại Nhà</h3>
                         <ul class="itemsHot__list">
-
+                            <?php 
+                                foreach($products as $product){
+                                    if(!strcmp($product["name"], "TeaAtHome")){                                    
+                                    ?>
+                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                                            <div class="itemHot__imgWrap">
+                                                <img src="<?= $product["image"] ?>" alt="">            
+                                            </div>
+                                            <div class="itemHot__content">
+                                                <h3 class="itemHot__title">
+                                                    <?= $product["title"] ?>
+                                                </h3>
+                                                <p class="itemHot__value">
+                                                    <?= $product["value"] ?> đ
+                                                </p>
+                                            </div>
+                                        </a>
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </div>
+                                        </li>
+                                    <?php
+                                    }                                    
+                                }
+                            ?>
                         </ul>
                     </div>
                 </div>
@@ -449,7 +738,7 @@ file_put_contents(
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal login-->
     <div class="modal js-modal">
         <div class="modal__container js-modalContainer">
             <div class="modal__header">
@@ -510,6 +799,50 @@ file_put_contents(
             </div>
         </div>
     </div>
+    
+    <!-- Modal detail product -->
+    <!-- <div class="modal js-modal products">
+        <div class="modal__container js-modalContainer product">
+            <div class="modal__header">
+                <div class="modal__header__title product">
+                    Chi tiết sản phẩm
+                </div>                
+            </div>
+
+            <div class="modal__body product">
+                <div class="modal__content product">
+                    <div class="modal__content__imgWrap">
+                        <img src="./assets/img/menu/BM1.jpg" alt="">
+                    </div>
+                    <div class="modal__content__info">
+                        <div class="modal__content__info-wrap">
+                            <h3 class="modal__content__title">
+                                Bánh mì
+                            </h3>
+                            <p class="modal__content__value">45000 đ</p>
+                            <div class="modal__content__desc-wrap product">
+                                <p class="modal__content__desc">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a 
+                                galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release 
+                                of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                </p>
+                            </div>
+                            
+                        </div>
+                        <div class="modal__content__action">
+                            <div class="modal__content__btnReturn">trở về</div>
+                            <div class="modal__content__btnAddToCart">thêm vào giỏ hàng</div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal__footer">                        
+            </div>
+        </div>
+    </div> -->
 
     <script>
         // tránh lan truyền sự kiện (truyền vào event con)
