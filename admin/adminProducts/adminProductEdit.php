@@ -52,6 +52,7 @@ if (isset($_POST['submit'])) {
         ];
 
         Auth::updateProduct($dataUpdateProduct);
+        header("location:./adminproduct.php");
        
         
     }
