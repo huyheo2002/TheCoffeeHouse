@@ -859,6 +859,7 @@ $products = DB::execute($sql);
     </script>
     <script src="./assets/js/base.js"></script>
     <script src="./assets/js/menu.js" type="module"></script>
+    <script src="./assets/js/cart-detail.js"></script>
 </body>
 
 </html>

@@ -1,70 +1,6 @@
-export class Cart {
+class Cart {
     constructor() {
-        this.arrData = [];
         this.isOpened = false;
-
-        this.reset();
-    }
-
-    reset() {
-        this.arrData = [];
-        this.renderData();
-        this.countItems();
-    }
-
-    add(obj) {
-        this.arrData.push(obj);
-    }
-
-    renderData() {
-        let dataList = document.querySelector(".cart__list");
-        let self = this;
-        dataList.innerHTML = this.arrData.reduce(
-            (html, currentObj) => html += `
-                <li><a>
-                    <div class="cart__imgWrap">
-                        <img src="${currentObj.image}" alt="">
-                    </div>
-                    <div class="cart__info">
-                        <h4 class="cart__info-title">${currentObj.title}</h4>
-                        <p class="cart__info-value">${currentObj.value} đ</p>
-                    </div>
-                    <div class="cart__action">
-                        <i class="fa-solid fa-trash"></i>
-                    </div>
-                </a></li>     
-            `,
-            ""
-        );
-
-        /**
-         * @how Lấy rất nhiều action, sau đó gán onclick của nó :V 
-         * cách này hơi bất ổn nhưng được cái dùng innerHTML như ở trên được    
-         */
-        let actionList = document.querySelectorAll(".cart__list .cart__action");
-        actionList.forEach(
-            (obj, index) => obj.onclick = () => self.deleteItem(index)
-        );
-    }
-
-    countItems() {
-        let cartBadge = document.querySelector(".cart__badge");
-        let count = document.querySelector(".cart__badge p");
-        
-        if(this.arrData.length <= 0) {
-            cartBadge.style.display = "none";
-            // return;
-        } else{
-            count.innerHTML = `${this.arrData.length}`;
-            cartBadge.style.display = "block";
-        }
-
-        
-    }
-
-    deleteItem(index){
-        this.arrData.splice(index, 1);
-        this.renderData();
     }
 
     toggle() {
@@ -75,9 +11,7 @@ export class Cart {
         }
     }
 
-    open() {
-        this.renderData();
-        
+    open() {        
         if (this.isOpened) {
             return;
         }
@@ -123,4 +57,101 @@ export class Cart {
 
         this.isOpened = false;
     }
-} 
+}
+
+// CART 
+let cart = new Cart();
+var btnToggleCart = document.querySelector(".btn__cart");
+var btnCloseCart = document.querySelector(".cart__btnClose");
+var btnResetCart = document.querySelector(".cart__footer-btnReset");
+
+btnToggleCart.onclick = function(){
+    cart.toggle();
+};
+
+btnCloseCart.onclick = function(){
+    cart.close();
+};
+
+btnResetCart.addEventListener("click", function(){
+    cart.close();
+})
+
+function showCart () {
+    $.ajax({
+        url: "./ajax/show-cart.php",
+        method: "POST",
+        data: {
+            
+        },
+        success: function(data){
+            var dataProducts = jQuery.parseJSON(data);
+            console.log(dataProducts);
+            // console.log(typeof dataProducts);
+            $(".cart__list").html("");
+            
+            dataProducts.forEach((product) => {
+                let listItems = $(`
+                    <li><a href="">
+                        <div class="cart__imgWrap">
+                            <img src="${product.image}" alt="">
+                        </div>
+                        <div class="cart__info">
+                            <div class="cart__info-descProduct">
+                                <h4 class="cart__info-title">${product.title}</h4>
+                                <p class="cart__info-value">${product.value} đ</p>
+                            </div>
+                            <div class="cart__info-count">
+                                ${product.count}
+                            </div>                                                
+                        </div>
+                    </a></li>
+                `)
+                .appendTo($(".cart__list"));                                    
+            })
+            
+        }
+        
+    });
+}
+
+function resetCart () {
+    $.ajax({
+        url: "./ajax/reset-cart.php",
+        method: "POST",
+        data: {
+            
+        },
+        success: function(){                                  
+            $(".cart__list").html("");
+            $("#cart__badge").css("display", "none");
+            $("#cart__badge .count").html("0");                                                                        
+        }
+    });
+}
+
+function addToCart (product_Id) {
+    $.ajax({
+        url: "./ajax/add-to-cart.php",
+        method: "POST",
+        data: {
+            id: product_Id
+        },
+        success: function(data){
+            console.log(data)
+            $("#cart__badge .count").html(data);
+            if(parseInt(data) >= 0){
+                $("#cart__badge").css("display", "block");
+            }else{
+                $("#cart__badge").css("display", "none");
+            }
+        }
+    });
+}
+
+$(document).ready(() => {
+    $("#cart__badge").css("display", "none");
+})
+
+
+

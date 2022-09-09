@@ -70,6 +70,7 @@
     border-radius: 10px;
     cursor: pointer;
     transition: all linear 0.5s;
+    user-select: none;
 }
 
 .product__btnCancel:hover, .product__btnAddToCart:hover{

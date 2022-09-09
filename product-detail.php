@@ -215,25 +215,7 @@ if (isset($_SESSION['message'])) {
                                 </div>
                                 <div class="product__action">
                                     <div class="product__btnCancel">Cancel</div>
-                                    <div class="product__btnAddToCart" id="btnAddToCart">Add to Cart</div>
-
-                                    <!-- jquery -->
-                                    <script>
-                                        $(document).ready(function () {
-                                            $("#btnAddToCart").click(function() {
-                                                $.ajax({
-                                                    url: "./ajax/add-to-cart.php",
-                                                    method: "POST",
-                                                    data: {
-                                                        id: <?= $product_Id ?>
-                                                    },
-                                                    success: function(data){
-                                                        console.log("oke :V")
-                                                    }
-                                                });
-                                            });
-                                        });
-                                    </script>
+                                    <div class="product__btnAddToCart" id="btnAddToCart">Add to Cart</div>                                    
                                 </div>
                             </div>
                         </div>
@@ -241,46 +223,6 @@ if (isset($_SESSION['message'])) {
                 <?php
             }
         ?>        
-
-        <!-- cart -->
-        <div class="btn__cart-wrap">
-            <a class="btn__cart" href="./ajax/debug-cart.php">                
-                <i class="fa-solid fa-cart-shopping" id="cart__logo"></i>
-            </a>
-            <div class="cart__badge">
-                <i class="fa-solid fa-star">
-                    <p class="count">1</p>
-                </i>
-            </div>
-        </div>
-
-        <div class="cart__sidebar">
-            <div class="cart__sidebar-overlay">
-                <header class="cart__title">
-                    <h3 class="cart__title-text">Thông báo</h3>
-                    <div class="cart__btnClose">
-                        <i class="fa-solid fa-xmark"></i>
-                    </div>
-                </header>
-                <ul class="cart__list">
-                    <li><a href="">
-                            <div class="cart__imgWrap">
-                                <img src="./assets/img/menu/BM1.jpg" alt="">
-                            </div>
-                            <div class="cart__info">
-                                <h4 class="cart__info-title">hi</h4>
-                                <p class="cart__info-value">124.000đ</p>
-                            </div>
-                        </a></li>
-
-                </ul>
-
-                <footer class="cart__footer">
-                    <div class="cart__footer-btnReset">Reset</div>
-                    <div class="cart__footer-btnBuy">Thanh toán</div>
-                </footer>
-            </div>
-        </div>
     </div>
 
     <!-- Modal login-->
@@ -388,7 +330,10 @@ if (isset($_SESSION['message'])) {
             </div>
         </div>
     </div> -->
-
+    
+    <?php 
+        include "./cart.php";
+    ?>
     <script>
         // tránh lan truyền sự kiện (truyền vào event con)
         // fetch("./assets/data/products.json")
@@ -402,8 +347,14 @@ if (isset($_SESSION['message'])) {
             e.stopPropagation();
         }
     </script>
-    <script src="./assets/js/base.js"></script>
-    <!-- <script src="./assets/js/menu.js" type="module"></script> -->
+    <script src="./assets/js/base.js"></script>  
+    <script src="./assets/js/Cart.js"></script>  
+    <!-- jquery -->
+    <script>
+        $(document).ready(function () {
+            $("#btnAddToCart").click(() => addToCart(<?= $product_Id ?>) );
+        });
+    </script>
 </body>
 
 </html>

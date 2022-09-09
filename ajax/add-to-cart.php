@@ -11,3 +11,5 @@
     if (isset($_POST["id"])) {
         array_push($_SESSION["cart"], $_POST["id"]);
     }
+
+    echo json_encode(count($_SESSION["cart"]));
