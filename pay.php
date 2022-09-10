@@ -1,3 +1,40 @@
+<?php
+    require_once "./classes/DB.php";
+
+    // kiểm tra session đã bắt đầu chưa
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    if (empty($_SESSION["cart"])) {
+        $_SESSION["cart"] = [];
+    }
+
+    // json_encode($_SESSION["cart"]);
+
+    $productIds = implode(",", $_SESSION["cart"]);
+
+    $sql = "select id, image, title, value from products where id in (". $productIds .")";
+
+    $products = DB::execute($sql);
+
+    $countProducts = array_count_values($_SESSION["cart"]);
+    $arrProduct = array_map(function($value, $key) use($products) {
+        foreach($products as $product) {
+            if ($product["id"] == $key) {
+                return [
+                    "id" => $product["id"],
+                    "title" => $product["title"],
+                    "image" => $product["image"],
+                    "value" => $product["value"],
+                    "count" => $value
+                ];
+            }
+        }
+    }, $countProducts, array_keys($countProducts));
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +42,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Thanh toán</title>
     <style>
         th{
@@ -115,46 +153,56 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row" class="index-product">1</th>
-                    <td class="image-product-wrap">
-                        <img src="./assets/img/menu/BM1.jpg" alt="">
-                    </td>
-                    <td class="name-product">Bánh mì</td>
-                    <td class="value-product">35đ</td>
-                    <td class="count-product">2</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="index-product">2</th>
-                    <td class="image-product-wrap">
-                        <img src="./assets/img/menu/BM1.jpg" alt="">
-                    </td>
-                    <td class="name-product">Bánh mì 1</td>
-                    <td class="value-product">22đ</td>
-                    <td class="count-product">4</td>
-                </tr>
-                <tr>
-                    <th scope="row" class="index-product">3</th>
-                    <td class="image-product-wrap">
-                        <img src="./assets/img/menu/BM1.jpg" alt="">
-                    </td>
-                    <td class="name-product">Bành mì 2</td>
-                    <td class="value-product">125 đ</td>
-                    <td class="count-product">1</td>
-                </tr>
+                <?php 
+                    $i = 1;
+                    foreach($arrProduct as $product){
+                ?>
+                        <tr>
+                            <th scope="row" class="index-product"><?= $i++ ?></th>
+                            <td class="image-product-wrap">
+                                <img src="<?= $product["image"] ?>" alt="">
+                            </td>
+                            <td class="name-product"><?= $product["title"] ?></td>
+                            <td class="value-product"><?= $product["value"] ?> đ</td>
+                            <td class="count-product"><?= $product["count"] ?></td>
+                        </tr>
+                <?php
+                    }
+                ?>                
             </tbody>
             <tfoot>
                 <tr>
-                    <th colspan="5" scope="col">Tổng tiền thanh toán : <p class="sumValue" style="margin-bottom: 0;">180.000 đ</p></th>
+                    <th colspan="5" scope="col">Tổng tiền thanh toán : <p class="sumValue" style="margin-bottom: 0;"><?= array_reduce($arrProduct, fn($total, $item) => ($total + $item["value"] * $item["count"]) )?> đ</p></th>
                 </tr>
             </tfoot>
         </table>
     </div>
-    <div class="product__action">
+    <div class="product__action" style="margin-bottom: 35px">
         <div class="product__btnCancel">
             <a href="./menu.php">Thoát</a>
         </div>
-        <div class="product__btnAddToCart" id="btnAddToCart">Thanh toán</div>                                    
+        <div class="product__btnAddToCart" id="btnPayPay">
+            Thanh toán
+        </div>                                    
     </div>
+    
+    <script>
+        $(document).ready(function() {
+            $("#btnPayPay").click(function(){
+                $.ajax({
+                    url: "./ajax/reset-cart.php",
+                    method: "POST",
+                    data: {
+                        
+                    },
+                    success: function(){                                  
+                       alert("Thanh toán thành công");
+                       window.location.replace("./home.php");                                               
+                    }
+                });
+            });
+            
+        })
+    </script>
 </body>
 </html>

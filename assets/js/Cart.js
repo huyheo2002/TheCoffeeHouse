@@ -189,30 +189,7 @@ $(document).ready(() => {
                 $("#cart__badge").css("display", "block");
             }else{
                 $("#cart__badge").css("display", "none");
-            }
-
-            // $(".cart__list").html("");
-            
-            // dataProducts.forEach((product) => {
-            //     let listItems = $(`
-            //         <li><a href="">
-            //             <div class="cart__imgWrap">
-            //                 <img src="${product.image}" alt="">
-            //             </div>
-            //             <div class="cart__info">
-            //                 <div class="cart__info-descProduct">
-            //                     <h4 class="cart__info-title">${product.title}</h4>
-            //                     <p class="cart__info-value">${product.value} đ</p>
-            //                 </div>
-            //                 <div class="cart__info-count">
-            //                     ${product.count}
-            //                 </div>                                                
-            //             </div>
-            //         </a></li>
-            //     `)
-            //     .appendTo($(".cart__list"));                                    
-            // })
-            
+            }            
         }
         
     });

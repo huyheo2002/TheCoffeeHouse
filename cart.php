@@ -45,7 +45,11 @@
 
         <footer class="cart__footer">
             <div class="cart__footer-btnReset" id="btnResetCart">Reset</div>
-            <div class="cart__footer-btnBuy">Thanh toán</div>
+            <div class="cart__footer-btnBuy">
+                <a href="./pay.php">
+                    Thanh toán
+                </a>
+            </div>
         </footer>
 
         <!-- jquery -->

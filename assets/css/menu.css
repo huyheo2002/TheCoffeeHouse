@@ -486,3 +486,12 @@ footer.cart__footer {
     background-color: #fff;
 }
 
+.cart__footer-btnBuy a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.cart__footer-btnBuy:hover a{
+    color: #ea8025;
+}
+
