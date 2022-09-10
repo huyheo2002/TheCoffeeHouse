@@ -86,8 +86,7 @@ function showCart () {
         },
         success: function(data){
             var dataProducts = jQuery.parseJSON(data);
-            console.log(dataProducts);
-            // console.log(typeof dataProducts);
+            // console.log(dataProducts);
             $(".cart__list").html("");
             
             dataProducts.forEach((product) => {
@@ -138,20 +137,88 @@ function addToCart (product_Id) {
             id: product_Id
         },
         success: function(data){
-            console.log(data)
-            $("#cart__badge .count").html(data);
-            if(parseInt(data) >= 0){
+            var dataProducts = jQuery.parseJSON(data);
+            let cnt = dataProducts.reduce((total, dataProduct) => (total + dataProduct.count), 0);
+            $("#cart__badge .count").html(cnt);
+            if(cnt >= 0){
                 $("#cart__badge").css("display", "block");
             }else{
                 $("#cart__badge").css("display", "none");
             }
+
+            $("#cart__list").html("");
+            // console.log($("#cart__list"));
+            console.log(dataProducts);        
+            dataProducts.forEach((product) => {
+                // console.log(product);
+                let listItems = $(`
+                    <li><a href="">
+                        <div class="cart__imgWrap">
+                            <img src="${product.image}" alt="">
+                        </div>
+                        <div class="cart__info">
+                            <div class="cart__info-descProduct">
+                                <h4 class="cart__info-title">${product.title}</h4>
+                                <p class="cart__info-value">${product.value} đ</p>
+                            </div>
+                            <div class="cart__info-count">
+                                ${product.count}
+                            </div>                                                
+                        </div>
+                    </a></li>
+                `)
+                .appendTo($(".cart__list"));                                    
+            })
+            
         }
     });
 }
 
 $(document).ready(() => {
-    $("#cart__badge").css("display", "none");
+    $.ajax({
+        url: "./ajax/show-cart.php",
+        method: "POST",
+        data: {
+            
+        },
+        success: function(data){
+            var dataProducts = jQuery.parseJSON(data);
+            let cnt = dataProducts.reduce((total, dataProduct) => (total + dataProduct.count), 0);
+            $("#cart__badge .count").html(cnt);
+            if(cnt >= 0){
+                $("#cart__badge").css("display", "block");
+            }else{
+                $("#cart__badge").css("display", "none");
+            }
+
+            // $(".cart__list").html("");
+            
+            // dataProducts.forEach((product) => {
+            //     let listItems = $(`
+            //         <li><a href="">
+            //             <div class="cart__imgWrap">
+            //                 <img src="${product.image}" alt="">
+            //             </div>
+            //             <div class="cart__info">
+            //                 <div class="cart__info-descProduct">
+            //                     <h4 class="cart__info-title">${product.title}</h4>
+            //                     <p class="cart__info-value">${product.value} đ</p>
+            //                 </div>
+            //                 <div class="cart__info-count">
+            //                     ${product.count}
+            //                 </div>                                                
+            //             </div>
+            //         </a></li>
+            //     `)
+            //     .appendTo($(".cart__list"));                                    
+            // })
+            
+        }
+        
+    });
 })
+
+
 
 
 

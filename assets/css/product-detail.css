@@ -78,6 +78,16 @@
     color: #ea8025;
 }
 
+.product__btnCancel a{
+    text-decoration: none;
+    color: #fff;
+    display: block;
+}
+
+.product__btnCancel:hover a {
+    color: #ea8025;
+}
+
 /* error */
 .product__error{
     text-align: center;

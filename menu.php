@@ -278,7 +278,7 @@ $products = DB::execute($sql);
                                             <div class="itemHot__imgWrap">
                                                 <img src="<?= $product["image"] ?>" alt="">            
                                             </div>
-                                            <div class="itemHot__content">
+                                            <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
                                                     <?= $product["title"] ?>
                                                 </h3>
@@ -287,7 +287,7 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
                                         </li>
@@ -308,7 +308,7 @@ $products = DB::execute($sql);
                                             <div class="itemHot__imgWrap">
                                                 <img src="<?= $product["image"] ?>" alt="">            
                                             </div>
-                                            <div class="itemHot__content">
+                                            <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
                                                     <?= $product["title"] ?>
                                                 </h3>
@@ -317,7 +317,7 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
                                         </li>
@@ -338,7 +338,7 @@ $products = DB::execute($sql);
                                             <div class="itemHot__imgWrap">
                                                 <img src="<?= $product["image"] ?>" alt="">            
                                             </div>
-                                            <div class="itemHot__content">
+                                            <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
                                                     <?= $product["title"] ?>
                                                 </h3>
@@ -347,7 +347,7 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
                                         </li>
@@ -368,7 +368,7 @@ $products = DB::execute($sql);
                                             <div class="itemHot__imgWrap">
                                                 <img src="<?= $product["image"] ?>" alt="">            
                                             </div>
-                                            <div class="itemHot__content">
+                                            <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
                                                     <?= $product["title"] ?>
                                                 </h3>
@@ -377,7 +377,7 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
                                         </li>
@@ -398,7 +398,7 @@ $products = DB::execute($sql);
                                             <div class="itemHot__imgWrap">
                                                 <img src="<?= $product["image"] ?>" alt="">            
                                             </div>
-                                            <div class="itemHot__content">
+                                            <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
                                                     <?= $product["title"] ?>
                                                 </h3>
@@ -407,7 +407,7 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
                                         </li>
@@ -428,7 +428,7 @@ $products = DB::execute($sql);
                                             <div class="itemHot__imgWrap">
                                                 <img src="<?= $product["image"] ?>" alt="">            
                                             </div>
-                                            <div class="itemHot__content">
+                                            <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
                                                     <?= $product["title"] ?>
                                                 </h3>
@@ -437,7 +437,7 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
                                         </li>
@@ -458,7 +458,7 @@ $products = DB::execute($sql);
                                             <div class="itemHot__imgWrap">
                                                 <img src="<?= $product["image"] ?>" alt="">            
                                             </div>
-                                            <div class="itemHot__content">
+                                            <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
                                                     <?= $product["title"] ?>
                                                 </h3>
@@ -467,7 +467,7 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
                                         </li>
@@ -488,7 +488,7 @@ $products = DB::execute($sql);
                                             <div class="itemHot__imgWrap">
                                                 <img src="<?= $product["image"] ?>" alt="">            
                                             </div>
-                                            <div class="itemHot__content">
+                                            <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
                                                     <?= $product["title"] ?>
                                                 </h3>
@@ -497,7 +497,7 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
                                         </li>
@@ -518,7 +518,7 @@ $products = DB::execute($sql);
                                             <div class="itemHot__imgWrap">
                                                 <img src="<?= $product["image"] ?>" alt="">            
                                             </div>
-                                            <div class="itemHot__content">
+                                            <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
                                                     <?= $product["title"] ?>
                                                 </h3>
@@ -527,7 +527,7 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
                                         </li>
@@ -548,7 +548,7 @@ $products = DB::execute($sql);
                                             <div class="itemHot__imgWrap">
                                                 <img src="<?= $product["image"] ?>" alt="">            
                                             </div>
-                                            <div class="itemHot__content">
+                                            <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
                                                     <?= $product["title"] ?>
                                                 </h3>
@@ -557,7 +557,7 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
                                         </li>
@@ -578,7 +578,7 @@ $products = DB::execute($sql);
                                             <div class="itemHot__imgWrap">
                                                 <img src="<?= $product["image"] ?>" alt="">            
                                             </div>
-                                            <div class="itemHot__content">
+                                            <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
                                                     <?= $product["title"] ?>
                                                 </h3>
@@ -587,7 +587,7 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
                                         </li>
@@ -602,23 +602,23 @@ $products = DB::execute($sql);
                             <?php 
                                 foreach($products as $product){
                                     if(!strcmp($product["name"], "TeaAtHome")){                                    
-                                    ?>
+                                    ?>                                    
                                         <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
-                                            <div class="itemHot__imgWrap">
-                                                <img src="<?= $product["image"] ?>" alt="">            
+                                                <div class="itemHot__imgWrap">
+                                                    <img src="<?= $product["image"] ?>" alt="">            
+                                                </div>
+                                                <div class="itemHot__content" title="<?= $product["title"] ?>">
+                                                    <h3 class="itemHot__title">
+                                                        <?= $product["title"] ?>
+                                                    </h3>
+                                                    <p class="itemHot__value">
+                                                        <?= $product["value"] ?> đ
+                                                    </p>
+                                                </div>
+                                            </a>
+                                            <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
+                                                <i class="fa-solid fa-cart-shopping"></i>
                                             </div>
-                                            <div class="itemHot__content">
-                                                <h3 class="itemHot__title">
-                                                    <?= $product["title"] ?>
-                                                </h3>
-                                                <p class="itemHot__value">
-                                                    <?= $product["value"] ?> đ
-                                                </p>
-                                            </div>
-                                        </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)">
-                                            <i class="fa-solid fa-cart-shopping"></i>
-                                        </div>
                                         </li>
                                     <?php
                                     }                                    
@@ -697,45 +697,9 @@ $products = DB::execute($sql);
             </div>
         </div>
         <!-- cart -->
-
-        <div class="btn__cart-wrap">
-            <div class="btn__cart">
-                <i class="fa-solid fa-cart-shopping" id="cart__logo"></i>
-            </div>
-            <div class="cart__badge">
-                <i class="fa-solid fa-star">
-                    <p class="count">1</p>
-                </i>
-            </div>
-        </div>
-
-        <div class="cart__sidebar">
-            <div class="cart__sidebar-overlay">
-                <header class="cart__title">
-                    <h3 class="cart__title-text">Thông báo</h3>
-                    <div class="cart__btnClose">
-                        <i class="fa-solid fa-xmark"></i>
-                    </div>
-                </header>
-                <ul class="cart__list">
-                    <li><a href="">
-                            <div class="cart__imgWrap">
-                                <img src="./assets/img/menu/BM1.jpg" alt="">
-                            </div>
-                            <div class="cart__info">
-                                <h4 class="cart__info-title">hi</h4>
-                                <p class="cart__info-value">124.000đ</p>
-                            </div>
-                        </a></li>
-
-                </ul>
-
-                <footer class="cart__footer">
-                    <div class="cart__footer-btnReset">Reset</div>
-                    <div class="cart__footer-btnBuy">Thanh toán</div>
-                </footer>
-            </div>
-        </div>
+        <?php 
+            include "./cart.php";
+        ?>
     </div>
 
     <!-- Modal login-->
@@ -859,7 +823,19 @@ $products = DB::execute($sql);
     </script>
     <script src="./assets/js/base.js"></script>
     <script src="./assets/js/menu.js" type="module"></script>
-    <script src="./assets/js/cart-detail.js"></script>
+    <script src="./assets/js/Cart.js"></script>  
+    <!-- jquery -->
+    <script>
+        $(document).ready(function () {
+            let products = document.querySelectorAll(".itemHot__cart");
+            products.forEach((product) => {
+                $(product).click(() => {
+                    let productId = product.dataset.productId;
+                    addToCart(productId);
+                })
+            })
+        });
+    </script>
 </body>
 
 </html>

@@ -58,9 +58,6 @@
         </script>
     </div>
 </div>
-
-<script src="./assets/js/cart-detail.js" type="module"></script>
-
 <script>
     
 </script>

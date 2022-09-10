@@ -1,23 +1,21 @@
-import { Cart } from "./Cart.js";
+// // CART 
+// let cart = new Cart();
+// var btnToggleCart = document.querySelector(".btn__cart");
+// var btnCloseCart = document.querySelector(".cart__btnClose");
+// var btnResetCart = document.querySelector(".cart__footer-btnReset");
 
-// CART 
-let cart = new Cart();
-var btnToggleCart = document.querySelector(".btn__cart");
-var btnCloseCart = document.querySelector(".cart__btnClose");
-var btnResetCart = document.querySelector(".cart__footer-btnReset");
+// btnToggleCart.onclick = function(){
+//     cart.toggle();
+//     cart.renderData();
+// };
 
-btnToggleCart.onclick = function(){
-    cart.toggle();
-    cart.renderData();
-};
-
-btnCloseCart.onclick = function(){
-    cart.close();
-};
-btnResetCart.addEventListener("click", function(){
-    cart.reset();
-    cart.close();
-})
+// btnCloseCart.onclick = function(){
+//     cart.close();
+// };
+// btnResetCart.addEventListener("click", function(){
+//     cart.reset();
+//     cart.close();
+// })
 
 // SIDEBAR :v
 

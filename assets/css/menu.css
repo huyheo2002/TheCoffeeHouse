@@ -136,6 +136,7 @@
 .itemsHot__list li{
     margin-bottom: 30px;
     padding: 0 14px;
+    position: relative;
 }
 
 .itemsHot__list a{
@@ -156,13 +157,32 @@
 }
 
 .itemHot__content{
-    width: 260px;
+    width: 65%;
+    max-width: 260px;
     margin-top: 10px;
+}
+
+.itemHot__cart{
+    position: absolute;
+    bottom: 12px;
+    right: 30px;
+}
+
+.itemHot__cart i{
+    font-size: 22px;
+    color: #EA8025;
+}
+
+.itemHot__cart:hover {
+    transform: scale(1.4);
 }
 
 .itemHot__title{
     font-size: 17px;
     color: #191919;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .itemHot__value{

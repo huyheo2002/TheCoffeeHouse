@@ -214,7 +214,9 @@ if (isset($_SESSION['message'])) {
                                         remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                                 </div>
                                 <div class="product__action">
-                                    <div class="product__btnCancel">Cancel</div>
+                                    <div class="product__btnCancel">
+                                        <a href="./menu.php">Cancel</a>
+                                    </div>
                                     <div class="product__btnAddToCart" id="btnAddToCart">Add to Cart</div>                                    
                                 </div>
                             </div>
