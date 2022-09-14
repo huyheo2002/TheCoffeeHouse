@@ -70,6 +70,7 @@ $products = DB::execute($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/menu.css">
+    <link rel="stylesheet" href="./assets/responsive/menuRespon.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Menu</title>
@@ -85,7 +86,15 @@ $products = DB::execute($sql);
                         <img src="./assets/img/items-hot/header_logo.jpg" alt="">
                     </a>
                 </div>
+                <!-- btn header menu mobile -->
+                <div class="header__menu-mobile">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <!-- end btn menu -->
                 <div class="header__nav">
+                    <div class="header__nav-close-mobile">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
                     <ul class="list__nav">
                         <li><a href="./coffee.php">Cà phê</a></li>
                         <li><a href="./tea.php">Trà</a></li>

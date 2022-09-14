@@ -184,7 +184,7 @@ if (isset($_SESSION['message'])) {
 
                 <h3>
                     Chuyện cà phê và nhà
-                    <h1 style="background: orange; width: 40px; height: 5px; margin-top: -20px; margin-bottom: 10px ;margin-left: 630px;">
+                    <h1 style="background: orange; width: 40px; height: 5px; margin-top: -20px; margin-bottom: 10px ;margin-left: 46%;">
                     </h1>
                     <!-- <hr style="border: 4px solid rgb(212, 120, 14); width:50px; margin-top: 15px; margin-left: 90px; border-radius: 10px;"> -->
                 </h3>
