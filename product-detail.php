@@ -209,9 +209,7 @@ if (isset($_SESSION['message'])) {
                                 <div class="product__info">
                                     <h3 class="product__name"><?= $products[0]["title"] ?></h3>
                                     <p class="product__value"><?= $products[0]["value"] ?> đ</p>
-                                    <p class="product__desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                        when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, 
-                                        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                    <p class="product__desc"><?= $products[0]["description"] ?></p>
                                 </div>
                                 <div class="product__action">
                                     <div class="product__btnCancel">
@@ -354,8 +352,10 @@ if (isset($_SESSION['message'])) {
     <!-- jquery -->
     <script>
         $(document).ready(function () {
+            <?php if(isset( $_SESSION['message_login'])) { ?>
             $("#btnAddToCart").click(() => addToCart(<?= $product_Id ?>) );
-        });
+            <?php } else{?>$("#btnAddToCart").click(() =>  alert("Bạn cần đăng nhập trước!") );  <?php } ?>
+        } );
     </script>
 </body>
 

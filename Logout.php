@@ -3,6 +3,7 @@ include './classes/User.php';
 
 AUth::logout();
 unset($_SESSION['message']);
+unset( $_SESSION['message_login']);
 
 
 unset($_SESSION['getDataInformation_fullName']);
