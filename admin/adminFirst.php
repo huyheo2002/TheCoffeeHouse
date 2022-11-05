@@ -23,7 +23,7 @@
     <a href="./admin.php"><button type="button" class="btn btn-dark">Quản lý Tài khoản</button></a>
     <a href="./adminProducts/adminProduct.php"><button type="button" class="btn btn-danger">Quản lý sản phẩm</button></a>
     
-    
+    <a href="./admin_order/admin_order.php"><button type="button" class="btn btn-success">Quản lý đơn hàng</button></a>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>

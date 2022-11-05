@@ -842,6 +842,9 @@ $products = DB::execute($sql);
                     $(product).click(() => {
                         let productId = product.dataset.productId;
                         addToCart(productId);
+                        
+                        // $_GET("./add_to_cart.php", {'productID':productId}, function(data) {alert(data);});
+                           
                     })
                 })
                 <?php } if (!isset($_SESSION['message_login'])) { ?>let products = document.querySelectorAll(".itemHot__cart");
