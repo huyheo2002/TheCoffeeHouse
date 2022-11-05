@@ -146,6 +146,9 @@ $arrProduct = array_map(function ($value, $key) use ($products) {
         h4{
             text-align: center;
         }
+        a{
+            text-decoration: none!important;
+        }
     </style>
 </head>
 

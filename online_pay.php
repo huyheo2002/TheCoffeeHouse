@@ -2439,10 +2439,10 @@ $TongTien = (int)$_SESSION['price'] + $tien_ship;
 <!-- script use for this page only -->
 <!-- end script for this page only -->
 
-<script src="/paymentv2/Scripts/ua-parser.min.js" type="text/javascript"></script>
+
 
 <script>
-    var errorUrl = '/paymentv2/Payment/Error.html?code=15';
+    var errorUrl = 'https://sandbox.vnpayment.vn/paymentv2/Payment/Error.html?code=15';
 
     function cancelConfirm() {
         var x = this;
@@ -2481,7 +2481,7 @@ $TongTien = (int)$_SESSION['price'] + $tien_ship;
     }
 </script>
 
-<script src="/paymentv2/Scripts/jquery.signalR-2.4.3.min.js"></script>
+<script src="https://sandbox.vnpayment.vn/paymentv2/Scripts/custom.min.js?rnd=976511110"></script>
 <script type="text/javascript">
     $(function() {
         var notify = $.connection('/paymentv2/notify');
