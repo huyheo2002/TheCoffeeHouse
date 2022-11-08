@@ -1,39 +1,15 @@
 <?php
-require_once "./classes/DB.php";
 
+include '/xampp/htdocs/TheCoffeeHouse/classes/User.php';
 
-// kiểm tra session đã bắt đầu chưa
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
+$email = null;
+
+if ($_GET['email']) {
+    $email = $_GET['email'];
+    $lists = Auth::load_detail_order($email);
+} else {
+    header("location:./admin_order.php");
 }
-
-if (empty($_SESSION["cart"])) {
-    $_SESSION["cart"] = [];
-}
-
-// json_encode($_SESSION["cart"]);
-
-$productIds = implode(",", $_SESSION["cart"]);
-
-$sql = "select id, image, title, value from products where id in (" . $productIds . ")";
-
-$products = DB::execute($sql);
-
-$countProducts = array_count_values($_SESSION["cart"]);
-$arrProduct = array_map(function ($value, $key) use ($products) {
-    foreach ($products as $product) {
-        if ($product["id"] == $key) {
-            return [
-                "id" => $product["id"],
-                "title" => $product["title"],
-                "image" => $product["image"],
-                "value" => $product["value"],
-                "count" => $value
-            ];
-        }
-    }
-}, $countProducts, array_keys($countProducts));
-
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +21,7 @@ $arrProduct = array_map(function ($value, $key) use ($products) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <title>Thanh toán</title>
+    <title>Chi tiết đơn hàng</title>
     <style>
         th {
             text-align: center;
@@ -157,9 +133,9 @@ $arrProduct = array_map(function ($value, $key) use ($products) {
 
 <body>
     <div class="product__btnCancel">
-        <a href="./menu.php">Thoát</a>
+        <a href="./admin_order.php">Trở lại</a>
     </div>
-    <h4 class="title">Thanh toán sản phẩm</h4>
+    <h4 class="title">Danh sách sản phẩm</h4>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -174,68 +150,30 @@ $arrProduct = array_map(function ($value, $key) use ($products) {
             <tbody>
                 <?php
                 $i = 1;
-                foreach ($arrProduct as $product) {
+                foreach ($lists as $list) {
                 ?>
                     <tr>
                         <th scope="row" class="index-product"><?= $i++ ?></th>
                         <td class="image-product-wrap">
-                            <img src="<?= $product["image"] ?>" alt="">
+                            <img src="<?= $list["image"] ?>" alt="">
                         </td>
-                        <td class="name-product"><?= $product["title"] ?></td>
-                        <td class="value-product"><?= $product["value"] ?> đ</td>
-                        <td class="count-product"><?= $product["count"] ?></td>
+                        <td class="name-product"><?= $list["title"] ?></td>
+                        <td class="value-product"><?= $list["value"] ?> đ</td>
+                        <td class="count-product"></td>
                     </tr>
                 <?php
                 }
                 ?>
             </tbody>
-            <tfoot>
-                <tr>
-                    <th colspan="5" scope="col">Tổng tiền thanh toán : <p class="sumValue" style="margin-bottom: 0;"><?= array_reduce($arrProduct, fn ($total, $item) => ($total + $item["value"] * $item["count"])) ?> đ</p>
-                    </th>
-                    <?php $_SESSION['price'] = array_reduce($arrProduct, fn ($total, $item) => ($total + $item["value"] * $item["count"])); ?>
-                </tr>
-            </tfoot>
+            
         </table>
     </div>
-    <h4>Chọn phương thức thanh toán</h4>
-    <div class="product__action" style="margin-bottom: 35px">
-        <a href="./order.php">
-            <div class="product__btnAddToCart" >
-                Đặt hàng
-            </div>
-        </a>
-
-        <span>or</span>
-
-        <a href="./online_pay.php">
-            <div class="product__btnAddToCart" id="btnPayPay">
-                Thanh toán Online
-            </div>
-        </a>
-    </div>
+   
 
     <!-- <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?= $_SESSION['price'] ?>" title="Link to Google.com" /> -->
 
 
-    <script>
-        $(document).ready(function() {
-            $("#btnPayPay").click(function() {
-                $.ajax({
-                    url: "./ajax/reset-cart.php",
-                    method: "POST",
-                    data: {
 
-                    },
-                    success: function() {
-                        alert("Đặt hàng thành công!");
-                        window.location.replace("./menu.php");
-                    }
-                });
-            });
-
-        })
-    </script>
 </body>
 
 

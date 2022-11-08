@@ -33,6 +33,8 @@ if (isset($_SESSION['message'])) {
     $b = "Thông tin của tôi";
     $linkB = "information.php";
     $linkD = "Logout.php";
+    $e="Quản lý";
+    $linkE="./admin/adminFirst.php";
     $_SESSION['login_home'] = "login";
 } else {
     $a = "Tài khoản";
@@ -175,6 +177,12 @@ $products = Auth::loadDataProduct();
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
+                                    <?php if($_SESSION['dataEmail'] =="admin@gmail.com"){ ?>
+                                    <li><a class="dropdown-item" href="<?php echo $linkE ?>" target="_blank"><?php echo $e ?></a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <?php } ?>
                                     <li><a class="dropdown-item" href="<?php echo $linkD ?>">Đăng xuất</a></li>
 
                                 </ul>
@@ -198,7 +206,7 @@ $products = Auth::loadDataProduct();
         <!-- menu items-hot -->
         <div class="itemsHot__wrap">
             <ul class="itemsHot__list">
-                <li><a href="./ShowProduct.php?id=24" target="_blank">
+                <li><a href="" >
                         <div class="itemHot__imgWrap">
                             <img src="./assets/img/items-hot/IH1.jpeg" alt="">
                         </div>
@@ -211,7 +219,7 @@ $products = Auth::loadDataProduct();
                             </p>
                         </div>
                     </a></li>
-                <li><a href="./ShowProduct.php?id=25" target="_blank">
+                <li><a href="" >
                         <div class="itemHot__imgWrap">
                             <img src="./assets/img/items-hot/IH2.jpeg" alt="">
                         </div>
@@ -237,7 +245,7 @@ $products = Auth::loadDataProduct();
                             </p>
                         </div>
                     </a></li>
-                <li><a href="./ShowProduct.php?id=9" target="_blank">
+                <li><a href="" >
                         <div class="itemHot__imgWrap">
                             <img src="./assets/img/items-hot/IH4.jpg" alt="">
                         </div>
@@ -644,7 +652,6 @@ $products = Auth::loadDataProduct();
             <div class="modal__footer">
                 <div class="modal__footer-head">
                     <a href="">Hỗ trợ</a>
-                    <a href="<?php echo $linkC ?>" target="_blank">Đăng ký</a>
                 </div>
 
                 <p class="modal__footer-subhead">Hoặc đăng nhập bằng các tài khoản sau</p>

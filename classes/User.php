@@ -219,4 +219,43 @@ class Auth
                 header("location:./adminProduct.php");
         }
     }
+
+    //cập nhật giỏ hàng (cart)
+    static public function updateCart($dataUpdateCart)
+    {
+        $sql = "insert into cart(email, id) values(:email, :id)";
+        DB::execute($sql, $dataUpdateCart);
+    }
+
+
+    //reset giỏ hàng (cart)
+    static public function delete_cart($email)
+    {
+        $sql = "delete from cart where email =:email";
+        $data_delete_cart = ['email' => $email];
+        DB::execute($sql, $data_delete_cart);
+    }
+
+    
+    static public function update_order($data_update_order)
+    {
+        $sql = "insert into user_order(email, cart_status) values(:email, :cart_status)";
+        DB::execute($sql, $data_update_order);
+    }
+
+    static public function load_order()
+    {
+        $sql = "select * from user_order";
+       $order= DB::execute($sql);
+        return $order;
+    }
+
+    static public function load_detail_order($email)
+    {
+        $sql = "select * from cart,products where cart.id=products.id and cart.email=:email";
+        $data_load_detail_order=['email'=>$email];
+       $load_detail_order= DB::execute($sql,$data_load_detail_order);
+        return $load_detail_order;
+    }
+
 }

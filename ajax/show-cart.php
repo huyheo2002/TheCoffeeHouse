@@ -11,6 +11,8 @@
     }
 
     // json_encode($_SESSION["cart"]);
+    
+    // code xin
 
     $productIds = implode(",", $_SESSION["cart"]);
 

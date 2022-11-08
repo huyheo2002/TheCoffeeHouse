@@ -86,7 +86,7 @@
     li.menu__itemsBlock {
         background: #f1f5f8;
         border: 1px solid #ea8025;
-        margin: 5px 10px;
+        margin: 5px 25px;
         min-width: 185px;
         padding: 5px 10px;
         border-radius: 10px;
@@ -211,6 +211,7 @@
     .menu__content {
         margin-top: 65px;
         border-left: none;
+        width: 100%;
     }
 
     .menuContent__wrap {

@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
 
     $image = $_POST['image'];
     $title = $_POST['title'];
-    $value= $_POST['value'];
+    $value = $_POST['value'];
     $category_id = $_POST['category_id'];
     $description = $_POST['description'];
 
@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
 
     if (empty($err)) {
         $dataUpdateProduct = [
-            'id'=> $id,
+            'id' => $id,
             'image' => $_POST['image'],
             'title' => $_POST['title'],
             'value' => $_POST['value'],
@@ -53,8 +53,6 @@ if (isset($_POST['submit'])) {
 
         Auth::updateProduct($dataUpdateProduct);
         header("location:./adminproduct.php");
-       
-        
     }
 }
 
@@ -78,17 +76,20 @@ if (isset($_POST['submit'])) {
 
         <div>
             <!-- attribute for trong thẻ label chỉ sd với id -->
-            <form action="" method="post">
-                <!-- Email input -->
-                <h1 style="text-align:center ;">Chỉnh sửa thông tin sản phẩm</h1>
-                <a href="./adminProduct.php" class="btn btn-primary">Quay trở lại</a>
+            <h1 style="text-align:center ;">Chỉnh sửa thông tin sản phẩm</h1>
+            <a href="./adminProduct.php" class="btn btn-primary">Quay trở lại</a>
+            <br>
+            <form action="" method="post" enctype="multipart/form-data">
+                <!-- <form name="form1" enctype="multipart/form-data" method="post" action="http://url.com">
+                    <input type="file" name="file">
+                </form> -->
                 <br>
-                <br>
+                <!-- img input -->
                 <div class="form-outline mb-4">
 
                     <label class="form-label" for="form1Example13">đường link ảnh</label><span class="text-danger"><?php echo (isset($err['image'])) ? $err['image'] : "" ?></span>
-                    <input type="text" name="image" id="form1Example13" class="form-control form-control-lg" value="<?php echo $products['image'] ?>" /> 
-
+                    <input type="text" name="image" id="form1Example23" class="form-control form-control-lg" value="<?php echo $products['image'] ?>" />
+                    
                 </div>
 
 
@@ -108,7 +109,7 @@ if (isset($_POST['submit'])) {
                 <div class="form-outline mb-4">
 
                     <label class="form-label" for="form1Example23">category_id(id của giỏ hàng)</label> <span class="text-danger"><?php echo (isset($err['category_id'])) ? $err['category_id'] : "" ?></span>
-                    <input type="text" name="category_id" id="form1Example23" class="form-control form-control-lg" value="<?php echo $products['category_id'] ?>"/>
+                    <input type="text" name="category_id" id="form1Example23" class="form-control form-control-lg" value="<?php echo $products['category_id'] ?>" />
 
                 </div>
                 <div class="form-outline mb-4">
@@ -149,5 +150,6 @@ if (isset($_POST['submit'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>
+
 
 </html>

@@ -56,6 +56,7 @@ if (isset($_SESSION['message'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/coffee.css">
+    <link rel="stylesheet" href="./assets/responsive/coffeeRespon.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="./assets/responsive/baseRespon.css">
     <link rel="stylesheet" type="" href="./assets//responsive/teaCoffeeRespon.css">

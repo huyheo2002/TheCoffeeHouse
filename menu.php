@@ -42,7 +42,7 @@ if (isset($_SESSION['message'])) {
 }
 
 // phần truy xuất dữ liệu từ sql :v (ko sửa phần dưới)
-require_once ("./classes/DB.php");
+require_once("./classes/DB.php");
 
 // $conn = DB::getConnection();
 // $sql = "select * from user";
@@ -70,6 +70,7 @@ $products = DB::execute($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/menu.css">
+    <link rel="stylesheet" href="./assets/responsive/menuRespon.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="./assets/responsive/baseRespon.css">
@@ -180,12 +181,12 @@ $products = DB::execute($sql);
                         <li><a href="./KhaiTruong.php">Ưu đãi thành viên</a></li>
                         <!--Thay doi khi dang nhap-->
                         <?php if (isset($_SESSION['message'])) { ?>
-                            <li class="nav-item dropdown d-flex" style="padding: 0 0" title="<?php echo $_SESSION['dataUser']?>">
+                            <li class="nav-item dropdown d-flex" style="padding: 0 0" title="<?php echo $_SESSION['dataUser'] ?>">
                                 <div class="overlay__textUser">
                                     <a class=" dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <?php echo $a ?>
                                     </a>
-                                </div>  
+                                </div>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="<?php echo $linkB ?>" target="_blank"><?php echo $b ?></a></li>
                                     <li>
@@ -199,9 +200,9 @@ $products = DB::execute($sql);
                         <?php } ?>
                         <?php if (!isset($_SESSION['message'])) { ?>
                             <li class="js-login"><a>
-                                <?php echo $a ?>
-                                <i class="fa-solid fa-user"></i>
-                            </a></li>
+                                    <?php echo $a ?>
+                                    <i class="fa-solid fa-user"></i>
+                                </a></li>
                         <?php } ?>
                     </ul>
                 </div>
@@ -282,13 +283,13 @@ $products = DB::execute($sql);
                         <!-- cà phê việt nam -->
                         <h3 class="title__itemTea">Cà Phê Việt Nam</h3>
                         <ul class="itemsHot__list">
-                            <?php 
-                                foreach($products as $product){
-                                    if(!strcmp($product["name"], "CoffeeVN")){                                    
-                                    ?>
-                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                            <?php
+                            foreach ($products as $product) {
+                                if (!strcmp($product["name"], "CoffeeVN")) {
+                            ?>
+                                    <li><a href="<?= './product-detail.php?id=' . $product['id'] ?>">
                                             <div class="itemHot__imgWrap">
-                                                <img src="<?= $product["image"] ?>" alt="">            
+                                                <img src="<?= $product["image"] ?>" alt="">
                                             </div>
                                             <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
@@ -299,26 +300,26 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id="<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
-                                        </li>
-                                    <?php
-                                    }                                    
+                                    </li>
+                            <?php
                                 }
+                            }
                             ?>
                         </ul>
 
                         <!-- cà phê máy -->
                         <h3 class="title__itemTea">Cà Phê Máy</h3>
                         <ul class="itemsHot__list">
-                            <?php 
-                                foreach($products as $product){
-                                    if(!strcmp($product["name"], "MachineCoffee")){                                    
-                                    ?>
-                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                            <?php
+                            foreach ($products as $product) {
+                                if (!strcmp($product["name"], "MachineCoffee")) {
+                            ?>
+                                    <li><a href="<?= './product-detail.php?id=' . $product['id'] ?>">
                                             <div class="itemHot__imgWrap">
-                                                <img src="<?= $product["image"] ?>" alt="">            
+                                                <img src="<?= $product["image"] ?>" alt="">
                                             </div>
                                             <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
@@ -329,26 +330,26 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id="<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
-                                        </li>
-                                    <?php
-                                    }                                    
+                                    </li>
+                            <?php
                                 }
+                            }
                             ?>
                         </ul>
 
                         <!-- Cold brew -->
                         <h3 class="title__itemTea">Cold Brew</h3>
                         <ul class="itemsHot__list">
-                            <?php 
-                                foreach($products as $product){
-                                    if(!strcmp($product["name"], "ColdBrew")){                                    
-                                    ?>
-                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                            <?php
+                            foreach ($products as $product) {
+                                if (!strcmp($product["name"], "ColdBrew")) {
+                            ?>
+                                    <li><a href="<?= './product-detail.php?id=' . $product['id'] ?>">
                                             <div class="itemHot__imgWrap">
-                                                <img src="<?= $product["image"] ?>" alt="">            
+                                                <img src="<?= $product["image"] ?>" alt="">
                                             </div>
                                             <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
@@ -359,26 +360,26 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id="<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
-                                        </li>
-                                    <?php
-                                    }                                    
+                                    </li>
+                            <?php
                                 }
+                            }
                             ?>
                         </ul>
 
                         <!-- Trà trái cây -->
                         <h3 class="title__itemTea">Trà Trái Cây</h3>
                         <ul class="itemsHot__list">
-                            <?php 
-                                foreach($products as $product){
-                                    if(!strcmp($product["name"], "FruitTea")){                                    
-                                    ?>
-                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                            <?php
+                            foreach ($products as $product) {
+                                if (!strcmp($product["name"], "FruitTea")) {
+                            ?>
+                                    <li><a href="<?= './product-detail.php?id=' . $product['id'] ?>">
                                             <div class="itemHot__imgWrap">
-                                                <img src="<?= $product["image"] ?>" alt="">            
+                                                <img src="<?= $product["image"] ?>" alt="">
                                             </div>
                                             <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
@@ -389,26 +390,26 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id="<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
-                                        </li>
-                                    <?php
-                                    }                                    
+                                    </li>
+                            <?php
                                 }
+                            }
                             ?>
                         </ul>
 
                         <!-- Trà sữa Macchiato -->
                         <h3 class="title__itemTea">Trà Sữa Macchiato</h3>
                         <ul class="itemsHot__list">
-                            <?php 
-                                foreach($products as $product){
-                                    if(!strcmp($product["name"], "MacchiatoMilkTea")){                                    
-                                    ?>
-                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                            <?php
+                            foreach ($products as $product) {
+                                if (!strcmp($product["name"], "MacchiatoMilkTea")) {
+                            ?>
+                                    <li><a href="<?= './product-detail.php?id=' . $product['id'] ?>">
                                             <div class="itemHot__imgWrap">
-                                                <img src="<?= $product["image"] ?>" alt="">            
+                                                <img src="<?= $product["image"] ?>" alt="">
                                             </div>
                                             <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
@@ -419,26 +420,26 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id="<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
-                                        </li>
-                                    <?php
-                                    }                                    
+                                    </li>
+                            <?php
                                 }
+                            }
                             ?>
                         </ul>
 
                         <!-- Đá xay -->
                         <h3 class="title__itemTea">Đá Xay</h3>
                         <ul class="itemsHot__list">
-                            <?php 
-                                foreach($products as $product){
-                                    if(!strcmp($product["name"], "GrindIce")){                                    
-                                    ?>
-                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                            <?php
+                            foreach ($products as $product) {
+                                if (!strcmp($product["name"], "GrindIce")) {
+                            ?>
+                                    <li><a href="<?= './product-detail.php?id=' . $product['id'] ?>">
                                             <div class="itemHot__imgWrap">
-                                                <img src="<?= $product["image"] ?>" alt="">            
+                                                <img src="<?= $product["image"] ?>" alt="">
                                             </div>
                                             <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
@@ -449,26 +450,26 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id="<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
-                                        </li>
-                                    <?php
-                                    }                                    
+                                    </li>
+                            <?php
                                 }
+                            }
                             ?>
                         </ul>
 
                         <!-- matcha - socola -->
                         <h3 class="title__itemTea">Matcha - Socola</h3>
                         <ul class="itemsHot__list">
-                            <?php 
-                                foreach($products as $product){
-                                    if(!strcmp($product["name"], "MatchaSocola")){                                    
-                                    ?>
-                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                            <?php
+                            foreach ($products as $product) {
+                                if (!strcmp($product["name"], "MatchaSocola")) {
+                            ?>
+                                    <li><a href="<?= './product-detail.php?id=' . $product['id'] ?>">
                                             <div class="itemHot__imgWrap">
-                                                <img src="<?= $product["image"] ?>" alt="">            
+                                                <img src="<?= $product["image"] ?>" alt="">
                                             </div>
                                             <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
@@ -479,26 +480,26 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id="<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
-                                        </li>
-                                    <?php
-                                    }                                    
+                                    </li>
+                            <?php
                                 }
+                            }
                             ?>
                         </ul>
 
                         <!-- Bánh mặn -->
                         <h3 class="title__itemTea">Bánh Mặn</h3>
                         <ul class="itemsHot__list">
-                            <?php 
-                                foreach($products as $product){
-                                    if(!strcmp($product["name"], "SaltyCake")){                                    
-                                    ?>
-                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                            <?php
+                            foreach ($products as $product) {
+                                if (!strcmp($product["name"], "SaltyCake")) {
+                            ?>
+                                    <li><a href="<?= './product-detail.php?id=' . $product['id'] ?>">
                                             <div class="itemHot__imgWrap">
-                                                <img src="<?= $product["image"] ?>" alt="">            
+                                                <img src="<?= $product["image"] ?>" alt="">
                                             </div>
                                             <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
@@ -509,26 +510,26 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id="<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
-                                        </li>
-                                    <?php
-                                    }                                    
+                                    </li>
+                            <?php
                                 }
+                            }
                             ?>
                         </ul>
 
                         <!-- Bánh ngọt -->
                         <h3 class="title__itemTea">Bánh Ngọt</h3>
                         <ul class="itemsHot__list">
-                            <?php 
-                                foreach($products as $product){
-                                    if(!strcmp($product["name"], "SweetCake")){                                    
-                                    ?>
-                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                            <?php
+                            foreach ($products as $product) {
+                                if (!strcmp($product["name"], "SweetCake")) {
+                            ?>
+                                    <li><a href="<?= './product-detail.php?id=' . $product['id'] ?>">
                                             <div class="itemHot__imgWrap">
-                                                <img src="<?= $product["image"] ?>" alt="">            
+                                                <img src="<?= $product["image"] ?>" alt="">
                                             </div>
                                             <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
@@ -539,26 +540,26 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id="<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
-                                        </li>
-                                    <?php
-                                    }                                    
+                                    </li>
+                            <?php
                                 }
+                            }
                             ?>
                         </ul>
 
                         <!-- snack -->
                         <h3 class="title__itemTea">Snack</h3>
                         <ul class="itemsHot__list">
-                            <?php 
-                                foreach($products as $product){
-                                    if(!strcmp($product["name"], "Snack")){                                    
-                                    ?>
-                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                            <?php
+                            foreach ($products as $product) {
+                                if (!strcmp($product["name"], "Snack")) {
+                            ?>
+                                    <li><a href="<?= './product-detail.php?id=' . $product['id'] ?>">
                                             <div class="itemHot__imgWrap">
-                                                <img src="<?= $product["image"] ?>" alt="">            
+                                                <img src="<?= $product["image"] ?>" alt="">
                                             </div>
                                             <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
@@ -569,26 +570,26 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id="<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
-                                        </li>
-                                    <?php
-                                    }                                    
+                                    </li>
+                            <?php
                                 }
+                            }
                             ?>
                         </ul>
 
                         <!-- Cà phê tại nhà -->
                         <h3 class="title__itemTea">Cà Phê Tại Nhà</h3>
                         <ul class="itemsHot__list">
-                            <?php 
-                                foreach($products as $product){
-                                    if(!strcmp($product["name"], "CoffeeAtHome")){                                    
-                                    ?>
-                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
+                            <?php
+                            foreach ($products as $product) {
+                                if (!strcmp($product["name"], "CoffeeAtHome")) {
+                            ?>
+                                    <li><a href="<?= './product-detail.php?id=' . $product['id'] ?>">
                                             <div class="itemHot__imgWrap">
-                                                <img src="<?= $product["image"] ?>" alt="">            
+                                                <img src="<?= $product["image"] ?>" alt="">
                                             </div>
                                             <div class="itemHot__content" title="<?= $product["title"] ?>">
                                                 <h3 class="itemHot__title">
@@ -599,42 +600,42 @@ $products = DB::execute($sql);
                                                 </p>
                                             </div>
                                         </a>
-                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id="<?= $product['id'] ?>">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </div>
-                                        </li>
-                                    <?php
-                                    }                                    
+                                    </li>
+                            <?php
                                 }
+                            }
                             ?>
                         </ul>
                         <!-- Trà tại nhà -->
                         <h3 class="title__itemTea">Trà Tại Nhà</h3>
                         <ul class="itemsHot__list">
-                            <?php 
-                                foreach($products as $product){
-                                    if(!strcmp($product["name"], "TeaAtHome")){                                    
-                                    ?>                                    
-                                        <li><a href="<?= './product-detail.php?id='. $product['id'] ?>">
-                                                <div class="itemHot__imgWrap">
-                                                    <img src="<?= $product["image"] ?>" alt="">            
-                                                </div>
-                                                <div class="itemHot__content" title="<?= $product["title"] ?>">
-                                                    <h3 class="itemHot__title">
-                                                        <?= $product["title"] ?>
-                                                    </h3>
-                                                    <p class="itemHot__value">
-                                                        <?= $product["value"] ?> đ
-                                                    </p>
-                                                </div>
-                                            </a>
-                                            <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id = "<?= $product['id'] ?>">
-                                                <i class="fa-solid fa-cart-shopping"></i>
+                            <?php
+                            foreach ($products as $product) {
+                                if (!strcmp($product["name"], "TeaAtHome")) {
+                            ?>
+                                    <li><a href="<?= './product-detail.php?id=' . $product['id'] ?>">
+                                            <div class="itemHot__imgWrap">
+                                                <img src="<?= $product["image"] ?>" alt="">
                                             </div>
-                                        </li>
-                                    <?php
-                                    }                                    
+                                            <div class="itemHot__content" title="<?= $product["title"] ?>">
+                                                <h3 class="itemHot__title">
+                                                    <?= $product["title"] ?>
+                                                </h3>
+                                                <p class="itemHot__value">
+                                                    <?= $product["value"] ?> đ
+                                                </p>
+                                            </div>
+                                        </a>
+                                        <div class="itemHot__cart" onclick="isCheckPropagation(event)" id="btnAddToCart" data-product-id="<?= $product['id'] ?>">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </div>
+                                    </li>
+                            <?php
                                 }
+                            }
                             ?>
                         </ul>
                     </div>
@@ -709,8 +710,8 @@ $products = DB::execute($sql);
             </div>
         </div>
         <!-- cart -->
-        <?php 
-            include "./cart.php";
+        <?php
+        include "./cart.php";
         ?>
     </div>
 
@@ -775,7 +776,7 @@ $products = DB::execute($sql);
             </div>
         </div>
     </div>
-    
+
     <!-- Modal detail product -->
     <!-- <div class="modal js-modal products">
         <div class="modal__container js-modalContainer product">
@@ -835,17 +836,29 @@ $products = DB::execute($sql);
     </script>
     <script src="./assets/js/base.js"></script>
     <script src="./assets/js/menu.js" type="module"></script>
-    <script src="./assets/js/Cart.js"></script>  
+    <script src="./assets/js/Cart.js"></script>
     <!-- jquery -->
     <script>
-        $(document).ready(function () {
-            let products = document.querySelectorAll(".itemHot__cart");
-            products.forEach((product) => {
-                $(product).click(() => {
-                    let productId = product.dataset.productId;
-                    addToCart(productId);
+        $(document).ready(function() {
+            <?php if (isset($_SESSION['message_login'])) { ?>
+                let products = document.querySelectorAll(".itemHot__cart");
+                products.forEach((product) => {
+                    $(product).click(() => {
+                        let productId = product.dataset.productId;
+                        addToCart(productId);
+                        
+                        // $_GET("./add_to_cart.php", {'productID':productId}, function(data) {alert(data);});
+                           
+                    })
                 })
-            })
+                <?php } if (!isset($_SESSION['message_login'])) { ?>let products = document.querySelectorAll(".itemHot__cart");
+                products.forEach((product) => {
+                    $(product).click(() => {
+                        // const loginHead = document.querySelectorAll(".itemHot__cart")
+                        // loginHead.addEventListener ("click",modal.classList.add("open"))
+                        alert("Bạn cần đăng nhập trước!")
+                    })
+                }) <?php } ?>
         });
     </script>
 </body>
