@@ -57,6 +57,8 @@ if (isset($_SESSION['message'])) {
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/coffee.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./assets/responsive/baseRespon.css">
+    <link rel="stylesheet" type="" href="./assets//responsive/teaCoffeeRespon.css">
     <title>Cà Phê</title>
 </head>
 
@@ -69,7 +71,17 @@ if (isset($_SESSION['message'])) {
                         <img src="./assets/img/items-hot/header_logo.jpg" alt="">
                     </a>
                 </div>
+                <!-- btn header menu mobile -->
+                <div class="header__menu-mobile">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <!-- end btn menu -->
                 <div class="header__nav">
+                    <!-- btn header close -->
+                    <div class="header__nav-close-mobile">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                    <!-- end btn header close -->
                     <ul class="list__nav">
                         <li><a href="./coffee.php">Cà phê</a></li>
                         <li><a href="./tea.php">Trà</a></li>
@@ -152,12 +164,12 @@ if (isset($_SESSION['message'])) {
                         <li><a href="./KhaiTruong.php">Ưu đãi thành viên</a></li>
                         <!--Thay doi khi dang nhap-->
                         <?php if (isset($_SESSION['message'])) { ?>
-                            <li class="nav-item dropdown d-flex" style="padding: 0 0" title="<?php echo $_SESSION['dataUser']?>">
+                            <li class="nav-item dropdown d-flex" style="padding: 0 0" title="<?php echo $_SESSION['dataUser'] ?>">
                                 <div class="overlay__textUser">
                                     <a class=" dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <?php echo $a ?>
                                     </a>
-                                </div>                                
+                                </div>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="<?php echo $linkB ?>" target="_blank"><?php echo $b ?></a></li>
                                     <li>
@@ -171,9 +183,9 @@ if (isset($_SESSION['message'])) {
                         <?php } ?>
                         <?php if (!isset($_SESSION['message'])) { ?>
                             <li class="js-login"><a>
-                                <?php echo $a ?>
-                                <i class="fa-solid fa-user"></i>
-                            </a></li>
+                                    <?php echo $a ?>
+                                    <i class="fa-solid fa-user"></i>
+                                </a></li>
                         <?php } ?>
                     </ul>
                 </div>
@@ -370,6 +382,19 @@ if (isset($_SESSION['message'])) {
                         </div>
                     </a></li>
                 <li><a href="">
+                        <div class="itemHot__imgWrap">
+                            <img src="./assets/img/coffee-tea/coffee/IT_Coffee15.jpeg" alt="">
+                        </div>
+                        <div class="itemHot__content">
+                            <h3 class="itemHot__title">
+                                Combo 2 Cà Phê Rang Xay Original 1 250gr
+                            </h3>
+                            <p class="itemHot__value">
+                                99.000 đ
+                            </p>
+                        </div>
+                    </a></li>
+                <li style="visibility: hidden;"><a href="">
                         <div class="itemHot__imgWrap">
                             <img src="./assets/img/coffee-tea/coffee/IT_Coffee15.jpeg" alt="">
                         </div>

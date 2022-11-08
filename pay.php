@@ -197,7 +197,7 @@
                     },
                     success: function(){                                  
                        alert("Thanh toán thành công");
-                       window.location.replace("./home.php");                                               
+                       window.location.replace("./menu.php");                                               
                     }
                 });
             });

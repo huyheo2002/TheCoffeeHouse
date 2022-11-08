@@ -55,6 +55,8 @@ if (isset($_SESSION['message'])) {
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/tea.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./assets/responsive/baseRespon.css">
+    <link rel="stylesheet" type="" href="./assets//responsive/teaCoffeeRespon.css">
     <title>Trà</title>
 </head>
 
@@ -67,7 +69,17 @@ if (isset($_SESSION['message'])) {
                         <img src="./assets/img/items-hot/header_logo.jpg" alt="">
                     </a>
                 </div>
+                <!-- btn header menu mobile -->
+                <div class="header__menu-mobile">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <!-- end btn menu -->
                 <div class="header__nav">
+                    <!-- btn header close -->
+                    <div class="header__nav-close-mobile">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                    <!-- end btn header close -->
                     <ul class="list__nav">
                         <li><a href="./coffee.php">Cà phê</a></li>
                         <li><a href="./tea.php">Trà</a></li>

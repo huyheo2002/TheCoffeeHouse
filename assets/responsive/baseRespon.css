@@ -1,6 +1,5 @@
 /* responsive */
-
-/* pc :V */
+/* pc */
 @media screen and (min-width: 1025px) {
     .header__menu-mobile{
         display: none;
@@ -15,9 +14,123 @@
     }
 }
 
-/* tablet and mobile */
-@media screen and (max-width: 1024px) {
+/* tablet */
+@media screen and (max-width: 1024px) and (min-width: 740px) {
+    /* header */
+    .header{
+        margin: 0;
+        padding: 0 10%;
+        width: 100%;
+    }
+    .header__menu-mobile{
+        line-height: 60px;
+    }
 
+    .header__nav{
+        background-color: #fff;
+        height: fit-content;
+        position: absolute;
+        right: 0;
+        top: 60px;
+        display: none;
+    }
+
+    .list__nav{
+        display: block;
+    }
+
+    .list__nav li{
+        border-bottom: 2px solid #ccc;
+        height: 50px;
+        line-height: 50px;
+    }
+    /* btn close in navbar */
+    .header__nav-close-mobile {
+        height: 35px;
+        line-height: 35px;
+        padding-left: 15px;
+        border-bottom: 2px solid #ccc;
+    }
+
+    .header__nav-close-mobile i{
+        color: red;
+        font-size: 25px;
+    }
+
+    .list__nav .subnav{
+        display: none;
+    }
+
+    .list__nav li:hover .subnav{
+        display: none;
+    }
+
+    /* modal login :v */
+    .modal__header{
+        height: fit-content;
+    }
+
+    .modal__header__title{
+        font-size: 16px;
+        line-height: 45px;
+    }
+
+    .modal__close i{
+        font-size: 22px;
+    }
+
+    .modal__label, .modal__login {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .modal__login {
+        font-size: 16px;
+    }
+
+    .modal__footer-head{
+        font-size: 14px;
+    }
+
+    .modal__footer-subhead{
+        font-size: 12px;
+    }
+
+    .modal__footer-icon{
+        height: 35px;
+        padding: 0;
+    }
+
+    .modal__input-user, .modal__input-pass {
+        margin-bottom: 12px;
+    }
+
+    /* khi chưa nhập tài khoản mật khẩu -> sinh code */
+    .text-danger {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    li.nav-item.dropdown.d-flex {
+        margin: 0 15px;
+    }
+
+    ul.dropdown-menu{
+        right: 140px;
+        top: -100px;
+        height: fit-content;
+    }
+    /* end sinh code */
+
+    .header__menu-mobile i{
+        font-size: 20px;
+        padding: 0 5px;
+    }
+
+    /* footer */
+    .footer__socials {
+        display: none;
+    }
 }
 
 /* mobile */
@@ -133,142 +246,7 @@
         padding: 0 5px;
     }
 
-
-    /* TỪ ĐÂY LÀ RIÊNG CỦA TRANG HOME SAU TẠO FILE RESPON HOME SAU ĐÓ TUYỀN ĐOẠN NÀY VÀO */
-    /* poster */
-    .poster{
-        height: 200px !important;
-        margin-top: 60px;
-    }
-
-    /* items hot */
-    .itemsHot__list {
-        width: 90%;
-        margin: 30px 5%;
-    }
-
-    .itemHot__imgWrap {
-        width: 150px;
-        height: 150px;
-    }
-
-    .itemHot__content {
-        width: 150px;
-    }
-
-    .itemHot__title {
-        font-size: 14px;
-    }
-
-    .itemHot__value{
-        font-size: 12px;
-    }
-
-    .itemsFocus{
-        padding: 0 5%;
-    }
-
-    .itemFirst, .itemSecond {
-        display: flex;
-        align-items: center;
-        flex-direction: column-reverse;
-    }
-
-    .itemFirst__img, .itemSecond__img {
-        width: 100%;
-        height: 400px;
-    }
-
-    .itemFirst__desc, .itemSecond__desc {
-        width: 100%;
-        height: 300px;
-    }
-
-    .itemFirst__desc-title, .itemSecond__desc-title {
-        font-size: 20px;
-        margin-bottom: 5px;
-    }
-
-    .itemFirst__desc-content, .itemSecond__desc-content {
-        font-size: 16px;
-        font-weight: 500;
-        margin-bottom: 5px;
-        color: #00000099;
-        line-height: 24px;
-    }
-
-    /*  */
-    .store__wrap{
-        margin-top: 150px;
-        height: auto;
-    }
-
-    .store__content-wrap {
-        width: 90%;
-        height: fit-content;
-        margin: 0 5%;
-        background-color: none;
-        position: relative;
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
-    .store__desc{
-        width: 100%;
-    }
-
-    .store__slide-img {
-        width: 100%;
-        height: 250px;
-        margin-bottom: 15px;
-    }
-
-    .itemsFirst__desc-btn, .itemsSecond__desc-btn, .store__desc-btn{
-        width: 100%;
-    }
-
-    .store__slide-btnNext, .store__slide-btnPrev {
-        font-size: 24px;
-        padding: 20px 10px;
-    }
-    
-    .store__desc-title{
-        font-size: 20px;
-    }
-
-    .store__desc-content{
-        font-size: 16px;
-    }
-
-    .blog__title {
-        font-size: 20px;
-    }
-
-    .blog__coffee-title, .blog__tea-title, .blog__normal-title {
-        margin: 15px 0;
-        font-size: 18px;
-    }
-
-    .blog__coffee-list, .blog__tea-list, .blog__normal-list{
-        flex-direction: column;
-    }
-
-    .blog__coffee-list li, .blog__tea-list li, .blog__normal-list li {
-        width: 100%;
-        height: 250px;
-        margin-bottom: 15px;
-    }
-
-    .blog__title-img{
-        font-size: 14px;
-    }
-
-    .blog__content{
-        font-size: 14px;
-    }
-
-    /* END RESPON RIÊNG CỦA HOME */
-
+    /* footer */
     .footer {
         width: 90%;
         height: fit-content;
