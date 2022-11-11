@@ -76,6 +76,8 @@ $products = DB::execute($sql);
     <link rel="stylesheet" href="./assets/responsive/menuRespon.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="./assets/responsive/baseRespon.css">
+    <link rel="stylesheet" href="./assets/responsive/menuRespon.css">
     <title>Menu</title>
 </head>
 
@@ -95,9 +97,11 @@ $products = DB::execute($sql);
                 </div>
                 <!-- end btn menu -->
                 <div class="header__nav">
+                    <!-- btn header close -->
                     <div class="header__nav-close-mobile">
                         <i class="fa-solid fa-xmark"></i>
                     </div>
+                    <!-- end btn header close -->
                     <ul class="list__nav">
                         <li><a href="./coffee.php">Cà phê</a></li>
                         <li><a href="./tea.php">Trà</a></li>
@@ -253,7 +257,7 @@ $products = DB::execute($sql);
                             <div class="menu__dotCoffee" id="dotCoffee-5">
                                 <img src="./assets/img/menu/coffee-beans1.png" alt="">
                             </div>
-                            <p class="menu__text">Bánh & Snack</p>
+                            <p class="menu__text">Bánh</p>
                             <ul class="menu__subnav">
                                 <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Bánh Mặn</a></li>
                                 <li class="menu__subnav-items"><a href="#" class="menu__subnav-link menu__items-link" onclick="isCheckPropagation(event)">Bánh Ngọt</a></li>
