@@ -53,6 +53,7 @@ $orders=Auth::load_order();
                 <thead>
                     <tr>
                         <th scope="col">Mã đơn hàng</th>
+                        <th scope="col">Thời gian đặt hàng</th>
                         <th scope="col">email khách hàng</th>
                         <th scope="col">Tình trạng thanh toán</th>
                         <th scope="col">xem chi tiết</th>
@@ -63,16 +64,17 @@ $orders=Auth::load_order();
                     <?php foreach ($orders as $order) { ?>
                         <tr>
                             <td><?php echo $order['confirm_cart_id'] ?></td>
+                            <td><?php echo $order['time_order'] ?></td>
                             <td><?php echo $order['email'] ?></td>
                             <td><?php echo $order['cart_status'] ?></td>
                             <td>
-                                <a href="./list_order.php?email=<?= $order['email'] ?>" class="btn btn-info">Xem chi tiết</a>
+                                <a href="./list_order.php?email=<?= $order['email'] ?>&time=<?= $order['time_order']?>" class="btn btn-info">Xem chi tiết</a>
                             </td>
 
                             <td>
-                                <form action="./deleteProduct.php" method="post" id="formDelete-<?= $order['email'] ?>">
-                                    <input type="hidden" name="id" value="<?= $order['email']?>">
-                                    <button class="btn btn-danger btn-delete" id="<?= $order['email']?>">Xóa đơn hàng</button>
+                                <form action="./order_delete.php" method="post" id="formDelete-<?= $order['confirm_cart_id'] ?>">
+                                    <input type="hidden" name="confirm_cart_id" value="<?= $order['confirm_cart_id']?>">
+                                    <button class="btn btn-danger btn-delete" id="<?= $order['confirm_cart_id']?>">Xóa đơn hàng</button>
                                 </form>
                             </td>
                         </tr>
@@ -93,7 +95,7 @@ $orders=Auth::load_order();
         let deleteBtns = document.querySelectorAll('.btn-delete');
         deleteBtns.forEach(function(item) {
             item.addEventListener('click', function(event) {
-                if (confirm("Delete user")) {
+                if (confirm("Xóa đơn hàng thành công!")) {
                     let id = this.getAttribute('id');
                     document.querySelector('formDelete-' + id).submit();
                 }

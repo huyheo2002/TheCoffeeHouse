@@ -209,7 +209,7 @@ $arrProduct = array_map(function ($value, $key) use ($products) {
         <span>or</span>
 
         <a href="./online_pay.php">
-            <div class="product__btnAddToCart" id="btnPayPay">
+            <div class="product__btnAddToCart" >
                 Thanh toán Online
             </div>
         </a>

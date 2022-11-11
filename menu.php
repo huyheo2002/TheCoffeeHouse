@@ -36,6 +36,9 @@ if (isset($_SESSION['message'])) {
     $linkB = "information.php";
     $linkD = "Logout.php";
     $_SESSION['login_menu'] = "login";
+
+    $my_order='Quản lý đơn hàng';
+    $my_order_link='my_order.php';
 } else {
     $a = "Tài khoản";
     $linkC = "Register.php";
@@ -185,6 +188,7 @@ $products = DB::execute($sql);
                                 </div>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="<?php echo $linkB ?>" target="_blank"><?php echo $b ?></a></li>
+                                    <li><a class="dropdown-item" href="<?php echo $my_order_link ?>" ><?php echo $my_order ?></a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>

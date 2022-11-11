@@ -3,10 +3,13 @@
 include '/xampp/htdocs/TheCoffeeHouse/classes/User.php';
 
 $email = null;
+$time = null;
 
 if ($_GET['email']) {
     $email = $_GET['email'];
-    $lists = Auth::load_detail_order($email);
+    $time = $_GET['time'];
+    $data_load_detail_order=['email'=>$email,'time'=>$time];
+    $lists = Auth::load_detail_order( $data_load_detail_order);
 } else {
     header("location:./admin_order.php");
 }
