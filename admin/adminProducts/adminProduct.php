@@ -3,6 +3,7 @@ include '/xampp/htdocs/TheCoffeeHouse/classes/User.php';
 
 $products = Auth::loadDataProduct();
 
+
 ?>
 <!doctype html>
 <html lang="en">

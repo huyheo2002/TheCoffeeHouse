@@ -1,5 +1,17 @@
 DROP TABLE IF EXISTS `products`;
 DROP TABLE IF EXISTS `category`;
+DROP TABLE IF EXISTS `login`;
+
+-- phần test của huy
+CREATE TABLE `login` (
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `login` (`email`, `username`, `password`) VALUES
+('admin@gmail.com', 'admin', '123'),
+('huy12@gmail.com', 'huy12', '123');
 
 CREATE TABLE `category`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,

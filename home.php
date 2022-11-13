@@ -33,6 +33,8 @@ if (isset($_SESSION['message'])) {
     $b = "Thông tin của tôi";
     $linkB = "information.php";
     $linkD = "Logout.php";
+    $e="Quản lý";
+    $linkE="./admin/adminFirst.php";
     $_SESSION['login_home'] = "login";
 } else {
     $a = "Tài khoản";
@@ -41,7 +43,7 @@ if (isset($_SESSION['message'])) {
 
 
 
-$products=Auth::loadDataProduct();
+$products = Auth::loadDataProduct();
 ?>
 
 <!DOCTYPE html>
@@ -55,6 +57,7 @@ $products=Auth::loadDataProduct();
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/home.css">
     <link rel="stylesheet" href="./assets/responsive/baseRespon.css">
+    <link rel="stylesheet" type="" href="./assets//responsive/homeRespon.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
@@ -74,58 +77,60 @@ $products=Auth::loadDataProduct();
                 </div>
                 <!-- end btn menu -->
                 <div class="header__nav">
+                    <!-- btn header close -->
                     <div class="header__nav-close-mobile">
                         <i class="fa-solid fa-xmark"></i>
                     </div>
+                    <!-- end btn header close -->
                     <ul class="list__nav">
                         <li><a href="./coffee.php">Cà phê</a></li>
                         <li><a href="./tea.php">Trà</a></li>
                         <li><a href="./menu.php">Menu
-                            <i class="fas fa-sort-down"></i>
-                            <ul class="subnav">
-                                <li class="subnav__items"><a>
-                                        <h3 class="title__menu">Tất cả</h3>
-                                        <div class="content__menu"></div>
-                                    </a></li>
-                                <li class="subnav__items"><a>
-                                        <h3 class="title__menu">Cà phê</h3>
-                                        <div class="content__menu">
-                                            <p>Cà Phê Việt Nam</p>
-                                            <p>Cà Phê Máy</p>
-                                            <p>Cold Brew</p>
-                                        </div>
-                                    </a></li>
-                                <li class="subnav__items"><a>
-                                        <h3 class="title__menu">Trà</h3>
-                                        <div class="content__menu">
-                                            <p>Trà trái cây</p>
-                                            <p>Trà sữa Macchiato</p>
-                                        </div>
-                                    </a></li>
-                                <li class="subnav__items"><a>
-                                        <h3 class="title__menu">Món khác</h3>
-                                        <div class="content__menu">
-                                            <p>Đá xay</p>
-                                            <p>Matcha - Socola</p>
-                                        </div>
-                                    </a></li>
-                                <li class="subnav__items"><a>
-                                        <h3 class="title__menu">Bánh & Snack</h3>
-                                        <div class="content__menu">
-                                            <p>Bánh mặn</p>
-                                            <p>Bánh ngọt</p>
-                                            <p>Snack</p>
-                                        </div>
-                                    </a></li>
-                                <li class="subnav__items"><a>
-                                        <h3 class="title__menu">Tại nhà</h3>
-                                        <div class="content__menu">
-                                            <p>Cà phê tại nhà</p>
-                                            <p>Trà tại nhà</p>
-                                        </div>
-                                    </a></li>
-                            </ul>
-                        </a></li>
+                                <i class="fas fa-sort-down"></i>
+                                <ul class="subnav">
+                                    <li class="subnav__items"><a>
+                                            <h3 class="title__menu">Tất cả</h3>
+                                            <div class="content__menu"></div>
+                                        </a></li>
+                                    <li class="subnav__items"><a>
+                                            <h3 class="title__menu">Cà phê</h3>
+                                            <div class="content__menu">
+                                                <p>Cà Phê Việt Nam</p>
+                                                <p>Cà Phê Máy</p>
+                                                <p>Cold Brew</p>
+                                            </div>
+                                        </a></li>
+                                    <li class="subnav__items"><a>
+                                            <h3 class="title__menu">Trà</h3>
+                                            <div class="content__menu">
+                                                <p>Trà trái cây</p>
+                                                <p>Trà sữa Macchiato</p>
+                                            </div>
+                                        </a></li>
+                                    <li class="subnav__items"><a>
+                                            <h3 class="title__menu">Món khác</h3>
+                                            <div class="content__menu">
+                                                <p>Đá xay</p>
+                                                <p>Matcha - Socola</p>
+                                            </div>
+                                        </a></li>
+                                    <li class="subnav__items"><a>
+                                            <h3 class="title__menu">Bánh & Snack</h3>
+                                            <div class="content__menu">
+                                                <p>Bánh mặn</p>
+                                                <p>Bánh ngọt</p>
+                                                <p>Snack</p>
+                                            </div>
+                                        </a></li>
+                                    <li class="subnav__items"><a>
+                                            <h3 class="title__menu">Tại nhà</h3>
+                                            <div class="content__menu">
+                                                <p>Cà phê tại nhà</p>
+                                                <p>Trà tại nhà</p>
+                                            </div>
+                                        </a></li>
+                                </ul>
+                            </a></li>
                         <li><a href="./story.php">Chuyện cà phê và Trà
                                 <i class="fas fa-sort-down"></i>
                                 <ul class="subnav">
@@ -160,18 +165,24 @@ $products=Auth::loadDataProduct();
 
                         <!--Thay doi khi dang nhap-->
                         <?php if (isset($_SESSION['message'])) { ?>
-                            <!-- thêm biến chứa username vào title -->                                                     
-                            <li class="nav-item dropdown d-flex" style="padding: 0 0" title="<?php echo $_SESSION['dataUser']?>">
+                            <!-- thêm biến chứa username vào title -->
+                            <li class="nav-item dropdown d-flex" style="padding: 0 0" title="<?php echo $_SESSION['dataUser'] ?>">
                                 <div class="overlay__textUser">
                                     <a class=" dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <?php echo $a ?>
                                     </a>
-                                </div>                                
+                                </div>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="<?php echo $linkB ?>" target="_blank"><?php echo $b ?></a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
+                                    <?php if($_SESSION['dataEmail'] =="admin@gmail.com"){ ?>
+                                    <li><a class="dropdown-item" href="<?php echo $linkE ?>" target="_blank"><?php echo $e ?></a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <?php } ?>
                                     <li><a class="dropdown-item" href="<?php echo $linkD ?>">Đăng xuất</a></li>
 
                                 </ul>
@@ -180,9 +191,9 @@ $products=Auth::loadDataProduct();
                         <?php } ?>
                         <?php if (!isset($_SESSION['message'])) { ?>
                             <li class="js-login"><a>
-                                <?php echo $a ?>
-                                <i class="fa-solid fa-user"></i>
-                            </a></li>
+                                    <?php echo $a ?>
+                                    <i class="fa-solid fa-user"></i>
+                                </a></li>
                         <?php } ?>
                     </ul>
                 </div>
@@ -195,7 +206,7 @@ $products=Auth::loadDataProduct();
         <!-- menu items-hot -->
         <div class="itemsHot__wrap">
             <ul class="itemsHot__list">
-                <li><a href="./ShowProduct.php?id=24" target="_blank">
+                <li><a href="" >
                         <div class="itemHot__imgWrap">
                             <img src="./assets/img/items-hot/IH1.jpeg" alt="">
                         </div>
@@ -208,7 +219,7 @@ $products=Auth::loadDataProduct();
                             </p>
                         </div>
                     </a></li>
-                <li><a href="./ShowProduct.php?id=25" target="_blank">
+                <li><a href="" >
                         <div class="itemHot__imgWrap">
                             <img src="./assets/img/items-hot/IH2.jpeg" alt="">
                         </div>
@@ -234,7 +245,7 @@ $products=Auth::loadDataProduct();
                             </p>
                         </div>
                     </a></li>
-                <li><a href="./ShowProduct.php?id=9" target="_blank">
+                <li><a href="" >
                         <div class="itemHot__imgWrap">
                             <img src="./assets/img/items-hot/IH4.jpg" alt="">
                         </div>
@@ -394,44 +405,44 @@ $products=Auth::loadDataProduct();
                     <h2 class="blog__coffee-title">Coffeeholic</h2>
                     <ul class="blog__coffee-list">
                         <li><a href="">
-                                <div class="blog__coffee-imgwrap">
-                                    <img src="./assets/img/items-hot/blogCoffee1.jpg" alt="">
-                                </div>
-                                <div class="blog__coffee-desc">
-                                    <div class="blog__date">18/01/2022</div>
-                                    <h3 class="blog__title-img" title="">Tại sao cà phê lại có vị chua?</h3>
-                                    <p class="blog__content">
-                                        Vị đắng của cà phê thì ai cũng đã biết,
-                                        tuy nhiên bạn có biết cà phê còn có vị chua.
-                                        Và vị chua này lại chính là vị đặc...
-                                    </p>
-                                </div>
-                            </a></li>
+                            <div class="blog__coffee-imgwrap">
+                                <img src="./assets/img/items-hot/blogCoffee1.jpg" alt="">
+                            </div>
+                            <div class="blog__coffee-desc">
+                                <div class="blog__date">18/01/2022</div>
+                                <h3 class="blog__title-img" title="">Tại sao cà phê lại có vị chua?</h3>
+                                <p class="blog__content">
+                                    Vị đắng của cà phê thì ai cũng đã biết,
+                                    tuy nhiên bạn có biết cà phê còn có vị chua.
+                                    Và vị chua này lại chính là vị đặc...
+                                </p>
+                            </div>
+                        </a></li>
                         <li><a href="">
-                                <div class="blog__coffee-imgwrap">
-                                    <img src="./assets/img/items-hot/blogCoffee2.jpg" alt="">
-                                </div>
-                                <div class="blog__coffee-desc">
-                                    <div class="blog__date">17/01/2022</div>
-                                    <h3 class="blog__title-img" title="">Gu thưởng thức cà phê của người sảnh điệu</h3>
-                                    <p class="blog__content">
-                                        Cà phê mà người sành điệu thưởng thức sẽ như thế nào, bạn có tò mò về điều này? Tìm hiểu cùng The Coffee House qua những chia sẻ dưới...
-                                    </p>
-                                </div>
-                            </a></li>
+                            <div class="blog__coffee-imgwrap">
+                                <img src="./assets/img/items-hot/blogCoffee2.jpg" alt="">
+                            </div>
+                            <div class="blog__coffee-desc">
+                                <div class="blog__date">17/01/2022</div>
+                                <h3 class="blog__title-img" title="">Gu thưởng thức cà phê của người sảnh điệu</h3>
+                                <p class="blog__content">
+                                    Cà phê mà người sành điệu thưởng thức sẽ như thế nào, bạn có tò mò về điều này? Tìm hiểu cùng The Coffee House qua những chia sẻ dưới...
+                                </p>
+                            </div>
+                        </a></li>
                         <li><a href="">
-                                <div class="blog__coffee-imgwrap">
-                                    <img src="./assets/img/items-hot/blogCoffee3.jpg" alt="">
-                                </div>
-                                <div class="blog__coffee-desc">
-                                    <div class="blog__date">15/01/2022</div>
-                                    <h3 class="blog__title-img" title="">Kỹ thuật trồng cây cà phê năng suất, chất lượng cao</h3>
-                                    <p class="blog__content">
-                                        Cà phê là cây có giá trị kinh tế cao khi nhu cầu tiêu thụ đang ngày càng tăng.
-                                        Đối với những loại cà phê đạt tiêu chuẩn xuất khẩu...
-                                    </p>
-                                </div>
-                            </a></li>
+                            <div class="blog__coffee-imgwrap">
+                                <img src="./assets/img/items-hot/blogCoffee3.jpg" alt="">
+                            </div>
+                            <div class="blog__coffee-desc">
+                                <div class="blog__date">15/01/2022</div>
+                                <h3 class="blog__title-img" title="">Kỹ thuật trồng cây cà phê năng suất, chất lượng cao</h3>
+                                <p class="blog__content">
+                                    Cà phê là cây có giá trị kinh tế cao khi nhu cầu tiêu thụ đang ngày càng tăng.
+                                    Đối với những loại cà phê đạt tiêu chuẩn xuất khẩu...
+                                </p>
+                            </div>
+                        </a></li>
                     </ul>
                 </div>
                 <!-- blog tea -->
@@ -439,44 +450,44 @@ $products=Auth::loadDataProduct();
                     <h2 class="blog__tea-title">Teaholic</h2>
                     <ul class="blog__tea-list">
                         <li><a href="">
-                                <div class="blog__tea-imgwrap">
-                                    <img src="./assets/img/items-hot/blogTea1.jpg" alt="">
-                                </div>
-                                <div class="blog__tea-desc">
-                                    <div class="blog__date">18/01/2022</div>
-                                    <h3 class="blog__title-img">Bạn có hiểu đúng về trà tươi và trà khô</h3>
-                                    <p class="blog__content">
-                                        Trà tươi và trà khô là hai loại trà có sự khác biệt hoàn toàn.
-                                        Nếu bạn đang thắc mắc về hai loại trà này, cùng xem những thông tin...
-                                    </p>
-                                </div>
-                            </a></li>
+                            <div class="blog__tea-imgwrap">
+                                <img src="./assets/img/items-hot/blogTea1.jpg" alt="">
+                            </div>
+                            <div class="blog__tea-desc">
+                                <div class="blog__date">18/01/2022</div>
+                                <h3 class="blog__title-img">Bạn có hiểu đúng về trà tươi và trà khô</h3>
+                                <p class="blog__content">
+                                    Trà tươi và trà khô là hai loại trà có sự khác biệt hoàn toàn.
+                                    Nếu bạn đang thắc mắc về hai loại trà này, cùng xem những thông tin...
+                                </p>
+                            </div>
+                        </a></li>
                         <li><a href="">
-                                <div class="blog__tea-imgwrap">
-                                    <img src="./assets/img/items-hot/blogTea2.jpg" alt="">
-                                </div>
-                                <div class="blog__tea-desc">
-                                    <div class="blog__date">12/01/2022</div>
-                                    <h3 class="blog__title-img">Làm thế nào để thưởng thức trà như một chuyên gia?</h3>
-                                    <p class="blog__content">
-                                        Những chuyên gia am hiểu về trà sẽ có cách thưởng thức để có thể cảm nhận được trọn vị
-                                        và tự mình tạo ra những phút giây thư thái...
-                                    </p>
-                                </div>
-                            </a></li>
+                            <div class="blog__tea-imgwrap">
+                                <img src="./assets/img/items-hot/blogTea2.jpg" alt="">
+                            </div>
+                            <div class="blog__tea-desc">
+                                <div class="blog__date">12/01/2022</div>
+                                <h3 class="blog__title-img">Làm thế nào để thưởng thức trà như một chuyên gia?</h3>
+                                <p class="blog__content">
+                                    Những chuyên gia am hiểu về trà sẽ có cách thưởng thức để có thể cảm nhận được trọn vị
+                                    và tự mình tạo ra những phút giây thư thái...
+                                </p>
+                            </div>
+                        </a></li>
                         <li><a href="">
-                                <div class="blog__tea-imgwrap">
-                                    <img src="./assets/img/items-hot/blogTea3.jpg" alt="">
-                                </div>
-                                <div class="blog__tea-desc">
-                                    <div class="blog__date">11/01/2022</div>
-                                    <h3 class="blog__title-img">Khi chén trà là đầu câu chuyện</h3>
-                                    <p class="blog__content">
-                                        Chẳng biết từ bao giờ, chén trà lại trở nên thân thuộc, gần gũi với người Việt.
-                                        Không đơn thuần chỉ là một thức uống thông thường, thưởng trà trở...
-                                    </p>
-                                </div>
-                            </a></li>
+                            <div class="blog__tea-imgwrap">
+                                <img src="./assets/img/items-hot/blogTea3.jpg" alt="">
+                            </div>
+                            <div class="blog__tea-desc">
+                                <div class="blog__date">11/01/2022</div>
+                                <h3 class="blog__title-img">Khi chén trà là đầu câu chuyện</h3>
+                                <p class="blog__content">
+                                    Chẳng biết từ bao giờ, chén trà lại trở nên thân thuộc, gần gũi với người Việt.
+                                    Không đơn thuần chỉ là một thức uống thông thường, thưởng trà trở...
+                                </p>
+                            </div>
+                        </a></li>
                     </ul>
                 </div>
                 <!-- blog normal-->
@@ -484,44 +495,44 @@ $products=Auth::loadDataProduct();
                     <h2 class="blog__normal-title">Blog</h2>
                     <ul class="blog__normal-list">
                         <li><a href="">
-                                <div class="blog__normal-imgwrap">
-                                    <img src="./assets/img/items-hot/blogNor1.jpg" alt="">
-                                </div>
-                                <div class="blog__normal-desc">
-                                    <div class="blog__date">17/01/2022</div>
-                                    <h3 class="blog__title-img">The coffee house ra mắt 3 "sung" để để bắt đầu năm hổ</h3>
-                                    <p class="blog__content">
-                                        Chia tay năm cũ với những nốt trầm, Tết này hãy cùng The Coffee House nạp cho mình 3
-                                        “Sung” để bắt đầu một năm Hổ đầy năng lượng, mãnh...
-                                    </p>
-                                </div>
-                            </a></li>
+                            <div class="blog__normal-imgwrap">
+                                <img src="./assets/img/items-hot/blogNor1.jpg" alt="">
+                            </div>
+                            <div class="blog__normal-desc">
+                                <div class="blog__date">17/01/2022</div>
+                                <h3 class="blog__title-img">The coffee house ra mắt 3 "sung" để để bắt đầu năm hổ</h3>
+                                <p class="blog__content">
+                                    Chia tay năm cũ với những nốt trầm, Tết này hãy cùng The Coffee House nạp cho mình 3
+                                    “Sung” để bắt đầu một năm Hổ đầy năng lượng, mãnh...
+                                </p>
+                            </div>
+                        </a></li>
                         <li><a href="">
-                                <div class="blog__normal-imgwrap">
-                                    <img src="./assets/img/items-hot/blogNor2.jpg" alt="">
-                                </div>
-                                <div class="blog__normal-desc">
-                                    <div class="blog__date">15/01/2022</div>
-                                    <h3 class="blog__title-img">Tết cận kề, fans the coffee house có quà mới</h3>
-                                    <p class="blog__content">
-                                        Sắp sửa đón một cái Tết mới, Nhà chuẩn bị ra mắt Bộ sưu tập (BST) sản phẩm Tết,
-                                        như là những món quà tặng ý nghĩa trao gửi đến...
-                                    </p>
-                                </div>
-                            </a></li>
+                            <div class="blog__normal-imgwrap">
+                                <img src="./assets/img/items-hot/blogNor2.jpg" alt="">
+                            </div>
+                            <div class="blog__normal-desc">
+                                <div class="blog__date">15/01/2022</div>
+                                <h3 class="blog__title-img">Tết cận kề, fans the coffee house có quà mới</h3>
+                                <p class="blog__content">
+                                    Sắp sửa đón một cái Tết mới, Nhà chuẩn bị ra mắt Bộ sưu tập (BST) sản phẩm Tết,
+                                    như là những món quà tặng ý nghĩa trao gửi đến...
+                                </p>
+                            </div>
+                        </a></li>
                         <li><a href="">
-                                <div class="blog__normal-imgwrap">
-                                    <img src="./assets/img/items-hot/blogNor3.jpg" alt="">
-                                </div>
-                                <div class="blog__normal-desc">
-                                    <div class="blog__date">14/01/2022</div>
-                                    <h3 class="blog__title-img">Tearoma - tự tin sống trẻ, bừng phong cách</h3>
-                                    <p class="blog__content">
-                                        Tearoma của The Coffee House như một “cô gái” phóng khoáng,
-                                        tự tin sống trẻ và bừng lên phong cách riêng đầy cuốn hút. Bạn là người trẻ hiện đại,...
-                                    </p>
-                                </div>
-                            </a></li>
+                            <div class="blog__normal-imgwrap">
+                                <img src="./assets/img/items-hot/blogNor3.jpg" alt="">
+                            </div>
+                            <div class="blog__normal-desc">
+                                <div class="blog__date">14/01/2022</div>
+                                <h3 class="blog__title-img">Tearoma - tự tin sống trẻ, bừng phong cách</h3>
+                                <p class="blog__content">
+                                    Tearoma của The Coffee House như một “cô gái” phóng khoáng,
+                                    tự tin sống trẻ và bừng lên phong cách riêng đầy cuốn hút. Bạn là người trẻ hiện đại,...
+                                </p>
+                            </div>
+                        </a></li>
                     </ul>
                 </div>
             </div>
@@ -641,7 +652,6 @@ $products=Auth::loadDataProduct();
             <div class="modal__footer">
                 <div class="modal__footer-head">
                     <a href="">Hỗ trợ</a>
-                    <a href="<?php echo $linkC ?>" target="_blank">Đăng ký</a>
                 </div>
 
                 <p class="modal__footer-subhead">Hoặc đăng nhập bằng các tài khoản sau</p>
@@ -655,7 +665,7 @@ $products=Auth::loadDataProduct();
             </div>
         </div>
     </div>
-    <script>        
+    <script>
 
     </script>
     <script src="./assets/js/base.js"></script>

@@ -1,42 +1,44 @@
 <?php
-    require_once "./classes/DB.php";
+require_once "./classes/DB.php";
 
-    // kiểm tra session đã bắt đầu chưa
-    if (session_status() === PHP_SESSION_NONE) {
-        session_start();
-    }
 
-    if (empty($_SESSION["cart"])) {
-        $_SESSION["cart"] = [];
-    }
+// kiểm tra session đã bắt đầu chưa
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-    // json_encode($_SESSION["cart"]);
+if (empty($_SESSION["cart"])) {
+    $_SESSION["cart"] = [];
+}
 
-    $productIds = implode(",", $_SESSION["cart"]);
+// json_encode($_SESSION["cart"]);
 
-    $sql = "select id, image, title, value from products where id in (". $productIds .")";
+$productIds = implode(",", $_SESSION["cart"]);
 
-    $products = DB::execute($sql);
+$sql = "select id, image, title, value from products where id in (" . $productIds . ")";
 
-    $countProducts = array_count_values($_SESSION["cart"]);
-    $arrProduct = array_map(function($value, $key) use($products) {
-        foreach($products as $product) {
-            if ($product["id"] == $key) {
-                return [
-                    "id" => $product["id"],
-                    "title" => $product["title"],
-                    "image" => $product["image"],
-                    "value" => $product["value"],
-                    "count" => $value
-                ];
-            }
+$products = DB::execute($sql);
+
+$countProducts = array_count_values($_SESSION["cart"]);
+$arrProduct = array_map(function ($value, $key) use ($products) {
+    foreach ($products as $product) {
+        if ($product["id"] == $key) {
+            return [
+                "id" => $product["id"],
+                "title" => $product["title"],
+                "image" => $product["image"],
+                "value" => $product["value"],
+                "count" => $value
+            ];
         }
-    }, $countProducts, array_keys($countProducts));
-    
+    }
+}, $countProducts, array_keys($countProducts));
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,11 +47,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Thanh toán</title>
     <style>
-        th{
+        th {
             text-align: center;
         }
 
-        .table td, .table th {
+        .table td,
+        .table th {
             border: 1px solid #000;
         }
 
@@ -60,37 +63,39 @@
         .title {
             padding: 15px 25px;
         }
+
         /* layout */
         .index-product {
             width: 15%;
             text-align: center;
         }
-        
+
         .image-product-wrap {
             width: 10%;
             height: auto;
         }
 
-        .image-product-wrap img{
+        .image-product-wrap img {
             width: 100%;
             height: 100%;
         }
 
-        .name-product{
+        .name-product {
             width: 40%;
         }
 
-        .value-product{
+        .value-product {
             width: 20%;
         }
 
-        .count-product{
+        .count-product {
             width: 15%;
             text-align: center;
         }
 
-        .table td, .table th {
-            vertical-align: unset;            
+        .table td,
+        .table th {
+            vertical-align: unset;
         }
 
         .sumValue {
@@ -106,7 +111,8 @@
             margin-top: 20px;
         }
 
-        .product__btnCancel, .product__btnAddToCart{
+        .product__btnCancel,
+        .product__btnAddToCart {
             width: 200px;
             height: 45px;
             line-height: 45px;
@@ -123,12 +129,13 @@
             user-select: none;
         }
 
-        .product__btnCancel:hover, .product__btnAddToCart:hover{
+        .product__btnCancel:hover,
+        .product__btnAddToCart:hover {
             box-shadow: inset 200px 0 0 0 #fff;
             color: #ea8025;
         }
 
-        .product__btnCancel a{
+        .product__btnCancel a {
             text-decoration: none;
             color: #fff;
             display: block;
@@ -137,9 +144,21 @@
         .product__btnCancel:hover a {
             color: #ea8025;
         }
+
+        h4 {
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none !important;
+        }
     </style>
 </head>
+
 <body>
+    <div class="product__btnCancel">
+        <a href="./menu.php">Thoát</a>
+    </div>
     <h4 class="title">Thanh toán sản phẩm</h4>
     <div class="table-responsive">
         <table class="table table-striped">
@@ -153,56 +172,71 @@
                 </tr>
             </thead>
             <tbody>
-                <?php 
-                    $i = 1;
-                    foreach($arrProduct as $product){
-                ?>
-                        <tr>
-                            <th scope="row" class="index-product"><?= $i++ ?></th>
-                            <td class="image-product-wrap">
-                                <img src="<?= $product["image"] ?>" alt="">
-                            </td>
-                            <td class="name-product"><?= $product["title"] ?></td>
-                            <td class="value-product"><?= $product["value"] ?> đ</td>
-                            <td class="count-product"><?= $product["count"] ?></td>
-                        </tr>
                 <?php
-                    }
-                ?>                
+                $i = 1;
+                foreach ($arrProduct as $product) {
+                ?>
+                    <tr>
+                        <th scope="row" class="index-product"><?= $i++ ?></th>
+                        <td class="image-product-wrap">
+                            <img src="<?= $product["image"] ?>" alt="">
+                        </td>
+                        <td class="name-product"><?= $product["title"] ?></td>
+                        <td class="value-product"><?= $product["value"] ?> đ</td>
+                        <td class="count-product"><?= $product["count"] ?></td>
+                    </tr>
+                <?php
+                }
+                ?>
             </tbody>
             <tfoot>
                 <tr>
-                    <th colspan="5" scope="col">Tổng tiền thanh toán : <p class="sumValue" style="margin-bottom: 0;"><?= array_reduce($arrProduct, fn($total, $item) => ($total + $item["value"] * $item["count"]) )?> đ</p></th>
+                    <th colspan="5" scope="col">Tổng tiền thanh toán : <p class="sumValue" style="margin-bottom: 0;"><?= array_reduce($arrProduct, fn ($total, $item) => ($total + $item["value"] * $item["count"])) ?> đ</p>
+                    </th>
+                    <?php $_SESSION['price'] = array_reduce($arrProduct, fn ($total, $item) => ($total + $item["value"] * $item["count"])); ?>
                 </tr>
             </tfoot>
         </table>
     </div>
+    <h4>Chọn phương thức thanh toán</h4>
     <div class="product__action" style="margin-bottom: 35px">
-        <div class="product__btnCancel">
-            <a href="./menu.php">Thoát</a>
-        </div>
-        <div class="product__btnAddToCart" id="btnPayPay">
-            Thanh toán
-        </div>                                    
+        <a href="./order.php">
+            <div class="product__btnAddToCart" >
+                Đặt hàng
+            </div>
+        </a>
+
+        <span>or</span>
+
+        <a href="./online_pay.php">
+            <div class="product__btnAddToCart" >
+                Thanh toán Online
+            </div>
+        </a>
     </div>
-    
+
+    <!-- <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?= $_SESSION['price'] ?>" title="Link to Google.com" /> -->
+
+
     <script>
         $(document).ready(function() {
-            $("#btnPayPay").click(function(){
+            $("#btnPayPay").click(function() {
                 $.ajax({
                     url: "./ajax/reset-cart.php",
                     method: "POST",
                     data: {
-                        
+
                     },
-                    success: function(){                                  
-                       alert("Thanh toán thành công");
-                       window.location.replace("./home.php");                                               
+                    success: function() {
+                        alert("Đặt hàng thành công!");
+                        window.location.replace("./menu.php");
                     }
                 });
             });
-            
+
         })
     </script>
 </body>
+
+
 </html>

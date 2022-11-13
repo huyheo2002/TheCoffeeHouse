@@ -22,19 +22,17 @@ $users = Auth::getDataAll();
 <body class="body">
     <div class="container">
         <div>
-            <h1 style="text-align:center ;">Đại lăng tẩm Nazarick</h1>
+            <h1 style="text-align:center ;">QUẢN LÝ TÀI KHOẢN</h1>
         </div>
         <div>
-            <h5>Đây là trang quyền lực nhất, nó chỉ giành cho 1 trong 41 vị đấng tối cao của Ainz Ool Gown</h5>
+            <h5 style="text-align:center ;">Đây là trang quyền lực nhất, nó chỉ giành cho 1 trong 41 vị đấng tối cao của Ainz Ool Gown</h5>
         </div>
         <br>
-        <a href="./create.php" class="btn btn-primary">Create clone account</a>
-        <br>
-        <br>
-        <div>
-            <h5>Dưới đây là danh sách các tài khoản và sinh mạng của chúng nằm trong tay bạn. Bạn có thể làm mọi thứ (kể cả việc khai tử)</h5>
-            <h6 style="text-align:center ;">(Hãy thể hiện sự ân ái của bạn thông qua việc ban cho chúng một cái chết không đau đớn)</h6>
+        <div style="text-align:center; margin-bottom: 50px">
+            <a href="./adminFirst.php" class="btn btn-primary">Quay trở lại</a>
+            <a href="./create.php" class="btn btn-primary">Create clone account</a>
         </div>
+
         <div>
             <?php if (count($users) > 0) { ?>
                 <table class="table table-dark table-hover">

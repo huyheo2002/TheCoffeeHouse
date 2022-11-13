@@ -216,7 +216,82 @@ class Auth
         $check = DB::execute($sql, $dataUpdateProduct);
         return count($check) > 0 ? $check[0] : [];
         if (count($check) > 0) {
-                header("location:./adminProduct.php");
+            header("location:./adminProduct.php");
         }
+    }
+
+    //cập nhật giỏ hàng (cart)
+    static public function updateCart($dataUpdateCart)
+    {
+        $sql = "insert into cart(email, id) values(:email, :id)";
+        DB::execute($sql, $dataUpdateCart);
+    }
+
+
+    //reset giỏ hàng (cart)
+    static public function delete_cart($email)
+    {
+        $sql = "delete from cart where email =:email";
+        $data_delete_cart = ['email' => $email];
+        DB::execute($sql, $data_delete_cart);
+    }
+
+
+    static public function update_order($data_update_order)
+    {
+        $sql = "insert into user_order(email, cart_status, time_order) values(:email, :cart_status, CURRENT_TIMESTAMP)";
+        DB::execute($sql, $data_update_order);
+    }
+
+    //cap nhat thoi gian dat hng cho bang cart
+    static public function update_cart_time($email)
+    {
+        $sql = "update cart set time_order=CURRENT_TIMESTAMP where email =:email and time_order=''";
+        $dataUpdateCartTime = ['email' => $email];
+        DB::execute($sql, $dataUpdateCartTime);
+    }
+
+
+    //hiển thị dữ liệu của bảng user_order
+    static public function load_order()
+    {
+        $sql = "select * from user_order";
+        $order = DB::execute($sql);
+        return $order;
+    }
+
+    //hiển thị chi tiết sản phẩm đã order
+    static public function load_detail_order($data_load_detail_order)
+    {
+        $sql = "select * from cart,products where cart.id=products.id and cart.email=:email and cart.time_order=:time";
+        $load_detail_order = DB::execute($sql, $data_load_detail_order);
+        return $load_detail_order;
+    }
+
+    //xóa order
+    static public function delete_order($id)
+    {
+        $sql = "delete  from user_order where confirm_cart_id=:confirm_cart_id";
+        $data_delete_order = ['confirm_cart_id' => $id];
+        DB::execute($sql, $data_delete_order);
+    }
+
+
+    //lấy thông tin đơn hàng theo id order
+    static public function find_cart_with_id($id)
+    {
+        $sql = "select * from user_order where confirm_cart_id=:confirm_cart_id";
+        $dataFindProduct = ['confirm_cart_id' => $id];
+
+        $products = DB::execute($sql, $dataFindProduct);
+        return count($products) > 0 ? $products[0] : [];
+    }
+
+
+    //xóa đơn hàng trong bảng cart
+    static public function delete_cart_by_admin($delete_cart_by_admin)
+    {
+        $sql = "delete  from cart where email=:email and time_order=:time_order";
+        DB::execute($sql, $delete_cart_by_admin);
     }
 }
