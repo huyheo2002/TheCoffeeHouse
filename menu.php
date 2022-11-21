@@ -37,8 +37,8 @@ if (isset($_SESSION['message'])) {
     $linkD = "Logout.php";
     $_SESSION['login_menu'] = "login";
 
-    $my_order = 'Quản lý đơn hàng';
-    $my_order_link = 'my_order.php';
+    $my_order='Quản lý đơn hàng';
+    $my_order_link='my_order.php';
 } else {
     $a = "Tài khoản";
     $linkC = "Register.php";
@@ -192,7 +192,7 @@ $products = DB::execute($sql);
                                 </div>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="<?php echo $linkB ?>" target="_blank"><?php echo $b ?></a></li>
-                                    <li><a class="dropdown-item" href="<?php echo $my_order_link ?>"><?php echo $my_order ?></a></li>
+                                    <li><a class="dropdown-item" href="<?php echo $my_order_link ?>" ><?php echo $my_order ?></a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
@@ -843,21 +843,19 @@ $products = DB::execute($sql);
     <script src="./assets/js/Cart.js"></script>
     <!-- jquery -->
     <script>
-        $(document).ready(function() {                        
-            <?php
-            if (isset($_SESSION['message_login'])) { ?>
+        $(document).ready(function() {
+            <?php if (isset($_SESSION['message_login'])) { ?>
                 let products = document.querySelectorAll(".itemHot__cart");
                 products.forEach((product) => {
                     $(product).click(() => {
                         let productId = product.dataset.productId;
                         addToCart(productId);
-
+                        
                         // $_GET("./add_to_cart.php", {'productID':productId}, function(data) {alert(data);});
-
+                           
                     })
                 })
-                <?php }
-            if (!isset($_SESSION['message_login'])) { ?>let products = document.querySelectorAll(".itemHot__cart");
+                <?php } if (!isset($_SESSION['message_login'])) { ?>let products = document.querySelectorAll(".itemHot__cart");
                 products.forEach((product) => {
                     $(product).click(() => {
                         // const loginHead = document.querySelectorAll(".itemHot__cart")
@@ -865,7 +863,6 @@ $products = DB::execute($sql);
                         alert("Bạn cần đăng nhập trước!")
                     })
                 }) <?php } ?>
-
         });
     </script>
 </body>
