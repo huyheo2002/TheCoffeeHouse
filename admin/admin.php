@@ -24,9 +24,9 @@ $users = Auth::getDataAll();
         <div>
             <h1 style="text-align:center ;">QUẢN LÝ TÀI KHOẢN</h1>
         </div>
-        <div>
+        <!-- <div>
             <h5 style="text-align:center ;">Đây là trang quyền lực nhất, nó chỉ giành cho 1 trong 41 vị đấng tối cao của Ainz Ool Gown</h5>
-        </div>
+        </div> -->
         <br>
         <div style="text-align:center; margin-bottom: 50px">
             <a href="./adminFirst.php" class="btn btn-primary">Quay trở lại</a>
@@ -41,7 +41,7 @@ $users = Auth::getDataAll();
                             <th scope="col">Tên</th>
                             <th scope="col">Email</th>
                             <th scope="col">Hành động</th>
-                            <th scope="col">Khai tử</th>
+                            <th scope="col">Xóa</th>
                         </tr>
                     </thead>
                     <tbody>
