@@ -16,12 +16,12 @@ class DB
     static public function getConnection(){        
         if(static::$connection == null)
         {
-            // cách 1: 
-            static::$connection = new PDO(
-                self::DB_TYPE.":host=".self::DB_HOST. ";dbname=" .self::DB_NAME,
-                self::USER_NAME, 
-                self::USER_PASSWORD
-            );
+            // // cách 1: 
+            // static::$connection = new PDO(
+            //     self::DB_TYPE.":host=".self::DB_HOST. ";dbname=" .self::DB_NAME,
+            //     self::USER_NAME, 
+            //     self::USER_PASSWORD
+            // );
 
             // cách 2:
             try{
