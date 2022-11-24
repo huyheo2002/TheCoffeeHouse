@@ -16,9 +16,9 @@
             });
         });
     </script>
-    <div class="cart__badge" id="cart__badge">
+    <div class="cart__badge" id="cart__badge" style="display: none;">
         <i class="fa-solid fa-star">
-            <p class="count">1</p>
+            <p class="count">0</p>
         </i>
     </div>
 </div>
@@ -32,7 +32,7 @@
             </div>
         </header>
         <ul class="cart__list" id="cart__list">
-            <li><a href="">
+            <!-- <li><a href="">
                 <div class="cart__imgWrap">
                     <img src="./assets/img/menu/BM1.jpg" alt="">
                 </div>
@@ -40,7 +40,7 @@
                     <h4 class="cart__info-title">hi</h4>
                     <p class="cart__info-value">124.000đ</p>
                 </div>
-            </a></li>
+            </a></li> -->
         </ul>
 
         <footer class="cart__footer">

@@ -819,21 +819,13 @@ $products = DB::execute($sql);
                 </div>
             </div>
 
-
             <div class="modal__footer">                        
             </div>
         </div>
     </div> -->
 
-    <script>
+    <script>        
         // tránh lan truyền sự kiện (truyền vào event con)
-        // fetch("./assets/data/products.json")
-        // .then(res => res.json())
-        // .then(data => {
-        //     console.log(data);
-        //     document.querySelector(".btnTest").onclick = () => console.log(data);
-        // })
-        // .catch(err => console.log(err));
         function isCheckPropagation(e) {
             e.stopPropagation();
         }

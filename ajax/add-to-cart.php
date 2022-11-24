@@ -13,14 +13,15 @@
     if (isset($_POST["id"])) {
         array_push($_SESSION["cart"], $_POST["id"]);
     }
-
-
+    
+    
+    // note gsu ké :(
     $dataUpdateCart = [
         'id' =>  $_POST["id"],
         'email' => $_SESSION['dataEmail']
     ];
     Auth::updateCart($dataUpdateCart);
-
+    // end note :v
 
     $productIds = implode(",", $_SESSION["cart"]);
 

@@ -652,6 +652,7 @@ $products = Auth::loadDataProduct();
             <div class="modal__footer">
                 <div class="modal__footer-head">
                     <a href="">Hỗ trợ</a>
+                    <a href="<?php echo $linkC ?>" target="_blank">Đăng ký</a>
                 </div>
 
                 <p class="modal__footer-subhead">Hoặc đăng nhập bằng các tài khoản sau</p>

@@ -23,15 +23,13 @@ include './classes/User.php';
 </head>
 <body>
     <a href="./pay.php">Back</a>
- 
-        <button id="btnPayPay">Xác nhận đơn hàng</button>
+    <button id="btnPayPay">Xác nhận đơn hàng</button>
    
 
 
     <script>
         $(document).ready(function() {
-            $("#btnPayPay").click(function() {
-                
+            $("#btnPayPay").click(function() {                
                 $.ajax({
                     url: "./ajax/reset-cart.php",
                     method: "POST",
