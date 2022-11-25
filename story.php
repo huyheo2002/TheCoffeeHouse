@@ -208,7 +208,7 @@ if (isset($_SESSION['message'])) {
             <div class="content2">
                 <div class="content2__left">
                     <div>
-                        <img src="./assets/img/Chuyện nhà/left_img_1.png" alt="">
+                        <img src="./assets/img/chuyenNha/left_img_1.png" alt="">
                     </div>
                     <div>
                         <a href=""> NĂM MỚI , UỐNG " KHỞI ĐẦU SUNG"- NHẬN LÌ XÌ KHỦNG TẠI THE COFFE HOUSE </a>
@@ -220,7 +220,7 @@ if (isset($_SESSION['message'])) {
                 </div>
                 <div class="content2__right">
                     <div>
-                        <img src="./assets/img/Chuyện nhà/right_img_1.png" alt="">
+                        <img src="./assets/img/chuyenNha/right_img_1.png" alt="">
                     </div>
                     <div>
 
@@ -234,7 +234,7 @@ if (isset($_SESSION['message'])) {
             </div>
             <div class="content3">
                 <div class="content3__left">
-                    <img src="./assets/img/Chuyện nhà/coffeholic_left.png" alt="">
+                    <img src="./assets/img/chuyenNha/coffeholic_left.png" alt="">
 
                 </div>
                 <div class="content3__right">
@@ -242,7 +242,7 @@ if (isset($_SESSION['message'])) {
                         <h4> Coffeholic</h4>
                     </div>
                     <div class="content3__right__warp">
-                        <img src="./assets/img/Chuyện nhà/coffeholic_1.png" alt="">
+                        <img src="./assets/img/chuyenNha/coffeholic_1.png" alt="">
                         <div class="content3__right__warp1">
                             <a href="">CÁCH NHẬN BIẾT HƯƠNG VỊ CÀ PHÊ ROBUSTA NGUYÊN CHẤT DỄ DÀNG NHẤT</a>
                             <h5> 11/03/2022</h5>
@@ -252,7 +252,7 @@ if (isset($_SESSION['message'])) {
                         </div>
                     </div>
                     <div class="content3__right__warp">
-                        <img src="./assets/img/Chuyện nhà/coffeholic_2.png" alt="">
+                        <img src="./assets/img/chuyenNha/coffeholic_2.png" alt="">
                         <div class="content3__right__warp1">
                             <a href="">BẬT MÍ NHIỆT ĐỘ LÝ TƯỞNG ĐỂ PHA CÀ PHÊ NGON, ĐẬM ĐÀ HƯƠNG VỊ</a>
                             <h5> 07/03/2022</h5>
@@ -263,7 +263,7 @@ if (isset($_SESSION['message'])) {
                         </div>
                     </div>
                     <div class="content3__right__warp">
-                        <img src="./assets/img/Chuyện nhà/coffeholic_3.png" alt="">
+                        <img src="./assets/img/chuyenNha/coffeholic_3.png" alt="">
                         <div class="content3__right__warp1">
                             <a href="">CÁCH PHA CÀ PHÊ PHIN THƠM NGON TRÒN VỊ</a>
                             <h5> 04/03/2022</h5>
@@ -290,7 +290,7 @@ if (isset($_SESSION['message'])) {
                         </h4>
                     </div>
                     <div class="content4__left__warp">
-                        <img src="./assets/img/Chuyện nhà/teaholic_left_1.png" alt="">
+                        <img src="./assets/img/chuyenNha/teaholic_left_1.png" alt="">
                         <div class="content4__left__warp1">
                             <a href="">CÁCH KHAI ẤM TỬ SA ĐỂ GỢI VỊ NGON CỦA TRÀ</a>
                             <h5> 09/03/2022</h5>
@@ -301,7 +301,7 @@ if (isset($_SESSION['message'])) {
                         </div>
                     </div>
                     <div class="content4__left__warp">
-                        <img src="./assets/img/Chuyện nhà/teaholic_left_2.png" alt="">
+                        <img src="./assets/img/chuyenNha/teaholic_left_2.png" alt="">
                         <div class="content4__left__warp1">
                             <a href="">THƯỞNG TRÀ THEO TỪNG MÙA TRONG NĂM</a>
                             <h5> 02/03/2022</h5>
@@ -310,7 +310,7 @@ if (isset($_SESSION['message'])) {
                         </div>
                     </div>
                     <div class="content4__left__warp">
-                        <img src="./assets/img/Chuyện nhà/teaholic_left_3.png" alt="">
+                        <img src="./assets/img/chuyenNha/teaholic_left_3.png" alt="">
                         <div class="content4__left__warp1">
                             <a href="">KHÁC BIỆT CƠ BẢN GIỮA TRÀ XANH VÀ TRÀ ĐEN</a>
                             <h5> 19/01/2022</h5>
@@ -329,20 +329,20 @@ if (isset($_SESSION['message'])) {
                 <!-- content4 -right -->
                 <div class="content4__right">
                     <div>
-                        <img src="./assets/img/Chuyện nhà/teaholic_right.jpg" alt="">
+                        <img src="./assets/img/chuyenNha/teaholic_right.jpg" alt="">
                     </div>
                 </div>
             </div>
             <div class="content5">
                 <div class="content5__left">
-                    <img src="./assets/img/Chuyện nhà/blog_left.png" alt="">
+                    <img src="./assets/img/chuyenNha/blog_left.png" alt="">
                 </div>
                 <div class="content5__right">
                     <div>
                         <h4> Blog</h4>
                     </div>
                     <div class="content5__right__warp">
-                        <img src="./assets/img/Chuyện nhà/blog_img_1.png" alt="">
+                        <img src="./assets/img/chuyenNha/blog_img_1.png" alt="">
                         <div class="content5__right__warp1">
                             <a href="">LỄ TÌNH NHÂN, CÙNG CRUSH ĐI ĐÂU?</a>
                             <h6 style="display: inline-block; margin: 40px 0px 10px -360px; color: rgba(0, 0, 0, 0.45);;"> 14/02/2022</h6>
@@ -353,7 +353,7 @@ if (isset($_SESSION['message'])) {
                         </div>
                     </div>
                     <div class="content5__right__warp">
-                        <img src="./assets/img/Chuyện nhà/blog_img_2.png" alt="">
+                        <img src="./assets/img/chuyenNha/blog_img_2.png" alt="">
                         <div class="content5__right__warp1">
                             <a href="">THE COFFEE HOUSE - QUÁN CÀ PHÊ LÝ TƯỞNG ĐỂ HỘI HỌP BẠN BÈ MÙA TẾT NÀY</a>
                             <h5> 01/02/2022</h5>
@@ -364,7 +364,7 @@ if (isset($_SESSION['message'])) {
                         </div>
                     </div>
                     <div class="content5__right__warp">
-                        <img src="./assets/img/Chuyện nhà/blog_img_3.png" alt="">
+                        <img src="./assets/img/chuyenNha/blog_img_3.png" alt="">
                         <div class="content5__right__warp1">
                             <a href="">CHAI FRESH LUÔN BÊN BẠN TRONG MỌI KHOẢNH KHẮC</a>
                             <h5> 24/1/2022</h5>

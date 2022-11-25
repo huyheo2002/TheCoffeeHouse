@@ -1,9 +1,19 @@
 <?php
-require_once "../../classes/DB.php";
-$sql = "SELECT `products`.`id`, `products`.`image`, `products`.`title`, `products`.`value`, `category`.`name`, `products`.`description`  FROM `products`, `category` WHERE (`products`.`category_id` = `category`.`id`)";
-$products = DB::execute($sql);
-// var_dump($products);
-// die;
+include '../../classes/User.php';
+
+$email = null;
+$time = null;
+$code_order=null;
+
+if ($_GET['email']) {
+    $email = $_GET['email'];
+    $time = $_GET['time'];
+    $code_order=$_GET['code_order'];
+    $data_load_detail_order = ['email' => $email, 'time' => $time];
+    $lists = Auth::load_detail_order($data_load_detail_order);
+} else {
+    header("location:./index.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +24,7 @@ $products = DB::execute($sql);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-favico" href="./resources/images/main/logo/favicon.ico">
-    <title>Quản lý sản phẩm</title>
+    <title>Chi tiết đơn đặt hàng</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -29,53 +39,49 @@ $products = DB::execute($sql);
         <!-- <div class="header">This is Header :v</div> -->
         <div class="body">
             <?php
-                include "../Component/Sidebar.php";
+            include "../Component/Sidebar.php";
             ?>
             <div class="body__content">
                 <?php
-                    include "../Component/Header.php";
+                include "../Component/Header.php";
                 ?>
                 <div class="content__main show">
                     <div class="content__listBtn" style="margin-bottom: 15px">
-                        <a href="./create.php" class="content__btnAdd">Thêm mới</a>
-                        <!-- <button class="content__btnExit">
-                            <a href="../DashBoard/index.php">Thoát</a>
-                        </button> -->
+                        <h3>Mã đơn hàng: <?php echo"$code_order"; ?></h3>
+                        <button class="content__btnExit">
+                            <a href="../admin_order/index.php">Trở lại</a>
+                        </button>
                     </div>
-                    <h2 class="content__title">Danh sách sản phẩm</h2>
+                    <h2 class="content__title">Chi tiết đơn hàng</h2>
                     <table>
                         <tr>
-                            <th style="width: 10%">Ảnh</th>
-                            <th style="width: 15%">Tên</th>
-                            <th style="width: 10%">Giá</th>
-                            <th style="width: 10%">Danh mục</th>
-                            <th style="width: 35%">Mô tả</th>
-                            <th style="width: 20%">Hoạt động</th>
+                            <th scope="col">Số thứ tự</th>
+                            <th scope="col">Ảnh</th>
+                            <th scope="col">Tên sản phẩm</th>
+                            <th scope="col">Giá tiền</th>
+                            <!-- <th scope="col">Số lượng</th> -->
                         </tr>
                         <?php
-                        if (!empty($products)) {
-                            foreach ($products as $product) {
+                        if (!empty($lists)) {
+                            $i = 1;
+                            foreach ($lists as $list) {
                                 // var_dump($product);
                                 // die;
                         ?>
                                 <tr>
+                                    
+                                    <th scope="row" class="index-product"><?= $i++ ?></th>
+                                    <!-- <td class="image-product-wrap">
+                                        <img src="<?= $list["image"] ?>" alt="">
+                                    </td> -->
                                     <td>
                                         <div class="user-avatar" style="width: 150px; height: 150px; display: flex; justify-content: center; align-items: center;">
-                                            <img src="<?= "../../" . $product["image"] ?>" alt="Avatar" style="max-width: 100%; max-height: 100%;">
+                                            <img src="<?= "../../" . $list["image"] ?>" alt="Avatar" style="max-width: 100%; max-height: 100%;">
                                         </div>
                                     </td>
-                                    <td><?= $product["title"] ?></td>
-                                    <td><?= $product["value"] ?> đ</td>
-                                    <td><?= $product["name"] ?></td>
-                                    <td><?= $product["description"] ?></td>
-                                    <td class="list__action">
-                                        <a href="edit.php?id=<?= $product["id"] ?>">Chỉnh sửa</a>
-                                        <form action="doDelete.php" method="post" style="display: inline-block; width: 100%">
-                                            <input type="hidden" name="id" value="<?= $product["id"] ?>">
-                                            <!-- <a href="">Xóa</a> -->
-                                            <input type="submit" value="Xóa">
-                                        </form>
-                                    </td>
+                                    <td class="name-product"><?= $list["title"] ?></td>
+                                    <td class="value-product"><?= $list["value"] ?> đ</td>
+                                    <!-- <td class="count-product"></td> -->
                                 </tr>
                         <?php
                             }

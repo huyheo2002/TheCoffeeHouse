@@ -1,7 +1,7 @@
 <?php
 require_once "./classes/DB.php";
 
-
+include './classes/User.php';
 // kiểm tra session đã bắt đầu chưa
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -399,11 +399,28 @@ $arrProduct = array_map(function ($value, $key) use ($products) {
 
         // hàm hiển thị modal login (thêm class open vào modal)
         function showModalPayOrder() {
-            if(inpAddress.value !== "" && inpPhone.value !== "") {
+            if (inpAddress.value !== "" && inpPhone.value !== "") {
                 modalConfirm.classList.add("open")
                 modal.classList.remove("open")
                 inpAddress.style.borderColor = "#ccc";
                 inpPhone.style.borderColor = "#ccc";
+
+
+                <?php
+                $data_update_order = [
+                    'email' => $_SESSION['dataEmail'],
+                    'code_order'=>$codeOrder,
+                    'cart_status' => 'Thanh toán khi nhận hàng',
+                    'cost_order'=> array_reduce($arrProduct, fn ($total, $item) => ($total + $item["value"] * $item["count"]))
+                    
+
+                ];
+                Auth::update_order($data_update_order);
+                Auth::update_cart_time($_SESSION['dataEmail']);
+                ?>
+
+
+
             } else {
                 if (inpAddress.value === "") {
                     inpAddress.placeholder = "Bạn chưa nhập địa chỉ";
@@ -414,7 +431,7 @@ $arrProduct = array_map(function ($value, $key) use ($products) {
                     inpPhone.placeholder = "Bạn chưa nhập số điện thoại";
                     inpPhone.style.borderColor = "red";
                 }
-            }            
+            }
         }
 
         // hàm ẩn modal login (xóa class open khỏi của modal)
@@ -432,6 +449,7 @@ $arrProduct = array_map(function ($value, $key) use ($products) {
 
         modalContainerConfirm.addEventListener("click", function(event) {
             event.stopPropagation()
+            
         })
     </script>
 

@@ -239,7 +239,7 @@ class Auth
 
     static public function update_order($data_update_order)
     {
-        $sql = "insert into user_order(email, cart_status, time_order) values(:email, :cart_status, CURRENT_TIMESTAMP)";
+        $sql = "insert into user_order(email, cart_status, time_order, code_order, cost_order) values(:email, :cart_status, CURRENT_TIMESTAMP, :code_order, :cost_order)";
         DB::execute($sql, $data_update_order);
     }
 

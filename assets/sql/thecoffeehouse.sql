@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 13, 2022 lúc 07:30 AM
+-- Thời gian đã tạo: Th10 25, 2022 lúc 10:09 AM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 7.4.29
 
@@ -39,9 +39,7 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`number`, `email`, `id`, `time_order`) VALUES
-(209, 'minh@gmail.com', 2, '2022-11-11 14:56:35'),
-(210, 'minh@gmail.com', 4, '2022-11-11 14:56:47'),
-(211, 'minh@gmail.com', 3, '2022-11-11 14:56:47');
+(243, 'minh@gmail.com', 6, '2022-11-25 16:07:37');
 
 -- --------------------------------------------------------
 
@@ -119,8 +117,8 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id`, `image`, `title`, `value`, `category_id`, `description`) VALUES
 (1, './assets/img/menu/CPVN1.jpg', 'Bạc Sỉu Đá', 29000, 1, 'Siêu ngon'),
 (2, './assets/img/menu/CPVN2.jpg', 'Bạc Sỉu Nóng', 35000, 1, 'Ngon hơn người yêu cũ'),
-(3, './assets/img/menu/CPVN3.jpg', 'Cà Phê Đen Đá', 29000, 1, ''),
-(4, './assets/img/menu/CPVN4.jpg', 'Cà Phê Đen Nóng', 35000, 1, ''),
+(3, './assets/img/menu/CPVN3.jpg', 'Cà Phê Đen Đá', 29000, 1, 'minh dep trai sieu cap vippro'),
+(4, './assets/img/menu/CPVN4.jpg', 'Cà Phê Đen Nóng', 35000, 1, 'Cảm nhận vị cà phê từ hai miền Bắc Nam hòa quyện trong đầu lưỡi'),
 (5, './assets/img/menu/CPVN5.jpg', 'Cà Phê Sữa Đá', 29000, 1, ''),
 (6, './assets/img/menu/CPVN6.jpg', 'Cà Phê Sữa Đá Chai Fresh 250ml', 79000, 1, ''),
 (7, './assets/img/menu/CPVN7.jpg', 'Cà Phê Sữa Nóng', 35000, 1, ''),
@@ -201,7 +199,7 @@ INSERT INTO `products` (`id`, `image`, `title`, `value`, `category_id`, `descrip
 (82, './assets/img/menu/CPTN10.jpg', 'Cà Phê Sữa đá Pack 6 lon', 84000, 11, ''),
 (83, './assets/img/menu/CPTN11.jpg', 'Thùng 24 Lon Cà Phê Sữa Đá', 269000, 11, ''),
 (84, './assets/img/menu/CPTN12.jpg', 'Combo Quà Tết 2022', 321000, 11, ''),
-(85, './assets/img/menu/CPTN13.jpg', 'Combo 3 Hộp Cà Phê Sữa Đá Hòa Tan Đậm vị Hộp 18 gó', 109000, 11, ''),
+(85, './assets/img/menu/CPTN13.jpg', 'Combo 3 Hộp Cà Phê Sữa Đá Hòa Tan Đậm vị Hộp 18 gó', 109000, 11, 'Mua 5 hộp tặng free 5 hộp, tiền ship 1 triệu'),
 (86, './assets/img/menu/CPTN14.jpg', 'Combo 3 Hộp Cà Phê Sữa Đá Hòa Tan', 109000, 11, ''),
 (87, './assets/img/menu/CPTN15.jpg', 'Combo 2 Cà Phê Rang Xay Original 1250gr', 99000, 11, ''),
 (88, './assets/img/menu/TTN1.jpg', 'Combo Quà Tết 2022', 321000, 12, ''),
@@ -250,16 +248,17 @@ CREATE TABLE `user_order` (
   `confirm_cart_id` int(11) NOT NULL,
   `email` text NOT NULL,
   `cart_status` varchar(255) NOT NULL,
-  `time_order` varchar(255) NOT NULL
+  `time_order` varchar(255) NOT NULL,
+  `code_order` varchar(255) NOT NULL,
+  `cost_order` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `user_order`
 --
 
-INSERT INTO `user_order` (`confirm_cart_id`, `email`, `cart_status`, `time_order`) VALUES
-(39, 'minh@gmail.com', 'Thanh toán khi nhận hàng', '2022-11-11 14:56:35'),
-(40, 'minh@gmail.com', 'Thanh toán khi nhận hàng', '2022-11-11 14:56:47');
+INSERT INTO `user_order` (`confirm_cart_id`, `email`, `cart_status`, `time_order`, `code_order`, `cost_order`) VALUES
+(60, 'minh@gmail.com', 'Thanh toán khi nhận hàng', '2022-11-25 16:07:37', '195285', '79000');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -310,7 +309,7 @@ ALTER TABLE `user_order`
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=212;
+  MODIFY `number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=244;
 
 --
 -- AUTO_INCREMENT cho bảng `category`
@@ -328,13 +327,13 @@ ALTER TABLE `information`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
 -- AUTO_INCREMENT cho bảng `user_order`
 --
 ALTER TABLE `user_order`
-  MODIFY `confirm_cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `confirm_cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

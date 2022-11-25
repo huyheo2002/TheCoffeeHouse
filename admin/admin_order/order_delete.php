@@ -14,7 +14,7 @@ if(isset($_POST['confirm_cart_id'])) //nếu có tồn tại $_POST['id'] không
     Auth::delete_cart_by_admin($delete_cart_by_admin);
     $delete_order = Auth::delete_order($id);
   
-    header("location:./admin_order.php");
+    header("location:./index.php");
 }else{
     $_SESSION['message']="this order not found";
 
