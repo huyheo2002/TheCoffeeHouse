@@ -41,6 +41,10 @@ if (isset($_SESSION['message'])) {
     $linkC = "Register.php";
 }
 
+// remake product
+require_once "./classes/DB.php";
+$sql = "select products.id, image, title, `value`, name from products, category where category.id = products.category_id";
+$products = DB::execute($sql);
 
 ?>
 
@@ -163,12 +167,12 @@ if (isset($_SESSION['message'])) {
                         <li><a href="./KhaiTruong.php">Ưu đãi thành viên</a></li>
                         <!--Thay doi khi dang nhap-->
                         <?php if (isset($_SESSION['message'])) { ?>
-                            <li class="nav-item dropdown d-flex" style="padding: 0 0" title="<?php echo $_SESSION['dataUser']?>">
+                            <li class="nav-item dropdown d-flex" style="padding: 0 0" title="<?php echo $_SESSION['dataUser'] ?>">
                                 <div class="overlay__textUser">
                                     <a class=" dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <?php echo $a ?>
                                     </a>
-                                </div>  
+                                </div>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="<?php echo $linkB ?> " target="_blank"><?php echo $b ?></a></li>
                                     <li>
@@ -181,9 +185,9 @@ if (isset($_SESSION['message'])) {
                         <?php } ?>
                         <?php if (!isset($_SESSION['message'])) { ?>
                             <li class="js-login"><a>
-                                <?php echo $a ?>
-                                <i class="fa-solid fa-user"></i>
-                            </a></li>
+                                    <?php echo $a ?>
+                                    <i class="fa-solid fa-user"></i>
+                                </a></li>
                         <?php } ?>
                     </ul>
                 </div>
@@ -197,188 +201,27 @@ if (isset($_SESSION['message'])) {
         <div class="itemsHot__wrap">
             <h3 class="title__itemTea">Trà Tại Nhà</h3>
             <ul class="itemsHot__list">
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/tea/IT__Tea1.jpg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Combo Quà Tết 2022
-                            </h3>
-                            <p class="itemHot__value">
-                                321.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/tea/IT__Tea2.jpg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Giftset Trà Tearoma
-                            </h3>
-                            <p class="itemHot__value">
-                                169.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/tea/IT__Tea3.jpg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Combo 3 hộp trà Lài túi lọc Tearoma
-                            </h3>
-                            <p class="itemHot__value">
-                                69.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/tea/IT__Tea4.jpg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Combo 3 hộp trà Sen túi lọc Tearoma
-                            </h3>
-                            <p class="itemHot__value">
-                                69.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/tea/IT__Tea5.jpg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Combo 3 hộp trà Đào túi lọc Tearoma
-                            </h3>
-                            <p class="itemHot__value">
-                                69.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/tea/IT__Tea6.jpg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Combo 3 hộp trà Oolong túi lọc Tearoma
-                            </h3>
-                            <p class="itemHot__value">
-                                69.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/tea/IT__Tea7.jpg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Trà Đào Túi Lọc Tearoma 20 x 2gr
-                            </h3>
-                            <p class="itemHot__value">
-                                28.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/tea/IT__Tea8.jpg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Trà Lài Túi Lọc Tearoma 20 x 2gr
-                            </h3>
-                            <p class="itemHot__value">
-                                28.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/tea/IT__Tea9.jpg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Trà Oolong Túi Lọc Tearoma 20 x 2gr
-                            </h3>
-                            <p class="itemHot__value">
-                                28.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/tea/IT__Tea10.jpg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Trà Sen Túi Lọc Tearoma 20 x 2gr
-                            </h3>
-                            <p class="itemHot__value">
-                                28.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/tea/IT__Tea11.jpg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Trà Xanh Lá Tearoma 100gr
-                            </h3>
-                            <p class="itemHot__value">
-                                75.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/tea/IT__Tea12.jpg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Trà Sen Lá Tearoma 100gr
-                            </h3>
-                            <p class="itemHot__value">
-                                80.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/tea/IT__Tea13.jpg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Trà Oolong Lá Tearoma 100gr
-                            </h3>
-                            <p class="itemHot__value">
-                                100.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/tea/IT__Tea14.jpg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Trà Lài Lá Tearoma 100gr
-                            </h3>
-                            <p class="itemHot__value">
-                                80.000 đ
-                            </p>
-                        </div>
-                    </a></li>
+                <?php
+                foreach ($products as $product) {
+                    if (!strcmp($product["name"], "TeaAtHome")) {
+                ?>
+                        <li><a href="">
+                                <div class="itemHot__imgWrap">
+                                    <img src="<?= $product["image"] ?>" alt="">
+                                </div>
+                                <div class="itemHot__content">
+                                    <h3 class="itemHot__title">
+                                        <?= $product["title"] ?>
+                                    </h3>
+                                    <p class="itemHot__value">
+                                        <?= $product["value"] ?> đ
+                                    </p>
+                                </div>
+                            </a></li>
+                <?php
+                    }
+                }
+                ?>
             </ul>
         </div>
 

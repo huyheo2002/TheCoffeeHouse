@@ -43,6 +43,12 @@ if (isset($_SESSION['message'])) {
 }
 
 
+// remake product
+require_once "./classes/DB.php";
+$sql = "select products.id, image, title, `value`, name from products, category where category.id = products.category_id";
+$products = DB::execute($sql);
+
+
 ?>
 
 
@@ -200,214 +206,27 @@ if (isset($_SESSION['message'])) {
         <div class="itemsHot__wrap">
             <h3 class="title__itemCoffee">Cà Phê Tại Nhà</h3>
             <ul class="itemsHot__list">
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/coffee/IT_Coffee1.jpeg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Cà Phê Rang Xay Original 1 Túi 1KG
-                            </h3>
-                            <p class="itemHot__value">
-                                235.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/coffee/IT_Coffee2.jpeg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Cà Phê Rang Xay Original 1 250gr
-                            </h3>
-                            <p class="itemHot__value">
-                                60.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/coffee/IT_Coffee3.jpeg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Cà Phê Hòa Tan Đậm Vị Việt Túi 40x16G
-                            </h3>
-                            <p class="itemHot__value">
-                                99.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/coffee/IT_Coffee4.jpeg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Cà Phê Sữa Đá Hòa Tan Hộp 10 gói
-                            </h3>
-                            <p class="itemHot__value">
-                                44.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/coffee/IT_Coffee5.jpeg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Cà Phê Sữa Đá Hòa Tan Đậm Vị Hộp 18 gói x 16gr
-                            </h3>
-                            <p class="itemHot__value">
-                                48.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/coffee/IT_Coffee6.jpeg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Cà Phê Sữa Đá Hòa Tan Túi 25 x 22gr
-                            </h3>
-                            <p class="itemHot__value">
-                                99.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/coffee/IT_Coffee7.jpeg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Cà Phê Rich Finish Gu Đậm Tinh Tế 350gr
-                            </h3>
-                            <p class="itemHot__value">
-                                90.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/coffee/IT_Coffee8.jpeg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Cà Phê Peak Flavor Hương Thơm Đỉnh Cao 350gr
-                            </h3>
-                            <p class="itemHot__value">
-                                90.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/coffee/IT_Coffee9.jpeg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Cà Phê Arabica
-                            </h3>
-                            <p class="itemHot__value">
-                                100.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/coffee/IT_Coffee10.jpeg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Cà Phê Sữa Đá Pack 6 Lon
-                            </h3>
-                            <p class="itemHot__value">
-                                84.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/coffee/IT_Coffee11.jpeg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Thùng 24 Lon Cà Phê Sữa Đá
-                            </h3>
-                            <p class="itemHot__value">
-                                269.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/coffee/IT_Coffee12.jpeg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Combo Quà Tết 2022
-                            </h3>
-                            <p class="itemHot__value">
-                                321.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/coffee/IT_Coffee13.jpeg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Combo 3 Hộp Cà Phê Sữa Đá Hòa Tan Đậm Vị Hộp 18 gói x 16gr
-                            </h3>
-                            <p class="itemHot__value">
-                                109.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/coffee/IT_Coffee14.jpeg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Combo 3 Hộp Cà Phê Sữa Đá Hòa Tan
-                            </h3>
-                            <p class="itemHot__value">
-                                109.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/coffee/IT_Coffee15.jpeg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Combo 2 Cà Phê Rang Xay Original 1 250gr
-                            </h3>
-                            <p class="itemHot__value">
-                                99.000 đ
-                            </p>
-                        </div>
-                    </a></li>
-                <li style="visibility: hidden;"><a href="">
-                        <div class="itemHot__imgWrap">
-                            <img src="./assets/img/coffee-tea/coffee/IT_Coffee15.jpeg" alt="">
-                        </div>
-                        <div class="itemHot__content">
-                            <h3 class="itemHot__title">
-                                Combo 2 Cà Phê Rang Xay Original 1 250gr
-                            </h3>
-                            <p class="itemHot__value">
-                                99.000 đ
-                            </p>
-                        </div>
-                    </a></li>
+                <?php
+                foreach ($products as $product) {
+                    if (!strcmp($product["name"], "CoffeeAtHome")) {
+                ?>
+                        <li><a href="">
+                                <div class="itemHot__imgWrap">
+                                    <img src="<?= $product["image"] ?>" alt="">
+                                </div>
+                                <div class="itemHot__content">
+                                    <h3 class="itemHot__title">
+                                        <?= $product["title"] ?>
+                                    </h3>
+                                    <p class="itemHot__value">
+                                        <?= $product["value"] ?> đ
+                                    </p>
+                                </div>
+                            </a></li>
+                <?php
+                    }
+                }
+                ?>
             </ul>
         </div>
 

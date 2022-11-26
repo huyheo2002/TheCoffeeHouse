@@ -42,8 +42,8 @@ if (isset($_SESSION['message'])) {
 }
 
 
-
-$products = Auth::loadDataProduct();
+// thừa k sd
+// $products = Auth::loadDataProduct();
 ?>
 
 <!DOCTYPE html>
@@ -205,7 +205,7 @@ $products = Auth::loadDataProduct();
         </div>
         <!-- menu items-hot -->
         <div class="itemsHot__wrap">
-            <ul class="itemsHot__list">
+            <ul class="itemsHot__list">                
                 <li><a href="" >
                         <div class="itemHot__imgWrap">
                             <img src="./assets/img/items-hot/IH1.jpeg" alt="">
