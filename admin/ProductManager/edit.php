@@ -98,7 +98,7 @@ $categories = DB::execute($sql);
                             </div>
 
                             <div class="content__listBtn">
-                                <input type="submit" value="Tạo mới" class="content__btnAdd">
+                                <input type="submit" value="Chỉnh sửa" class="content__btnAdd">
                                 <a class="content__btnExit" href="./index.php">Trở về</a>
                             </div>
                         </form>
