@@ -404,23 +404,7 @@ $arrProduct = array_map(function ($value, $key) use ($products) {
                 modal.classList.remove("open")
                 inpAddress.style.borderColor = "#ccc";
                 inpPhone.style.borderColor = "#ccc";
-
-
-                <?php
-                $data_update_order = [
-                    'email' => $_SESSION['dataEmail'],
-                    'code_order'=>$codeOrder,
-                    'cart_status' => 'Thanh toán khi nhận hàng',
-                    'cost_order'=> array_reduce($arrProduct, fn ($total, $item) => ($total + $item["value"] * $item["count"]))
-                    
-
-                ];
-                Auth::update_order($data_update_order);
-                Auth::update_cart_time($_SESSION['dataEmail']);
-                ?>
-
-
-
+                
             } else {
                 if (inpAddress.value === "") {
                     inpAddress.placeholder = "Bạn chưa nhập địa chỉ";
@@ -449,7 +433,6 @@ $arrProduct = array_map(function ($value, $key) use ($products) {
 
         modalContainerConfirm.addEventListener("click", function(event) {
             event.stopPropagation()
-            
         })
     </script>
 
@@ -477,6 +460,30 @@ $arrProduct = array_map(function ($value, $key) use ($products) {
                     },
                     success: function() {
                         window.location.replace("./menu.php");
+                    }
+                });
+            });
+
+            $("#btnConfirm").click(function() {
+                $.ajax({
+                    url: "./ajax/reset-cart.php",
+                    method: "POST",
+                    data: {
+
+                    },
+                    success: function() {
+                        // console.log("hello0");
+                        <?php
+                            $data_update_order = [
+                                'email' => $_SESSION['dataEmail'],
+                                'code_order'=>$codeOrder,
+                                'cart_status' => 'Thanh toán khi nhận hàng',
+                                'cost_order'=> array_reduce($arrProduct, fn ($total, $item) => ($total + $item["value"] * $item["count"]))                
+                            ];
+                            Auth::update_order($data_update_order);
+                            Auth::update_cart_time($_SESSION['dataEmail']);
+                        ?>
+
                     }
                 });
             });
