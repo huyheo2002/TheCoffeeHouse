@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 25, 2022 lúc 10:09 AM
+-- Thời gian đã tạo: Th10 29, 2022 lúc 12:07 PM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 7.4.29
 
@@ -24,6 +24,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `authority`
+--
+
+CREATE TABLE `authority` (
+  `authority_id` int(11) NOT NULL,
+  `authority_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `authority`
+--
+
+INSERT INTO `authority` (`authority_id`, `authority_name`) VALUES
+(1, 'admin'),
+(2, 'Nhân viên'),
+(3, 'người dùng');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `cart`
 --
 
@@ -39,7 +59,12 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`number`, `email`, `id`, `time_order`) VALUES
-(243, 'minh@gmail.com', 6, '2022-11-25 16:07:37');
+(243, 'minh@gmail.com', 6, '2022-11-25 16:07:37'),
+(249, 'minh@gmail.com', 4, '2022-11-26 13:16:25'),
+(250, 'minh@gmail.com', 4, '2022-11-26 13:16:25'),
+(251, 'minh@gmail.com', 2, '2022-11-26 13:16:25'),
+(252, 'admin@gmail.com', 3, '2022-11-29 18:02:35'),
+(253, 'admin@gmail.com', 3, '2022-11-29 18:02:35');
 
 -- --------------------------------------------------------
 
@@ -93,7 +118,9 @@ CREATE TABLE `information` (
 
 INSERT INTO `information` (`id`, `fullName`, `birthday`, `phoneNumber`, `avatar`, `email`, `sex`, `address`) VALUES
 (1, 'Hoàng Bình Minh', '2002-12-18', '0961655258', '', 'minh@gmail.com', 'nam', '27, tổ 6, đường Nguyễn Thị Minh Khai, Đồng Xuân, Phúc Yên, Vĩnh Phúc'),
-(3, 'Trần Văn Một', '1010-11-01', '', '', '1@gmail.com', '', '');
+(3, 'Trần Văn Một', '1010-11-01', '', '', '1@gmail.com', '', ''),
+(4, '', NULL, '', NULL, 'admin@gmail.com', NULL, ''),
+(5, '', NULL, '', NULL, 'nhanvien1@gmail.com', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -220,23 +247,53 @@ INSERT INTO `products` (`id`, `image`, `title`, `value`, `category_id`, `descrip
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `shops`
+--
+
+CREATE TABLE `shops` (
+  `id` int(11) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `title` varchar(50) DEFAULT NULL,
+  `address` varchar(50) DEFAULT NULL,
+  `time_open` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+--
+-- Đang đổ dữ liệu cho bảng `shops`
+--
+
+INSERT INTO `shops` (`id`, `image`, `title`, `address`, `time_open`) VALUES
+(1, './assets/img/shop/img3_shop_HN.png', 'HN The Park Home', 'Lô D12 KĐT, Thành Thái, Dịch Vọng, Cầu Giấy, Hà Nộ', '07:30 - 22:30'),
+(2, './assets/img/shop/img2_shop_HN.png', 'HN Trần Kim Xuyến', 'Ô số 01A1, Tầng 1, Chung cư E2-Chelsea Residences ', '07:30 - 22:30'),
+(3, './assets/img/shop/img1_shop_HN.png', 'HN Lê Duẩn', '219 Đường Lê Duẩn, Nguyễn Du, Đống Đa, Hà Nội.', '07:30 - 22:30'),
+(4, './assets/img/shop/img4_shop_HN.png', 'HN Victoria Văn Phú', 'V3-Văn Phú Victoria-CT9, Hà Đông, Hà Nội.', '07:30 - 22:30'),
+(5, './assets/img/shop/img5_shop_HN.png', 'HN Aeon Mall Hà Đông', 'AEON Mall Hà Đông, Dương Nội, Hà Đông, Hà Nội.', '07:30 - 22:30'),
+(6, './assets/img/shop/img6_shop_HN.png', 'HN Triều Khúc', '53 Triều Khúc, Thanh Xuân, Hà Nội', '07:30 - 22:30'),
+(7, './assets/img/shop/img_shop_HCM.png', 'HN Nguyễn Văn Cừ', '149 Nguyễn Văn Cừ, Ngọc Lâm, Long Biên, Hà Nội', '07:30 - 22:30'),
+(8, './assets/img/shop/img2_shop_HCM.jpg', 'HN Lê Thanh Nghị', '92 Lê Thanh Nghị, Hai Bà Trưng, Hà Nội', '07:30 - 22:30'),
+(9, './assets/img/shop/img3_shop_HCM.jpg', 'HN Times City', 'T5, 458 P. Minh Khai, Vĩnh Phú, Hai Bà Trưng, Hà N', '07:30 - 22:30'),
+(10, './assets/img/shop/img4_shop_HCM.jpg', 'HN Kim Mã', '259 P. Kim Mã, Kim Mã, Ba Đình, Hà Nội', '07:30 - 22:30');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `user`
 --
 
 CREATE TABLE `user` (
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `authority_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `user`
 --
 
-INSERT INTO `user` (`email`, `username`, `password`) VALUES
-('1@gmail.com', 'Một', '$2y$10$xHQeYFf4cdfOVIK92OyZJussD5OqgpLMX//jDIlDbgy6q6xvlJhoG'),
-('admin@gmail.com', 'admin', '$2y$10$D1PNXXIf4wMdUiCMqmyrMuKTxPrhOsATjVAa/I1e34FQZFYtp0B7q'),
-('minh@gmail.com', 'minh', '$2y$10$lb.LAozfWAEDVaZIeXc/xuH8QemCuYTjM5/bTbVC89EUfeG5Zm9KW');
+INSERT INTO `user` (`email`, `username`, `password`, `authority_id`) VALUES
+('admin@gmail.com', 'admin', '$2y$10$9YuFT4IJjY.k35Z3E2qpGuw/D18zMRtXgDAfszQX/qwzO2Aw0dS96', 1),
+('minh@gmail.com', 'minh', '$2y$10$lb.LAozfWAEDVaZIeXc/xuH8QemCuYTjM5/bTbVC89EUfeG5Zm9KW', 3);
 
 -- --------------------------------------------------------
 
@@ -258,11 +315,18 @@ CREATE TABLE `user_order` (
 --
 
 INSERT INTO `user_order` (`confirm_cart_id`, `email`, `cart_status`, `time_order`, `code_order`, `cost_order`) VALUES
-(60, 'minh@gmail.com', 'Thanh toán khi nhận hàng', '2022-11-25 16:07:37', '195285', '79000');
+(60, 'minh@gmail.com', 'Thanh toán khi nhận hàng', '2022-11-25 16:07:37', '195285', '79000'),
+(64, 'minh@gmail.com', 'Thanh toán khi nhận hàng', '2022-11-26 13:16:25', '149169', '35000');
 
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+
+--
+-- Chỉ mục cho bảng `authority`
+--
+ALTER TABLE `authority`
+  ADD PRIMARY KEY (`authority_id`);
 
 --
 -- Chỉ mục cho bảng `cart`
@@ -290,6 +354,12 @@ ALTER TABLE `products`
   ADD KEY `category_id` (`category_id`);
 
 --
+-- Chỉ mục cho bảng `shops`
+--
+ALTER TABLE `shops`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
 -- Chỉ mục cho bảng `user`
 --
 ALTER TABLE `user`
@@ -306,10 +376,16 @@ ALTER TABLE `user_order`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `authority`
+--
+ALTER TABLE `authority`
+  MODIFY `authority_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=244;
+  MODIFY `number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=254;
 
 --
 -- AUTO_INCREMENT cho bảng `category`
@@ -321,7 +397,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT cho bảng `information`
 --
 ALTER TABLE `information`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
@@ -330,10 +406,16 @@ ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
+-- AUTO_INCREMENT cho bảng `shops`
+--
+ALTER TABLE `shops`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT cho bảng `user_order`
 --
 ALTER TABLE `user_order`
-  MODIFY `confirm_cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `confirm_cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

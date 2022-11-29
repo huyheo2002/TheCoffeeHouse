@@ -32,6 +32,7 @@ if (isset($_POST['submit'])) {
         $dataRegister = [
             'username' => $_POST['username'],
             'email' => $_POST['email'],
+            'authority_id'=>3,
             'password' => $pass
             // 'password'=>$_POST['password']
         ];

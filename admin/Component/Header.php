@@ -17,7 +17,7 @@
             // }
             ?>
             <a class="dropdown-item" href="">Hồ sơ của bạn</a>
-            <a class="dropdown-item" href="">Đăng xuất</a>
+            <a class="dropdown-item" href="../../Logout.php">Đăng xuất</a>
         </div>
     </li>
 </ul>

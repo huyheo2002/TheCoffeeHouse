@@ -45,4 +45,14 @@ if(isset($_SESSION['login_KhaiTruong'])){
 }
 
 
+if(isset($_SESSION['login_dashboard'])){
+    unset($_SESSION['login_dashboard']);
+    header("location:./home.php");
+}
+
+
+
+
+
+
 ?>  
