@@ -1,5 +1,5 @@
 <?php
-include './classes/User.php';
+require_once "./classes/User.php";
 
 AUth::logout();
 unset($_SESSION['message']);

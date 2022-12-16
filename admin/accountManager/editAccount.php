@@ -1,5 +1,5 @@
 <?php
-require_once "../../classes/User.php";
+include "../../classes/User.php";
 //lấy thông tin theo email
 $email = null;
 $user = null;

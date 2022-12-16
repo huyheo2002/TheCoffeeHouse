@@ -7,7 +7,9 @@
     <li class="nav-item dropdown">
         <a class="header__avtUser nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             <img class="rounded-circle" src="../../assets/img/base/profile.png" alt="">
+            <span><?php echo $_SESSION['dataUser']; ?></span>
         </a>
+        
         <div class="dropdown-menu">
             <?php
             // if (Auth::user()->role_id != Role::OF["student"]) {

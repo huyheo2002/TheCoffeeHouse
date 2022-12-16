@@ -1,5 +1,5 @@
 <?php
-include '../../classes/User.php';
+require_once '../../classes/User.php';
 $_SESSION['login_dashboard'] = "login";
 ?>
 
@@ -43,10 +43,10 @@ $_SESSION['login_dashboard'] = "login";
                 <i class="fa-solid fa-bars"></i>
                 <p class="body__sidebar_text">Quản lý tài khoản</p>
             </a></li>
-        <li><a href="">
+        <!-- <li><a href="">
                 <i class="fa-solid fa-bars"></i>
                 <p class="body__sidebar_text">Quản lý gì đấy :vvv</p>
-            </a></li>
+            </a></li> -->
     </ul>
     <?php }?>
 </div>

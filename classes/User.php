@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . './DB.php';
 
+
 class Auth
 {
     //lay toan bo du lieu tu bang user
