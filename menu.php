@@ -23,7 +23,16 @@ if (isset($_POST['submit'])) {
 
 
         Auth::login($dataLogin);
-        header("location:./menu.php");
+       
+        if($_SESSION['authority_id']==1){
+            header("location:./admin/DashBoard/index.php");
+        }
+        if($_SESSION['authority_id']==2){
+            header("location:./admin/DashBoard/index.php");
+        }
+        if($_SESSION['authority_id']==3){
+            header("location:./menu.php");
+        }
     }
 }
 

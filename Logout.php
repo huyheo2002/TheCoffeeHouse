@@ -1,5 +1,5 @@
 <?php
-include './classes/User.php';
+require_once "./classes/User.php";
 
 AUth::logout();
 unset($_SESSION['message']);
@@ -43,6 +43,16 @@ if(isset($_SESSION['login_KhaiTruong'])){
     unset($_SESSION['login_KhaiTruong']);
     header("location:./KhaiTruong.php");
 }
+
+
+if(isset($_SESSION['login_dashboard'])){
+    unset($_SESSION['login_dashboard']);
+    header("location:./home.php");
+}
+
+
+
+
 
 
 ?>  

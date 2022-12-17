@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . './DB.php';
 
+
 class Auth
 {
     //lay toan bo du lieu tu bang user
@@ -15,7 +16,7 @@ class Auth
     //ham dang ky
     static public function register($dataRegister)
     {
-        $sql = "insert into user(email, username, password) values(:email, :username, :password)";
+        $sql = "insert into user(email, username, password, authority_id) values(:email, :username, :password, :authority_id)";
         DB::execute($sql, $dataRegister);
     }
 
@@ -55,6 +56,7 @@ class Auth
                 $_SESSION['message_login'] = "Login success";
                 $_SESSION['dataUser'] = $user['username'];
                 $_SESSION['dataEmail'] = $user['email'];
+                $_SESSION['authority_id']=$user['authority_id'];
                 Auth::getDataInformation($dataLogin);
             } else {
                 $_SESSION['wrongPassword'] = "Sai mật khẩu!";

@@ -23,7 +23,16 @@ if (isset($_POST['submit'])) {
 
 
         Auth::login($dataLogin);
-        header("location:./shop.php");
+      
+        if($_SESSION['authority_id']==1){
+            header("location:./admin/DashBoard/index.php");
+        }
+        if($_SESSION['authority_id']==2){
+            header("location:./admin/DashBoard/index.php");
+        }
+        if($_SESSION['authority_id']==3){
+            header("location:./shop.php");
+        }
     }
 }
 
@@ -41,7 +50,11 @@ if (isset($_SESSION['message'])) {
     $linkC = "Register.php";
 }
 
-
+require_once("./classes/DB.php");
+    $sql = 'select * from shops';
+    $test = DB::execute($sql);
+    // var_dump($test);
+    // die;
 ?>
 
 
@@ -55,7 +68,7 @@ if (isset($_SESSION['message'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cửa Hàng</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/shop.css">
+    <link rel="stylesheet" href="./assets/css/shop_fix.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
@@ -198,12 +211,13 @@ if (isset($_SESSION['message'])) {
                         <ul id="navbar">
                             <li>
                                 <div class="Now">
-                                    <a href="">Tp Hồ Chí Minh (74)</a>
+                                     <a href=""> Hà Nội (38)</a>
                                 </div>
 
                             </li>
-                            <li>
-                                <a href=""> Hà Nội (38)</a>
+                            <li>    
+                                 <a href="">Tp Hồ Chí Minh (74)</a>
+                                
                             </li>
                             <li>
                                 <a href=""> Hải Phòng (8) </a>
@@ -249,256 +263,60 @@ if (isset($_SESSION['message'])) {
                         </ul>
                     </div>
                 </div>
-                <div class="content__right">
-                    <p>
-                        Khám phá 74 cửa hàng của chúng tôi ở Tp Hồ Chí Minh
-                    </p>
-                    <select style="width: 260px; height: 40px; background-color:white; margin-top: 20px; padding: 0;border-radius: 5px;">
-                        <option>
-                            Quận/ Huyện
-                        </option>
-                        <option value="Bình Chánh"> Bình Chánh</option>
-                        <option value="Bình Thạnh"> Bình Thạnh</option>
-                        <option value="Bình Tân"> Bình Tân</option>
-                        <option value="Gò Vấp"> Gò Vấp</option>
-                        <option value=" Phú Thuận"> Quận 1</option>
-                        <option value="Quận 1"> Quận 1</option>
-                        <option value="Quận 3"> Quận 3</option>
-                        <option value="Quận 4"> Quận 4</option>
-                        <option value="Quận 5"> Quận 5</option>
-                        <option value="Quận 6"> Quận 6</option>
-                        <option value="Quận 7"> Quận 7</option>
-                        <option value="Quận 10"> Quận 10</option>
-                        <option value="Quận 11"> Quận 11</option>
-                        <option value="Quận Tân Bình"> Quận Tân Bình</option>
-
-                    </select>
-                    <!--List_img-->
-                    <div class="list_img">
-                        <div class="list_img_left">
-                            <img src="./assets/img/shop/img_1.png" alt="">
-                            <p style="margin-top: 10px; font-weight: 600; font-size: 18px ;">
-                                HCM Now Nguyễn Thị Thập
-                            </p>
-                            <div class="Map">
-                                <a style="text-decoration: none; color: #EA8025; font-size: 16px ;font-weight:600; width: 420px;
-                            height: 35px;" href="">Xem Bản Đồ</a>
+                <div class="shopHot_Wrap">
+                <ul class = "shop_list">
+                    <?php
+                        foreach ($test as $tes){
+                     ?>
+                        
+                        <li>
+                            <div class="shopList_ImgWrap">
+                               <img src="<?= $tes['image']  ?> " alt="" srcset="">
                             </div>
-                            <ul style="display: flex;">
-                                <li>
-                                    Chia sẻ trên:
-                                </li>
-                                <li>
-                                    <div style=" border: 1px solid ; width: 24px; height: 24px; margin-left: 5px;">
-                                        <img src="./assets/img/shop/facebook.png" alt="">
-                                    </div>
-
-                                </li>
-                                <li>
-                                    <div style=" border: 1px solid ; width: 24px; height: 24px; margin-left: 10px;">
-                                        <img style="width:100%" src="./assets/img/shop/zalo.png" alt="">
-                                    </div>
-                                </li>
-                                <li>
-                                    <div style=" border: 1px solid ; width: 24px; height: 24px; margin-left: 10px;">
-                                        <img style="width:100%" src="./assets/img/shop/zalo.png" alt="">
-                                    </div>
-                                </li>
-                                <li>
-                                    <div style=" border: 1px solid ; width: 24px; height: 24px; margin-left: 10px;">
-                                        <img style="width:100%" src="./assets/img/shop/link.png" alt="">
-                                    </div>
-                                </li>
-
-                            </ul>
-                            <hr style="border: 2px solid ;color:rgb(104, 100, 100); margin-top: 10px; margin-bottom: 10px; ">
-                            <h5>
-                                436-438 Nguyễn Thị Thập , P. Tân Quý , Quận 7, Tp HCM
-                            </h5>
-                            <h5>
-                                7:00 - 22:00
-                            </h5>
-                            <div style=" display: inline; ">
-                                <span style="display: inline;">
-                                    <img style="width: 24px; height: 24px;" src="./assets/img/shop/img_oto.png" alt=""> Có chỗ mua xe hơi
-                                    <img style="width: 24px; height: 24px; margin-left: 20px;" src="./assets/img/shop/img_cua_hang.png" alt=""> Phục vụ tại chỗ
-                                </span>
+                            <div class = "ShopList_content">
+                                <h2>
+                                    <?= $tes['title']  ?>
+                                </h2>
+                               <!-- <div class="btn"> -->
+                               <div class="Map">
+                                    <a href="">Xem Bản Đồ</a>
+                               </div>
+                               
+                               <!-- </div> -->
+                               <div class="List_share">
+                                <p> Chia sẻ trên : </p>
+                                <i  title = "chia sẻ qua facebook " class="fa-brands fa-facebook fa-lg"></i>
+                                <i  title = "chia sẻ qua tin nhắn " class="fab fa-facebook-messenger fa-lg"></i>
+                                <i  title = "coppy link" class="fas fa-link fa-lg"></i>
+                               </div>
+                                
+                                <p>
+                                    <?= $tes['address']  ?>
+                                </p>
+                                <p>
+                                    <?= $tes['time_open']  ?>
+                                </p>
                             </div>
-                            <div style="margin-bottom: 30px;">
-                                <span">
-                                    <img style=" margin-top: 10px ;width: 24px; height: 24px;" src="./assets/img/shop/img_gio_hang.png" alt=""> Mua mang đi
-                                    </span>
+                            <div class="List_option">
+                                <div  class="List_option1">
+                                    <p>
+                                        <i class="fa-solid fa-car"></i> Có chỗ để xe hơi 
+                                    </p>
+                                    <p>
+                                        <i class="fa-regular fa-face-smile"></i> Thân thiện với gia đình
+                                    </p>
+                                   
+                                </div>
+                                <i class="fa-solid fa-shop"></i> Phục vụ tại chỗ
                             </div>
-                            <!--2-->
-                            <img src="./assets/img/shop/img_3.png" alt="">
-                            <p style="margin-top: 10px; font-weight: 600; font-size: 18px ;">
-                                HCM Lữ Gia
-                            </p>
-                            <div class="Map">
-                                <a style="text-decoration: none; color: #EA8025; font-size: 16px ;font-weight:600;" href="">Xem Bản Đồ</a>
-                            </div>
-                            <ul style="display: flex;">
-                                <li>
-                                    Chia sẻ trên:
-                                </li>
-                                <li>
-                                    <div style=" border: 1px solid ; width: 24px; height: 24px; margin-left: 5px;">
-                                        <img src="./assets/img/shop/facebook.png" alt="">
-                                    </div>
-
-                                </li>
-                                <li>
-                                    <div style=" border: 1px solid ; width: 24px; height: 24px; margin-left: 10px;">
-                                        <img style="width:100%" src="./assets/img/shop/zalo.png" alt="">
-                                    </div>
-                                </li>
-                                <li>
-                                    <div style=" border: 1px solid ; width: 24px; height: 24px; margin-left: 10px;">
-                                        <img style="width:100%" src="./assets/img/shop/zalo.png" alt="">
-                                    </div>
-                                </li>
-                                <li>
-                                    <div style=" border: 1px solid ; width: 24px; height: 24px; margin-left: 10px;">
-                                        <img style="width:100%" src="./assets/img/shop/link.png" alt="">
-                                    </div>
-                                </li>
-
-                            </ul>
-                            <hr style="border: 2px solid ;color:rgb(104, 100, 100); margin-top: 10px; margin-bottom: 10px; ">
-                            <h5>
-                                64A Lữ Gia, Phường 15, Quận 11, Hồ Chí Minh
-                            </h5>
-                            <h5>
-                                7:00 - 22:00
-                            </h5>
-                            <div style=" display: inline; ">
-                                <span style="display: inline;">
-                                    <img style="width: 24px; height: 24px;" src="./assets/img/shop/img_oto.png" alt=""> Có chỗ mua xe hơi
-                                    <img style="width: 24px; height: 24px; margin-left: 20px;" src="./assets/img/shop/img_cua_hang.png" alt=""> Phục vụ tại chỗ
-                                </span>
-                            </div>
-                            <div style="margin-bottom: 30px;">
-                                <span">
-                                    <img style=" margin-top: 10px ;width: 24px; height: 24px;" src="./assets/img/shop/img_gio_hang.png" alt=""> Mua mang đi
-                                    </span>
-                            </div>
-
-                        </div>
-                        <!-- IMG-Right -->
-                        <!--1-->
-                        <div class="list_img_right">
-                            <img src="./assets/img/shop/img_2.png" alt="">
-                            <p style="margin-top: 10px; font-weight: 600; font-size: 18px ;">
-                                HCM Now Phạm Hùng
-                            </p>
-                            <div class="Map">
-                                <a style="text-decoration: none; color: #EA8025; font-size: 16px ;font-weight:600;" href="">Xem Bản Đồ</a>
-                            </div>
-                            <ul style="display: flex;">
-                                <li>
-                                    Chia sẻ trên:
-                                </li>
-                                <li>
-                                    <div style=" border: 1px solid ; width: 24px; height: 24px; margin-left: 5px;">
-                                        <img src="./assets/img/shop/facebook.png" alt="">
-                                    </div>
-
-                                </li>
-                                <li>
-                                    <div style=" border: 1px solid ; width: 24px; height: 24px; margin-left: 10px;">
-                                        <img style="width:100%" src="./assets/img/shop/zalo.png" alt="">
-                                    </div>
-                                </li>
-                                <li>
-                                    <div style=" border: 1px solid ; width: 24px; height: 24px; margin-left: 10px;">
-                                        <img style="width:100%" src="./assets/img/shop/zalo.png" alt="">
-                                    </div>
-                                </li>
-                                <li>
-                                    <div style=" border: 1px solid ; width: 24px; height: 24px; margin-left: 10px;">
-                                        <img style="width:100%" src="./assets/img/shop/link.png" alt="">
-                                    </div>
-                                </li>
-
-                            </ul>
-                            <hr style="border: 2px solid ;color:rgb(104, 100, 100); margin-top: 10px; margin-bottom: 10px; ">
-                            <h5>
-                                Siêu thị Kingfoodmart, Số 10 Phạm Hùng, Phường 4, Bình Chánh, Thành phố Hồ Chí Minh
-                            </h5>
-                            <h5>
-                                7:00 - 22:00
-                            </h5>
-                            <div style=" display: inline; ">
-                                <span style="display: inline;">
-                                    <img style="width: 24px; height: 24px;" src="./assets/img/shop/img_oto.png" alt=""> Có chỗ mua xe hơi
-                                    <img style="width: 24px; height: 24px; margin-left: 20px;" src="./assets/img/shop/img_cua_hang.png" alt=""> Phục vụ tại chỗ
-                                </span>
-                            </div>
-                            <div style="margin-bottom: 30px;">
-                                <span">
-                                    <img style=" margin-top: 10px ;width: 24px; height: 24px;" src="./assets/img/shop/img_gio_hang.png" alt=""> Mua mang đi
-                                    </span>
-                            </div>
-                            <!--2-->
-                            <img src="./assets/img/shop/img_4.png" alt="">
-                            <p style="margin-top: 10px; font-weight: 600; font-size: 18px ;">
-                                HCM Tỉnh Lộ 10
-                            </p>
-                            <div class="Map">
-                                <a style="text-decoration: none; color: #EA8025; font-size: 16px ;font-weight:600;" href="">Xem Bản Đồ</a>
-                            </div>
-                            <ul style="display: flex;">
-                                <li>
-                                    Chia sẻ trên:
-                                </li>
-                                <li>
-                                    <div style=" border: 1px solid ; width: 24px; height: 24px; margin-left: 5px;">
-                                        <img src="./assets/img/shop/facebook.png" alt="">
-                                    </div>
-
-                                </li>
-                                <li>
-                                    <div style=" border: 1px solid ; width: 24px; height: 24px; margin-left: 10px;">
-                                        <img style="width:100%" src="./assets/img/shop/zalo.png" alt="">
-                                    </div>
-                                </li>
-                                <li>
-                                    <div style=" border: 1px solid ; width: 24px; height: 24px; margin-left: 10px;">
-                                        <img style="width:100%" src="./assets/img/shop/zalo.png" alt="">
-                                    </div>
-                                </li>
-                                <li>
-                                    <div style=" border: 1px solid ; width: 24px; height: 24px; margin-left: 10px;">
-                                        <img style="width:100%" src="./assets/img/shop/link.png" alt="">
-                                    </div>
-                                </li>
-
-                            </ul>
-                            <hr style="border: 2px solid ;color:rgb(104, 100, 100); margin-top: 10px; margin-bottom: 10px; ">
-                            <h5>
-                                516 Tỉnh Lộ 10, Bình Trị Đông, Bình Tân, Hồ Chí Minh
-                            </h5>
-                            <h5>
-                                7:00 - 21:30
-                            </h5>
-                            <div style=" display: inline; ">
-                                <span style="display: inline;">
-                                    <img style="width: 24px; height: 24px;" src="./assets/img/shop/img_oto.png" alt=""> Có chỗ mua xe hơi
-                                    <img style="width: 24px; height: 24px; margin-left: 20px;" src="./assets/img/shop/img_cua_hang.png" alt=""> Phục vụ tại chỗ
-                                </span>
-                            </div>
-                            <div style="margin-bottom: 30px;">
-                                <span">
-                                    <img style=" margin-top: 10px ;width: 24px; height: 24px;" src="./assets/img/shop/img_gio_hang.png" alt=""> Mua mang đi
-                                    </span>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div style="border: 1px solid black; border-radius: 8px; margin-top: 70px ; margin-left: 320px ; width: 250px; height: 40px; text-align: center; padding: 6px;">
-                        <a style=" text-decoration: none;  font-size: 16px; font-weight: 500; color: black;" href=""> Xem Thêm</a>
-                    </div>
+                           
+                        </li>
+                         <?php 
+                        }
+                         ?>
+                </ul>
                 </div>
+              
             </div>
             <!-- </div> -->
             <!-- Footer-->
