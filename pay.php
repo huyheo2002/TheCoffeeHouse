@@ -251,7 +251,7 @@ $arrProduct = array_map(function ($value, $key) use ($products) {
         <div class="modal__container js-modalContainer">
             <div class="modal__header">
                 <div class="modal__header__title">
-                    Đặt hàng thành công
+                    Xác nhận đơn hàng
                 </div>
                 <!-- head để img nếu thích :v -->
                 <!-- <img src="./assets/img/base/modalLogin-loginhead.png" alt=""> -->
@@ -357,6 +357,7 @@ $arrProduct = array_map(function ($value, $key) use ($products) {
 
     <!-- <script src="./assets/js/base.js"></script> -->
     <script>
+        // modal xác nhận đơn hàng
         // modal login
         // phần modal-login
         const loginHead = document.querySelector(".js-login")
@@ -386,6 +387,7 @@ $arrProduct = array_map(function ($value, $key) use ($products) {
             event.stopPropagation()
         })
 
+        // modal đặt hàng thành công :V
         // modal confirm
         // phần modal-login
         const btnConfirm = document.querySelector("#btnConfirm")
@@ -399,21 +401,29 @@ $arrProduct = array_map(function ($value, $key) use ($products) {
 
         // hàm hiển thị modal login (thêm class open vào modal)
         function showModalPayOrder() {
-            if (inpAddress.value !== "" && inpPhone.value !== "") {
+            if (inpAddress.value !== "" && inpPhone.value !== "" && (inpPhone.value.length === 10 || inpPhone.value.length === 11)) {
                 modalConfirm.classList.add("open")
                 modal.classList.remove("open")
                 inpAddress.style.borderColor = "#ccc";
                 inpPhone.style.borderColor = "#ccc";
+                inpPhone.value = "";
                 
             } else {
                 if (inpAddress.value === "") {
                     inpAddress.placeholder = "Bạn chưa nhập địa chỉ";
                     inpAddress.style.borderColor = "red";
+                    inpPhone.value = "";
                 }
 
                 if (inpPhone.value === "") {
                     inpPhone.placeholder = "Bạn chưa nhập số điện thoại";
                     inpPhone.style.borderColor = "red";
+                }
+
+                if (!(inpPhone.value.length == 10 || inpPhone.value.length == 11)) {
+                    inpPhone.placeholder = "Bạn vui lòng nhập đúng số điện thoại";
+                    inpPhone.style.borderColor = "red";
+                    inpPhone.value = "";
                 }
             }
         }

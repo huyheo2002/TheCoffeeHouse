@@ -24,6 +24,16 @@
             <i class="fa-solid fa-bars"></i>
             <p class="body__sidebar_text">Quản lý đơn hàng</p>
         </a></li>
+        <!-- đang thêm -->
+        <li><a href="../admin_order/index.php">
+            <i class="fa-solid fa-bars"></i>
+            <p class="body__sidebar_text">Quản lý người dùng</p>
+        </a></li>
+        <li><a href="../admin_order/index.php">
+            <i class="fa-solid fa-bars"></i>
+            <p class="body__sidebar_text">Quản lý cửa hàng</p>
+        </a></li>
+        <!-- end -->
         
         <!-- <li><a href="">
             <i class="fa-solid fa-bars"></i>
@@ -38,11 +48,11 @@
     <ul class="body__sidebar_list">
         <li><a href="">
             <i class="fa-solid fa-bars"></i>
-            <p class="body__sidebar_text">Quản lý tài khoản</p>
+            <p class="body__sidebar_text">Quản lý nhân viên</p>
         </a></li>
-        <li><a href="">
+        <!-- <li><a href="">
             <i class="fa-solid fa-bars"></i>
             <p class="body__sidebar_text">Quản lý gì đấy :vvv</p>
-        </a></li>
+        </a></li> -->
     </ul>
 </div>

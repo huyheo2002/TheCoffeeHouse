@@ -24,6 +24,20 @@ $categories = DB::execute($sql);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/fix.css">
     <link rel="stylesheet" href="../css/form.css">
+    <style>
+        .item label.btnChooseFile {
+            color: #fff;
+            height: 40px;
+            width: 250px;
+            background-color: #f5af09;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -46,8 +60,13 @@ $categories = DB::execute($sql);
                         </div>
                         <div class="item">
                             <label for="image">Ảnh :</label>
-                            <input type="file" name="image" id="image">
+                            <label for="image" class="btnChooseFile">
+                                <i class="fa-solid fa-image" style="margin-right: 5px"></i>    
+                                Chọn một file ảnh 
+                            </label>
+                            <input type="file" name="image" id="image" hidden>
                         </div>
+                        <image class="imagePreview" src="" max-width="100%" height="auto" />
                         <div class="item">
                             <label for="title">Tên :</label>
                             <input type="text" name="title" id="title">
@@ -86,6 +105,29 @@ $categories = DB::execute($sql);
         </div>
         <!-- <div class="footer">This is footer :vvv</div> -->
     </div>
+
+    <script>
+        // file
+        const ipnFileElement = document.querySelector('#image')
+        const resultElement = document.querySelector('.imagePreview')
+        const validImageTypes = ['image/gif', 'image/jpeg', 'image/png']
+        ipnFileElement.addEventListener('change', function(e) {
+            const files = e.target.files
+            const file = files[0]
+            const fileType = file['type']
+
+            const fileReader = new FileReader()
+            fileReader.readAsDataURL(file)
+
+            fileReader.onload = function() {
+                const url = fileReader.result                
+                resultElement.setAttribute("src", `${url}`);
+                resultElement.setAttribute("alt", `${file.name}`);
+            }
+                        
+        })
+
+    </script>
 </body>
 
 </html>
