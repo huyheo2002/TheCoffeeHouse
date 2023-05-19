@@ -14,6 +14,7 @@ if (empty($_SESSION["cart"])) {
 // json_encode($_SESSION["cart"]);
 
 $productIds = implode(",", $_SESSION["cart"]);
+
 if (strlen($productIds) == 0) $productIds = "-1";
 // var_dump($productIds);
 // die;
@@ -23,6 +24,8 @@ $sql = "select id, image, title, value from products where id in (" . $productId
 $products = DB::execute($sql);
 
 $countProducts = array_count_values($_SESSION["cart"]);
+// var_dump($countProducts);
+// die;
 $arrProduct = array_map(function ($value, $key) use ($products) {
     foreach ($products as $product) {
         if ($product["id"] == $key) {

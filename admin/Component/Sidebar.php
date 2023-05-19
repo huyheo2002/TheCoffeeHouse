@@ -5,7 +5,7 @@ $_SESSION['login_dashboard'] = "login";
 
 <div class="body__sidebar">
     <div class="body__sidebar_logo">
-        <a href="#">
+        <a href="../Dashboard/index.php">
             <img src="../../assets/img/logoAdmin.jpg" alt="">
         </a>
     </div>
@@ -13,7 +13,7 @@ $_SESSION['login_dashboard'] = "login";
     </div>
     <h3 class="sidebar__title">Quản lý hệ thống</h3>
     <ul class="body__sidebar_list">
-        <li><a href="../DashBoard/index.php">
+        <li><a href="../../home.php">
                 <i class="fa-solid fa-bars"></i>
                 <p class="body__sidebar_text">Trang chủ</p>
             </a></li>

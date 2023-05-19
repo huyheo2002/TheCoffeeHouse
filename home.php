@@ -23,12 +23,17 @@ if (isset($_POST['submit'])) {
 
 
         Auth::login($dataLogin);
+        // var_dump($_SESSION);
+        // die;
+        if(empty($_SESSION['authority_id'])) {
+            header("location:./home.php");
+        } else
         if($_SESSION['authority_id']==1){
             header("location:./admin/DashBoard/index.php");
-        }
+        } else
         if($_SESSION['authority_id']==2){
             header("location:./admin/DashBoard/index.php");
-        }
+        } else
         if($_SESSION['authority_id']==3){
             header("location:./home.php");
         }
@@ -43,7 +48,7 @@ if (isset($_SESSION['message'])) {
     $linkB = "information.php";
     $linkD = "Logout.php";
     $e="Quản lý";
-    $linkE="./admin/adminFirst.php";
+    $linkE="./admin/DashBoard/index.php";
     $_SESSION['login_home'] = "login";
 } else {
     $a = "Tài khoản";

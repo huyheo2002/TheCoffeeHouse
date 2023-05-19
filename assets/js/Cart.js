@@ -19,14 +19,14 @@ class Cart {
         let sidebar = document.querySelector(".cart__sidebar");
         sidebar.style.display = "block";
         sidebar.style.right = "-405px";
-        sidebar.animate(
-            [
-                {right: "0px"}
-            ], 
-            {
-                duration: 1000
-            }
-        );
+        // sidebar.animate(
+        //     [
+        //         {right: "0px"}
+        //     ], 
+        //     {
+        //         duration: 1000
+        //     }
+        // );
 
         setTimeout(function() {
             sidebar.style.display = "block";
@@ -42,14 +42,14 @@ class Cart {
         }
 
         let sidebar = document.querySelector(".cart__sidebar");
-        sidebar.animate(
-            [
-                {right: "-405px"}
-            ], 
-            {
-                duration: 1000
-            }
-        );
+        // sidebar.animate(
+        //     [
+        //         {right: "-405px"}
+        //     ], 
+        //     {
+        //         duration: 1000
+        //     }
+        // );
     
         setTimeout(function() {
             sidebar.style.display = "none";
@@ -137,7 +137,7 @@ function addToCart (product_Id) {
             id: product_Id
         },
         success: function(data){
-            var dataProducts = jQuery.parseJSON(data);
+            var dataProducts = jQuery.parseJSON(data);            
             let cnt = dataProducts.reduce((total, dataProduct) => (total + dataProduct.count), 0);
             $("#cart__badge .count").html(cnt);
             if(cnt >= 0){

@@ -44,5 +44,5 @@
         }
     }, $countProducts, array_keys($countProducts));
     
-    echo json_encode($arrProduct);
+    echo json_encode($arrProduct);    
 

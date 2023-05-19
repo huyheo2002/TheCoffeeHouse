@@ -3,9 +3,8 @@
     // chọn ảnh từ file và đẩy lên web
     const IMAGE_PATH = ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR;
     const MENU_PATH = "assets" . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "menu" . DIRECTORY_SEPARATOR;
-    $formData = array_merge(array(), $_POST);
+    $formData = array_merge(array(), $_POST);    
     $formData = array_merge($formData, $_FILES);
-    
     $sql = "SELECT * FROM `products` WHERE (`id` = :id)";
     $products = DB::execute($sql, [
         "id" => $_GET["id"],
